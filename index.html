@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bytecore Computer Centre</title>
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  
+</head>
+<body>
+  
+  <!-- Sidebar & Overlay -->
+  <aside class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="#courses"><i class="fas fa-laptop-code"></i> Courses</a></li>
+      <li><a href="#about"><i class="fas fa-users"></i> About Us</a></li>
+      <li><a href="#students"><i class="fas fa-user-graduate"></i> Students</a></li>
+      <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo" width="50"><img src="logo.png" alt=""></div>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#courses">Courses</a>
+      <a href="#about">About</a>
+      <a href="#students">Students</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1 class="glitch" data-text="Welcome to Bytecore">Welcome to Bytecore</h1>
+
+
+      <div class="typewriter" id="typewriter"></div>
+      <a href="#courses" class="btn">Explore Courses</a>
+    </div>
+  </section>
+
+  <!-- Courses -->
+  <section id="courses">
+    <h2 class="section-title">Our Top Courses</h2>
+    <p class="section-intro">Gain industry-relevant skills with our expert-led courses.</p>
+    <div class="course-grid">
+      <!-- Repeat for each course -->
+      <div class="course-card reveal">
+        <video autoplay muted loop>
+    <source src="courses.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+        <div class="course-info">
+          <h3>Courses</h3>
+          <p>HTML, CSS, JavaScript, Node.js, React & more</p>
+          <a href="enroll.html" class="enroll-btn">Enroll Now</a>
+        </div>
+      </div>
+       <div class="course-card reveal">
+        <img src="course1.jpg" alt="Full Stack Development">
+        <div class="course-info">
+          <h3>Full Stack Development</h3>
+          <p>HTML, CSS, JavaScript, Node.js, React & more.</p>
+          <a href="enroll.html" class="enroll-btn">Enroll Now</a>
+        </div>
+      </div>
+       <div class="course-card reveal">
+        <img src="course1.jpg" alt="Full Stack Development">
+        <div class="course-info">
+          <h3>Full Stack Development</h3>
+          <p>HTML, CSS, JavaScript, Node.js, React & more.</p>
+          <a href="enroll.html" class="enroll-btn">Enroll Now</a>
+        </div>
+      </div>
+       <div class="course-card reveal">
+        <img src="course1.jpg" alt="Full Stack Development">
+        <div class="course-info">
+          <h3>Full Stack Development</h3>
+          <p>HTML, CSS, JavaScript, Node.js, React & more.</p>
+          <a href="enroll.html" class="enroll-btn">Enroll Now</a>
+        </div>
+      </div>
+      <!-- ... -->
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2 class="section-title">About Bytecore</h2>
+    <p class="section-intro">We deliver cutting-edge computer education, empowering learners to excel in tech careers.</p>
+    <div class="about-container reveal">
+      <div class="about-img"><img src="founder.jpg" alt="Founder"></div>
+      <div class="about-info">
+        <h3>Mr. Manish Vishwakarma</h3>
+        <p>Founder & Director</p>
+        <p>With over a decade of experience, Manish has guided thousands to success in the tech industry.</p>
+      </div>
+    </div>
+    <div class="info-grid reveal">
+      <div class="info-box"><i class="fas fa-bullseye"></i><h4>Our Mission</h4><p>Transform lives through practical, job-ready training.</p></div>
+      <div class="info-box"><i class="fas fa-eye"></i><h4>Our Vision</h4><p>To be the premier choice for computer education.</p></div>
+      <div class="info-box"><i class="fas fa-star"></i><h4>Highlights</h4><ul><li>Certified Trainers</li><li>Live Projects</li><li>Placement Support</li></ul></div>
+      <div class="info-box"><i class="fas fa-headset"></i><h4>Support</h4><p>24/7 mentorship and doubt resolution.</p></div>
+    </div>
+  </section>
+
+  <!-- Student Gallery -->
+  <section class="students reveal" id="students">
+    <h2 class="section-title">Our Students</h2>
+    <p class="section-intro">Meet our brightest achievers.</p>
+    <div class="students-grid">
+      <!-- Replace src with actual student images -->
+      <div class="student"><img src="students/student1.jpg" alt="Student 1"><p>Student 1</p></div>
+      <div class="student"><img src="students/student2.jpg" alt="Student 2"><p>Student 2</p></div>
+      <div class="student"><img src="students/student3.jpg" alt="Student 3"><p>Student 3</p></div>
+      <!-- ... -->
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-intro">Have questions? Reach out to us anytime.</p>
+    <div class="contact-grid reveal">
+      <div class="contact-box"><i class="fas fa-envelope"></i><h4>Email</h4><p>info@bytecore.com</p></div>
+      <div class="contact-box"><i class="fas fa-phone"></i><h4>Phone</h4><p>+91 90684 85233</p></div>
+      <div class="contact-box"><i class="fas fa-map-marker-alt"></i><h4>Address</h4><p>Near Abhiram Hospital, City A</p></div>
+    </div>
+  </section>
+
+  <!-- Back to Top -->
+  <div class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></div>
+
+  <!-- Footer -->
+  <footer class="footer reveal">
+    <p>&copy; 2025 Bytecore Computer Centre. All Rights Reserved.</p>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  
+</body>
+</html>
