@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Typewriter effect
   const typewriter = document.getElementById('typewriter');
   const texts = [
-    "Learn cutting-edge technologies",
+    "Tech Mastry Starts Here",
     "Build your dream career",
     "Join our community",
     "Start your coding journey"
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
       showCloseButton: true,
       backdrop: `
         rgba(15, 23, 42, 0.8)
-        url("/images/nyan-cat.gif")
+        url("logo.png")
         center top
         no-repeat
       `
