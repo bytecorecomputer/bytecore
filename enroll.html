@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vintech Computer Education Admission Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #e3f2fd, #ffffff);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 20px;
+      width: 150px;
+    }
+    .form-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+    .qr-section {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .qr-section img {
+      width: 200px;
+    }
+    .success-message {
+      display: none;
+      color: green;
+      text-align: center;
+      font-weight: bold;
+    }
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      padding: 15px 18px;
+      font-size: 24px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="logo.png" alt="Vintech Logo" class="logo"/>
+    <h2 class="form-title">ByteCore Computer Education Admission Form</h2>
+
+    <form id="admissionForm" action="https://formsubmit.co/coderafroj@gmail.com" method="POST" enctype="multipart/form-data">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label>Student Name</label>
+          <input type="text" name="student_name" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>Father's Name</label>
+          <input type="text" name="father_name" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>Husband's Name (optional)</label>
+          <input type="text" name="husband_name" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label>Mother's Name</label>
+          <input type="text" name="mother_name" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>Occupation</label>
+          <input type="text" name="occupation" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label>Identifiable Body Mark</label>
+          <input type="text" name="body_mark" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label>Aadhaar Number</label>
+          <input type="text" name="aadhaar" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>Address</label>
+          <textarea name="address" class="form-control" required></textarea>
+        </div>
+        <div class="col-md-6">
+          <label>Phone Number</label>
+          <input type="tel" name="phone" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>Email</label>
+          <input type="email" name="email" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>Gender</label>
+          <select name="gender" class="form-control" required>
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label>Marital Status</label><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="marital_status" value="Married" required>
+            <label class="form-check-label">Married</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="marital_status" value="Unmarried">
+            <label class="form-check-label">Unmarried</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label>Caste</label><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="caste" value="OBC" required>
+            <label class="form-check-label">OBC</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="caste" value="SC">
+            <label class="form-check-label">SC</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="caste" value="ST">
+            <label class="form-check-label">ST</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="caste" value="General">
+            <label class="form-check-label">General</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label>Date of Birth</label>
+          <input type="date" name="dob" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>Education Qualification</label>
+          <input type="text" name="education" class="form-control" required>
+        </div>
+        <div class="col-md-6">
+          <label>Course Applying For</label>
+          <select name="course" class="form-control" required>
+            <option value="">Select</option>
+            <option>MDCA</option>
+            <option>ADCA</option>
+            <option>TALLY</option>
+            <option>PGDCA</option>
+            <option>CCC</option>
+            <option>DCA</option>
+             <option>DCST</option>
+            <option>PTHON</option>
+            <option>O LEVEL</option>
+            <option>C LANGUAGE</option>
+            <option>JAVA</option>
+            <option>GRAPHIC DESIGNER</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label>Hostel Code (if any)</label>
+          <input type="text" name="hostel_code" class="form-control">
+        </div>
+        <div class="col-md-6">
+          <label>Upload Photo</label>
+          <input type="file" name="photo" class="form-control" accept="image/*" required>
+        </div>
+        <div class="col-md-6">
+          <label>Upload Signature</label>
+          <input type="file" name="signature" class="form-control" accept="image/*" required>
+        </div>
+        <div class="col-md-6">
+          <label>Upload LeftHand Thumb</label>
+          <input type="file" name="signature" class="form-control" accept="image/*" required>
+        </div>
+
+        <div class="col-12 mt-4">
+          <label>Payment Mode</label><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="payment_mode" value="Online" onclick="toggleQR(true)" required>
+            <label class="form-check-label">Online</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="payment_mode" value="Offline" onclick="toggleQR(false)">
+            <label class="form-check-label">Offline</label>
+          </div>
+        </div>
+
+        <div class="qr-section" id="qrCodeSection">
+          <p>Scan the QR Code to pay online:</p>
+          <img src="your-qrcode.png" alt="QR Code">
+        </div>
+
+        <div class="col-12 mt-4 text-center">
+          <button type="submit" class="btn btn-primary px-5">Submit</button>
+        </div>
+
+        <div class="success-message mt-3" id="successMessage">
+          Form submitted successfully!
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/919068485233" class="whatsapp-btn" target="_blank" title="Chat on WhatsApp">
+    🟢
+  </a>
+
+  <script>
+    function toggleQR(show) {
+      document.getElementById('qrCodeSection').style.display = show ? 'block' : 'none';
+    }
+
+    // Optional: Success animation after form submit
+    document.getElementById('admissionForm').addEventListener('submit', function () {
+      setTimeout(() => {
+        document.getElementById('successMessage').style.display = 'block';
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
