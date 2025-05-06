@@ -1,0 +1,18 @@
+{
+  "2025-001": {
+    "name": "esub",
+    "roll": "1201",
+    "course": "Advanced Web Development",
+    "batch": "10:00 AM - 12:00 PM",
+    "total": 12000,
+    "remaining": 2000
+  },
+  "2025-002": {
+    "name": "Priya Singh",
+    "roll": "1202",
+    "course": "Graphic Designing",
+    "batch": "2:00 PM - 4:00 PM",
+    "total": 10000,
+    "remaining": 0
+  }
+}
