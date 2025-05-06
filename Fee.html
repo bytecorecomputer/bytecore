@@ -62,7 +62,7 @@
 
     async function loadData() {
       try {
-        const res = await fetch('fee.json', { cache: 'no-store' });
+        const res = await fetch('Fee.json', { cache: 'no-store' });
         feeData = await res.json();
       } catch (e) {
         console.error('Failed to load data:', e);
