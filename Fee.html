@@ -62,7 +62,7 @@
 
     async function loadData() {
       try {
-        const res = await fetch('https://gist.githubusercontent.com/coderafroj/98b85eeae3a95b67cd23b208cc8355f0/raw/fee.json', { cache: 'no-store' });
+        const res = await fetch('https://gist.githubusercontent.com/bytecorecomputercentre/619b0b28648dbe63e465afdc84b2f6cd/raw/e659ca8496b21f31b9fe509a6532768419a385bb/Fee.json', { cache: 'no-store' });
         feeData = await res.json();
       } catch (e) {
         console.error('Failed to load data:', e);
