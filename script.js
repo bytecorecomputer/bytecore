@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
       showCloseButton: true,
       backdrop: `
         rgba(15, 23, 42, 0.8)
-        url("logo.png")
+        url("register.png")
         center top
         no-repeat
       `
