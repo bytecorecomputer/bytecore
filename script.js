@@ -139,25 +139,25 @@ document.addEventListener('DOMContentLoaded', function() {
   }, 2000);
   
   // Course card hover effect
-  const courseCards = document.querySelectorAll('.course-card');
-  courseCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const x = e.pageX - card.getBoundingClientRect().left;
-      const y = e.pageY - card.getBoundingClientRect().top;
+ // const courseCards = document.querySelectorAll('.course-card');
+ // courseCards.forEach(card => {
+  //  card.addEventListener('mousemove', (e) => {
+   //   const x = e.pageX - card.getBoundingClientRect().left;
+    //  const y = e.pageY - card.getBoundingClientRect().top;
       
-      const centerX = card.offsetWidth / 2;
-      const centerY = card.offsetHeight / 2;
+    //  const centerX = card.offsetWidth / 2;
+     // const centerY = card.offsetHeight / 2;
       
-      const angleX = (y - centerY) / 10;
-      const angleY = (centerX - x) / 10;
+     // const angleX = (y - centerY) / 10;
+    //  const angleY = (centerX - x) / 10;
       
-      card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
-    });
+    //  card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+  //  });
     
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-    });
-  });
+  //  card.addEventListener('mouseleave', () => {
+    //  card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+  //  });
+ // });
   
   // Initialize particles.js if available
   if (typeof particlesJS !== 'undefined') {
