@@ -7,334 +7,115 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-700 antialiased">
   <!-- Header -->
-  <header class="bg-white shadow-md p-6 text-center">
-    <h1 class="text-4xl font-bold text-indigo-600">Bytecore Computer Centre</h1>
-    <p class="mt-2 text-lg text-gray-600">Empowering your digital future with expert-led courses</p>
+  <header class="bg-white shadow-lg py-6 sticky top-0 z-20">
+    <div class="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-extrabold text-sky-500">Bytecore Computer Centre</h1>
+        <p class="mt-1 text-gray-500">Tech Mastry Starts Here !!</p>
+      </div>
+      <!-- Search Bar -->
+      <div class="mt-4 sm:mt-0 w-full sm:w-auto">
+        <input id="courseSearch" type="text" placeholder="Search courses..."
+          class="w-full sm:w-72 px-5 py-3 rounded-full border border-gray-300 focus:border-indigo-500 focus:outline-none transition-shadow shadow-sm hover:shadow-md" />
+      </div>
+    </div>
   </header>
 
   <!-- Courses Grid -->
-  <main class="container mx-auto px-4 py-10">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-      <!-- Course Card Template -->
-      <!-- Repeat for each course -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-        <img src="https://source.unsplash.com/400x300/?computer" alt="ADCA" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h2 class="text-2xl font-semibold mb-2">ADCA</h2>
-          <button onclick="openModal('modal-ADCA')" class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-xl hover:bg-indigo-700 transition">View Details</button>
-        </div>
-      </div>
-      <!-- DCA -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-        <img src="https://source.unsplash.com/400x300/?software" alt="DCA" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h2 class="text-2xl font-semibold mb-2">DCA</h2>
-          <button onclick="openModal('modal-DCA')" class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-xl hover:bg-indigo-700 transition">View Details</button>
-        </div>
-      </div>
-      <!-- OLEVEL -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-        <img src="https://source.unsplash.com/400x300/?study" alt="OLEVEL" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h2 class="text-2xl font-semibold mb-2">OLEVEL</h2>
-          <button onclick="openModal('modal-OLEVEL')" class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-xl hover:bg-indigo-700 transition">View Details</button>
-        </div>
-      </div>
-      <!-- MDCA -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-        <img src="https://source.unsplash.com/400x300/?data" alt="MDCA" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h2 class="text-2xl font-semibold mb-2">MDCA</h2>
-          <button onclick="openModal('modal-MDCA')" class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-xl hover:bg-indigo-700 transition">View Details</button>
-        </div>
-      </div>
-      <!-- DFA -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-        <img src="https://source.unsplash.com/400x300/?finance" alt="DFA" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h2 class="text-2xl font-semibold mb-2">DFA</h2>
-          <button onclick="openModal('modal-DFA')" class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-xl hover:bg-indigo-700 transition">View Details</button>
-        </div>
-      </div>
-      <!-- CCC -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-        <img src="https://source.unsplash.com/400x300/?keyboard" alt="CCC" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h2 class="text-2xl font-semibold mb-2">CCC</h2>
-          <button onclick="openModal('modal-CCC')" class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-xl hover:bg-indigo-700 transition">View Details</button>
-        </div>
-      </div>
-      <!-- Graphic Designing -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-        <img src="https://source.unsplash.com/400x300/?graphic-design" alt="Graphic Designing" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h2 class="text-2xl font-semibold mb-2">Graphic Designing</h2>
-          <button onclick="openModal('modal-GRAPHIC')" class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-xl hover:bg-indigo-700 transition">View Details</button>
-        </div>
-      </div>
-      <!-- Programming Languages -->
-      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow">
-        <img src="https://source.unsplash.com/400x300/?programming" alt="Programming Languages" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <h2 class="text-2xl font-semibold mb-2">Programming Languages</h2>
-          <button onclick="openModal('modal-PROGRAMMING')" class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-xl hover:bg-indigo-700 transition">View Details</button>
-        </div>
-      </div>
-    </div>
+  <main class="container mx-auto px-6 py-10">
+    <div id="coursesContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
   </main>
 
-  <!-- Modals Adca -->
-  <div id="modal-ADCA" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeModal('modal-ADCA')">&times;</button>
-      <h3 class="text-3xl font-bold mb-4">ADCA</h3>
-      <p class="mb-4"><strong>Fees:</strong> ₹8,000</p>
-      <p class="mb-4"><strong>Course Content:</strong></p>
-      <ul class="list-disc ml-6 space-y-2 mb-6">
-        <li>Basics of Computer & MS Office</li>
-        <li>Internet & Email</li>
-        <li>Desktop Publishing</li>
-        <li>Project Work</li>
-      </ul>
-      <button class="bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">Enroll Now</button>
-    </div>
-  </div>
-    <!-- Modals Adca -->
-  <div id="modal-DCA" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeModal('modal-DCA')">&times;</button>
-      <h3 class="text-3xl font-bold mb-4">DCA</h3>
-      <p class="mb-4"><strong>Fees:</strong> ₹8,000</p>
-      <p class="mb-4"><strong>Course Content:</strong></p>
-      <ul class="list-disc ml-6 space-y-2 mb-6">
-        <li>Basics of Computer & MS Office</li>
-        <li>Internet & Email</li>
-        <li>Desktop Publishing</li>
-        <li>Project Work</li>
-      </ul>
-      <button class="bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">Enroll Now</button>
-    </div>
-  </div>
+  <!-- Modals Container -->
+  <div id="modalsContainer"></div>
 
-  <!-- Modals Adca -->
-  <div id="modal-MDCA" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeModal('modal-MDCA')">&times;</button>
-      <h3 class="text-3xl font-bold mb-4">MDCA</h3>
-      <p class="mb-4"><strong>Fees:</strong> ₹8,000</p>
-      <p class="mb-4"><strong>Course Content:</strong></p>
-      <ul class="list-disc ml-6 space-y-2 mb-6">
-        <li>Basics of Computer & MS Office</li>
-        <li>Internet & Email</li>
-        <li>Desktop Publishing</li>
-        <li>Project Work</li>
-      </ul>
-      <button class="bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">Enroll Now</button>
-    </div>
-  </div>
-View  <!-- Modals Adca -->
-  <div id="modal-OLEVEL" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeModal('modal-OLEVEL')">&times;</button>
-      <h3 class="text-3xl font-bold mb-4">OLEVEL</h3>
-      <p class="mb-4"><strong>Fees:</strong> ₹8,000</p>
-      <p class="mb-4"><strong>Course Content:</strong></p>
-      <ul class="list-disc ml-6 space-y-2 mb-6">
-        <li>Basics of Computer & MS Office</li>
-        <li>Internet & Email</li>
-        <li>Desktop Publishing</li>
-        <li>Project Work</li>
-      </ul>
-      <button class="bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">Enroll Now</button>
-    </div>
-  </div>
-
-  <!-- Modals Adca -->
-  <div id="modal-DFA" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeModal('modal-DFA')">&times;</button>
-      <h3 class="text-3xl font-bold mb-4">DFA</h3>
-      <p class="mb-4"><strong>Fees:</strong> ₹8,000</p>
-      <p class="mb-4"><strong>Course Content:</strong></p>
-      <ul class="list-disc ml-6 space-y-2 mb-6">
-        <li>Basics of Computer & MS Office</li>
-        <li>Internet & Email</li>
-        <li>Desktop Publishing</li>
-        <li>Project Work</li>
-      </ul>
-      <button class="bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">Enroll Now</button>
-    </div>
-  </div>
-
-  <!-- Modals Adca -->
-  <div id="modal-GRAPHIC" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeModal('modal-GRAPHIC')">&times;</button>
-      <h3 class="text-3xl font-bold mb-4">Graphic Designing</h3>
-      <p class="mb-4"><strong>Fees:</strong> ₹8,000</p>
-      <p class="mb-4"><strong>Course Content:</strong></p>
-      <ul class="list-disc ml-6 space-y-2 mb-6">
-        <li>Basics of Computer & MS Office</li>
-        <li>Internet & Email</li>
-        <li>Desktop Publishing</li>
-        <li>Project Work</li>
-      </ul>
-      <button class="bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">Enroll Now</button>
-    </div>
-  </div>
-
-  <!-- Modals Adca -->
-  <div id="modal-CCC" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeModal('modal-CCC')">&times;</button>
-      <h3 class="text-3xl font-bold mb-4">CCC</h3>
-      <p class="mb-4"><strong>Fees:</strong> ₹8,000</p>
-      <p class="mb-4"><strong>Course Content:</strong></p>
-      <ul class="list-disc ml-6 space-y-2 mb-6">
-        <li>Basics of Computer & MS Office</li>
-        <li>Internet & Email</li>
-        <li>Desktop Publishing</li>
-        <li>Project Work</li>
-      </ul>
-      <button class="bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">Enroll Now</button>
-    </div>
-  </div>
-
-  <!-- Modals Adca -->
-  <div id="modal-PROGRAMMING" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeModal('modal-PROGRAMMING')">&times;</button>
-      <h3 class="text-3xl font-bold mb-4">Programming</h3>
-      <p class="mb-4"><strong>Fees:</strong> ₹8,000</p>
-      <p class="mb-4"><strong>Course Content:</strong></p>
-      <ul class="list-disc ml-6 space-y-2 mb-6">
-        <li>Basics of Computer & MS Office</li>
-        <li>Internet & Email</li>
-        <li>Desktop Publishing</li>
-        <li>Project Work</li>
-      </ul>
-      <button class="bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">Enroll Now</button>
-    </div>
-  </div>
-
-  <!-- Modals Adca -->
-  <div id="modal-ADCA" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeModal('modal-ADCA')">&times;</button>
-      <h3 class="text-3xl font-bold mb-4">ADCA</h3>
-      <p class="mb-4"><strong>Fees:</strong> ₹8,000</p>
-      <p class="mb-4"><strong>Course Content:</strong></p>
-      <ul class="list-disc ml-6 space-y-2 mb-6">
-        <li>Basics of Computer & MS Office</li>
-        <li>Internet & Email</li>
-        <li>Desktop Publishing</li>
-        <li>Project Work</li>
-      </ul>
-      <button class="bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">Enroll Now</button>
-    </div>
-  </div>
-
-  <!-- Modals Adca -->
-  <div id="modal-ADCA" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeModal('modal-ADCA')">&times;</button>
-      <h3 class="text-3xl font-bold mb-4">ADCA</h3>
-      <p class="mb-4"><strong>Fees:</strong> ₹8,000</p>
-      <p class="mb-4"><strong>Course Content:</strong></p>
-      <ul class="list-disc ml-6 space-y-2 mb-6">
-        <li>Basics of Computer & MS Office</li>
-        <li>Internet & Email</li>
-        <li>Desktop Publishing</li>
-        <li>Project Work</li>
-      </ul>
-      <button class="bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">Enroll Now</button>
-    </div>
-  </div>
-
-  <!-- Modals Adca -->
-  <div id="modal-ADCA" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeModal('modal-ADCA')">&times;</button>
-      <h3 class="text-3xl font-bold mb-4">ADCA</h3>
-      <p class="mb-4"><strong>Fees:</strong> ₹8,000</p>
-      <p class="mb-4"><strong>Course Content:</strong></p>
-      <ul class="list-disc ml-6 space-y-2 mb-6">
-        <li>Basics of Computer & MS Office</li>
-        <li>Internet & Email</li>
-        <li>Desktop Publishing</li>
-        <li>Project Work</li>
-      </ul>
-      <button class="bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">Enroll Now</button>
-    </div>
-  </div>
-
-  <!-- Modals Adca -->
-  <div id="modal-ADCA" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeModal('modal-ADCA')">&times;</button>
-      <h3 class="text-3xl font-bold mb-4">ADCA</h3>
-      <p class="mb-4"><strong>Fees:</strong> ₹8,000</p>
-      <p class="mb-4"><strong>Course Content:</strong></p>
-      <ul class="list-disc ml-6 space-y-2 mb-6">
-        <li>Basics of Computer & MS Office</li>
-        <li>Internet & Email</li>
-        <li>Desktop Publishing</li>
-        <li>Project Work</li>
-      </ul>
-      <button class="bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">Enroll Now</button>
-    </div>
-  </div>
-
-  <!-- Modals Adca -->
-  <div id="modal-ADCA" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeModal('modal-ADCA')">&times;</button>
-      <h3 class="text-3xl font-bold mb-4">ADCA</h3>
-      <p class="mb-4"><strong>Fees:</strong> ₹8,000</p>
-      <p class="mb-4"><strong>Course Content:</strong></p>
-      <ul class="list-disc ml-6 space-y-2 mb-6">
-        <li>Basics of Computer & MS Office</li>
-        <li>Internet & Email</li>
-        <li>Desktop Publishing</li>
-        <li>Project Work</li>
-      </ul>
-      <button class="bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">Enroll Now</button>
-    </div>
-  </div>
-
-  <!-- Modals Adca -->
-  <div id="modal-ADCA" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
-      <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600" onclick="closeModal('modal-DCA')">&times;</button>
-      <h3 class="text-3xl font-bold mb-4">ADCA</h3>
-      <p class="mb-4"><strong>Fees:</strong> ₹8,000</p>
-      <p class="mb-4"><strong>Course Content:</strong></p>
-      <ul class="list-disc ml-6 space-y-2 mb-6">
-        <li>Basics of Computer & MS Office</li>
-        <li>Internet & Email</li>
-        <li>Desktop Publishing</li>
-        <li>Project Work</li>
-      </ul>
-      <button class="bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">Enroll Now</button>
-    </div>
-  </div>
-
-
-  <!-- Repeat modal blocks for each course with unique IDs and content -->
-  <!-- ... Other modal definitions similar to above for DCA, OLEVEL, MDCA, DFA, CCC, Graphic, Programming ... -->
-
-  <!-- JavaScript for Modal -->
+  <!-- Scripts -->
   <script>
-    function openModal(id) {
-      document.getElementById(id).classList.remove('hidden');
-      document.getElementById(id).classList.add('flex');
-    }
-    function closeModal(id) {
-      document.getElementById(id).classList.remove('flex');
-      document.getElementById(id).classList.add('hidden');
-    }
+    // Course data
+    const courses = [
+      { id: 'ADCA', title: 'ADCA', fee: 8000, image: 'https://i.postimg.cc/Gp9YGqKW/Chat-GPT-Image-May-9-2025-08-40-22-PM-2.png', syllabus: ['Basics of Computer & MS Office', 'Internet & Email', 'Desktop Publishing', 'Project Work'] },
+      { id: 'DCA', title: 'DCA', fee: 6000, image: 'https://i.postimg.cc/3JFSLpbx/Chat-GPT-Image-May-9-2025-08-40-22-PM-4.png', syllabus: ['MS Office', 'Internet Basics', 'Typing Practice', 'Practical Exams'] },
+      { id: 'OLEVEL', title: 'OLEVEL', fee: 7000, image: 'images/olevel.jpg', syllabus: ['Core ICT Skills', 'Communication', 'Project Module'] },
+      { id: 'MDCA', title: 'MDCA', fee: 9000, image: 'https://i.postimg.cc/QxN4ym9n/Chat-GPT-Image-May-9-2025-08-40-22-PM-3.png', syllabus: ['Advanced MS Office', 'Spreadsheet Modeling', 'Database Concepts'] },
+      { id: 'DFA', title: 'DFA', fee: 8500, image: 'https://i.postimg.cc/B6MZcN1f/Chat-GPT-Image-May-9-2025-08-40-22-PM-6.png', syllabus: ['Accounting Basics', 'Tally ERP', 'Financial Reporting'] },
+      { id: 'CCC', title: 'CCC', fee: 5000, image: 'https://i.postimg.cc/MKkZ0cnT/Chat-GPT-Image-May-9-2025-08-40-22-PM-5.png', syllabus: ['Typing Speed', 'Office Tools', 'Digital Literacy'] },
+      { id: 'GRAPHIC', title: 'Graphic Designing', fee: 10000, image: 'https://i.postimg.cc/XYFh0JLr/Chat-GPT-Image-May-9-2025-08-41-58-PM-4.png', syllabus: ['Photoshop', 'Illustrator', 'CorelDRAW', 'Logo & Banner Design'] },
+      { id: 'PROGRAMMING', title: 'Programming Languages', fee: 12000, image: 'images/programming.jpg', syllabus: ['C / C++', 'Java', 'Python', 'Web Development'] },
+      { id: 'PYTHON', title: 'Python', fee: 14000, image: 'https://i.postimg.cc/y8cLJbwx/Chat-GPT-Image-May-9-2025-08-20-05-PM.png', syllabus: ['Core Python Concepts', 'Data Structures', 'Web Scraping', 'Django/Flask'] },
+      { id: 'JAVA', title: 'Java', fee: 13000, image: 'https://i.postimg.cc/G3PmbF3C/Chat-GPT-Image-May-9-2025-10-01-12-PM.png', syllabus: ['OOP Principles', 'Collections', 'Spring Framework', 'JVM Internals'] },
+      { id: 'C_LANG', title: 'C Language', fee: 9000, image: 'images/c_language.jpg', syllabus: ['Syntax & Semantics', 'Pointers', 'Memory Management', 'File I/O'] },
+      { id: 'CPP', title: 'C++', fee: 10000, image: 'images/cpp.jpg', syllabus: ['OOP with C++', 'STL', 'Templates', 'Memory & Performance'] },
+      { id: 'WEBDEV', title: 'Web Development', fee: 15000, image: 'https://i.postimg.cc/rFV32Q4r/Chat-GPT-Image-May-9-2025-08-41-58-PM-2.png', syllabus: ['HTML5 & CSS3', 'JavaScript ES6+', 'Responsive Design', 'Backend Basics'] },
+      { id: 'MERN', title: 'MERN Stack', fee: 18000, image: 'https://i.postimg.cc/vmK3gw3J/Chat-GPT-Image-May-9-2025-08-41-58-PM-3.png', syllabus: ['MongoDB', 'Express.js', 'React.js', 'Node.js'] },
+      { id: 'JS', title: 'JavaScript', fee: 11000, image: 'https://i.postimg.cc/GhZDyhCJ/Chat-GPT-Image-May-9-2025-08-40-22-PM-7.png', syllabus: ['Fundamentals', 'DOM Manipulation', 'Async/Await', 'Frameworks Overview'] },
+      { id: 'FIGMA', title: 'Figma (UI/UX)', fee: 12000, image: 'images/figma.jpg', syllabus: ['Interface Design', 'Prototyping', 'Collaboration', 'Design Systems'] }
+    ];
+
+    const container = document.getElementById('coursesContainer');
+    const modals = document.getElementById('modalsContainer');
+    const fragment = document.createDocumentFragment();
+
+    // Create cards & modals
+    courses.forEach(course => {
+      // Card wrapper
+      const card = document.createElement('div');
+      card.className = 'bg-white rounded-2xl shadow-lg overflow-hidden transform transition hover:shadow-2xl hover:-translate-y-1';
+
+      // Card content
+      card.innerHTML = `
+        <img loading="lazy" src="${course.image}" alt="${course.title}" class="w-full h-auto block object-contain " />
+        <div class="p-6">
+          <h2 class="text-2xl font-semibold mb-2">${course.title}</h2>
+          <p class="text-sky-200 font-bold">₹${course.fee.toLocaleString()}</p>
+          <button onclick="openModal('${course.id}')" class="mt-4 w-full bg-sky-500 text-white px-4 py-2 rounded-xl hover:bg-sky-700 transition">View Details</button>
+        </div>
+      `;
+      fragment.appendChild(card);
+
+      // Modal structure
+      const modal = document.createElement('div');
+      modal.id = `modal-${course.id}`;
+      modal.className = 'fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4';
+      modal.innerHTML = `
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative">
+          <button class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl" onclick="closeModal('${course.id}')">&times;</button>
+          <h3 class="text-3xl font-bold mb-4">${course.title}</h3>
+          <p class="mb-4"><strong>Fees:</strong> ₹${course.fee.toLocaleString()}</p>
+          <p class="mb-4"><strong>Course Content:</strong></p>
+          <ul class="list-disc ml-6 space-y-2 mb-6">
+            ${course.syllabus.map(item => `<li>${item}</li>`).join('')}
+          </ul>
+          <button class="w-full bg-indigo-600 text-white px-6 py-3 rounded-2xl hover:bg-indigo-700 transition">Enroll Now</button>
+        </div>
+      `;
+      modals.appendChild(modal);
+    });
+    container.appendChild(fragment);
+
+    // Modal functions
+    window.openModal = id => {
+      const m = document.getElementById(`modal-${id}`);
+      m.classList.remove('hidden'); m.classList.add('flex');
+    };
+    window.closeModal = id => {
+      const m = document.getElementById(`modal-${id}`);
+      m.classList.add('hidden'); m.classList.remove('flex');
+    };
+
+    // Debounced search filter
+    let debounce;
+    document.getElementById('courseSearch').addEventListener('input', e => {
+      clearTimeout(debounce);
+      debounce = setTimeout(() => {
+        const term = e.target.value.toLowerCase();
+        container.childNodes.forEach(card => {
+          const title = card.querySelector('h2').textContent.toLowerCase();
+          card.style.display = title.includes(term) ? 'grid' : 'none';
+        });
+      }, 250);
+    });
   </script>
 </body>
 </html>
