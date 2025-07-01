@@ -852,12 +852,5 @@ nav a.active::after {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Particles Background - Will be implemented in JS */
-.particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
+
+

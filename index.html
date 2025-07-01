@@ -18,6 +18,86 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 <body>
+  <!-- Add this code where you want the chat button in your website -->
+<div class="chat-button-container">
+    <button class="chat-btn" onclick="window.open('coderafroj-chat.onrender.com', '_blank')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24">
+            <path d="M19.005 3.175H4.674C3.642 3.175 3 3.789 3 4.821V21.02l3.544-3.514h12.461c1.033 0 2.064-1.06 2.064-2.093V4.821c-.001-1.032-1.032-1.646-2.064-1.646zm-4.989 9.869H7.041V11.1h6.975v1.944zm3.4-3.777H7.041V7.323h10.375v1.944z"/>
+        </svg>
+        <span>Chat Now</span>
+    </button>
+</div>
+
+<style>
+    /* Chat Button Styles */
+    .chat-button-container {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9999;
+    }
+    
+    .chat-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 20px;
+        background: linear-gradient(135deg, #25D366, #128C7E);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .chat-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+    }
+    
+    .chat-btn:active {
+        transform: translateY(1px);
+    }
+    
+    .chat-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    /* Pulse animation */
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    .chat-btn {
+        animation: pulse 2s infinite;
+    }
+    
+    /* Mobile responsive */
+    @media (max-width: 768px) {
+        .chat-button-container {
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        .chat-btn {
+            padding: 10px 16px;
+            font-size: 14px;
+        }
+        
+        .chat-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+</style>
+
   
   <!-- Sidebar & Overlay -->
   <aside class="sidebar" id="sidebar">
@@ -43,6 +123,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     </nav>
     <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
   </header>
+  
 
   <!-- Hero -->
   <section class="hero" id="hero">
