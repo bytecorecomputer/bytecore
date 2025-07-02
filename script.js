@@ -112,52 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Start typing effect after 1 second
   setTimeout(type, 1000);
   
-  // Welcome popup
-  setTimeout(() => {
-    Swal.fire({
-      title: 'Welcome to Bytecore!',
-      text: 'Ready to start your tech journey? Explore our courses now!',
-      icon: 'info',
-      confirmButtonText: 'Get Started',
-      confirmButtonColor: '#7c3aed',
-      background: '#0f172a',
-      color: 'white',
-      showCloseButton: true,
-      backdrop: `
-        rgba(15, 23, 42, 0.8)
-        url("register.png")
-        center top
-        no-repeat
-      `
-    }).then((result) => {
-      if (result.isConfirmed) {
-        document.querySelector('#courses').scrollIntoView({
-          behavior: 'smooth'
-        });
-      }
-    });
-  }, 2000);
-  
-  // Course card hover effect
- // const courseCards = document.querySelectorAll('.course-card');
- // courseCards.forEach(card => {
-  //  card.addEventListener('mousemove', (e) => {
-   //   const x = e.pageX - card.getBoundingClientRect().left;
-    //  const y = e.pageY - card.getBoundingClientRect().top;
-      
-    //  const centerX = card.offsetWidth / 2;
-     // const centerY = card.offsetHeight / 2;
-      
-     // const angleX = (y - centerY) / 10;
-    //  const angleY = (centerX - x) / 10;
-      
-    //  card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
-  //  });
-    
-  //  card.addEventListener('mouseleave', () => {
-    //  card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-  //  });
- // });
+ 
   
   // Initialize particles.js if available
   if (typeof particlesJS !== 'undefined') {
