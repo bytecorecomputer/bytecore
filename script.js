@@ -36,23 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Back to top button
-  const backToTop = document.getElementById('backToTop');
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 300) {
-      backToTop.classList.add('active');
-    } else {
-      backToTop.classList.remove('active');
-    }
-  });
   
-  backToTop.addEventListener('click', function(e) {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
   
   // Scroll reveal animation
   const revealElements = document.querySelectorAll('.reveal');
