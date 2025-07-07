@@ -8,99 +8,28 @@
   <title>Bytecore Computer Centre</title>
   <!-- Google Fonts -->
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <!-- FontAwesome -->
-  
-   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  
-  <!-- Font Awesome CDN (latest version) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-wB+Q0D7jz1iF1Im9X7OdG1M9Rkk+6jGSkKq95gfbn1F8d6G6sO6UQO5yD0U+n6HYmW+lE0N9Jv0vGhz9dfiw=="
-crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Add this line after your other CSS links -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 </head>
 <body>
-   <!-- chat button  -->
-<div class="chat-button-container">
+   <!-- Chat button -->
+  <div class="chat-button-container">
     <button class="chat-btn" onclick="window.open('https://coderafroj-chat.onrender.com', '_blank')">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24">
-            <path d="M19.005 3.175H4.674C3.642 3.175 3 3.789 3 4.821V21.02l3.544-3.514h12.461c1.033 0 2.064-1.06 2.064-2.093V4.821c-.001-1.032-1.032-1.646-2.064-1.646zm-4.989 9.869H7.041V11.1h6.975v1.944zm3.4-3.777H7.041V7.323h10.375v1.944z"/>
-        </svg>
-        <span>Chat Now</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24">
+        <path d="M19.005 3.175H4.674C3.642 3.175 3 3.789 3 4.821V21.02l3.544-3.514h12.461c1.033 0 2.064-1.06 2.064-2.093V4.821c-.001-1.032-1.032-1.646-2.064-1.646zm-4.989 9.869H7.041V11.1h6.975v1.944zm3.4-3.777H7.041V7.323h10.375v1.944z"/>
+      </svg>
+      <span>Chat Now</span>
     </button>
-</div>
+  </div>
 
-<style>
-    /* Chat Button Styles */
-    .chat-button-container {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        z-index: 9999;
-    }
-    
-    .chat-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 12px 20px;
-        background: linear-gradient(135deg, #25D366, #128C7E);
-        color: white;
-        border: none;
-        border-radius: 30px;
-        font-weight: 600;
-        font-size: 16px;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    
-    .chat-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 25px rgba(0,0,0,0.2);
-    }
-    
-    .chat-btn:active {
-        transform: translateY(1px);
-    }
-    
-    .chat-btn svg {
-        width: 20px;
-        height: 20px;
-    }
-    
-    /* Pulse animation */
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
-    }
-    
-    .chat-btn {
-        animation: pulse 2s infinite;
-    }
-    
-    /* Mobile responsive */
-    @media (max-width: 768px) {
-        .chat-button-container {
-            bottom: 20px;
-            right: 20px;
-        }
-        
-        .chat-btn {
-            padding: 10px 16px;
-            font-size: 14px;
-        }
-        
-        .chat-btn svg {
-            width: 18px;
-            height: 18px;
-        }
-    }
-</style>
-
-  
   <!-- Sidebar & Overlay -->
   <aside class="sidebar" id="sidebar">
     <ul>
@@ -115,9 +44,9 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Header -->
   <header class="header">
-    <div class="logo" width="50"><img src="logo.png" alt=""></div>
+    <div class="logo" width="50"><img src="logo.png" alt="Bytecore Logo"></div>
     <nav>
-      <a href="#hero">Home</a>
+      <a href="#hero" class="active">Home</a>
       <a href="#courses">Courses</a>
       <a href="#about">About</a>
       <a href="#students">Students</a>
@@ -125,15 +54,12 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
     </nav>
     <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
   </header>
-  
 
   <!-- Hero -->
   <section class="hero" id="hero">
-     <div id="particles-js" class="particles"></div>
+    <div id="particles-js" class="particles"></div>
     <div class="hero-content">
       <h1 class="glitch" data-text="Welcome to Bytecore">Welcome to Bytecore</h1>
-
-
       <div class="typewriter" id="typewriter"></div>
       <a href="#courses" class="btn">Explore Courses</a>
     </div>
@@ -142,47 +68,40 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Courses -->
   <section id="courses">
     <h2 class="section-title">Our Top Courses</h2>
-    <p class="section-intro">Gain industry-relevant skills with our expert-led courses.</p>
+    <p class="section-intro">Gain industry-relevant skills with our expert-led courses designed for the modern tech landscape.</p>
     <div class="course-grid">
-      <!-- Repeat for each course -->
-      <div class="course-card reveal">
-      <!--<video autoplay muted loop>
-    <source src="courses.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>--><img src="https://i.postimg.cc/D0KvhZ45/Chat-GPT-Image-May-9-2025-09-58-36-PM.png" alt="Full Stack Development" class="w-full h-auto object-contain" >
-
-
+      <div class="course-card">
+        <img src="https://i.postimg.cc/D0KvhZ45/Chat-GPT-Image-May-9-2025-09-58-36-PM.png" alt="Courses">
         <div class="course-info">
           <h3>Courses</h3>
           <p>HTML, CSS, JavaScript, Node.js, React & more</p>
           <a href="Courses.html" class="enroll-btn">Explore Now</a>
         </div>
       </div>
-       <div class="course-card reveal">
-        <img src="https://i.postimg.cc/GmT4Rp3y/Chat-GPT-Image-May-13-2025-10-56-02-PM-2.png" alt="Full Stack Development">
+      <div class="course-card">
+        <img src="https://i.postimg.cc/GmT4Rp3y/Chat-GPT-Image-May-13-2025-10-56-02-PM-2.png" alt="Certificate Download">
         <div class="course-info">
-          <h3>Certificate Download </h3>
-          <p>Download you Certificate </p>
-          <a href="diploma.html" class="enroll-btn">Download Certificate </a>
+          <h3>Certificate Download</h3>
+          <p>Download your official course certificates</p>
+          <a href="diploma.html" class="enroll-btn">Download Certificate</a>
         </div>
       </div>
-       <div class="course-card reveal">
-        <img src="recipt.png" alt="Full Stack Development">
+      <div class="course-card">
+        <img src="recipt.png" alt="Fee Slip">
         <div class="course-info">
-          <h3>Fee slip</h3>
-          <p>Download your fee slip.</p>
-          <a href="Fee.html" class="enroll-btn">View Fee slip</a>
+          <h3>Fee Slip</h3>
+          <p>Download your payment receipts</p>
+          <a href="Fee.html" class="enroll-btn">View Fee Slip</a>
         </div>
       </div>
-       <div class="course-card reveal">
-        <img src="register.png" alt="Full Stack Development">
+      <div class="course-card">
+        <img src="register.png" alt="Register Now">
         <div class="course-info">
-          <h3>Registred Now</h3>
-          <p>HTML, CSS, JavaScript, Node.js, React & more.</p>
+          <h3>Register Now</h3>
+          <p>Join our tech community today</p>
           <a href="enroll.html" class="enroll-btn">Enroll Now</a>
         </div>
       </div>
-      <!-- ... -->
     </div>
   </section>
 
@@ -190,38 +109,92 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
   <section id="about">
     <h2 class="section-title">About Bytecore</h2>
     <p class="section-intro">We deliver cutting-edge computer education, empowering learners to excel in tech careers.</p>
-    <div class="about-container reveal">
-      <div class="about-img"><img src="https://i.postimg.cc/FRS3nsPq/Rahul.jpg" alt="Founder"></div>
+    <div class="about-container">
+      <div class="about-img">
+        <img src="afu.png" alt="Founder">
+      </div>
       <div class="about-info">
         <h3>Mr. Rahul</h3>
         <p>Founder & Director</p>
-        <p>With over a decade of experience, firoj has guided hundred to success in the tech industry.</p>
+        <p>With over a decade of experience, Rahul has guided hundreds of students to success in the tech industry. His passion for teaching and technology has made Bytecore a premier learning destination.</p>
       </div>
     </div>
-    <div class="info-grid reveal">
-      <div class="info-box"><i class="fas fa-bullseye"></i><h4>Our Mission</h4><p>Transform lives through practical, job-ready training.</p></div>
-      <div class="info-box"><i class="fas fa-eye"></i><h4>Our Vision</h4><p>To be the premier choice for computer education.</p></div>
-      <div class="info-box"><i class="fas fa-star"></i><h4>Highlights</h4><ul><li>Certified Trainers</li><li>Live Projects</li><li>Placement Support</li></ul></div>
-      <div class="info-box"><i class="fas fa-headset"></i><h4>Support</h4><p>24/7 mentorship and doubt resolution.</p></div>
+    <div class="info-grid">
+      <div class="info-box">
+        <i class="fas fa-bullseye"></i>
+        <h4>Our Mission</h4>
+        <p>Transform lives through practical, job-ready training in cutting-edge technologies.</p>
+      </div>
+      <div class="info-box">
+        <i class="fas fa-eye"></i>
+        <h4>Our Vision</h4>
+        <p>To be the premier choice for computer education in the region, empowering the next generation of tech leaders.</p>
+      </div>
+      <div class="info-box">
+        <i class="fas fa-star"></i>
+        <h4>Highlights</h4>
+        <ul>
+          <li>Certified Industry Experts</li>
+          <li>Live Project Experience</li>
+          <li>Placement Assistance</li>
+          <li>Modern Curriculum</li>
+        </ul>
+      </div>
+      <div class="info-box">
+        <i class="fas fa-headset"></i>
+        <h4>Support</h4>
+        <p>24/7 mentorship and doubt resolution with dedicated support channels for all students.</p>
+      </div>
     </div>
   </section>
 
   <!-- Student Gallery -->
-  <section class="students reveal" id="students">
+  <section class="students" id="students">
     <h2 class="section-title">Our Students</h2>
-    <p class="section-intro">Meet our brightest achievers.</p>
-    <div class="students-grid">
-      <!-- Replace src with actual student images -->
-      <div class="student"><img src="afu.png" alt="Student 1"><p>Student 1</p></div>
-      <div class="student"><img src="afu.png" alt="Student 2"><p>Student 2</p></div>
-      <div class="student"><img src="afu.png" alt="Student 3"><p>Student 3</p></div>
-        <div class="student"><img src="afu.png" alt="Student 1"><p>Student 1</p></div>
-      <div class="student"><img src="afu.png" alt="Student 2"><p>Student 2</p></div>
-      <div class="student"><img src="afu.png" alt="Student 3"><p>Student 3</p></div>
-        <div class="student"><img src="afu.png" alt="Student 1"><p>Student 1</p></div>
-      <div class="student"><img src="afu.png" alt="Student 2"><p>Student 2</p></div>
-      <div class="student"><img src="afu.png" alt="Student 3"><p>Student 3</p></div>
-      <!-- ... -->
+    <p class="section-intro">Meet our brightest achievers shaping the future of technology.</p>
+    
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://i.postimg.cc/ZqDtWfgQ/1000098105-fotor-20250129223144-3.png" alt="Student 1">
+          <p>Student 1</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://i.postimg.cc/ZqDtWfgQ/1000098105-fotor-20250129223144-3.png" alt="Student 2">
+          <p>Student 2</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://i.postimg.cc/ZqDtWfgQ/1000098105-fotor-20250129223144-3.png" alt="Student 3">
+          <p>Student 3</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://i.postimg.cc/ZqDtWfgQ/1000098105-fotor-20250129223144-3.png" alt="Student 4">
+          <p>Student 4</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://i.postimg.cc/ZqDtWfgQ/1000098105-fotor-20250129223144-3.png" alt="Student 5">
+          <p>Student 5</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://i.postimg.cc/ZqDtWfgQ/1000098105-fotor-20250129223144-3.png" alt="Student 6">
+          <p>Student 6</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://i.postimg.cc/ZqDtWfgQ/1000098105-fotor-20250129223144-3.png" alt="Student 7">
+          <p>Student 7</p>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://i.postimg.cc/ZqDtWfgQ/1000098105-fotor-20250129223144-3.png" alt="Student 8">
+          <p>Student 8</p>
+        </div>
+      </div>
+      <!-- Navigation buttons 
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      -->
+      <!-- Pagination
+      <div class="swiper-pagination"></div>
+       -->
     </div>
   </section>
 
@@ -229,18 +202,27 @@ crossorigin="anonymous" referrerpolicy="no-referrer" />
   <section id="contact">
     <h2 class="section-title">Contact Us</h2>
     <p class="section-intro">Have questions? Reach out to us anytime.</p>
-    <div class="contact-grid reveal">
-      <div class="contact-box"><i class="fas fa-envelope"></i><h4>Email</h4><a href="mailto:bytecore.info@gmail.com">bytecore.info@gmail.com</a></div>
-      <div class="contact-box"><i class="fas fa-phone"></i><h4>Phone</h4><a href="tel:+916396835709">Call: +91 6396835709</a></div>
-      <div class="contact-box"><i class="fas fa-map-marker-alt"></i><h4>Address</h4><p>Opposite Sheetala Mata mandir, near Kuber gas agency Nariyawal Bareilly </p></div>
+    <div class="contact-grid">
+      <div class="contact-box">
+        <i class="fas fa-envelope"></i>
+        <h4>Email</h4>
+        <a href="mailto:bytecore.info@gmail.com">bytecore.info@gmail.com</a>
+      </div>
+      <div class="contact-box">
+        <i class="fas fa-phone"></i>
+        <h4>Phone</h4>
+        <a href="tel:+916396835709">Call: +91 6396835709</a>
+      </div>
+      <div class="contact-box">
+        <i class="fas fa-map-marker-alt"></i>
+        <h4>Address</h4>
+        <p>Opposite Sheetala Mata mandir, near Kuber gas agency Nariyawal Bareilly</p>
+      </div>
     </div>
   </section>
 
-  <!-- Back to Top -->
- 
-
   <!-- Footer -->
-  <footer class="footer reveal">
+  <footer class="footer">
     <p>&copy; 2025 Bytecore Computer Centre. All Rights Reserved.</p>
     <div class="social-links">
       <a href="https://m.facebook.com/bytecorecomputercentre/"><i class="fab fa-facebook-f"></i></a>
