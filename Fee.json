@@ -789,7 +789,7 @@
         "name": "Shivam",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 5500
+        "remaining": 4800
     },
     "176": {
         "name": "Mohit",
@@ -963,7 +963,7 @@
         "name": "Mansi Sharma",
         "course": "MDCA",
         "total": 9600,
-        "remaining": 7200
+        "remaining": 6400
     },
     "182": {
         "name": "Mohd Junaid",
@@ -1261,9 +1261,9 @@
     },
     "1159": {
         "name": "Ram Lakhan",
-        "course": "Accounting",
+        "course": "MDCA",
         "total": 4800,
-        "remaining": 4300
+        "remaining": 4050
     },
     "1160": {
         "name": "Mohd Farhan",
@@ -1420,5 +1420,77 @@
         "course": "ADCA",
         "total": 4800,
         "remaining": 400
+    },
+    "1174": {
+        "name": "Shivansh Yadav",
+        "course": "ADCA",
+        "total": 6000,
+        "remaining": 6000
+    },
+    "1175": {
+        "name": "Sameer",
+        "course": "ADCA",
+        "total": 6000,
+        "remaining": 6000
+    },
+    "207": {
+        "name": "Krishna Kashyap",
+        "course": "DCA",
+        "total": 1800,
+        "remaining": 1800
+    },
+    "208": {
+        "name": "Tasleem",
+        "course": "DCST",
+        "total": 600,
+        "remaining": 400
+    },
+    "209": {
+        "name": "Ayush",
+        "course": "DCST",
+        "total": 600,
+        "remaining": 400
+    },
+    "1176": {
+        "name": "Anshika Gupta",
+        "course": "ADCA",
+        "total": 6000,
+        "remaining": 6000
+    },
+    "1177": {
+        "name": "Tayyaba",
+        "course": "ADCA",
+        "total": 6000,
+        "remaining": 6000
+    },
+    "1178": {
+        "name": "Sofia",
+        "course": "ADCA",
+        "total": 6000,
+        "remaining": 6000
+    },
+    "1179": {
+        "name": "Haseen Khan",
+        "course": "MDCA",
+        "total": 9600,
+        "remaining": 9600
+    },
+    "1180": {
+        "name": "Meraj Khan",
+        "course": "MDCA",
+        "total": 9600,
+        "remaining": 9600
+    },
+    "1181": {
+        "name": "Imran Ali",
+        "course": "MDCA",
+        "total": 9600,
+        "remaining": 9600
+    },
+    "1182": {
+        "name": "Farman Uddin",
+        "course": "MDCA",
+        "total": 9600,
+        "remaining": 9600
     }
 }
