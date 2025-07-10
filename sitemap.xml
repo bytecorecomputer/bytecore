@@ -3,44 +3,51 @@
 
   <url>
     <loc>https://bytecorecomputercentre-github-io.vercel.app/</loc>
+    <lastmod>2025-07-10</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.00</priority>
   </url>
 
-  
-
   <url>
     <loc>https://bytecorecomputercentre-github-io.vercel.app/Fee.html</loc>
+    <lastmod>2025-07-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://bytecorecomputercentre-github-io.vercel.app/Courses.html</loc>
+    <lastmod>2025-07-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://bytecorecomputercentre-github-io.vercel.app/diploma.html</loc>
+    <lastmod>2025-07-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://bytecorecomputercentre-github-io.vercel.app/Certificate.html</loc>
+    <lastmod>2025-07-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://bytecorecomputercentre-github-io.vercel.app/enroll.html</loc>
+    <lastmod>2025-07-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <url>
     <loc>https://bytecorecomputercentre-github-io.vercel.app/resource.html</loc>
+    <lastmod>2025-07-10</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.70</priority>
-  </url>
-
-  <url>
-    <loc>https://bytecorecomputercentre-github-io.vercel.app/server.js</loc>
-    <priority>0.30</priority>
   </url>
 
 </urlset>
