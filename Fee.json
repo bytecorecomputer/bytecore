@@ -393,7 +393,7 @@
         "name": "Kehkasha Noor",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 2000
+        "remaining": 1500
     },
     "1048": {
         "name": "Sahiba Bi",
@@ -416,8 +416,8 @@
     "1052": {
         "name": "Ritesh",
         "course": "MDCA",
-        "total": 9600,
-        "remaining": 900
+        "total": 9500,
+        "remaining": 300
     },
     "1033": {
         "name": "vishnu saxena",
@@ -848,8 +848,8 @@
     "1112": {
         "name": "Arfat Khan",
         "course": "ADCA",
-        "total": 6000,
-        "remaining": 2300
+        "total": 4800,
+        "remaining": 300
     },
     "1113": {
         "name": "Priyanshu",
@@ -873,19 +873,19 @@
         "name": "Ravi Thakur",
         "course": "DCA",
         "total": 1800,
-        "remaining": 1200
+        "remaining": 800
     },
     "1116": {
         "name": "Anjali",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 5000
+        "remaining": 4500
     },
     "1117": {
         "name": "Saniya Fatima",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 4000
+        "remaining": 3500
     },
     "1118": {
         "name": "Manoj",
@@ -951,13 +951,13 @@
         "name": "Kaushal Patel",
         "course": "DCA",
         "total": 1800,
-        "remaining": 900
+        "remaining": 600
     },
     "1129": {
         "name": "Kanak Chaudhary",
         "course": "MDCA",
         "total": 9600,
-        "remaining": 7200
+        "remaining": 6400
     },
     "1130": {
         "name": "Mansi Sharma",
@@ -968,8 +968,8 @@
     "182": {
         "name": "Mohd Junaid",
         "course": "DCST",
-        "total": 1900,
-        "remaining": 300
+        "total": 1800,
+        "remaining": 0
     },
     "1132": {
         "name": "Arhan",
@@ -993,7 +993,7 @@
         "name": "Taiba",
         "course": "DCA",
         "total": 1800,
-        "remaining": 1200
+        "remaining": 900
     },
     "1135": {
         "name": "Poorti Bhardwaj",
@@ -1068,22 +1068,22 @@
         "remaining": 0
     },
     "1144": {
-        "name": "Usma Khanam",
+        "name": "Isma Khanam",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 5000
+        "remaining": 4500
     },
     "1145": {
         "name": "Ilma  Khanam",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 5000
+        "remaining": 4500
     },
     "1146": {
         "name": "Shivam",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 5500
+        "remaining": 5000
     },
     "1147": {
         "name": "Asbab",
@@ -1119,7 +1119,7 @@
         "name": "Mohd Arsh",
         "course": "MDCA",
         "total": 9600,
-        "remaining": 8000
+        "remaining": 7200
     },
     "1152": {
         "name": "Mohd Faizal",
@@ -1203,7 +1203,7 @@
         "name": "Nisha Khan",
         "course": "Accounting",
         "total": 4800,
-        "remaining": 1600
+        "remaining": 600
     },
     "111": {
         "name": "Raj",
@@ -1227,7 +1227,7 @@
         "name": "Rahnuma",
         "course": "DCA",
         "total": 1800,
-        "remaining": 1800
+        "remaining": 1500
     },
     "194": {
         "name": "Gulshan",
@@ -1305,13 +1305,13 @@
         "name": "sangeeta",
         "course": "Accounting",
         "total": 4800,
-        "remaining": 4000
+        "remaining": 3200
     },
     "1162": {
         "name": "Muskan Fatima",
         "course": "Accounting",
         "total": 4800,
-        "remaining": 4000
+        "remaining": 3200
     },
     "1163": {
         "name": "Arif ansari",
@@ -1419,13 +1419,13 @@
         "name": "Aditya Singh",
         "course": "ADCA",
         "total": 4800,
-        "remaining": 400
+        "remaining": 0
     },
     "1174": {
         "name": "Shivansh Yadav",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 6000
+        "remaining": 5500
     },
     "1175": {
         "name": "Sameer",
@@ -1437,7 +1437,7 @@
         "name": "Krishna Kashyap",
         "course": "DCA",
         "total": 1800,
-        "remaining": 1800
+        "remaining": 1500
     },
     "208": {
         "name": "Tasleem",
@@ -1455,7 +1455,7 @@
         "name": "Anshika Gupta",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 6000
+        "remaining": 5500
     },
     "1177": {
         "name": "Tayyaba",
@@ -1491,7 +1491,7 @@
         "name": "Farman Uddin",
         "course": "MDCA",
         "total": 9600,
-        "remaining": 9600
+        "remaining": 4000
     },
     "1183": {
         "name": "Ahad sham uddin ",
@@ -1509,6 +1509,6 @@
         "name": "Arti Verma",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 6000
+        "remaining": 5000
     }
 }

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Courses Blog | Bytecore Computer Centre</title>
+
+  <!-- ✅ SEO Meta Tags -->
+  <meta name="description" content="Join ADCA, MDCA, CCC, O-Level, Web Design, and Programming courses at Bytecore Computer Centre – the best computer coaching in Bareilly." />
+  <meta name="keywords" content="ADCA, MDCA, CCC, O-Level, Programming, Web Design, Bytecore Computer Centre, Bareilly computer coaching" />
+  <meta name="author" content="Bytecore Computer Centre" />
+  <link rel="canonical" href="https://bytecorecomputercentre-github-io.vercel.app/blog" />
+  <meta property="og:title" content="Courses at Bytecore Computer Centre" />
+  <meta property="og:description" content="Explore ADCA, MDCA, CCC, and more. Get expert computer coaching in Bareilly!" />
+  <meta property="og:image" content="https://bytecorecomputercentre-github-io.vercel.app/logo.png" />
+  <meta property="og:url" content="https://bytecorecomputercentre-github-io.vercel.app/blog" />
+  <meta name="theme-color" content="#1d4ed8">
+
+  <!-- ✅ Styling -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef2f8;
+      color: #1e293b;
+    }
+
+    /* HEADER */
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    header img {
+      height: 50px;
+      border-radius: 10px;
+    }
+    header h1 {
+      font-size: 1.5rem;
+    }
+    #menu-toggle {
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none;
+    }
+
+    /* SIDEBAR */
+    nav {
+      position: fixed;
+      top: 0; right: -260px;
+      width: 250px;
+      height: 100%;
+      background: #1e293b;
+      color: white;
+      transition: right 0.3s ease;
+      padding: 50px 20px;
+      z-index: 999;
+    }
+    nav ul {
+      list-style: none;
+    }
+    nav ul li {
+      margin: 20px 0;
+    }
+    nav ul li a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #60a5fa;
+    }
+
+    /* COURSES GRID */
+    .courses-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 40px 30px;
+    }
+    .course-box {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .course-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+    .course-title {
+      color: #2563eb;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+    .course-desc {
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+    .read-more {
+      padding: 10px 15px;
+      background: #2563eb;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    .read-more:hover {
+      background: #1d4ed8;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1f2937;
+      color: white;
+      text-align: center;
+      padding: 30px;
+      margin-top: 40px;
+      border-radius: 10px 10px 0 0;
+    }
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    /* MEDIA QUERIES */
+    @media (max-width: 768px) {
+      #menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ HEADER -->
+  <header>
+    <div style="display: flex; align-items: center; gap: 15px;">
+      <img src="https://bytecorecomputercentre-github-io.vercel.app/logo.png" alt="Bytecore Logo" />
+      <h1>Bytecore Computer Centre</h1>
+    </div>
+    <div id="menu-toggle">☰</div>
+  </header>
+
+  <!-- ✅ SIDEBAR -->
+  <nav id="sidebar">
+    <ul>
+      <li><a href="#adca">ADCA</a></li>
+      <li><a href="#mdca">MDCA</a></li>
+      <li><a href="#ccc">CCC</a></li>
+      <li><a href="#olevel">O-Level</a></li>
+      <li><a href="#web">Web Design</a></li>
+      <li><a href="#programming">Programming</a></li>
+    </ul>
+  </nav>
+
+  <!-- ✅ COURSES -->
+  <section class="courses-container">
+    <div class="course-box" id="adca">
+      <h2 class="course-title">ADCA Course</h2>
+      <p class="course-desc">Advanced Diploma in Computer Applications – Covers Computer Basics, Tally, MS Office, Internet, HTML & more.</p>
+      <a href="#adca-details" class="read-more">Read More</a>
+    </div>
+    <div class="course-box" id="mdca">
+      <h2 class="course-title">MDCA Course</h2>
+      <p class="course-desc">Master Diploma – Advance Excel, Web Designing, DBMS, Python, Java, Internet, and Software Skills.</p>
+      <a href="#mdca-details" class="read-more">Read More</a>
+    </div>
+    <div class="course-box" id="ccc">
+      <h2 class="course-title">CCC Course</h2>
+      <p class="course-desc">Best for Govt. Exams. Learn MS Office, Internet, Email, Digital Literacy and Basic IT Skills.</p>
+      <a href="#ccc-details" class="read-more">Read More</a>
+    </div>
+    <div class="course-box" id="olevel">
+      <h2 class="course-title">O-Level Course</h2>
+      <p class="course-desc">NIELIT O-Level course including IT Tools, Internet, Programming in C, Python, DBMS & Project Work.</p>
+      <a href="#olevel-details" class="read-more">Read More</a>
+    </div>
+    <div class="course-box" id="web">
+      <h2 class="course-title">Web Design & UI</h2>
+      <p class="course-desc">Learn HTML, CSS, JavaScript, Responsive Design, SEO, UX/UI Principles & Create Live Projects.</p>
+      <a href="#web-details" class="read-more">Read More</a>
+    </div>
+    <div class="course-box" id="programming">
+      <h2 class="course-title">Programming Courses</h2>
+      <p class="course-desc">C, C++, Python, Java, Data Structures, Algorithm & Real-time Projects with logic building classes.</p>
+      <a href="#programming-details" class="read-more">Explore Topics</a>
+    </div>
+  </section>
+
+  <!-- ✅ FOOTER -->
+  <footer>
+    <p>&copy; 2025 Bytecore Computer Centre. All rights reserved.</p>
+    <p>
+      <a href="/privacy-policy">Privacy Policy</a> |
+      <a href="/terms-of-service">Terms</a> |
+      <a href="/contact">Contact Us</a>
+    </p>
+    <p>Website by <a href="https://github.com/coderafroj" target="_blank">CoderAfroj</a></p>
+  </footer>
+
+  <!-- ✅ SCRIPT -->
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    toggle.addEventListener('click', () => {
+      sidebar.style.right = sidebar.style.right === '0px' ? '-260px' : '0px';
+    });
+  </script>
+
+</body>
+</html>
