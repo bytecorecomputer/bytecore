@@ -291,7 +291,7 @@
         "name": "Lalit Mohan Kafaltiya",
         "course": "MDCA",
         "total": 9600,
-        "remaining": 2400
+        "remaining": 1600
     },
     "156": {
         "name": "Adil",
@@ -1492,5 +1492,23 @@
         "course": "MDCA",
         "total": 9600,
         "remaining": 9600
+    },
+    "1183": {
+        "name": "Ahad sham uddin ",
+        "course": "ADCA",
+        "total": 6000,
+        "remaining": 6000
+    },
+    "1184": {
+        "name": "Nishant Sharma",
+        "course": "ADCA",
+        "total": 6000,
+        "remaining": 6000
+    },
+    "1185": {
+        "name": "Arti Verma",
+        "course": "ADCA",
+        "total": 6000,
+        "remaining": 6000
     }
 }
