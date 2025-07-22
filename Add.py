@@ -1,297 +1,217 @@
 import json
 import os
-from tkinter import *
-from tkinter import messagebox, filedialog
+import tkinter as tk
+from tkinter import messagebox, ttk
 
-CERTIFICATES_FILE = "certificates.json"
+FILENAME = "Fee.json"
 
-class CertificateManager:
-    def __init__(self, filename=CERTIFICATES_FILE):
+class FeeManager:
+    def __init__(self, filename=FILENAME):
         self.filename = filename
-        self.certificates = []
+        self.data = {}
         self.load_data()
 
     def load_data(self):
-        """Load data from JSON file"""
-        try:
-            if os.path.exists(self.filename):
-                with open(self.filename, 'r') as file:
-                    data = json.load(file)
-                    self.certificates = data.get('certificates', [])
-            else:
-                self.certificates = []
-                self.save_data()
-        except Exception as e:
-            messagebox.showerror("Error", f"Failed to load data: {str(e)}")
-            self.certificates = []
+        if os.path.exists(self.filename):
+            with open(self.filename, "r") as f:
+                self.data = json.load(f)
+        else:
+            self.data = {}
+            self.save_data()
 
     def save_data(self):
-        """Save data to JSON file"""
-        try:
-            with open(self.filename, 'w') as file:
-                json.dump({"certificates": self.certificates}, file, indent=4)
-            return True
-        except Exception as e:
-            messagebox.showerror("Error", f"Failed to save data: {str(e)}")
-            return False
+        with open(self.filename, "w") as f:
+            json.dump(self.data, f, indent=4)
 
-    def add_certificate(self, roll, link):
-        """Add a new certificate"""
-        if not roll or not link:
-            return False, "Roll number and link are required"
-        
-        if any(cert['roll'] == roll for cert in self.certificates):
-            return False, f"Roll number {roll} already exists"
-        
-        self.certificates.append({"roll": roll, "link": link})
-        if self.save_data():
-            return True, f"Certificate for roll {roll} added successfully"
-        else:
-            self.certificates.pop()  # Remove the added certificate if save fails
-            return False, "Failed to save data"
+    def add_entry(self, roll, name, course, total, remaining):
+        if roll in self.data:
+            return False, "Roll number already exists."
+        self.data[roll] = {"name": name, "course": course, "total": total, "remaining": remaining}
+        self.save_data()
+        return True, "Entry added successfully."
 
-    def update_certificate(self, roll, new_link=None, new_roll=None):
-        """Update an existing certificate"""
-        for cert in self.certificates:
-            if cert['roll'] == roll:
-                if new_link:
-                    cert['link'] = new_link
-                if new_roll:
-                    # Check if new roll already exists
-                    if any(c['roll'] == new_roll for c in self.certificates if c['roll'] != roll):
-                        return False, f"Roll number {new_roll} already exists"
-                    cert['roll'] = new_roll
-                if self.save_data():
-                    return True, f"Certificate for roll {roll} updated successfully"
-                else:
-                    return False, "Failed to save data"
-        return False, f"Roll number {roll} not found"
+    def update_entry(self, roll, name, course, total, remaining):
+        if roll not in self.data:
+            return False, "Roll number not found."
+        self.data[roll] = {"name": name, "course": course, "total": total, "remaining": remaining}
+        self.save_data()
+        return True, "Entry updated successfully."
 
-    def delete_certificate(self, roll):
-        """Delete a certificate"""
-        initial_length = len(self.certificates)
-        self.certificates = [cert for cert in self.certificates if cert['roll'] != roll]
-        
-        if len(self.certificates) < initial_length:
-            if self.save_data():
-                return True, f"Certificate for roll {roll} deleted successfully"
-            else:
-                # Restore the data if save fails
-                self.load_data()
-                return False, "Failed to save data after deletion"
-        return False, f"Roll number {roll} not found"
+    def delete_entry(self, roll):
+        if roll in self.data:
+            del self.data[roll]
+            self.save_data()
+            return True, "Entry deleted successfully."
+        return False, "Roll number not found."
 
-    def search_certificate(self, roll):
-        """Search for a certificate by roll number"""
-        for cert in self.certificates:
-            if cert['roll'] == roll:
-                return True, cert
-        return False, f"Roll number {roll} not found"
+    def search_entry_by_roll(self, roll):
+        return self.data.get(roll, None)
 
-    def get_all_certificates(self):
-        """Get all certificates"""
-        return self.certificates
+    def search_entry_by_name(self, name):
+        return {roll: info for roll, info in self.data.items() if info["name"].lower() == name.lower()}
 
-class CertificateManagerGUI:
+    def get_all(self):
+        return self.data
+
+    def get_total_sum(self):
+        return sum(entry['total'] for entry in self.data.values())
+
+    def get_remaining_sum(self):
+        return sum(entry['remaining'] for entry in self.data.values())
+
+class FeeManagerApp:
     def __init__(self, root):
         self.root = root
-        self.manager = CertificateManager()
-        self.setup_ui()
+        self.root.title("Bytecore Fee Management System")
+        self.root.geometry("1150x720")
+        self.root.config(bg="#e9f5ff")
+        self.manager = FeeManager()
+        self.create_ui()
+        self.show_all()
 
-    def setup_ui(self):
-        self.root.title("Certificate Manager")
-        self.root.geometry("800x600")
+    def create_ui(self):
+        tk.Label(self.root, text="Bytecore Fee Management System", font=("Segoe UI", 26, "bold"),
+                 bg="#e9f5ff", fg="#1a1a1a").pack(pady=20)
 
-        # Main Frame
-        main_frame = Frame(self.root, padx=20, pady=20)
-        main_frame.pack(fill=BOTH, expand=True)
+        form_frame = tk.Frame(self.root, bg="#ffffff", bd=3, relief="ridge")
+        form_frame.pack(pady=10, padx=20, fill="x")
 
-        # Title
-        Label(main_frame, text="Certificate Management System", font=("Arial", 16, "bold")).grid(row=0, column=0, columnspan=3, pady=10)
+        labels = ["Roll No.", "Name", "Course", "Total Fee", "Remaining Fee"]
+        self.entries = {}
 
-        # Input Fields
-        Label(main_frame, text="Roll Number:").grid(row=1, column=0, sticky=W, pady=5)
-        self.roll_entry = Entry(main_frame, width=30)
-        self.roll_entry.grid(row=1, column=1, pady=5)
+        for i, text in enumerate(labels):
+            tk.Label(form_frame, text=text, font=("Segoe UI", 12, "bold"), bg="#ffffff").grid(row=i, column=0, sticky="w", padx=10, pady=5)
+            entry = tk.Entry(form_frame, font=("Segoe UI", 12), width=40, relief="solid", bd=1)
+            entry.grid(row=i, column=1, padx=10, pady=5)
+            self.entries[text.lower()] = entry
 
-        Label(main_frame, text="Certificate Link:").grid(row=2, column=0, sticky=W, pady=5)
-        self.link_entry = Entry(main_frame, width=50)
-        self.link_entry.grid(row=2, column=1, pady=5)
+        btn_frame = tk.Frame(self.root, bg="#e9f5ff")
+        btn_frame.pack(pady=10)
 
-        # Buttons
-        Button(main_frame, text="Add", command=self.add_certificate).grid(row=3, column=0, pady=10)
-        Button(main_frame, text="Update", command=self.update_certificate).grid(row=3, column=1, pady=10)
-        Button(main_frame, text="Delete", command=self.delete_certificate).grid(row=3, column=2, pady=10)
-        Button(main_frame, text="Search", command=self.search_certificate).grid(row=4, column=0, pady=10)
-        Button(main_frame, text="Show All", command=self.show_all_certificates).grid(row=4, column=1, pady=10)
-        Button(main_frame, text="Clear", command=self.clear_fields).grid(row=4, column=2, pady=10)
+        style = {"font": ("Segoe UI", 11, "bold"), "bg": "#0066cc", "fg": "white", "relief": "raised", "bd": 2}
 
-        # Results Text Area
-        self.result_text = Text(main_frame, height=15, width=80, wrap=WORD)
-        self.result_text.grid(row=5, column=0, columnspan=3, pady=10)
+        buttons = [
+            ("Add", self.add),
+            ("Update", self.update),
+            ("Delete", self.delete),
+            ("Search (Roll)", self.search_by_roll),
+            ("Search (Name)", self.search_by_name),
+            ("Show All", self.show_all),
+            ("Clear", self.clear)
+        ]
 
-        # Scrollbar
-        scrollbar = Scrollbar(main_frame, command=self.result_text.yview)
-        scrollbar.grid(row=5, column=3, sticky='ns')
-        self.result_text.config(yscrollcommand=scrollbar.set)
+        for i, (text, command) in enumerate(buttons):
+            tk.Button(btn_frame, text=text, width=14, command=command, **style).grid(row=0, column=i, padx=8)
 
-    def add_certificate(self):
-        roll = self.roll_entry.get().strip()
-        link = self.link_entry.get().strip()
-        
-        if not roll or not link:
-            messagebox.showwarning("Warning", "Both roll number and link are required")
-            return
-        
-        success, message = self.manager.add_certificate(roll, link)
-        if success:
-            messagebox.showinfo("Success", message)
-            self.clear_fields()
-        else:
-            messagebox.showerror("Error", message)
+        self.tree = ttk.Treeview(self.root, columns=("roll", "name", "course", "total", "remaining"), show="headings")
+        for col in self.tree["columns"]:
+            self.tree.heading(col, text=col.capitalize())
+            self.tree.column(col, width=200, anchor="center")
 
-    def update_certificate(self):
-        roll = self.roll_entry.get().strip()
-        new_link = self.link_entry.get().strip()
-        
+        style_tree = ttk.Style()
+        style_tree.configure("Treeview.Heading", font=("Segoe UI", 11, "bold"))
+        style_tree.configure("Treeview", font=("Segoe UI", 10), rowheight=28)
+        self.tree.pack(padx=20, pady=10, fill="both", expand=True)
+
+        # ✅ Treeview Row Click Bind
+        self.tree.bind("<<TreeviewSelect>>", self.on_row_select)
+
+        self.total_label = tk.Label(self.root, text="Total Fee: ₹0 | Remaining: ₹0",
+                                    font=("Segoe UI", 14, "bold"), bg="#e9f5ff", fg="#333")
+        self.total_label.pack(pady=10)
+
+    def on_row_select(self, event):
+        selected = self.tree.selection()
+        if selected:
+            values = self.tree.item(selected[0], 'values')
+            self.entries["roll no."].delete(0, tk.END)
+            self.entries["roll no."].insert(0, values[0])
+            self.entries["name"].delete(0, tk.END)
+            self.entries["name"].insert(0, values[1])
+            self.entries["course"].delete(0, tk.END)
+            self.entries["course"].insert(0, values[2])
+            self.entries["total fee"].delete(0, tk.END)
+            self.entries["total fee"].insert(0, values[3])
+            self.entries["remaining fee"].delete(0, tk.END)
+            self.entries["remaining fee"].insert(0, values[4])
+
+    def get_inputs(self):
+        try:
+            roll = self.entries["roll no."].get().strip()
+            name = self.entries["name"].get().strip()
+            course = self.entries["course"].get().strip()
+            total = int(self.entries["total fee"].get().strip())
+            remaining = int(self.entries["remaining fee"].get().strip())
+            return roll, name, course, total, remaining
+        except ValueError:
+            messagebox.showerror("Error", "Total and Remaining fees must be numbers.")
+            return None
+
+    def add(self):
+        inputs = self.get_inputs()
+        if inputs:
+            success, msg = self.manager.add_entry(*inputs)
+            messagebox.showinfo("Info", msg)
+            self.clear()
+            self.show_all()
+
+    def update(self):
+        inputs = self.get_inputs()
+        if inputs:
+            success, msg = self.manager.update_entry(*inputs)
+            messagebox.showinfo("Info", msg)
+            self.clear()
+            self.show_all()
+
+    def delete(self):
+        roll = self.entries["roll no."].get().strip()
         if not roll:
-            messagebox.showwarning("Warning", "Roll number is required for update")
+            messagebox.showwarning("Warning", "Enter a roll number.")
             return
-        
-        if not new_link:
-            messagebox.showwarning("Warning", "Please provide a new link for update")
-            return
-        
-        success, message = self.manager.update_certificate(roll, new_link)
-        if success:
-            messagebox.showinfo("Success", message)
-            self.clear_fields()
+        success, msg = self.manager.delete_entry(roll)
+        messagebox.showinfo("Info", msg)
+        self.clear()
+        self.show_all()
+
+    def search_by_roll(self):
+        roll = self.entries["roll no."].get().strip()
+        self.tree.delete(*self.tree.get_children())
+        data = self.manager.search_entry_by_roll(roll)
+        if data:
+            self.tree.insert("", "end", values=(roll, data["name"], data["course"], data["total"], data["remaining"]))
         else:
-            messagebox.showerror("Error", message)
+            messagebox.showinfo("Not Found", "No data found for this roll number.")
 
-    def delete_certificate(self):
-        roll = self.roll_entry.get().strip()
-        
-        if not roll:
-            messagebox.showwarning("Warning", "Roll number is required for deletion")
-            return
-        
-        confirm = messagebox.askyesno("Confirm", f"Are you sure you want to delete certificate for roll {roll}?")
-        if confirm:
-            success, message = self.manager.delete_certificate(roll)
-            if success:
-                messagebox.showinfo("Success", message)
-                self.clear_fields()
-            else:
-                messagebox.showerror("Error", message)
-
-    def search_certificate(self):
-        roll = self.roll_entry.get().strip()
-        
-        if not roll:
-            messagebox.showwarning("Warning", "Roll number is required for search")
-            return
-        
-        success, result = self.manager.search_certificate(roll)
-        if success:
-            self.result_text.delete(1.0, END)
-            self.result_text.insert(END, f"Roll: {result['roll']}\n")
-            self.result_text.insert(END, f"Link: {result['link']}\n")
+    def search_by_name(self):
+        name = self.entries["name"].get().strip()
+        self.tree.delete(*self.tree.get_children())
+        results = self.manager.search_entry_by_name(name)
+        if results:
+            for roll, data in results.items():
+                self.tree.insert("", "end", values=(roll, data["name"], data["course"], data["total"], data["remaining"]))
         else:
-            messagebox.showinfo("Not Found", result)
+            messagebox.showinfo("Not Found", "No data found with this name.")
 
-    def show_all_certificates(self):
-        certificates = self.manager.get_all_certificates()
-        self.result_text.delete(1.0, END)
-        
-        if not certificates:
-            self.result_text.insert(END, "No certificates found in the database")
-            return
-        
-        for cert in certificates:
-            self.result_text.insert(END, f"Roll: {cert['roll']}\n")
-            self.result_text.insert(END, f"Link: {cert['link']}\n")
-            self.result_text.insert(END, "-"*50 + "\n")
+    def show_all(self):
+        self.tree.delete(*self.tree.get_children())
+        for roll, info in self.manager.get_all().items():
+            self.tree.insert("", "end", values=(roll, info["name"], info["course"], info["total"], info["remaining"]))
+        self.update_totals()
 
-    def clear_fields(self):
-        self.roll_entry.delete(0, END)
-        self.link_entry.delete(0, END)
-        self.result_text.delete(1.0, END)
+    def update_totals(self):
+        total = self.manager.get_total_sum()
+        remaining = self.manager.get_remaining_sum()
+        self.total_label.config(text=f"Total Fee: ₹{total} | Remaining: ₹{remaining}")
+
+    def clear(self):
+        for entry in self.entries.values():
+            entry.delete(0, tk.END)
+        self.tree.delete(*self.tree.get_children())
+        self.update_totals()
 
 def main():
-    # Uncomment to use CLI version
-    # cli_version()
-    
-    # GUI version
-    root = Tk()
-    app = CertificateManagerGUI(root)
+    root = tk.Tk()
+    app = FeeManagerApp(root)
     root.mainloop()
 
-def cli_version():
-    manager = CertificateManager()
-    print("Certificate Management System")
-    
-    while True:
-        print("\nOptions:")
-        print("1. Add Certificate")
-        print("2. Update Certificate")
-        print("3. Delete Certificate")
-        print("4. Search Certificate")
-        print("5. Show All Certificates")
-        print("6. Exit")
-        
-        choice = input("Enter your choice (1-6): ")
-        
-        if choice == '1':
-            roll = input("Enter roll number: ").strip()
-            link = input("Enter certificate link: ").strip()
-            success, message = manager.add_certificate(roll, link)
-            print(message)
-        
-        elif choice == '2':
-            roll = input("Enter roll number to update: ").strip()
-            new_link = input("Enter new link (leave blank to keep current): ").strip()
-            new_roll = input("Enter new roll number (leave blank to keep current): ").strip()
-            
-            if not new_link and not new_roll:
-                print("No changes provided")
-                continue
-                
-            success, message = manager.update_certificate(roll, new_link or None, new_roll or None)
-            print(message)
-        
-        elif choice == '3':
-            roll = input("Enter roll number to delete: ").strip()
-            success, message = manager.delete_certificate(roll)
-            print(message)
-        
-        elif choice == '4':
-            roll = input("Enter roll number to search: ").strip()
-            success, result = manager.search_certificate(roll)
-            if success:
-                print("\nCertificate Found:")
-                print(f"Roll: {result['roll']}")
-                print(f"Link: {result['link']}")
-            else:
-                print(result)
-        
-        elif choice == '5':
-            certificates = manager.get_all_certificates()
-            if not certificates:
-                print("No certificates in database")
-            else:
-                print("\nAll Certificates:")
-                for cert in certificates:
-                    print(f"\nRoll: {cert['roll']}")
-                    print(f"Link: {cert['link']}")
-                    print("-"*50)
-        
-        elif choice == '6':
-            print("Exiting...")
-            break
-        
-        else:
-            print("Invalid choice. Please try again.")
-
-if __name__ == "__main__":
-    main()
+main()
