@@ -309,7 +309,7 @@
         "name": "Mohd Faiz",
         "course": "ADCA",
         "total": 3600,
-        "remaining": 1200
+        "remaining": 900
     },
     "1038": {
         "name": "Umra Sheikh",
@@ -783,7 +783,7 @@
         "name": "Aamir khan",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 1500
+        "remaining": 1000
     },
     "1134": {
         "name": "Shivam",
@@ -819,7 +819,7 @@
         "name": "Sajeb Ali",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 3000
+        "remaining": 2500
     },
     "1109": {
         "name": "Preeti Sharma",
@@ -933,7 +933,7 @@
         "name": "Sohil",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 4500
+        "remaining": 4000
     },
     "1126": {
         "name": "Sahid Hussian",
@@ -987,7 +987,7 @@
         "name": "Hamdo Sana",
         "course": "DCA",
         "total": 1800,
-        "remaining": 900
+        "remaining": 600
     },
     "184": {
         "name": "Taiba",
@@ -1203,7 +1203,7 @@
         "name": "Nisha Khan",
         "course": "Accounting",
         "total": 4800,
-        "remaining": 600
+        "remaining": 0
     },
     "111": {
         "name": "Raj",
@@ -1287,7 +1287,7 @@
         "name": "Alveena",
         "course": "DCST",
         "total": 600,
-        "remaining": 400
+        "remaining": 200
     },
     "199": {
         "name": "Umra",
@@ -1340,8 +1340,8 @@
     "1167": {
         "name": "Madhuri",
         "course": "ADCA",
-        "total": 6000,
-        "remaining": 5200
+        "total": 4800,
+        "remaining": 4400
     },
     "201": {
         "name": "Ritika",
@@ -1485,7 +1485,7 @@
         "name": "Imran Ali",
         "course": "MDCA",
         "total": 9600,
-        "remaining": 9600
+        "remaining": 8800
     },
     "1182": {
         "name": "Farman Uddin",
@@ -1539,7 +1539,7 @@
         "name": "Sahil",
         "course": "MDCA",
         "total": 9600,
-        "remaining": 9600
+        "remaining": 8800
     },
     "1188": {
         "name": "Divya Sharma",
@@ -1557,6 +1557,48 @@
         "name": "Ayan",
         "course": "ADCA",
         "total": 6000,
+        "remaining": 4200
+    },
+    "1191": {
+        "name": "Faizan",
+        "course": "ADCA",
+        "total": 4200,
+        "remaining": 3500
+    },
+    "213": {
+        "name": "Subhana Khan",
+        "course": "DCA",
+        "total": 1800,
+        "remaining": 1800
+    },
+    "1192": {
+        "name": "suraj verma",
+        "course": "ADCA",
+        "total": 6000,
         "remaining": 6000
+    },
+    "1193": {
+        "name": "Soni",
+        "course": "Graphic Designing",
+        "total": 6000,
+        "remaining": 6000
+    },
+    "1194": {
+        "name": "Anshu Prajapati",
+        "course": "ADCA",
+        "total": 6000,
+        "remaining": 6000
+    },
+    "214": {
+        "name": "Abhijeet",
+        "course": "DCST",
+        "total": 600,
+        "remaining": 600
+    },
+    "215": {
+        "name": "Kajal",
+        "course": "DCST",
+        "total": 600,
+        "remaining": 600
     }
 }
