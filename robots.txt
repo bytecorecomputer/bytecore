@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bytecorecomputercentre-github-io.vercel.app/sitemap.xml
+Sitemap: https://bytecore-flax.vercel.app/sitemap.xml
