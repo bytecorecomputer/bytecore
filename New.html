@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bytecore Tech Innovation Challenge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1a2a6c;
+            --secondary: #2c3e50;
+            --accent: #d4af37;
+            --dark: #0f172a;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .government-badge {
+            background: linear-gradient(135deg, var(--accent), #c9a227);
+            color: #1a237e;
+            border: 2px solid #1a237e;
+        }
+        
+        .prize-card {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            border: 3px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .prize-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .tech-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(212, 175, 55, 0.7);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #ffd700, var(--accent));
+            color: #1a237e;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            font-weight: 700;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.6);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+            70% { box-shadow: 0 0 0 12px rgba(255, 215, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+        }
+        
+        .contact-card {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .footer-badge {
+            background: rgba(0, 0, 0, 0.3);
+            border-top: 2px solid rgba(212, 175, 55, 0.5);
+        }
+        
+        .modal {
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .form-input {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--accent);
+            outline: none;
+        }
+        
+        .payment-method {
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-method:hover, .payment-method.active {
+            border-color: var(--accent);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .steps-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body class="relative overflow-x-hidden">
+    <!-- Header/Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-blue-900/80 backdrop-blur-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-microchip text-2xl text-yellow-300 mr-2"></i>
+                <span class="text-xl font-bold font-montserrat">ByteCore</span>
+            </div>
+            <button class="md:hidden text-white text-2xl" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#about" class="text-white hover:text-yellow-300 transition">About</a>
+                <a href="#topics" class="text-white hover:text-yellow-300 transition">Topics</a>
+                <a href="#prizes" class="text-white hover:text-yellow-300 transition">Prizes</a>
+                <a href="#contact" class="text-white hover:text-yellow-300 transition">Contact</a>
+                <button class="cta-button px-6 py-2 rounded-full pulse" id="register-button-nav">
+                    Register Now
+                </button>
+            </nav>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-blue-900 w-full py-4 px-4" id="mobile-menu">
+            <div class="flex flex-col space-y-4">
+                <a href="#about" class="text-white hover:text-yellow-300 transition">About</a>
+                <a href="#topics" class="text-white hover:text-yellow-300 transition">Topics</a>
+                <a href="#prizes" class="text-white hover:text-yellow-300 transition">Prizes</a>
+                <a href="#contact" class="text-white hover:text-yellow-300 transition">Contact</a>
+                <button class="cta-button px-6 py-2 rounded-full w-full pulse" id="register-button-mobile">
+                    Register Now
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10">
+            <div class="absolute top-10 left-10 text-8xl opacity-20"><i class="fas fa-landmark"></i></div>
+            <div class="absolute bottom-20 right-10 text-8xl opacity-20"><i class="fas fa-medal"></i></div>
+        </div>
+        
+        <div class="container mx-auto max-w-6xl relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 animate__animated animate__fadeInLeft">
+                    <div class="government-badge px-6 py-2 rounded-full text-center inline-block mb-6">
+                        <i class="fas fa-shield-alt mr-2"></i>Government Approved Initiative
+                    </div>
+                    
+                    <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-montserrat leading-tight">
+                        <span class="text-yellow-300">ByteCore </span> Tech Innovation Challenge
+                    </h1>
+                    
+                    <p class="text-xl text-blue-200 mb-8">
+                        Showcase your research on cutting-edge technologies and win amazing prizes!
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button class="cta-button font-bold py-4 px-8 rounded-full text-lg pulse animate__animated animate__pulse animate__infinite" id="register-button-hero">
+                            REGISTER NOW <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                        <a href="#prizes" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold py-4 px-8 rounded-full text-lg transition flex items-center justify-center">
+                            <i class="fas fa-trophy mr-2"></i> View Prizes
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 flex items-center space-x-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-yellow-300 flex items-center justify-center mr-2">
+                                <i class="fas fa-rupee-sign text-blue-900"></i>
+                            </div>
+                            <span class="font-bold">Entry Fee: ₹50</span>
+                        </div>
+                        <div class="h-6 w-px bg-white/30"></div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-yellow-300 flex items-center justify-center mr-2">
+                                <i class="fas fa-calendar-alt text-blue-900"></i>
+                            </div>
+                            <span class="font-bold">Deadline: 30 Sep 2025</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 animate__animated animate__fadeInRight">
+                    <div class="bg-blue-800/30 rounded-2xl p-6 backdrop-blur-md border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Tech Innovation" 
+                             class="w-full h-auto rounded-xl shadow-2xl border-4 border-yellow-300/30">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 px-4 bg-blue-900/30">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 font-montserrat">
+                    <i class="fas fa-info-circle text-yellow-300 mr-3"></i> About The Challenge
+                </h2>
+                <p class="text-blue-200 max-w-3xl mx-auto">
+                    The ByteCore Tech Innovation Challenge is a government-approved initiative to foster innovation in cutting-edge technologies. 
+                    Submit your research paper on one of our selected topics for a chance to win cash prizes and recognition.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="tech-card rounded-2xl p-8 text-center">
+                    <div class="w-20 h-20 rounded-full bg-blue-800 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-lightbulb text-yellow-300 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Innovation Focused</h3>
+                    <p class="text-blue-200">We're looking for fresh, innovative ideas that push the boundaries of technology.</p>
+                </div>
+                
+                <div class="tech-card rounded-2xl p-8 text-center">
+                    <div class="w-20 h-20 rounded-full bg-blue-800 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-graduation-cap text-yellow-300 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Learning Opportunity</h3>
+                    <p class="text-blue-200">Enhance your knowledge and research skills while competing for prizes.</p>
+                </div>
+                
+                <div class="tech-card rounded-2xl p-8 text-center">
+                    <div class="w-20 h-20 rounded-full bg-blue-800 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-network-wired text-yellow-300 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Networking</h3>
+                    <p class="text-blue-200">Connect with like-minded tech enthusiasts and industry professionals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topics Section -->
+    <section id="topics" class="py-16 px-4 bg-blue-950">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 font-montserrat">
+                    <i class="fas fa-laptop-code text-yellow-300 mr-3"></i> Research Topics
+                </h2>
+                <p class="text-blue-200 max-w-3xl mx-auto">
+                    Choose one of these cutting-edge technology topics for your research submission.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="tech-card rounded-2xl p-8 text-center transform hover:-translate-y-2 transition duration-300">
+                    <div class="w-24 h-24 rounded-full bg-blue-800 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-link text-blue-300 text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Blockchain Technology</h3>
+                    <p class="text-blue-200 mb-4">Explore decentralized systems, smart contracts, and cryptocurrency innovations.</p>
+                    <div class="bg-blue-900/50 rounded-full px-4 py-2 inline-block">
+                        <span class="text-yellow-300 text-sm font-medium">Sample: NFT Applications</span>
+                    </div>
+                </div>
+                
+                <div class="tech-card rounded-2xl p-8 text-center transform hover:-translate-y-2 transition duration-300">
+                    <div class="w-24 h-24 rounded-full bg-blue-800 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-vr-cardboard text-purple-300 text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Virtual Reality</h3>
+                    <p class="text-blue-200 mb-4">Investigate immersive experiences, VR applications, and future possibilities.</p>
+                    <div class="bg-blue-900/50 rounded-full px-4 py-2 inline-block">
+                        <span class="text-yellow-300 text-sm font-medium">Sample: Education in VR</span>
+                    </div>
+                </div>
+                
+                <div class="tech-card rounded-2xl p-8 text-center transform hover:-translate-y-2 transition duration-300">
+                    <div class="w-24 h-24 rounded-full bg-blue-800 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-robot text-green-300 text-4xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Artificial Intelligence</h3>
+                    <p class="text-blue-200 mb-4">Research machine learning, neural networks, and AI ethics.</p>
+                    <div class="bg-blue-900/50 rounded-full px-4 py-2 inline-block">
+                        <span class="text-yellow-300 text-sm font-medium">Sample: AI in Healthcare</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-blue-300">
+                    <i class="fas fa-info-circle text-yellow-300 mr-2"></i> 
+                    Submit your research as PDF or DOCX file via our website or email to bytecore.info@gmail.com
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section id="prizes" class="py-16 px-4 bg-gradient-to-b from-blue-800 to-blue-900">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 font-montserrat">
+                    <i class="fas fa-trophy text-yellow-300 mr-3"></i> Amazing Prizes
+                </h2>
+                <p class="text-blue-200 max-w-3xl mx-auto">
+                    Win cash awards and certificates for your innovative research.
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-8">
+                <div class="prize-card rounded-2xl p-8 text-center w-full max-w-md transform hover:-translate-y-2 transition duration-300">
+                    <div class="text-yellow-300 text-3xl font-bold mb-4 flex items-center justify-center">
+                        <i class="fas fa-crown mr-3"></i> Grand Prize
+                    </div>
+                    <div class="text-white text-5xl font-bold font-montserrat mb-2">₹10,000</div>
+                    <div class="text-blue-200 text-lg mb-6">Cash Award + Certificate</div>
+                    <div class="bg-yellow-300/10 border border-yellow-300/30 rounded-lg p-4">
+                        <p class="text-yellow-300">Best overall research submission across all topics</p>
+                    </div>
+                </div>
+                
+                <div class="prize-card rounded-2xl p-8 text-center w-full max-w-md transform hover:-translate-y-2 transition duration-300">
+                    <div class="text-yellow-300 text-3xl font-bold mb-4 flex items-center justify-center">
+                        <i class="fas fa-star mr-3"></i> Top 10 Winners
+                    </div>
+                    <div class="text-white text-5xl font-bold font-montserrat mb-2">₹1,000</div>
+                    <div class="text-blue-200 text-lg mb-6">Each + Certificate</div>
+                    <div class="bg-yellow-300/10 border border-yellow-300/30 rounded-lg p-4">
+                        <p class="text-yellow-300">Outstanding submissions in each category</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Participate -->
+    <section class="py-16 px-4 bg-blue-950">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 font-montserrat">
+                    <i class="fas fa-file-upload text-yellow-300 mr-3"></i> How to Participate
+                </h2>
+                <p class="text-blue-200 max-w-3xl mx-auto">
+                    Follow these simple steps to join the competition and showcase your tech innovation.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+                <div class="bg-blue-800/50 hover:bg-blue-800/70 rounded-xl p-6 text-center transition transform hover:-translate-y-2">
+                    <div class="w-16 h-16 rounded-full bg-yellow-300 flex items-center justify-center mx-auto mb-4 text-blue-900 text-2xl font-bold">1</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Pay Entry Fee</h3>
+                    <p class="text-blue-200 text-sm">Complete the ₹50 payment via UPI, card, or other methods</p>
+                </div>
+                
+                <div class="bg-blue-800/50 hover:bg-blue-800/70 rounded-xl p-6 text-center transition transform hover:-translate-y-2">
+                    <div class="w-16 h-16 rounded-full bg-yellow-300 flex items-center justify-center mx-auto mb-4 text-blue-900 text-2xl font-bold">2</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Choose Topic</h3>
+                    <p class="text-blue-200 text-sm">Select your preferred technology topic for research</p>
+                </div>
+                
+                <div class="bg-blue-800/50 hover:bg-blue-800/70 rounded-xl p-6 text-center transition transform hover:-translate-y-2">
+                    <div class="w-16 h-16 rounded-full bg-yellow-300 flex items-center justify-center mx-auto mb-4 text-blue-900 text-2xl font-bold">3</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Submit Research</h3>
+                    <p class="text-blue-200 text-sm">Upload your research file through our portal or email</p>
+                </div>
+                
+                <div class="bg-blue-800/50 hover:bg-blue-800/70 rounded-xl p-6 text-center transition transform hover:-translate-y-2">
+                    <div class="w-16 h-16 rounded-full bg-yellow-300 flex items-center justify-center mx-auto mb-4 text-blue-900 text-2xl font-bold">4</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Win Prizes</h3>
+                    <p class="text-blue-200 text-sm">Wait for results and claim your prizes if selected</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button class="cta-button font-bold py-4 px-10 rounded-full text-lg pulse animate__animated animate__pulse animate__infinite" id="register-button-bottom">
+                    REGISTER NOW <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section id="contact" class="py-16 px-4 bg-blue-900/30">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 font-montserrat">
+                    <i class="fas fa-envelope text-yellow-300 mr-3"></i> Contact Us
+                </h2>
+                <p class="text-blue-200 max-w-3xl mx-auto">
+                    Have questions? Reach out to us through any of these channels.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="contact-card rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                        <i class="fas fa-headset text-yellow-300 mr-3"></i> Contact Information
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-800 p-4 rounded-xl mr-4">
+                                <i class="fas fa-phone text-blue-300 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-blue-200 text-sm">Phone Number</div>
+                                <div class="text-white font-bold text-xl">+91 6396835709</div>
+                                <div class="text-blue-300 text-sm mt-1">Available 10AM-6PM, Mon-Sat</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-800 p-4 rounded-xl mr-4">
+                                <i class="fas fa-envelope text-blue-300 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-blue-200 text-sm">Email Address</div>
+                                <div class="text-white font-bold text-xl">bytecore.info@gmail.com</div>
+                                <div class="text-blue-300 text-sm mt-1">For submissions and queries</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-800 p-4 rounded-xl mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-300 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-blue-200 text-sm">Center Address</div>
+                                <div class="text-white font-bold text-xl">Nariyawal, Bareilly</div>
+                                <div class="text-blue-300 text-sm mt-1">Uttar Pradesh, India</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-card rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                        <i class="fas fa-globe text-yellow-300 mr-3"></i> Digital Presence
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-800 p-4 rounded-xl mr-4">
+                                <i class="fas fa-globe text-blue-300 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-blue-200 text-sm">Website</div>
+                                <a href="https://bytecore-flax.vercel.app" class="text-white font-bold text-xl hover:text-yellow-300 transition">bytecore-flax.vercel.app</a>
+                                <div class="text-blue-300 text-sm mt-1">Visit for more information</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-800 p-4 rounded-xl mr-4">
+                                <i class="fab fa-whatsapp text-blue-300 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-blue-200 text-sm">WhatsApp</div>
+                                <div class="text-white font-bold text-xl">+91 6396835709</div>
+                                <div class="text-blue-300 text-sm mt-1">Quick responses via WhatsApp</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-800 p-4 rounded-xl mr-4">
+                                <i class="fas fa-qrcode text-blue-300 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-blue-200 text-sm">Payment QR Code</div>
+                                <div class="text-white font-bold text-xl">Scan to pay entry fee</div>
+                                <div class="mt-2">
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=bytecore.info%40gmail.com&pn=ByteCore&am=50&cu=INR" 
+                                         alt="Payment QR Code" 
+                                         class="w-24 h-24 border-2 border-yellow-300/50 rounded-lg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-badge py-12 px-4 text-center bg-blue-950/70">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0 text-left">
+                    <div class="flex items-center justify-center md:justify-start mb-4">
+                        <i class="fas fa-microchip text-3xl text-yellow-300 mr-3"></i>
+                        <span class="text-2xl font-bold font-montserrat">ByteCore</span>
+                    </div>
+                    <p class="text-blue-300 max-w-md">
+                        Empowering tech innovation through competitions and education.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-8 text-left">
+                    <div>
+                        <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#about" class="text-blue-300 hover:text-yellow-300 transition">About</a></li>
+                            <li><a href="#topics" class="text-blue-300 hover:text-yellow-300 transition">Topics</a></li>
+                            <li><a href="#prizes" class="text-blue-300 hover:text-yellow-300 transition">Prizes</a></li>
+                            <li><a href="#contact" class="text-blue-300 hover:text-yellow-300 transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-white font-bold mb-4">Information</h4>
+                        <ul class="space-y-2">
+                            <li class="text-blue-300">Entry Fee: ₹50</li>
+                            <li class="text-blue-300">Deadline: 30 Sep 2025</li>
+                            <li class="text-blue-300">Results: 15 Oct 2025</li>
+                            <li class="text-blue-300">Location: Bareilly</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/10">
+                <div class="text-yellow-300 text-xl font-bold font-montserrat mb-2">
+                    ORGANIZED BY
+                </div>
+                <div class="text-white text-2xl font-bold mb-4">ByteCore Computer Centre</div>
+                
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="#" class="text-white hover:text-yellow-300 text-2xl transition">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-yellow-300 text-2xl transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-yellow-300 text-2xl transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-yellow-300 text-2xl transition">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                
+                <p class="text-blue-300 text-sm">
+                    © 2025 ByteCore Computer Centre. All rights reserved. | Government Approved Initiative
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Registration Modal -->
+    <div class="modal fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" id="registration-modal">
+        <div class="bg-blue-900 rounded-2xl max-w-md w-full relative overflow-hidden">
+            <button class="absolute top-4 right-4 text-white text-2xl" id="close-modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="p-8">
+                <div class="text-center mb-8">
+                    <div class="w-20 h-20 rounded-full bg-yellow-300 flex items-center justify-center mx-auto mb-4 text-blue-900 text-3xl">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-2">Register for Tech Challenge</h2>
+                    <p class="text-blue-200">Complete this form to participate in the competition</p>
+                </div>
+                
+                <form id="registration-form" action="https://getform.io/f/{your-form-endpoint}" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-blue-200 mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" required 
+                               class="form-input w-full px-4 py-3 rounded-lg text-white placeholder-blue-300">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-blue-200 mb-2">Email Address</label>
+                        <input type="email" id="email" name="email" required 
+                               class="form-input w-full px-4 py-3 rounded-lg text-white placeholder-blue-300">
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block text-blue-200 mb-2">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required 
+                               class="form-input w-full px-4 py-3 rounded-lg text-white placeholder-blue-300">
+                    </div>
+                    
+                    <div>
+                        <label for="topic" class="block text-blue-200 mb-2">Research Topic</label>
+                        <select id="topic" name="topic" required 
+                                class="form-input w-full px-4 py-3 rounded-lg text-white bg-blue-900 border-blue-700">
+                            <option value="" disabled selected>Select your topic</option>
+                            <option value="Blockchain">Blockchain Technology</option>
+                            <option value="VR">Virtual Reality</option>
+                            <option value="AI">Artificial Intelligence</option>
+                        </select>
+                    </div>
+                    
+                    <div class="pt-4">
+                        <h4 class="text-white font-bold mb-3 flex items-center">
+                            <i class="fas fa-rupee-sign text-yellow-300 mr-2"></i> Entry Fee: ₹50
+                        </h4>
+                        <p class="text-blue-200 text-sm mb-4">Choose your payment method:</p>
+                        
+                        <div class="grid grid-cols-3 gap-3 mb-4">
+                            <div class="payment-method rounded-lg p-3 text-center cursor-pointer bg-blue-800/50">
+                                <i class="fab fa-google-pay text-2xl mb-1"></i>
+                                <div class="text-xs">Google Pay</div>
+                            </div>
+                            <div class="payment-method rounded-lg p-3 text-center cursor-pointer bg-blue-800/50">
+                                <i class="fab fa-amazon-pay text-2xl mb-1"></i>
+                                <div class="text-xs">Amazon Pay</div>
+                            </div>
+                            <div class="payment-method rounded-lg p-3 text-center cursor-pointer bg-blue-800/50">
+                                <i class="fas fa-qrcode text-2xl mb-1"></i>
+                                <div class="text-xs">UPI QR</div>
+                            </div>
+                            <div class="payment-method rounded-lg p-3 text-center cursor-pointer bg-blue-800/50">
+                                <i class="fas fa-credit-card text-2xl mb-1"></i>
+                                <div class="text-xs">Card</div>
+                            </div>
+                            <div class="payment-method rounded-lg p-3 text-center cursor-pointer bg-blue-800/50">
+                                <i class="fas fa-university text-2xl mb-1"></i>
+                                <div class="text-xs">Net Banking</div>
+                            </div>
+                            <div class="payment-method rounded-lg p-3 text-center cursor-pointer bg-blue-800/50">
+                                <i class="fas fa-wallet text-2xl mb-1"></i>
+                                <div class="text-xs">Wallet</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center mb-4">
+                            <input type="checkbox" id="terms" name="terms" required 
+                                   class="mr-2 h-5 w-5 text-yellow-300 rounded focus:ring-yellow-300">
+                            <label for="terms" class="text-blue-200 text-sm">
+                                I agree to the <a href="#" class="text-yellow-300 hover:underline">terms and conditions</a>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="cta-button w-full py-4 rounded-lg font-bold text-lg">
+                            COMPLETE REGISTRATION <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment QR Modal -->
+    <div class="modal fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4" id="qr-modal">
+        <div class="bg-blue-900 rounded-2xl max-w-xs w-full relative overflow-hidden">
+            <button class="absolute top-4 right-4 text-white text-2xl" id="close-qr-modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="p-8 text-center">
+                <h3 class="text-xl font-bold text-white mb-4">Scan to Pay ₹50</h3>
+                <div class="bg-white p-4 rounded-lg inline-block mb-4">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=bytecore.info%40gmail.com&pn=ByteCore&am=50&cu=INR" 
+                         alt="Payment QR Code" 
+                         class="w-full h-auto">
+                </div>
+                <p class="text-blue-200 mb-2">UPI ID: bytecore.info@gmail.com</p>
+                <p class="text-yellow-300 text-sm">After payment, complete the registration form</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div class="fixed bottom-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg hidden z-50" id="success-toast">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle text-xl mr-3"></i>
+            <span>Registration successful! We'll contact you soon.</span>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Registration modal
+        const registerButtons = [
+            document.getElementById('register-button-hero'),
+            document.getElementById('register-button-nav'),
+            document.getElementById('register-button-mobile'),
+            document.getElementById('register-button-bottom')
+        ];
+        
+        const registrationModal = document.getElementById('registration-modal');
+        const closeModal = document.getElementById('close-modal');
+        const qrModal = document.getElementById('qr-modal');
+        const closeQrModal = document.getElementById('close-qr-modal');
+        const successToast = document.getElementById('success-toast');
+        
+        registerButtons.forEach(button => {
+            if (button) {
+                button.addEventListener('click', () => {
+                    registrationModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+        });
+        
+        closeModal.addEventListener('click', () => {
+            registrationModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        closeQrModal.addEventListener('click', () => {
+            qrModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Payment method selection
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', () => {
+                paymentMethods.forEach(m => m.classList.remove('active'));
+                method.classList.add('active');
+                
+                // If QR code selected, show QR modal
+                if (method.querySelector('.fa-qrcode')) {
+                    qrModal.classList.add('active');
+                }
+            });
+        });
+        
+        // Form submission
+        const registrationForm = document.getElementById('registration-form');
+        if (registrationForm) {
+            registrationForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Simulate form submission
+                setTimeout(() => {
+                    registrationModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                    
+                    // Show success toast
+                    successToast.classList.remove('hidden');
+                    setTimeout(() => {
+                        successToast.classList.add('hidden');
+                    }, 5000);
+                }, 1500);
+            });
+        }
+        
+        // Close modals when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === registrationModal) {
+                registrationModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            if (e.target === qrModal) {
+                qrModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
