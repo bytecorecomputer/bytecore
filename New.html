@@ -138,8 +138,8 @@
     <header class="fixed top-0 left-0 w-full z-50 bg-blue-900/80 backdrop-blur-md">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <i class="fas fa-microchip text-2xl text-yellow-300 mr-2"></i>
-                <span class="text-xl font-bold font-montserrat">ByteCore</span>
+                <img src="https://www.skillindiadigital.gov.in/assets/new-ux-img/skill-india-big-logo.svg" alt="">
+                <!-- <span class="text-xl font-bold font-montserrat">skillindiadigital</span> -->
             </div>
             <button class="md:hidden text-white text-2xl" id="mobile-menu-button">
                 <i class="fas fa-bars"></i>
@@ -219,7 +219,7 @@
                 
                 <div class="lg:w-1/2 animate__animated animate__fadeInRight">
                     <div class="bg-blue-800/30 rounded-2xl p-6 backdrop-blur-md border border-white/10">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                        <img src="https://s3.ap-south-1.amazonaws.com/skill-india-dev/%2F%2FPRODbannerimagesPROD/PRODjpegPROD/PROD3146a8412f-553c-4eeb-98e0-1be53e03c300.jpg?response-content-disposition=inline&response-content-type=image%2Fjpeg&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250731T120000Z&X-Amz-SignedHeaders=host&X-Amz-Expires=604800&X-Amz-Credential=AKIA3OJCFBJTPLAN4OGU%2F20250731%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Signature=9042899a55f8b3bbf48d7ff4332f1701e387be1a26074bc4748b118a65e3027d" 
                              alt="Tech Innovation" 
                              class="w-full h-auto rounded-xl shadow-2xl border-4 border-yellow-300/30">
                     </div>
@@ -435,7 +435,8 @@
                             <div>
                                 <div class="text-blue-200 text-sm">Phone Number</div>
                                 <div class="text-white font-bold text-xl">+91 6396835709</div>
-                                <div class="text-blue-300 text-sm mt-1">Available 10AM-6PM, Mon-Sat</div>
+                                  <div class="text-white font-bold text-xl">+91 8923916987</div>
+                                <div class="text-blue-300 text-sm mt-1">Available 24x7</div>
                             </div>
                         </div>
                         
@@ -487,23 +488,14 @@
                             <div>
                                 <div class="text-blue-200 text-sm">WhatsApp</div>
                                 <div class="text-white font-bold text-xl">+91 6396835709</div>
+                                <div class="text-white font-bold text-xl">+91 8923916987</div>
                                 <div class="text-blue-300 text-sm mt-1">Quick responses via WhatsApp</div>
                             </div>
                         </div>
                         
                         <div class="flex items-start">
-                            <div class="bg-blue-800 p-4 rounded-xl mr-4">
-                                <i class="fas fa-qrcode text-blue-300 text-xl"></i>
-                            </div>
-                            <div>
-                                <div class="text-blue-200 text-sm">Payment QR Code</div>
-                                <div class="text-white font-bold text-xl">Scan to pay entry fee</div>
-                                <div class="mt-2">
-                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=bytecore.info%40gmail.com&pn=ByteCore&am=50&cu=INR" 
-                                         alt="Payment QR Code" 
-                                         class="w-24 h-24 border-2 border-yellow-300/50 rounded-lg">
-                                </div>
-                            </div>
+                            
+                          
                         </div>
                     </div>
                 </div>
@@ -585,89 +577,64 @@
             
             <div class="p-8">
                 <div class="text-center mb-8">
-                    <div class="w-20 h-20 rounded-full bg-yellow-300 flex items-center justify-center mx-auto mb-4 text-blue-900 text-3xl">
+                    <!-- <div class="w-20 h-20 rounded-full bg-yellow-300 flex items-center justify-center mx-auto mb-4 text-blue-900 text-3xl">
                         <i class="fas fa-user-edit"></i>
-                    </div>
+                    </div> -->
                     <h2 class="text-2xl font-bold text-white mb-2">Register for Tech Challenge</h2>
-                    <p class="text-blue-200">Complete this form to participate in the competition</p>
+                    <!-- <p class="text-blue-200">Complete this form to participate in the competition</p> -->
                 </div>
                 
-                <form id="registration-form" action="https://getform.io/f/{your-form-endpoint}" method="POST" class="space-y-6">
-                    <div>
-                        <label for="name" class="block text-blue-200 mb-2">Full Name</label>
-                        <input type="text" id="name" name="name" required 
-                               class="form-input w-full px-4 py-3 rounded-lg text-white placeholder-blue-300">
-                    </div>
-                    
-                    <div>
-                        <label for="email" class="block text-blue-200 mb-2">Email Address</label>
-                        <input type="email" id="email" name="email" required 
-                               class="form-input w-full px-4 py-3 rounded-lg text-white placeholder-blue-300">
-                    </div>
-                    
-                    <div>
-                        <label for="phone" class="block text-blue-200 mb-2">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required 
-                               class="form-input w-full px-4 py-3 rounded-lg text-white placeholder-blue-300">
-                    </div>
-                    
-                    <div>
-                        <label for="topic" class="block text-blue-200 mb-2">Research Topic</label>
-                        <select id="topic" name="topic" required 
-                                class="form-input w-full px-4 py-3 rounded-lg text-white bg-blue-900 border-blue-700">
-                            <option value="" disabled selected>Select your topic</option>
-                            <option value="Blockchain">Blockchain Technology</option>
-                            <option value="VR">Virtual Reality</option>
-                            <option value="AI">Artificial Intelligence</option>
-                        </select>
-                    </div>
-                    
-                    <div class="pt-4">
-                        <h4 class="text-white font-bold mb-3 flex items-center">
-                            <i class="fas fa-rupee-sign text-yellow-300 mr-2"></i> Entry Fee: ₹50
-                        </h4>
-                        <p class="text-blue-200 text-sm mb-4">Choose your payment method:</p>
-                        
-                        <div class="grid grid-cols-3 gap-3 mb-4">
-                            <div class="payment-method rounded-lg p-3 text-center cursor-pointer bg-blue-800/50">
-                                <i class="fab fa-google-pay text-2xl mb-1"></i>
-                                <div class="text-xs">Google Pay</div>
-                            </div>
-                            <div class="payment-method rounded-lg p-3 text-center cursor-pointer bg-blue-800/50">
-                                <i class="fab fa-amazon-pay text-2xl mb-1"></i>
-                                <div class="text-xs">Amazon Pay</div>
-                            </div>
-                            <div class="payment-method rounded-lg p-3 text-center cursor-pointer bg-blue-800/50">
-                                <i class="fas fa-qrcode text-2xl mb-1"></i>
-                                <div class="text-xs">UPI QR</div>
-                            </div>
-                            <div class="payment-method rounded-lg p-3 text-center cursor-pointer bg-blue-800/50">
-                                <i class="fas fa-credit-card text-2xl mb-1"></i>
-                                <div class="text-xs">Card</div>
-                            </div>
-                            <div class="payment-method rounded-lg p-3 text-center cursor-pointer bg-blue-800/50">
-                                <i class="fas fa-university text-2xl mb-1"></i>
-                                <div class="text-xs">Net Banking</div>
-                            </div>
-                            <div class="payment-method rounded-lg p-3 text-center cursor-pointer bg-blue-800/50">
-                                <i class="fas fa-wallet text-2xl mb-1"></i>
-                                <div class="text-xs">Wallet</div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center mb-4">
-                            <input type="checkbox" id="terms" name="terms" required 
-                                   class="mr-2 h-5 w-5 text-yellow-300 rounded focus:ring-yellow-300">
-                            <label for="terms" class="text-blue-200 text-sm">
-                                I agree to the <a href="#" class="text-yellow-300 hover:underline">terms and conditions</a>
-                            </label>
-                        </div>
-                        
-                        <button type="submit" class="cta-button w-full py-4 rounded-lg font-bold text-lg">
-                            COMPLETE REGISTRATION <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
-                    </div>
-                </form>
+              <form id="registration-form" action="https://formspree.io/f/xyzppazo" method="POST" class="space-y-6">
+    <!-- Formspark hidden fields -->
+    <input type="hidden" name="_next" value="https://bytecore-flax.vercel.app/thank-you.html">
+    <input type="hidden" name="_subject" value="New ByteCore Registration">
+    <input type="hidden" name="_template" value="table">
+    <input type="text" name="_honeypot" style="display:none">
+    
+    <!-- Form fields -->
+    <div>
+        <label for="name" class="block text-blue-200 mb-2">Full Name</label>
+        <input type="text" id="name" name="name" required 
+               class="form-input w-full px-4 py-3 rounded-lg text-white placeholder-blue-300">
+    </div>
+    
+    <div>
+        <label for="email" class="block text-blue-200 mb-2">Email Address</label>
+        <input type="email" id="email" name="email" required 
+               class="form-input w-full px-4 py-3 rounded-lg text-white placeholder-blue-300">
+    </div>
+    
+    <div>
+        <label for="phone" class="block text-blue-200 mb-2">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required 
+               class="form-input w-full px-4 py-3 rounded-lg text-white placeholder-blue-300">
+    </div>
+    
+    <div>
+        <label for="topic" class="block text-blue-200 mb-2">Research Topic</label>
+        <select id="topic" name="topic" required 
+                class="form-input w-full px-4 py-3 rounded-lg text-white bg-blue-900 border-blue-700">
+            <option value="" disabled selected>Select your topic</option>
+            <option value="Blockchain">Blockchain Technology</option>
+            <option value="VR">Virtual Reality</option>
+            <option value="AI">Artificial Intelligence</option>
+        </select>
+    </div>
+    
+    <div class="pt-4">
+        <div class="flex items-center mb-4">
+            <input type="checkbox" id="terms" name="terms" required 
+                   class="mr-2 h-5 w-5 text-yellow-300 rounded focus:ring-yellow-300">
+            <label for="terms" class="text-blue-200 text-sm">
+                I agree to the <a href="#" class="text-yellow-300 hover:underline">terms and conditions</a>
+            </label>
+        </div>
+        
+        <button type="submit" class="cta-button w-full py-4 rounded-lg font-bold text-lg">
+            COMPLETE REGISTRATION <i class="fas fa-arrow-right ml-2"></i>
+        </button>
+    </div>
+</form>
             </div>
         </div>
     </div>
@@ -757,25 +724,38 @@
         });
         
         // Form submission
-        const registrationForm = document.getElementById('registration-form');
-        if (registrationForm) {
-            registrationForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                // Simulate form submission
-                setTimeout(() => {
-                    registrationModal.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                    
-                    // Show success toast
-                    successToast.classList.remove('hidden');
-                    setTimeout(() => {
-                        successToast.classList.add('hidden');
-                    }, 5000);
-                }, 1500);
-            });
-        }
+const registrationForm = document.getElementById('registration-form');
+if (registrationForm) {
+    registrationForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
         
+        try {
+            const response = await fetch(registrationForm.action, {
+                method: 'POST',
+                body: new FormData(registrationForm),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Show success message
+                registrationModal.classList.remove('active');
+                successToast.classList.remove('hidden');
+                registrationForm.reset();
+                
+                setTimeout(() => {
+                    successToast.classList.add('hidden');
+                }, 5000);
+            } else {
+                alert('There was a problem with your submission. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('There was an error submitting the form. Please try again.');
+        }
+    });
+}
         // Close modals when clicking outside
         window.addEventListener('click', (e) => {
             if (e.target === registrationModal) {
