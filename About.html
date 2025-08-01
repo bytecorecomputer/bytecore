@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Bytecore - Premier IT Education & Computer Training Institute</title>
+    <meta name="description" content="Bytecore Computer Centre is a leading IT training institute offering industry-relevant courses in programming, web development, data science, cybersecurity and more since 2010.">
+    <meta name="keywords" content="Bytecore, computer training, IT courses, programming institute, web development course, data science training, cybersecurity certification, best computer institute">
+    <meta name="author" content="Bytecore Computer Centre">
+    <meta property="og:title" content="About Bytecore - Premier IT Education & Computer Training Institute">
+    <meta property="og:description" content="Leading IT training institute offering industry-relevant courses since 2010">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bytecore.in/about">
+    <link rel="canonical" href="https://bytecore.in/about">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        dark: '#0f172a',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+        }
+        .dark body {
+            background-color: #0f172a;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+        .glow-border {
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, #818cf8, #a78bfa);
+        }
+        .dark .feature-icon {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        }
+        .timeline-item:not(:last-child):after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 24px;
+            height: 100%;
+            width: 2px;
+            background: #c7d2fe;
+        }
+        .dark .timeline-item:not(:last-child):after {
+            background: #334155;
+        }
+        #mobile-menu {
+            width: 80%;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-100 transition-colors duration-300">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="w-12 h-12 rounded-lg  flex items-center justify-center mr-3">
+                        <a href="/"><img src="logo.png" alt="bytecore logo"></a>
+                    </div>
+                    <h1 class="text-2xl font-bold bg-clip-text text-transparent gradient-bg">ByteCore</h1>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="font-medium hover:text-primary transition-colors">Home</a>
+                    <a href="courses.html" class="font-medium hover:text-primary transition-colors">Courses</a>
+                    <a href="about.html" class="font-medium text-primary">About</a>
+                    <a href="certificates.html" class="font-medium hover:text-primary transition-colors">Certificates</a>
+                    <a href="contact.html" class="font-medium hover:text-primary transition-colors">Contact</a>
+                </nav>
+
+                <!-- Buttons -->
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    <a href="#registration" class="hidden md:block px-6 py-2 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">Register Now</a>
+                    <button id="menu-toggle" class="md:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden fixed inset-0 z-50 bg-white dark:bg-slate-900 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="flex justify-end p-4">
+            <button id="close-menu" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <nav class="flex flex-col p-6 space-y-4">
+            <a href="index.html" class="font-medium hover:text-primary transition-colors py-2">Home</a>
+            <a href="courses.html" class="font-medium hover:text-primary transition-colors py-2">Courses</a>
+            <a href="about.html" class="font-medium text-primary py-2">About</a>
+            <a href="certificates.html" class="font-medium hover:text-primary transition-colors py-2">Certificates</a>
+            <a href="contact.html" class="font-medium hover:text-primary transition-colors py-2">Contact</a>
+            <a href="#registration" class="mt-4 px-6 py-2 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity text-center">Register Now</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 dark:from-indigo-900/20 dark:to-purple-900/20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    <span class="bg-clip-text text-transparent gradient-bg">About Bytecore</span>
+                </h1>
+                <p class="text-xl text-slate-600 dark:text-slate-300 mb-8">
+                    Empowering careers through cutting-edge IT education since 2010
+                </p>
+                <div class="flex justify-center">
+                    <a href="#registration" class="px-8 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">Join Our Community</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <div class="w-64 h-64 rounded-full gradient-bg opacity-20 absolute -top-10 -left-10 animate-pulse-slow"></div>
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                             alt="Bytecore team working together" 
+                             class="rounded-2xl shadow-xl relative z-10 w-full h-auto object-cover">
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-6">
+                        Founded in 2010, Bytecore Computer Centre has grown from a small training center to one of the most respected IT education institutes in the region. Our journey began with a simple mission: to bridge the gap between academic knowledge and industry requirements.
+                    </p>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-6">
+                        Today, we've successfully trained over 10,000 students who are now working with top tech companies worldwide. Our secret? A relentless focus on practical, project-based learning taught by industry experts.
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                        <div class="bg-white dark:bg-slate-800 p-4 rounded-lg text-center shadow-md">
+                            <div class="text-3xl font-bold text-primary mb-2">13+</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">Years Experience</div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-4 rounded-lg text-center shadow-md">
+                            <div class="text-3xl font-bold text-primary mb-2">50+</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">Expert Trainers</div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-4 rounded-lg text-center shadow-md">
+                            <div class="text-3xl font-bold text-primary mb-2">10K+</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">Students Trained</div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-4 rounded-lg text-center shadow-md">
+                            <div class="text-3xl font-bold text-primary mb-2">500+</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">Hiring Partners</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-16 bg-slate-50 dark:bg-slate-900/50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Core Values</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">The principles that guide everything we do at Bytecore</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg glow-border">
+                    <div class="w-16 h-16 rounded-full gradient-bg flex items-center justify-center mb-6">
+                        <i class="fas fa-bullseye text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+                    <p class="text-slate-600 dark:text-slate-300">
+                        To empower individuals with practical, industry-relevant tech skills that transform careers and drive innovation. We're committed to making quality IT education accessible to everyone, regardless of their background.
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg glow-border">
+                    <div class="w-16 h-16 rounded-full gradient-bg flex items-center justify-center mb-6">
+                        <i class="fas fa-eye text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
+                    <p class="text-slate-600 dark:text-slate-300">
+                        To become the most trusted partner for tech education and career transformation in India, recognized for producing highly skilled professionals who lead the digital transformation across industries.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Journey</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">Milestones in our growth and success</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-8 relative">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item relative pl-8">
+                        <div class="absolute left-0 w-4 h-4 rounded-full bg-primary z-10"></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">Founded Bytecore</h3>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">2010</span>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300">
+                                Started with just 2 courses and a single classroom in Bengaluru, focusing on basic programming and web design.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item relative pl-8">
+                        <div class="absolute left-0 w-4 h-4 rounded-full bg-primary z-10"></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">First Expansion</h3>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">2014</span>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300">
+                                Opened second center in Hyderabad and launched our first advanced courses in mobile app development.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item relative pl-8">
+                        <div class="absolute left-0 w-4 h-4 rounded-full bg-primary z-10"></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">Industry Partnerships</h3>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">2017</span>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300">
+                                Established partnerships with 50+ tech companies for internships and placements. Launched our first Data Science program.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 4 -->
+                    <div class="timeline-item relative pl-8">
+                        <div class="absolute left-0 w-4 h-4 rounded-full bg-primary z-10"></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">Online Platform Launch</h3>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">2020</span>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300">
+                                Introduced hybrid learning model with our new online platform, making our courses accessible nationwide during the pandemic.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 5 -->
+                    <div class="timeline-item relative pl-8">
+                        <div class="absolute left-0 w-4 h-4 rounded-full bg-primary z-10"></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">Current Achievements</h3>
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">2023</span>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300">
+                                5 centers across India, 50+ courses, 100+ trainers, and 10,000+ successful alumni working in top tech companies globally.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-16 bg-slate-50 dark:bg-slate-900/50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet Our Leadership</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">The passionate team driving Bytecore's vision</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-gradient-to-r from-blue-500 to-indigo-600 relative">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Rajiv Sharma" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Rajiv Sharma</h3>
+                        <p class="text-primary mb-3">Founder & CEO</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm">
+                            Former CTO at TechSolutions with 20+ years in software development and education.
+                        </p>
+                        <div class="flex mt-4 space-x-3">
+                            <a href="#" class="text-slate-500 hover:text-primary transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="text-slate-500 hover:text-primary transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-gradient-to-r from-purple-500 to-pink-600 relative">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Patel" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Priya Patel</h3>
+                        <p class="text-primary mb-3">Director of Education</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm">
+                            PhD in Computer Science with 15 years experience in curriculum development.
+                        </p>
+                        <div class="flex mt-4 space-x-3">
+                            <a href="#" class="text-slate-500 hover:text-primary transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="text-slate-500 hover:text-primary transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-gradient-to-r from-amber-500 to-orange-600 relative">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Arjun Mehta" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Arjun Mehta</h3>
+                        <p class="text-primary mb-3">Head of Placements</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm">
+                            Former HR Director at InfoTech with extensive industry connections.
+                        </p>
+                        <div class="flex mt-4 space-x-3">
+                            <a href="#" class="text-slate-500 hover:text-primary transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="text-slate-500 hover:text-primary transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg">
+                    <div class="h-64 bg-gradient-to-r from-green-500 to-teal-600 relative">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Neha Gupta" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Neha Gupta</h3>
+                        <p class="text-primary mb-3">Senior Technical Trainer</p>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm">
+                            Full stack developer with 8 years industry experience and 5 years in teaching.
+                        </p>
+                        <div class="flex mt-4 space-x-3">
+                            <a href="#" class="text-slate-500 hover:text-primary transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="text-slate-500 hover:text-primary transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block px-8 py-3 rounded-lg border border-primary text-primary font-medium hover:bg-primary hover:text-white transition-colors">View All Team Members</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Success Stories</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">What our students say about their Bytecore experience</p>
+            </div>
+            
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg h-full">
+                            <div class="flex items-center mb-6">
+                                <img src="https://randomuser.me/api/portraits/men/46.jpg" alt="Amit Kumar" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-bold">Amit Kumar</h4>
+                                    <p class="text-slate-500 dark:text-slate-400 text-sm">Software Engineer at Google</p>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 italic mb-6">
+                                "Bytecore's Full Stack Development course completely transformed my career. The hands-on projects and industry-relevant curriculum helped me land my dream job at Google within 3 months of completing the course."
+                            </p>
+                            <div class="flex text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg h-full">
+                            <div class="flex items-center mb-6">
+                                <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Priya Sharma" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-bold">Priya Sharma</h4>
+                                    <p class="text-slate-500 dark:text-slate-400 text-sm">Data Scientist at Amazon</p>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 italic mb-6">
+                                "The Data Science program at Bytecore gave me the perfect blend of theoretical knowledge and practical skills. The trainers were incredibly supportive and the placement assistance was exceptional."
+                            </p>
+                            <div class="flex text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg h-full">
+                            <div class="flex items-center mb-6">
+                                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Rahul Verma" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-bold">Rahul Verma</h4>
+                                    <p class="text-slate-500 dark:text-slate-400 text-sm">Cyber Security Analyst</p>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 italic mb-6">
+                                "Coming from a non-tech background, I was nervous about switching careers. Bytecore's Cyber Security course made the transition smooth with their structured approach and excellent mentorship."
+                            </p>
+                            <div class="flex text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 4 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg h-full">
+                            <div class="flex items-center mb-6">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sneha Reddy" class="w-16 h-16 rounded-full object-cover mr-4">
+                                <div>
+                                    <h4 class="font-bold">Sneha Reddy</h4>
+                                    <p class="text-slate-500 dark:text-slate-400 text-sm">UI/UX Designer at Adobe</p>
+                                </div>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-300 italic mb-6">
+                                "The UI/UX course at Bytecore exceeded all my expectations. The portfolio-building approach helped me showcase my skills effectively, leading to multiple job offers before I even completed the course."
+                            </p>
+                            <div class="flex text-amber-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="registration" class="py-16 gradient-bg">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-2/5 p-8 bg-gradient-to-b from-indigo-600 to-purple-700 text-white flex flex-col justify-center">
+                        <h2 class="text-3xl font-bold mb-4">Ready to Transform Your Career?</h2>
+                        <p class="mb-6">Join thousands of successful Bytecore alumni who've launched rewarding tech careers.</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-calendar-check text-2xl mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Next Batch Starts</h4>
+                                    <p>15 August 2023</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-gem text-2xl mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Special Offer</h4>
+                                    <p>15% discount for early registration</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-3/5 p-8">
+                        <h2 class="text-3xl font-bold mb-6">Get Started Today</h2>
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Full Name</label>
+                                <input type="text" class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Email Address</label>
+                                <input type="email" class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Phone Number</label>
+                                <input type="tel" class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Select Course</label>
+                                <select class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                                    <option>Full Stack Development</option>
+                                    <option>Data Science & AI</option>
+                                    <option>UI/UX Design</option>
+                                    <option>Cyber Security</option>
+                                    <option>Cloud Computing</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">Enroll Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Bytecore</h3>
+                    <p class="text-slate-400 mb-6">Transforming careers through quality IT education since 2010.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-slate-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-slate-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="courses.html" class="text-slate-400 hover:text-white transition-colors">Courses</a></li>
+                        <li><a href="fees.html" class="text-slate-400 hover:text-white transition-colors">Fees Structure</a></li>
+                        <li><a href="placements.html" class="text-slate-400 hover:text-white transition-colors">Placements</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Courses</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors">Full Stack Development</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors">Data Science & AI</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors">UI/UX Design</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors">Cyber Security</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white transition-colors">Cloud Computing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact Us</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+                            <span class="text-slate-400">123 Tech Park, IT Road, Bengaluru, India - 560001</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-primary"></i>
+                            <span class="text-slate-400">+91 98765 43210</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-primary"></i>
+                            <span class="text-slate-400">info@bytecore.in</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock mt-1 mr-3 text-primary"></i>
+                            <span class="text-slate-400">Mon-Sat: 9:00 AM - 8:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-slate-700 text-center text-slate-500">
+                <p>© 2023 Bytecore Computer Centre. All Rights Reserved.</p>
+                <div class="flex justify-center space-x-6 mt-4">
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors">Terms of Service</a>
+                    <a href="#" class="text-slate-500 hover:text-white transition-colors">Refund Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper', {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            grabCursor: true,
+            autoplay: {
+                delay: 5000,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+
+        // Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        
+        if (localStorage.getItem('theme') === 'dark') {
+            htmlElement.classList.add('dark');
+        } else if (localStorage.getItem('theme') === 'light') {
+            htmlElement.classList.remove('dark');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuToggle = document.getElementById('menu-toggle');
+        const closeMenu = document.getElementById('close-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('-translate-x-full');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.add('-translate-x-full');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('-translate-x-full');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if(this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
