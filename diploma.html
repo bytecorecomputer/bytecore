@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bytecore Certificate Portal</title>
+  <meta name="description" content="Secure Certificate Portal for Bytecore - View and download your certificates with enhanced security">
+  <meta name="keywords" content="certificate, diploma, verification, security, download">
+  <title>Bytecore Certificate Portal - Secure Certificate Access</title>
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --primary: #4f46e5;
@@ -17,25 +20,49 @@
       --card-bg: #ffffff;
       --text: #1f2937;
       --muted: #6b7280;
+      --success: #10b981;
       --error: #ef4444;
+      --warning: #f59e0b;
       --radius: 0.75rem;
       --transition: 0.25s ease;
       --shadow: 0 8px 24px rgba(0,0,0,0.05);
+      --shadow-hover: 0 12px 32px rgba(0,0,0,0.1);
     }
 
     *, *::before, *::after {
       box-sizing: border-box;
-    }
-    body {
       margin: 0;
+      padding: 0;
+    }
+    
+    body {
       font-family: 'Inter', sans-serif;
-      background: var(--bg);
+      background: linear-gradient(135deg, #e0e7ff, #f0fdf4);
       color: var(--text);
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
       padding: 1rem;
+      line-height: 1.5;
+    }
+
+    .security-banner {
+      background: linear-gradient(to right, var(--primary), #6366f1);
+      color: white;
+      text-align: center;
+      padding: 0.75rem;
+      font-size: 0.9rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .security-banner i {
+      margin-right: 0.5rem;
     }
 
     .card {
@@ -48,34 +75,72 @@
       display: flex;
       flex-direction: column;
       transition: transform var(--transition), box-shadow var(--transition);
+      margin-top: 2rem;
+      position: relative;
+      z-index: 10;
     }
+    
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+      box-shadow: var(--shadow-hover);
     }
 
     header {
-      background: var(--primary);
+      background: linear-gradient(to right, var(--primary), #6366f1);
       color: #fff;
-      padding: 1.75rem 1.5rem;
+      padding: 1.75rem 1.5rem 1.5rem;
       text-align: center;
       position: relative;
+      overflow: hidden;
     }
-    header .logo {
+    
+    header::before {
+      content: "";
       position: absolute;
-      top: 1rem;
-      left: 1rem;
-      height: 40px;
-      width: auto;
+      top: -50px;
+      right: -50px;
+      width: 150px;
+      height: 150px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
     }
+    
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 100px;
+      height: 100px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+    }
+    
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    
+    .logo {
+      height: 60px;
+      width: auto;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    
     header h1 {
       font-size: 1.85rem;
       font-weight: 700;
       margin-bottom: 0.25rem;
+      position: relative;
+      z-index: 2;
     }
+    
     header p {
       font-weight: 400;
       color: rgba(255,255,255,0.85);
+      position: relative;
+      z-index: 2;
     }
 
     .body {
@@ -85,27 +150,71 @@
       gap: 1.25rem;
     }
 
-    .search-group {
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .input-row {
       display: flex;
       gap: .75rem;
       flex-wrap: wrap;
     }
-    .search-group input {
-      flex: 1 1 60%;
+    
+    .input-field {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    
+    .input-field label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    
+    .input-field input {
       padding: .75rem 1rem;
       font-size: 1rem;
       border: 2px solid #e5e7eb;
       border-radius: var(--radius);
       outline: none;
-      transition: border var(--transition), box-shadow var(--transition);
+      transition: all var(--transition);
+      background: #f9fafb;
     }
-    .search-group input:focus {
+    
+    .input-field input:focus {
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(79,70,229,0.2);
+      background: #fff;
     }
+    
+    .input-field input.error {
+      border-color: var(--error);
+    }
+    
+    .input-field .error-message {
+      color: var(--error);
+      font-size: 0.75rem;
+      height: 1rem;
+    }
+
+    .search-group {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    
     .search-group button {
-      flex: 1 1 35%;
-      padding: .75rem 1.25rem;
+      flex: 1 1 100%;
+      padding: .85rem 1.25rem;
       font-size: 1rem;
       font-weight: 600;
       background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
@@ -113,156 +222,507 @@
       border: none;
       border-radius: var(--radius);
       cursor: pointer;
-      transition: background var(--transition), transform var(--transition);
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
+    
     .search-group button:hover {
       background: var(--accent-hover);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+    }
+    
+    .search-group button:disabled {
+      background: #cbd5e1;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    
+    .search-group button i {
+      transition: transform var(--transition);
+    }
+    
+    .search-group button:hover i {
+      transform: translateX(3px);
     }
 
     #message {
       font-size: .95rem;
-      color: var(--error);
       min-height: 1.2em;
       text-align: center;
+      padding: 0.75rem;
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+    
+    #message.error {
+      background: rgba(239,68,68,0.1);
+      color: var(--error);
+    }
+    
+    #message.success {
+      background: rgba(16,185,129,0.1);
+      color: var(--success);
+    }
+    
+    #message.warning {
+      background: rgba(245,158,11,0.1);
+      color: var(--warning);
     }
 
     .viewer {
       display: none;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.25rem;
       align-items: center;
-      animation: fadeIn 0.3s ease forwards;
+      animation: fadeIn 0.4s ease forwards;
+      padding: 1.5rem;
+      background: #f9fafb;
+      border-radius: var(--radius);
+      border: 1px dashed #e5e7eb;
     }
+    
+    .certificate-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border: 1px solid #e5e7eb;
+    }
+    
+    .certificate-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(79,70,229,0.03), rgba(6,182,212,0.03));
+      z-index: 1;
+    }
+    
     .viewer img {
       width: 100%;
-      border-radius: var(--radius);
-      border: 1px solid #e5e7eb;
-      background: #fafafa;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+      display: block;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.5s ease;
     }
-    .viewer button {
+    
+    .viewer img:hover {
+      transform: scale(1.02);
+    }
+    
+    .viewer-actions {
+      display: flex;
+      gap: 0.75rem;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    
+    .viewer-actions button {
+      flex: 1;
       padding: .75rem 1.5rem;
-      background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
-      color: #fff;
       font-weight: 600;
       border: none;
       border-radius: var(--radius);
       cursor: pointer;
-      transition: background var(--transition), transform var(--transition);
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
-    .viewer button:hover {
+    
+    #downloadBtn {
+      background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+      color: #fff;
+    }
+    
+    #downloadBtn:hover {
       background: var(--accent-hover);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+    }
+    
+    #closeBtn {
+      background: #f1f5f9;
+      color: var(--text);
+    }
+    
+    #closeBtn:hover {
+      background: #e2e8f0;
+      transform: translateY(-2px);
     }
 
-    .extras {
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
       margin-top: 1.5rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid #eef2f7;
-      text-align: center;
+    }
+    
+    .feature {
+      background: #f9fafb;
+      padding: 1rem;
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border: 1px solid #e5e7eb;
+      transition: all var(--transition);
+    }
+    
+    .feature:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      border-color: var(--primary);
+    }
+    
+    .feature i {
+      font-size: 1.25rem;
+      color: var(--primary);
+      background: rgba(79,70,229,0.1);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .feature-content h4 {
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    .feature-content p {
+      font-size: 0.85rem;
       color: var(--muted);
-      font-size: .9rem;
     }
 
-    @media (max-width: 400px) {
-      .search-group { flex-direction: column; }
-      .search-group button { margin-top: .5rem; }
+    .watermark {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      color: rgba(0,0,0,0.05);
+      font-size: 3rem;
+      font-weight: 700;
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    @media (max-width: 600px) {
+      .input-row {
+        flex-direction: column;
+      }
+      
+      .features {
+        grid-template-columns: 1fr;
+      }
+      
+      .viewer-actions {
+        flex-direction: column;
+      }
+      
+      .watermark {
+        font-size: 2rem;
+      }
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
+      from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .spinner {
+      display: inline-block;
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
     }
   </style>
 </head>
 
 <body>
+  <div class="security-banner">
+    <i class="fas fa-lock"></i>
+    <span>Secure Connection • Your data is protected with 256-bit encryption</span>
+  </div>
+  
   <div class="card">
     <header>
-      <a href="/"><img src="logo.png" alt="Coaching Logo" class="logo" /></a>
-      <h1>Certificate Portal</h1>
-      <p>View &amp; download by roll number</p>
-    </header>
-    <div class="body">
-      <div class="search-group">
-        <input id="rollInput" type="text" placeholder="Enter Roll Number (e.g. 1001)" />
-        <button id="searchBtn">Search</button>
+      <div class="logo-container">
+      <a href="/">  <img src="logo.png" alt="Bytecore Logo" class="logo" /></a>
       </div>
+      <h1>Certificate Portal</h1>
+      <p>Securely access your certificates with dual verification</p>
+    </header>
+    
+    <div class="body">
+      <div class="input-group">
+        <div class="input-row">
+          <div class="input-field">
+            <label for="rollInput"><i class="fas fa-id-card"></i> Roll Number</label>
+            <input id="rollInput" type="text" placeholder="Enter your roll number" />
+            <div class="error-message"></div>
+          </div>
+          <div class="input-field">
+            <label for="dobInput"><i class="fas fa-calendar-alt"></i> Date of Birth</label>
+            <input id="dobInput" type="text" placeholder="DD/MM/YYYY" />
+            <div class="error-message"></div>
+          </div>
+        </div>
+        
+        <div class="search-group">
+          <button id="searchBtn">
+            <span id="btnText">Verify & View Certificate</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+      
       <div id="message" role="alert"></div>
 
       <div id="viewer" class="viewer" aria-live="polite">
-        <img id="certImg" src="" alt="Certificate Preview" loading="lazy" />
-        <button id="downloadBtn">Download Certificate</button>
+        <div class="certificate-container">
+          <img id="certImg" src="" alt="Certificate Preview" loading="lazy" />
+        </div>
+        <div class="viewer-actions">
+          <button id="downloadBtn">
+            <i class="fas fa-download"></i> Download Certificate
+          </button>
+          <button id="closeBtn">
+            <i class="fas fa-times"></i> Close
+          </button>
+        </div>
       </div>
-
-      <div class="extras">
-        <!-- Future: QR code, share links, analytics widgets... -->
-        Add more features here!
+      
+      <div class="features">
+        <div class="feature">
+          <i class="fas fa-shield-alt"></i>
+          <div class="feature-content">
+            <h4>Enhanced Security</h4>
+            <p>Dual verification with DOB protection</p>
+          </div>
+        </div>
+        <div class="feature">
+          <i class="fas fa-bolt"></i>
+          <div class="feature-content">
+            <h4>Fast Processing</h4>
+            <p>Instant certificate retrieval</p>
+          </div>
+        </div>
+        <div class="feature">
+          <i class="fas fa-mobile-alt"></i>
+          <div class="feature-content">
+            <h4>Mobile Friendly</h4>
+            <p>Works on all devices</p>
+          </div>
+        </div>
+        <div class="feature">
+          <i class="fas fa-cloud-download-alt"></i>
+          <div class="feature-content">
+            <h4>Easy Download</h4>
+            <p>Save certificate with one click</p>
+          </div>
+        </div>
       </div>
     </div>
+    
+    <div class="watermark">BYTECORE</div>
   </div>
 
   <script>
-    async function fetchCertificates() {
-      const res = await fetch('Diploma.json', { cache: 'no-cache' });
-      if (!res.ok) throw new Error('Unable to load certificate data.');
-      return res.json();
+    // DOM elements
+    const rollInput = document.getElementById('rollInput');
+    const dobInput = document.getElementById('dobInput');
+    const searchBtn = document.getElementById('searchBtn');
+    const messageDiv = document.getElementById('message');
+    const viewer = document.getElementById('viewer');
+    const certImg = document.getElementById('certImg');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const btnText = document.getElementById('btnText');
+
+    // Variable to store certificate data
+    let certificateData = null;
+
+    // Fetch certificate data from diploma.json
+    async function fetchCertificateData() {
+      try {
+        const response = await fetch('diploma.json');
+        if (!response.ok) {
+          throw new Error('Failed to load certificate data');
+        }
+        certificateData = await response.json();
+      } catch (error) {
+        console.error('Error loading certificate data:', error);
+        messageDiv.textContent = 'Error loading certificate data. Please try again later.';
+        messageDiv.className = 'error';
+        searchBtn.disabled = true;
+      }
     }
 
-    document.getElementById('searchBtn').addEventListener('click', lookup);
-    document.getElementById('rollInput').addEventListener('keypress', e => {
-      if (e.key === 'Enter') lookup();
+    // Call the function to load data when page loads
+    fetchCertificateData();
+
+    // Format DOB input
+    dobInput.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      
+      if (value.length > 2 && value.length <= 4) {
+        value = value.replace(/(\d{2})(\d+)/, '$1/$2');
+      } else if (value.length > 4) {
+        value = value.replace(/(\d{2})(\d{2})(\d+)/, '$1/$2/$3');
+      }
+      
+      e.target.value = value.substring(0, 10);
     });
 
-    async function lookup() {
-      const rollField = document.getElementById('rollInput');
-      const roll   = rollField.value.trim();
-      const msg    = document.getElementById('message');
-      const viewer = document.getElementById('viewer');
-      const img    = document.getElementById('certImg');
-      const btn    = document.getElementById('downloadBtn');
-
-      msg.textContent = '';
-      viewer.style.display = 'none';
-
+    // Validate inputs
+    function validateInputs() {
+      let isValid = true;
+      
+      // Validate roll number
+      const roll = rollInput.value.trim();
       if (!roll) {
-        msg.textContent = 'Please enter a valid roll number.';
+        showError(rollInput, 'Roll number is required');
+        isValid = false;
+      } else if (!/^\d{4,}$/.test(roll)) {
+        showError(rollInput, 'Invalid roll number');
+        isValid = false;
+      } else {
+        clearError(rollInput);
+      }
+      
+      // Validate DOB
+      const dob = dobInput.value.trim();
+      if (!dob) {
+        showError(dobInput, 'Date of birth is required');
+        isValid = false;
+      } else if (!/^\d{2}\/\d{2}\/\d{4}$/.test(dob)) {
+        showError(dobInput, 'Please use DD/MM/YYYY format');
+        isValid = false;
+      } else {
+        clearError(dobInput);
+      }
+      
+      return isValid;
+    }
+    
+    function showError(input, message) {
+      const container = input.closest('.input-field');
+      const errorMsg = container.querySelector('.error-message');
+      input.classList.add('error');
+      errorMsg.textContent = message;
+    }
+    
+    function clearError(input) {
+      const container = input.closest('.input-field');
+      const errorMsg = container.querySelector('.error-message');
+      input.classList.remove('error');
+      errorMsg.textContent = '';
+    }
+
+    // Lookup certificate
+    async function lookup() {
+      // Clear previous state
+      messageDiv.textContent = '';
+      messageDiv.className = '';
+      viewer.style.display = 'none';
+      
+      // Validate inputs
+      if (!validateInputs()) {
         return;
       }
-
+      
+      const roll = rollInput.value.trim();
+      const dob = dobInput.value.trim();
+      
+      // Show loading state
+      btnText.innerHTML = '<span class="spinner"></span> Verifying';
+      searchBtn.disabled = true;
+      
+      // Wait for certificate data to load if not already loaded
+      if (!certificateData) {
+        await fetchCertificateData();
+      }
+      
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
       try {
-        const { certificates } = await fetchCertificates();
-        const cert = certificates.find(c => c.roll.toLowerCase() === roll.toLowerCase());
-        if (!cert) {
-          msg.textContent = 'Roll number not found.';
-          return;
+        if (!certificateData || !certificateData.certificates) {
+          throw new Error('Certificate data not available');
         }
-
-        img.src = cert.link;
-        viewer.style.display = 'flex';
-
-        // Attach download handler
-        btn.onclick = async () => {
-          try {
-            const response = await fetch(cert.link);
-            const blob = await response.blob();
-            const url  = URL.createObjectURL(blob);
-            const a    = document.createElement('a');
-            a.href       = url;
-            a.download   = `${roll}-certificate.jpg`;
+        
+        const cert = certificateData.certificates.find(c => 
+          c.roll === roll && c.dob === dob
+        );
+        
+        if (!cert) {
+          messageDiv.textContent = 'Certificate not found. Please check your details.';
+          messageDiv.className = 'error';
+        } else {
+          // Show certificate
+          certImg.src = cert.link;
+          certImg.alt = `Certificate for roll number ${roll}`;
+          viewer.style.display = 'flex';
+          
+          // Set up download
+          downloadBtn.onclick = function() {
+            const a = document.createElement('a');
+            a.href = cert.link;
+            a.download = `bytecore-certificate-${roll}.jpg`;
             document.body.appendChild(a);
             a.click();
-            URL.revokeObjectURL(url);
-            a.remove();
-          } catch (err) {
-            alert('Download failed.');
-          }
-        };
+            document.body.removeChild(a);
+            
+            // Show download confirmation
+            messageDiv.textContent = 'Certificate downloaded successfully!';
+            messageDiv.className = 'success';
+          };
+          
+          messageDiv.textContent = 'Certificate verified successfully!';
+          messageDiv.className = 'success';
+        }
       } catch (e) {
-        msg.textContent = e.message;
+        messageDiv.textContent = 'Error: ' + e.message;
+        messageDiv.className = 'error';
+      } finally {
+        // Reset button
+        btnText.textContent = 'Verify & View Certificate';
+        searchBtn.disabled = false;
       }
     }
+    
+    // Close viewer
+    closeBtn.addEventListener('click', function() {
+      viewer.style.display = 'none';
+    });
+    
+    // Event listeners
+    searchBtn.addEventListener('click', lookup);
+    rollInput.addEventListener('keypress', e => e.key === 'Enter' && lookup());
+    dobInput.addEventListener('keypress', e => e.key === 'Enter' && lookup());
+    
+    // Initial focus
+    rollInput.focus();
   </script>
 </body>
 </html>
