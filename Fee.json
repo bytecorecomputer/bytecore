@@ -417,7 +417,8 @@
         "name": "Ritesh",
         "course": "MDCA",
         "total": 9500,
-        "remaining": 300
+        "remaining": 0,
+        "date": "2025-08-11"
     },
     "1033": {
         "name": "vishnu saxena",
@@ -573,7 +574,8 @@
         "name": "Mohd Tahir",
         "course": "ADCA",
         "total": 4800,
-        "remaining": 2400
+        "remaining": 1600,
+        "date": "2025-08-11"
     },
     "165": {
         "name": "Fiza",
@@ -783,7 +785,8 @@
         "name": "Aamir khan",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 1000
+        "remaining": 500,
+        "date": "2025-08-11"
     },
     "1134": {
         "name": "Shivam",
@@ -952,7 +955,8 @@
         "name": "Kaushal Patel",
         "course": "DCA",
         "total": 1800,
-        "remaining": 600
+        "remaining": 300,
+        "date": "2025-08-11"
     },
     "1129": {
         "name": "Kanak Chaudhary",
@@ -964,7 +968,8 @@
         "name": "Mansi Sharma",
         "course": "MDCA",
         "total": 9600,
-        "remaining": 6400
+        "remaining": 5600,
+        "date": "2025-08-11"
     },
     "182": {
         "name": "Mohd Junaid",
@@ -1012,7 +1017,8 @@
         "name": "Ahadh Husain",
         "course": "MDCA",
         "total": 9600,
-        "remaining": 6600
+        "remaining": 4600,
+        "date": "2025-08-11"
     },
     "1138": {
         "name": "Atif Husain",
@@ -1084,7 +1090,8 @@
         "name": "Shivam",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 5000
+        "remaining": 4500,
+        "date": "2025-08-11"
     },
     "1147": {
         "name": "Asbab",
@@ -1096,7 +1103,8 @@
         "name": "Shabana",
         "course": "ADCA",
         "total": 4800,
-        "remaining": 1400
+        "remaining": 900,
+        "date": "2025-08-11"
     },
     "1149": {
         "name": "Gaurav",
@@ -1132,7 +1140,8 @@
         "name": "Ganesh Kumar",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 4000
+        "remaining": 3000,
+        "date": "2025-08-11"
     },
     "189": {
         "name": "Taibanoor",
@@ -1180,7 +1189,8 @@
         "name": "Kasim",
         "course": "MDCA",
         "total": 8400,
-        "remaining": 5600
+        "remaining": 4900,
+        "date": "2025-08-11"
     },
     "143": {
         "name": "Himani",
@@ -1242,7 +1252,8 @@
         "name": "Fazil Ali Khan",
         "course": "DCA",
         "total": 1800,
-        "remaining": 600
+        "remaining": 0,
+        "date": "2025-08-11"
     },
     "1156": {
         "name": "Vansh Sharma",
@@ -1272,7 +1283,8 @@
         "name": "Mohd Farhan",
         "course": "MDCA",
         "total": 9600,
-        "remaining": 8300
+        "remaining": 7300,
+        "date": "2025-08-11"
     },
     "196": {
         "name": "Rajesh",
@@ -1285,7 +1297,8 @@
         "name": "Divyansh Kumar",
         "course": "DCST",
         "total": 600,
-        "remaining": 400
+        "remaining": 200,
+        "date": "2025-08-11"
     },
     "198": {
         "name": "Alveena",
@@ -1430,7 +1443,8 @@
         "name": "Shivansh Yadav",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 5500
+        "remaining": 4700,
+        "date": "2025-08-11"
     },
     "1175": {
         "name": "Sameer",
@@ -1538,7 +1552,8 @@
         "name": "Mohd Azhaan",
         "course": "ADCA",
         "total": 6000,
-        "remaining": 6000
+        "remaining": 5200,
+        "date": "2025-08-11"
     },
     "1187": {
         "name": "Sahil",
@@ -1548,9 +1563,10 @@
     },
     "1188": {
         "name": "Divya Sharma",
-        "course": "CCC",
-        "total": 2500,
-        "remaining": 2500
+        "course": "ADCA",
+        "total": 4900,
+        "remaining": 4200,
+        "date": "2025-08-11"
     },
     "1189": {
         "name": "Neelam",
@@ -1606,5 +1622,47 @@
         "course": "DCST",
         "total": 600,
         "remaining": 600
+    },
+    "1195": {
+        "name": "Swati",
+        "course": "CCC",
+        "total": 2100,
+        "remaining": 1100,
+        "date": "2025-08-11"
+    },
+    "1196": {
+        "name": "Tanish",
+        "course": "ADCA",
+        "total": 6000,
+        "remaining": 6000,
+        "date": "2025-08-11"
+    },
+    "1197": {
+        "name": "Umesh",
+        "course": "ADCA",
+        "total": 5500,
+        "remaining": 5500,
+        "date": "2025-08-11"
+    },
+    "1198": {
+        "name": "Harish",
+        "course": "ADCA",
+        "total": 5500,
+        "remaining": 5500,
+        "date": "2025-08-11"
+    },
+    "217": {
+        "name": "Khushi",
+        "course": "DCST",
+        "total": 600,
+        "remaining": 600,
+        "date": "2025-08-11"
+    },
+    "1199": {
+        "name": "Farhan Khan",
+        "course": "Tally prime",
+        "total": 2000,
+        "remaining": 1000,
+        "date": "2025-08-11"
     }
 }
