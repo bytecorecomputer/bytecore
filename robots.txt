@@ -1,4 +1,27 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*?debug=*
 
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: facebookexternalhit
+Allow: /
+
+# Sitemaps
 Sitemap: https://bytecore-flax.vercel.app/sitemap.xml
+Sitemap: https://bytecore-flax.vercel.app/sitemap-courses.xml
+Sitemap: https://bytecore-flax.vercel.app/sitemap-blog.xml
+
+# Host
+Host: https://bytecore-flax.vercel.app

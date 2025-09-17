@@ -91,6 +91,103 @@ app.delete("/api/fees/:id", async (req, res) => {
   }
 });
 
+// Analytics Schema
+const analyticsSchema = new mongoose.Schema({
+  event: String,
+  timestamp: Date,
+  session_id: String,
+  user_id: String,
+  page_url: String,
+  parameters: mongoose.Schema.Types.Mixed
+}, { timestamps: true });
+
+const Analytics = mongoose.model("Analytics", analyticsSchema);
+
+// Heatmap Schema
+const heatmapSchema = new mongoose.Schema({
+  session_id: String,
+  user_id: String,
+  page_url: String,
+  mouseMovements: [{ x: Number, y: Number, timestamp: Date }],
+  clicks: [{ x: Number, y: Number, element: String, timestamp: Date }],
+  scrollEvents: [{ scrollY: Number, scrollPercent: Number, timestamp: Date }]
+}, { timestamps: true });
+
+const Heatmap = mongoose.model("Heatmap", heatmapSchema);
+
+// Analytics endpoints
+app.post("/api/analytics", async (req, res) => {
+  try {
+    const analytics = new Analytics(req.body);
+    await analytics.save();
+    res.status(201).json({ success: true });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+app.post("/api/analytics/batch", async (req, res) => {
+  try {
+    const { interactions } = req.body;
+    await Analytics.insertMany(interactions);
+    res.status(201).json({ success: true });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+app.post("/api/heatmap", async (req, res) => {
+  try {
+    const heatmap = new Heatmap(req.body);
+    await heatmap.save();
+    res.status(201).json({ success: true });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+// Analytics dashboard endpoint (admin only)
+app.get("/api/analytics/dashboard", async (req, res) => {
+  try {
+    const totalEvents = await Analytics.countDocuments();
+    const uniqueUsers = await Analytics.distinct('user_id').length;
+    const topEvents = await Analytics.aggregate([
+      { $group: { _id: "$event", count: { $sum: 1 } } },
+      { $sort: { count: -1 } },
+      { $limit: 10 }
+    ]);
+    
+    res.json({
+      totalEvents,
+      uniqueUsers,
+      topEvents
+    });
+  } catch (err) {
+    res.status(500).json({ error: "Server Error" });
+  }
+});
+
+// Lead management endpoint
+app.get("/api/leads", async (req, res) => {
+  try {
+    const leads = await Analytics.aggregate([
+      { $match: { event: "form_submission" } },
+      { $group: { 
+        _id: "$user_id", 
+        lastActivity: { $max: "$timestamp" },
+        totalInteractions: { $sum: 1 },
+        course: { $last: "$parameters.course" }
+      }},
+      { $sort: { lastActivity: -1 } }
+    ]);
+    res.json(leads);
+  } catch (err) {
+    res.status(500).json({ error: "Server Error" });
+  }
+});
+
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`🚀 Server is running on port ${PORT}`);
+  console.log(`📊 Analytics API available at /api/analytics`);
+  console.log(`💾 Database: ${MONGO_URI.includes('localhost') ? 'Local' : 'Cloud'} MongoDB`);
 });
