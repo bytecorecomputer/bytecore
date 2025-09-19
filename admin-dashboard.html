@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bytecore Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8 text-center">Bytecore Admin Dashboard</h1>
+        
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-blue-500 text-white">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-gray-500">Total Registrations</p>
+                        <p id="total-registrations" class="text-2xl font-bold">0</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-green-500 text-white">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-gray-500">Enrollments</p>
+                        <p id="total-enrollments" class="text-2xl font-bold">0</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-yellow-500 text-white">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-gray-500">Demo Bookings</p>
+                        <p id="total-demos" class="text-2xl font-bold">0</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-purple-500 text-white">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-gray-500">Analytics Events</p>
+                        <p id="total-analytics" class="text-2xl font-bold">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="bg-white rounded-lg shadow">
+            <div class="border-b border-gray-200">
+                <nav class="-mb-px flex">
+                    <button class="tab-btn active py-2 px-4 border-b-2 border-blue-500 text-blue-600" data-tab="registrations">
+                        Registrations
+                    </button>
+                    <button class="tab-btn py-2 px-4 border-b-2 border-transparent text-gray-500 hover:text-gray-700" data-tab="enrollments">
+                        Enrollments
+                    </button>
+                    <button class="tab-btn py-2 px-4 border-b-2 border-transparent text-gray-500 hover:text-gray-700" data-tab="demos">
+                        Demo Bookings
+                    </button>
+                    <button class="tab-btn py-2 px-4 border-b-2 border-transparent text-gray-500 hover:text-gray-700" data-tab="analytics">
+                        Analytics
+                    </button>
+                </nav>
+            </div>
+            
+            <!-- Tab Content -->
+            <div class="p-6">
+                <!-- Registrations Tab -->
+                <div id="registrations-tab" class="tab-content">
+                    <h3 class="text-lg font-semibold mb-4">Recent Registrations</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full table-auto">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="px-4 py-2 text-left">Name</th>
+                                    <th class="px-4 py-2 text-left">Email</th>
+                                    <th class="px-4 py-2 text-left">Phone</th>
+                                    <th class="px-4 py-2 text-left">Course</th>
+                                    <th class="px-4 py-2 text-left">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="registrations-table">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Enrollments Tab -->
+                <div id="enrollments-tab" class="tab-content hidden">
+                    <h3 class="text-lg font-semibold mb-4">Course Enrollments</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full table-auto">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="px-4 py-2 text-left">Name</th>
+                                    <th class="px-4 py-2 text-left">Course</th>
+                                    <th class="px-4 py-2 text-left">Fee</th>
+                                    <th class="px-4 py-2 text-left">Status</th>
+                                    <th class="px-4 py-2 text-left">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="enrollments-table">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Demo Bookings Tab -->
+                <div id="demos-tab" class="tab-content hidden">
+                    <h3 class="text-lg font-semibold mb-4">Demo Class Bookings</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full table-auto">
+                            <thead>
+                                <tr class="bg-gray-50">
+                                    <th class="px-4 py-2 text-left">Name</th>
+                                    <th class="px-4 py-2 text-left">Course</th>
+                                    <th class="px-4 py-2 text-left">Phone</th>
+                                    <th class="px-4 py-2 text-left">Preferred Time</th>
+                                    <th class="px-4 py-2 text-left">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="demos-table">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Analytics Tab -->
+                <div id="analytics-tab" class="tab-content hidden">
+                    <h3 class="text-lg font-semibold mb-4">Website Analytics</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Top Events</h4>
+                            <div id="top-events"></div>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">Course Interest</h4>
+                            <div id="course-interest"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Export Buttons -->
+        <div class="mt-8 text-center">
+            <button onclick="exportData()" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 mr-4">
+                <i class="fas fa-download mr-2"></i>Export All Data
+            </button>
+            <button onclick="clearData()" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600">
+                <i class="fas fa-trash mr-2"></i>Clear All Data
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Load and display data
+        function loadDashboard() {
+            const registrations = JSON.parse(localStorage.getItem('bytecore_registrations') || '[]');
+            const enrollments = JSON.parse(localStorage.getItem('bytecore_enrollments') || '[]');
+            const demos = JSON.parse(localStorage.getItem('bytecore_demo_bookings') || '[]');
+            const analytics = JSON.parse(localStorage.getItem('bytecore_analytics') || '[]');
+            
+            // Update stats
+            document.getElementById('total-registrations').textContent = registrations.length;
+            document.getElementById('total-enrollments').textContent = enrollments.length;
+            document.getElementById('total-demos').textContent = demos.length;
+            document.getElementById('total-analytics').textContent = analytics.length;
+            
+            // Populate tables
+            populateRegistrationsTable(registrations);
+            populateEnrollmentsTable(enrollments);
+            populateDemosTable(demos);
+            populateAnalytics(analytics);
+        }
+        
+        function populateRegistrationsTable(data) {
+            const tbody = document.getElementById('registrations-table');
+            tbody.innerHTML = data.map(item => `
+                <tr class="border-b">
+                    <td class="px-4 py-2">${item.name}</td>
+                    <td class="px-4 py-2">${item.email}</td>
+                    <td class="px-4 py-2">${item.phone}</td>
+                    <td class="px-4 py-2">${item.course}</td>
+                    <td class="px-4 py-2">${new Date(item.timestamp).toLocaleDateString()}</td>
+                </tr>
+            `).join('');
+        }
+        
+        function populateEnrollmentsTable(data) {
+            const tbody = document.getElementById('enrollments-table');
+            tbody.innerHTML = data.map(item => `
+                <tr class="border-b">
+                    <td class="px-4 py-2">${item.name}</td>
+                    <td class="px-4 py-2">${item.course_name}</td>
+                    <td class="px-4 py-2">₹${item.fee?.toLocaleString()}</td>
+                    <td class="px-4 py-2">
+                        <span class="px-2 py-1 text-xs rounded-full ${item.status === 'pending' ? 'bg-yellow-100 text-yellow-800' : 'bg-green-100 text-green-800'}">
+                            ${item.status}
+                        </span>
+                    </td>
+                    <td class="px-4 py-2">${new Date(item.timestamp).toLocaleDateString()}</td>
+                </tr>
+            `).join('');
+        }
+        
+        function populateDemosTable(data) {
+            const tbody = document.getElementById('demos-table');
+            tbody.innerHTML = data.map(item => `
+                <tr class="border-b">
+                    <td class="px-4 py-2">${item.name}</td>
+                    <td class="px-4 py-2">${item.course_id}</td>
+                    <td class="px-4 py-2">${item.phone}</td>
+                    <td class="px-4 py-2">${item.time}</td>
+                    <td class="px-4 py-2">${new Date(item.timestamp).toLocaleDateString()}</td>
+                </tr>
+            `).join('');
+        }
+        
+        function populateAnalytics(data) {
+            const eventCounts = {};
+            const courseInterest = {};
+            
+            data.forEach(item => {
+                eventCounts[item.event] = (eventCounts[item.event] || 0) + 1;
+                if (item.course_name) {
+                    courseInterest[item.course_name] = (courseInterest[item.course_name] || 0) + 1;
+                }
+            });
+            
+            // Top events
+            const topEvents = Object.entries(eventCounts)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 5);
+            
+            document.getElementById('top-events').innerHTML = topEvents.map(([event, count]) => `
+                <div class="flex justify-between py-1">
+                    <span>${event}</span>
+                    <span class="font-bold">${count}</span>
+                </div>
+            `).join('');
+            
+            // Course interest
+            const topCourses = Object.entries(courseInterest)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 5);
+            
+            document.getElementById('course-interest').innerHTML = topCourses.map(([course, count]) => `
+                <div class="flex justify-between py-1">
+                    <span>${course}</span>
+                    <span class="font-bold">${count}</span>
+                </div>
+            `).join('');
+        }
+        
+        // Tab functionality
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabName = btn.dataset.tab;
+                
+                // Update active tab
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('active', 'border-blue-500', 'text-blue-600');
+                    b.classList.add('border-transparent', 'text-gray-500');
+                });
+                btn.classList.add('active', 'border-blue-500', 'text-blue-600');
+                btn.classList.remove('border-transparent', 'text-gray-500');
+                
+                // Show/hide content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                document.getElementById(tabName + '-tab').classList.remove('hidden');
+            });
+        });
+        
+        // Export data
+        function exportData() {
+            const allData = {
+                registrations: JSON.parse(localStorage.getItem('bytecore_registrations') || '[]'),
+                enrollments: JSON.parse(localStorage.getItem('bytecore_enrollments') || '[]'),
+                demos: JSON.parse(localStorage.getItem('bytecore_demo_bookings') || '[]'),
+                analytics: JSON.parse(localStorage.getItem('bytecore_analytics') || '[]'),
+                exportDate: new Date().toISOString()
+            };
+            
+            const dataStr = JSON.stringify(allData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `bytecore-data-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+        }
+        
+        // Clear data
+        function clearData() {
+            if (confirm('Are you sure you want to clear all data? This cannot be undone.')) {
+                localStorage.removeItem('bytecore_registrations');
+                localStorage.removeItem('bytecore_enrollments');
+                localStorage.removeItem('bytecore_demo_bookings');
+                localStorage.removeItem('bytecore_analytics');
+                localStorage.removeItem('bytecore_heatmap');
+                localStorage.removeItem('bytecore_web_vitals');
+                
+                alert('All data cleared successfully!');
+                loadDashboard();
+            }
+        }
+        
+        // Load dashboard on page load
+        document.addEventListener('DOMContentLoaded', loadDashboard);
+        
+        // Auto-refresh every 30 seconds
+        setInterval(loadDashboard, 30000);
+    </script>
+</body>
+</html>

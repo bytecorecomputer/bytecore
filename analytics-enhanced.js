@@ -268,13 +268,21 @@ class AdvancedAnalytics {
 
     async sendToAnalytics(data) {
         try {
-            await fetch('/api/analytics', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
+            // Store in localStorage for client-side analytics
+            const analyticsData = JSON.parse(localStorage.getItem('bytecore_analytics') || '[]');
+            analyticsData.push(data);
+            
+            // Keep only last 100 events
+            if (analyticsData.length > 100) {
+                analyticsData.splice(0, analyticsData.length - 100);
+            }
+            
+            localStorage.setItem('bytecore_analytics', JSON.stringify(analyticsData));
+            
+            // Send to Google Analytics if available
+            if (typeof gtag !== 'undefined') {
+                gtag('event', data.event, data);
+            }
         } catch (error) {
             console.log('Analytics tracking failed:', error);
         }
@@ -282,18 +290,22 @@ class AdvancedAnalytics {
 
     async sendHeatmapData(data) {
         try {
-            await fetch('/api/heatmap', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    session_id: this.getSessionId(),
-                    user_id: this.getUserId(),
-                    page_url: window.location.href,
-                    ...data
-                })
+            // Store heatmap data locally
+            const heatmapData = JSON.parse(localStorage.getItem('bytecore_heatmap') || '[]');
+            heatmapData.push({
+                session_id: this.getSessionId(),
+                user_id: this.getUserId(),
+                page_url: window.location.href,
+                timestamp: Date.now(),
+                ...data
             });
+            
+            // Keep only last 50 heatmap entries
+            if (heatmapData.length > 50) {
+                heatmapData.splice(0, heatmapData.length - 50);
+            }
+            
+            localStorage.setItem('bytecore_heatmap', JSON.stringify(heatmapData));
         } catch (error) {
             console.log('Heatmap tracking failed:', error);
         }
@@ -302,10 +314,22 @@ class AdvancedAnalytics {
     // Send batch data before page unload
     sendBatchData() {
         if (this.interactions.length > 0) {
-            navigator.sendBeacon('/api/analytics/batch', JSON.stringify({
+            // Store final session data
+            const sessionData = {
                 session_duration: Date.now() - this.sessionStart,
-                interactions: this.interactions
-            }));
+                interactions: this.interactions,
+                timestamp: Date.now()
+            };
+            
+            localStorage.setItem('bytecore_last_session', JSON.stringify(sessionData));
+            
+            // Send to Google Analytics if available
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'session_end', {
+                    session_duration: sessionData.session_duration,
+                    total_interactions: this.interactions.length
+                });
+            }
         }
     }
 }
