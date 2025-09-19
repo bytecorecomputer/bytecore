@@ -334,9 +334,10 @@
             box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
         }
 
-        /* BULLETPROOF SWIPER HORIZONTAL FIX */
+        /* NUCLEAR SWIPER HORIZONTAL FIX - FINAL SOLUTION */
         .swiper {
             overflow: hidden !important;
+            width: 100% !important;
         }
 
         .swiper-wrapper {
@@ -345,36 +346,53 @@
             flex-wrap: nowrap !important;
             align-items: stretch !important;
             transform-style: preserve-3d !important;
+            width: auto !important;
         }
 
-        .swiper-wrapper[style*="flex-direction"] {
+        .swiper-wrapper[style] {
+            flex-direction: row !important;
+        }
+
+        .swiper-wrapper[class*="flex"] {
             flex-direction: row !important;
         }
 
         .swiper-slide {
             flex-shrink: 0 !important;
-            width: auto !important;
+            width: 300px !important;
             height: auto !important;
             position: relative !important;
+            margin-right: 20px !important;
         }
 
-        /* Force horizontal on all screen sizes */
+        /* Responsive slide widths */
         @media (min-width: 1024px) {
             .swiper-slide {
-                width: calc(33.333% - 20px) !important;
+                width: 320px !important;
             }
         }
 
         @media (min-width: 640px) and (max-width: 1023px) {
             .swiper-slide {
-                width: calc(50% - 10px) !important;
+                width: 280px !important;
             }
         }
 
         @media (max-width: 639px) {
             .swiper-slide {
-                width: calc(100% - 0px) !important;
+                width: 260px !important;
             }
+        }
+
+        /* Override any vertical layout attempts */
+        .swiper-wrapper.flex-col,
+        .swiper-wrapper[style*="column"] {
+            flex-direction: row !important;
+        }
+
+        /* Force horizontal even with inline styles */
+        .swiper-wrapper[style*="flex-direction: column"] {
+            flex-direction: row !important;
         }
 
         /* Loading Animation */
@@ -1039,15 +1057,35 @@
 
 
     <script>
-        // SIMPLE & BULLETPROOF SWIPER - GUARANTEED HORIZONTAL
+        // ULTIMATE SWIPER FIX - GUARANTEED HORIZONTAL
         document.addEventListener('DOMContentLoaded', function () {
-            // Wait for DOM to be fully loaded
+            // Force horizontal layout function
+            const forceHorizontal = () => {
+                const wrapper = document.querySelector('.swiper-wrapper');
+                if (wrapper) {
+                    wrapper.style.cssText = `
+                        display: flex !important;
+                        flex-direction: row !important;
+                        align-items: stretch !important;
+                        transform-style: preserve-3d !important;
+                    `;
+                    wrapper.classList.remove('flex-col', 'flex-column');
+                }
+            };
+
+            // Apply fix immediately and repeatedly
+            forceHorizontal();
+            setInterval(forceHorizontal, 500);
+
+            // Initialize Swiper after ensuring horizontal layout
             setTimeout(() => {
-                // Initialize Swiper with simple configuration
+                forceHorizontal();
+
                 const swiper = new Swiper('.swiper', {
                     slidesPerView: 1,
                     spaceBetween: 20,
                     loop: true,
+                    grabCursor: true,
                     autoplay: {
                         delay: 4000,
                         disableOnInteraction: false,
@@ -1063,24 +1101,45 @@
                     breakpoints: {
                         640: {
                             slidesPerView: 2,
+                            spaceBetween: 20,
                         },
                         1024: {
                             slidesPerView: 3,
+                            spaceBetween: 30,
                         },
+                    },
+                    on: {
+                        init: function () {
+                            forceHorizontal();
+                        },
+                        slideChange: function () {
+                            forceHorizontal();
+                        },
+                        resize: function () {
+                            forceHorizontal();
+                        }
                     }
                 });
 
-                // Force horizontal layout every second (bulletproof)
-                setInterval(() => {
-                    const wrapper = document.querySelector('.swiper-wrapper');
-                    if (wrapper) {
-                        wrapper.style.display = 'flex';
-                        wrapper.style.flexDirection = 'row';
-                        wrapper.classList.remove('flex-col');
-                    }
-                }, 1000);
+                // Additional safety net with mutation observer
+                const observer = new MutationObserver(forceHorizontal);
+                const swiperEl = document.querySelector('.swiper');
+                if (swiperEl) {
+                    observer.observe(swiperEl, {
+                        childList: true,
+                        subtree: true,
+                        attributes: true,
+                        attributeFilter: ['style', 'class']
+                    });
+                }
 
-            }, 500);
+                // Final verification
+                setTimeout(() => {
+                    forceHorizontal();
+                    console.log('Swiper horizontal layout verified!');
+                }, 2000);
+
+            }, 1000);
         });
 
         // Registration Form Handler
@@ -1166,6 +1225,30 @@
                 mobileMenu.classList.add('-translate-x-full');
             });
         });
+    </script>
+
+    <!-- IMMEDIATE SWIPER FIX -->
+    <script>
+        // Immediate fix before any other scripts load
+        (function () {
+            const fixSwiper = () => {
+                const wrapper = document.querySelector('.swiper-wrapper');
+                if (wrapper) {
+                    wrapper.style.cssText = 'display: flex !important; flex-direction: row !important; align-items: stretch !important;';
+                    wrapper.classList.remove('flex-col', 'flex-column');
+                }
+            };
+
+            // Fix immediately
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', fixSwiper);
+            } else {
+                fixSwiper();
+            }
+
+            // Keep fixing every 100ms
+            setInterval(fixSwiper, 100);
+        })();
     </script>
 
     <!-- Advanced Features Scripts -->
