@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,14 +8,17 @@
 
     <!-- SEO Meta Tags -->
     <title>Bytecore Computer Centre | Learn Python, O Level, CCC & More</title>
-    <meta name="description" content="Bytecore Computer Centre offers top computer courses including Python, O Level, CCC, and more. Join the best computer training institute to boost your IT skills." />
-    <meta name="keywords" content="Bytecore, Computer Courses, Python, CCC, O Level, Programming Classes, Best Institute" />
+    <meta name="description"
+        content="Bytecore Computer Centre offers top computer courses including Python, O Level, CCC, and more. Join the best computer training institute to boost your IT skills." />
+    <meta name="keywords"
+        content="Bytecore, Computer Courses, Python, CCC, O Level, Programming Classes, Best Institute" />
     <meta name="author" content="Bytecore Team" />
     <meta name="robots" content="index, follow" />
 
     <!-- Social Media Meta Tags -->
     <meta property="og:title" content="Bytecore Computer Centre | Best Computer Training" />
-    <meta property="og:description" content="Join Bytecore Computer Centre for Python, CCC, O Level, and more programming courses." />
+    <meta property="og:description"
+        content="Join Bytecore Computer Centre for Python, CCC, O Level, and more programming courses." />
     <meta property="og:image" content="https://bytecore-flax.vercel.app/logo.png" />
     <meta property="og:url" content="https://bytecore-flax.vercel.app/" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -26,7 +30,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -40,66 +44,77 @@
             }
         }
     </script>
-    
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f8fafc;
         }
+
         .dark body {
             background-color: #0f172a;
         }
+
         .gradient-bg {
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
         }
+
         .course-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .course-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        
+
         /* SIMPLE SWIPER STYLES */
         .swiper {
             width: 100%;
             padding: 30px 0 50px 0;
         }
+
         .swiper-slide {
             width: 300px;
         }
+
         .swiper-pagination-bullet {
             width: 12px;
             height: 12px;
             background: #c7d2fe;
             opacity: 1;
         }
+
         .swiper-pagination-bullet-active {
             background: #6366f1;
         }
-        
+
         .feature-icon {
             background: linear-gradient(135deg, #818cf8, #a78bfa);
         }
+
         .dark .feature-icon {
             background: linear-gradient(135deg, #4f46e5, #7c3aed);
         }
-        
+
         /* Mobile Menu Styles */
         #mobile-menu {
             backdrop-filter: blur(10px);
         }
-        
+
         #mobile-menu a:hover {
             background-color: rgba(99, 102, 241, 0.1);
             border-radius: 8px;
         }
     </style>
 </head>
+
 <body class="bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-100 transition-colors duration-300">
     <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <header
+        class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
@@ -121,12 +136,16 @@
 
                 <!-- Buttons -->
                 <div class="flex items-center space-x-4">
-                    <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700">
+                    <button id="theme-toggle"
+                        class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700">
                         <i class="fas fa-moon dark:hidden"></i>
                         <i class="fas fa-sun hidden dark:block"></i>
                     </button>
-                    <a href="#registration" class="hidden md:block px-6 py-2 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">Register Now</a>
-                    <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700">
+                    <a href="#registration"
+                        class="hidden md:block px-6 py-2 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">Register
+                        Now</a>
+                    <button id="mobile-menu-toggle"
+                        class="md:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700">
                         <i class="fas fa-bars"></i>
                     </button>
                 </div>
@@ -135,46 +154,65 @@
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden fixed inset-0 z-50 bg-white dark:bg-slate-900 transform -translate-x-full transition-transform duration-300 ease-in-out">
+    <div id="mobile-menu"
+        class="md:hidden fixed inset-0 z-50 bg-white dark:bg-slate-900 transform -translate-x-full transition-transform duration-300 ease-in-out">
         <div class="flex justify-between items-center p-4 border-b border-slate-200 dark:border-slate-700">
             <h2 class="text-xl font-bold">Menu</h2>
-            <button id="close-mobile-menu" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700">
+            <button id="close-mobile-menu"
+                class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         <nav class="flex flex-col p-6 space-y-4">
-            <a href="#" class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Home</a>
-            <a href="Courses.html" class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Courses</a>
-            <a href="diploma.html" class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Certificates</a>
-            <a href="About.html" class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">About</a>
-            <a href="contact.html" class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Contact</a>
-            <a href="#registration" class="mt-4 px-6 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity text-center">Register Now</a>
+            <a href="#"
+                class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Home</a>
+            <a href="Courses.html"
+                class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Courses</a>
+            <a href="diploma.html"
+                class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Certificates</a>
+            <a href="About.html"
+                class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">About</a>
+            <a href="contact.html"
+                class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Contact</a>
+            <a href="#registration"
+                class="mt-4 px-6 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity text-center">Register
+                Now</a>
         </nav>
     </div>
 
     <!-- Hero Section -->
     <section class="relative pt-16 pb-24 overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-slate-900 dark:to-slate-900 z-0"></div>
-        
+        <div
+            class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-slate-900 dark:to-slate-900 z-0">
+        </div>
+
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 py-12">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                        Transform Your Career with 
+                        Transform Your Career with
                         <span class="bg-clip-text text-transparent gradient-bg">Tech Skills</span>
                     </h1>
                     <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-xl">
-                        Bytecore Computer Centre offers industry-leading courses taught by experts. Gain in-demand skills and certifications to boost your career in the digital world.
+                        Bytecore Computer Centre offers industry-leading courses taught by experts. Gain in-demand
+                        skills and certifications to boost your career in the digital world.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="#courses" class="px-8 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">Explore Courses</a>
-                        <a href="#registration" class="px-8 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Free Demo Class</a>
+                        <a href="#courses"
+                            class="px-8 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">Explore
+                            Courses</a>
+                        <a href="#registration"
+                            class="px-8 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Free
+                            Demo Class</a>
                     </div>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
                     <div class="relative">
-                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full gradient-bg opacity-20 absolute -top-10 -left-10 animate-pulse"></div>
-                        <div class="relative bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden border border-slate-100 dark:border-slate-700 w-full max-w-md">
+                        <div
+                            class="w-64 h-64 md:w-80 md:h-80 rounded-full gradient-bg opacity-20 absolute -top-10 -left-10 animate-pulse">
+                        </div>
+                        <div
+                            class="relative bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden border border-slate-100 dark:border-slate-700 w-full max-w-md">
                             <div class="p-5 bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
                                 <h3 class="font-bold text-xl">Featured Course</h3>
                                 <p>Full Stack Development</p>
@@ -197,7 +235,9 @@
                                 <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700">
                                     <div class="flex justify-between items-center">
                                         <span class="text-2xl font-bold">₹25,999</span>
-                                        <button class="px-4 py-2 bg-primary hover:bg-indigo-600 text-white rounded-lg transition-colors">Enroll Now</button>
+                                        <button
+                                            class="px-4 py-2 bg-primary hover:bg-indigo-600 text-white rounded-lg transition-colors">Enroll
+                                            Now</button>
                                     </div>
                                 </div>
                             </div>
@@ -213,40 +253,45 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose Bytecore?</h2>
-                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">We provide the best learning experience with industry-relevant curriculum and expert guidance</p>
+                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">We provide the best learning
+                    experience with industry-relevant curriculum and expert guidance</p>
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
                     <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-user-graduate text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Expert Faculty</h3>
-                    <p class="text-slate-600 dark:text-slate-300">Learn from industry professionals with 10+ years of experience in IT and education.</p>
+                    <p class="text-slate-600 dark:text-slate-300">Learn from industry professionals with 10+ years of
+                        experience in IT and education.</p>
                 </div>
-                
+
                 <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
                     <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-laptop-code text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Hands-on Training</h3>
-                    <p class="text-slate-600 dark:text-slate-300">Practical labs and real-world projects to build your portfolio and skills.</p>
+                    <p class="text-slate-600 dark:text-slate-300">Practical labs and real-world projects to build your
+                        portfolio and skills.</p>
                 </div>
-                
+
                 <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
                     <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-briefcase text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Placement Assistance</h3>
-                    <p class="text-slate-600 dark:text-slate-300">Dedicated placement cell with 500+ hiring partners and mock interviews.</p>
+                    <p class="text-slate-600 dark:text-slate-300">Dedicated placement cell with 500+ hiring partners and
+                        mock interviews.</p>
                 </div>
-                
+
                 <div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
                     <div class="feature-icon w-16 h-16 rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-certificate text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-3">Recognized Certification</h3>
-                    <p class="text-slate-600 dark:text-slate-300">Globally recognized certificates that add value to your resume and career.</p>
+                    <p class="text-slate-600 dark:text-slate-300">Globally recognized certificates that add value to
+                        your resume and career.</p>
                 </div>
             </div>
         </div>
@@ -257,107 +302,138 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Popular Courses</h2>
-                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">Choose from a wide range of courses designed to meet industry demands</p>
+                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">Choose from a wide range of
+                    courses designed to meet industry demands</p>
             </div>
-            
+
             <div class="swiper">
                 <div class="swiper-wrapper">
                     <!-- Course 1 -->
                     <div class="swiper-slide">
-                        <div class="course-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-700">
+                        <div
+                            class="course-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-700">
                             <div class="h-48 bg-gradient-to-r from-blue-500 to-indigo-600 relative">
-                                <img src="images/courseimg/adca.jpg" alt="ADCA Course" class="w-full h-full object-cover">
-                                <div class="absolute top-4 right-4 bg-white text-indigo-600 px-3 py-1 rounded-full text-sm font-bold">NEW</div>
+                                <img src="images/courseimg/adca.jpg" alt="ADCA Course"
+                                    class="w-full h-full object-cover">
+                                <div
+                                    class="absolute top-4 right-4 bg-white text-indigo-600 px-3 py-1 rounded-full text-sm font-bold">
+                                    NEW</div>
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">ADCA</h3>
-                                <p class="text-slate-600 dark:text-slate-300 mb-4">Advanced Diploma in Computer Applications covering MS Office, programming basics, and computer fundamentals.</p>
+                                <p class="text-slate-600 dark:text-slate-300 mb-4">Advanced Diploma in Computer
+                                    Applications covering MS Office, programming basics, and computer fundamentals.</p>
                                 <div class="flex justify-between items-center">
                                     <span class="text-lg font-bold text-primary">₹7,999</span>
                                     <span class="bg-green-100 text-green-800 text-sm px-2 py-1 rounded">6 Months</span>
                                 </div>
-                                <button class="w-full mt-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors">View Details</button>
+                                <button
+                                    class="w-full mt-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors">View
+                                    Details</button>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Course 2 -->
                     <div class="swiper-slide">
-                        <div class="course-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-700">
+                        <div
+                            class="course-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-700">
                             <div class="h-48 bg-gradient-to-r from-rose-500 to-red-600">
-                                <img src="images/courseimg/mdca.jpg" alt="MDCA Course" class="w-full h-full object-cover">
+                                <img src="images/courseimg/mdca.jpg" alt="MDCA Course"
+                                    class="w-full h-full object-cover">
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">MDCA</h3>
-                                <p class="text-slate-600 dark:text-slate-300 mb-4">Master Diploma in Computer Applications covering advanced programming, web development, and database management.</p>
+                                <p class="text-slate-600 dark:text-slate-300 mb-4">Master Diploma in Computer
+                                    Applications covering advanced programming, web development, and database
+                                    management.</p>
                                 <div class="flex justify-between items-center">
                                     <span class="text-lg font-bold text-primary">₹10,999</span>
                                     <span class="bg-green-100 text-green-800 text-sm px-2 py-1 rounded">7 Months</span>
                                 </div>
-                                <button class="w-full mt-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors">View Details</button>
+                                <button
+                                    class="w-full mt-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors">View
+                                    Details</button>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Course 3 -->
                     <div class="swiper-slide">
-                        <div class="course-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-700">
+                        <div
+                            class="course-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-700">
                             <div class="h-48 bg-gradient-to-r from-amber-500 to-orange-600">
-                                <img src="images/courseimg/web dev.jpg" alt="Full Stack Web Development" class="w-full h-full object-cover">
+                                <img src="images/courseimg/web dev.jpg" alt="Full Stack Web Development"
+                                    class="w-full h-full object-cover">
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">FULL STACK WEB DEV</h3>
-                                <p class="text-slate-600 dark:text-slate-300 mb-4">Complete web development course covering modern frontend and backend technologies with hands-on projects.</p>
+                                <p class="text-slate-600 dark:text-slate-300 mb-4">Complete web development course
+                                    covering modern frontend and backend technologies with hands-on projects.</p>
                                 <div class="flex justify-between items-center">
                                     <span class="text-lg font-bold text-primary">₹25,999</span>
                                     <span class="bg-green-100 text-green-800 text-sm px-2 py-1 rounded">10 Months</span>
                                 </div>
-                                <button class="w-full mt-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors">View Details</button>
+                                <button
+                                    class="w-full mt-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors">View
+                                    Details</button>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Course 4 -->
                     <div class="swiper-slide">
-                        <div class="course-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-700">
+                        <div
+                            class="course-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-700">
                             <div class="h-48 bg-gradient-to-r from-green-500 to-teal-600">
-                                <img src="images/courseimg/o level.jpg" alt="O Level Course" class="w-full h-full object-cover">
+                                <img src="images/courseimg/o level.jpg" alt="O Level Course"
+                                    class="w-full h-full object-cover">
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">O Level</h3>
-                                <p class="text-slate-600 dark:text-slate-300 mb-4">NIELIT O Level certification course covering IT fundamentals, programming, and web development.</p>
+                                <p class="text-slate-600 dark:text-slate-300 mb-4">NIELIT O Level certification course
+                                    covering IT fundamentals, programming, and web development.</p>
                                 <div class="flex justify-between items-center">
                                     <span class="text-lg font-bold text-primary">₹20,999</span>
                                     <span class="bg-green-100 text-green-800 text-sm px-2 py-1 rounded">1 YEAR</span>
                                 </div>
-                                <button class="w-full mt-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors">View Details</button>
+                                <button
+                                    class="w-full mt-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors">View
+                                    Details</button>
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Course 5 -->
                     <div class="swiper-slide">
-                        <div class="course-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-700">
+                        <div
+                            class="course-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-700">
                             <div class="h-48 bg-gradient-to-r from-rose-500 to-red-600">
-                                <img src="images/courseimg/gd.jpg" alt="Graphic Design Course" class="w-full h-full object-cover">
+                                <img src="images/courseimg/gd.jpg" alt="Graphic Design Course"
+                                    class="w-full h-full object-cover">
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2">Graphic Designing</h3>
-                                <p class="text-slate-600 dark:text-slate-300 mb-4">Professional graphic design course covering Adobe Creative Suite, branding, and visual communication.</p>
+                                <p class="text-slate-600 dark:text-slate-300 mb-4">Professional graphic design course
+                                    covering Adobe Creative Suite, branding, and visual communication.</p>
                                 <div class="flex justify-between items-center">
                                     <span class="text-lg font-bold text-primary">₹10,000</span>
                                     <span class="bg-green-100 text-green-800 text-sm px-2 py-1 rounded">6 Months</span>
                                 </div>
-                                <button class="w-full mt-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors">View Details</button>
+                                <button
+                                    class="w-full mt-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors">View
+                                    Details</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
-            
+
             <div class="text-center mt-12">
-                <a href="Courses.html" class="inline-block px-8 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">View All Courses</a>
+                <a href="Courses.html"
+                    class="inline-block px-8 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">View
+                    All Courses</a>
             </div>
         </div>
     </section>
@@ -367,9 +443,11 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden">
                 <div class="md:flex">
-                    <div class="md:w-2/5 bg-gradient-to-b from-indigo-600 to-purple-700 p-8 text-white flex flex-col justify-center">
+                    <div
+                        class="md:w-2/5 bg-gradient-to-b from-indigo-600 to-purple-700 p-8 text-white flex flex-col justify-center">
                         <h2 class="text-3xl font-bold mb-4">Limited Seats Available!</h2>
-                        <p class="mb-6">Register now to secure your spot in our upcoming batches. Don't miss this opportunity to transform your career.</p>
+                        <p class="mb-6">Register now to secure your spot in our upcoming batches. Don't miss this
+                            opportunity to transform your career.</p>
                         <div class="space-y-4">
                             <div class="flex items-center">
                                 <i class="fas fa-calendar-check text-2xl mr-3"></i>
@@ -399,19 +477,23 @@
                         <form id="registration-form" class="space-y-4">
                             <div>
                                 <label class="block text-sm font-medium mb-1">Full Name</label>
-                                <input type="text" name="name" required class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                                <input type="text" name="name" required
+                                    class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium mb-1">Email Address</label>
-                                <input type="email" name="email" required class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                                <input type="email" name="email" required
+                                    class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium mb-1">Phone Number</label>
-                                <input type="tel" name="phone" required class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                                <input type="tel" name="phone" required
+                                    class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium mb-1">Select Course</label>
-                                <select name="course" required class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                                <select name="course" required
+                                    class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
                                     <option value="">Choose a course</option>
                                     <option value="Full Stack Development">Full Stack Development</option>
                                     <option value="ADCA">ADCA</option>
@@ -420,7 +502,9 @@
                                     <option value="Graphic Design">Graphic Design</option>
                                 </select>
                             </div>
-                            <button type="submit" class="w-full py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">Register Now</button>
+                            <button type="submit"
+                                class="w-full py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">Register
+                                Now</button>
                         </form>
                     </div>
                 </div>
@@ -436,48 +520,64 @@
                     <h3 class="text-xl font-bold mb-6">Bytecore</h3>
                     <p class="text-slate-400 mb-6">Transforming careers through quality IT education since 2010.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
+                        <a href="https://www.facebook.com/bytecorecomputercentre/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
+                        <a href="https://x.com/bytecores" target="_blank" rel="noopener noreferrer"
+                            class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
+                        <a href="https://www.instagram.com/bytecore_computer_centre/?hl=en" target="_blank"
+                            rel="noopener noreferrer"
+                            class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
+                        <a href="https://www.linkedin.com/in/bytecore-computer-centre-69ba7a344/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
                     <ul class="space-y-3">
                         <li><a href="/" class="text-slate-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="About.html" class="text-slate-400 hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Courses</a></li>
-                        <li><a href="Fee.html" class="text-slate-400 hover:text-white transition-colors">Fees Structure</a></li>
+                        <li><a href="About.html" class="text-slate-400 hover:text-white transition-colors">About Us</a>
+                        </li>
+                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Courses</a>
+                        </li>
+                        <li><a href="Fee.html" class="text-slate-400 hover:text-white transition-colors">Fees
+                                Structure</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h3 class="text-lg font-semibold mb-6">Courses</h3>
                     <ul class="space-y-3">
-                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Full Stack Development</a></li>
-                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Python Programming</a></li>
-                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">O Level</a></li>
-                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">ADCA</a></li>
-                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Graphic Design</a></li>
+                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Full Stack
+                                Development</a></li>
+                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Python
+                                Programming</a></li>
+                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">O Level</a>
+                        </li>
+                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">ADCA</a>
+                        </li>
+                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Graphic
+                                Design</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h3 class="text-lg font-semibold mb-6">Contact Us</h3>
                     <ul class="space-y-4">
                         <li class="flex items-start">
                             <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
-                            <span class="text-slate-400">Bithri Road, Opposite Sheetala Mata Mandir, Nariyawal BLY, India - 243123</span>
+                            <span class="text-slate-400">Bithri Road, Opposite Sheetala Mata Mandir, Nariyawal BLY,
+                                India - 243123</span>
                         </li>
                         <li class="flex items-start">
                             <i class="fas fa-phone-alt mt-1 mr-3 text-primary"></i>
@@ -494,7 +594,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="pt-8 border-t border-slate-700 text-center text-slate-500">
                 <p>© 2025 Bytecore Computer Centre. All Rights Reserved.</p>
             </div>
@@ -503,7 +603,7 @@
 
     <script>
         // SIMPLE SWIPER INITIALIZATION
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const swiper = new Swiper('.swiper', {
                 slidesPerView: 1,
                 spaceBetween: 20,
@@ -528,26 +628,26 @@
         });
 
         // Dark mode toggle - Fixed
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const themeToggle = document.getElementById('theme-toggle');
             const htmlElement = document.documentElement;
-            
+
             // Load saved theme
             if (localStorage.getItem('theme') === 'dark') {
                 htmlElement.classList.add('dark');
             }
-            
+
             // Toggle functionality
             if (themeToggle) {
                 themeToggle.addEventListener('click', () => {
                     htmlElement.classList.toggle('dark');
                     const isDark = htmlElement.classList.contains('dark');
                     localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                    
+
                     // Update button icons
                     const moonIcon = themeToggle.querySelector('.fa-moon');
                     const sunIcon = themeToggle.querySelector('.fa-sun');
-                    
+
                     if (isDark) {
                         moonIcon.classList.add('hidden');
                         sunIcon.classList.remove('hidden');
@@ -560,10 +660,10 @@
         });
 
         // Registration form - Fixed
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const registrationForm = document.getElementById('registration-form');
             if (registrationForm) {
-                registrationForm.addEventListener('submit', function(e) {
+                registrationForm.addEventListener('submit', function (e) {
                     e.preventDefault();
                     alert('Registration successful! We will contact you soon.');
                     this.reset();
@@ -572,7 +672,7 @@
         });
 
         // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
             const closeMobileMenu = document.getElementById('close-mobile-menu');
@@ -603,7 +703,7 @@
         });
 
         // Smooth scrolling - Fixed
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -616,4 +716,5 @@
         });
     </script>
 </body>
+
 </html>
