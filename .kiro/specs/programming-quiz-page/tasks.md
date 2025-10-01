@@ -1,6 +1,8 @@
 # Implementation Plan
 
 - [ ] 1. Create basic HTML structure and copy header/footer components
+
+
   - Create quiz.html file in root directory
   - Copy exact header structure from index.html including navigation, logo, theme toggle, and mobile menu
   - Copy exact footer structure from index.html with all links and social media icons
