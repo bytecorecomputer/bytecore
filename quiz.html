@@ -1,377 +1,1519 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hi">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bytecore Quiz — Professional Certificate Generator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bytecore Quiz | Professional Certificate Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root{
-      --bg:#06070a; --card:#0e1418; --muted:#98a6b0; --accent:#00e5ff; --accent-2:#7c4dff; --ok:#1db954; --bad:#ff5252; --glass: rgba(255,255,255,0.03);
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8fafc;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,var(--bg),#030407);color:#e6f0f3;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px}
-    .wrap{max-width:1100px;width:100%}
-    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
-    .logo{font-weight:900;font-size:22px;letter-spacing:0.6px;color:var(--accent)}
-    .slogan{font-size:13px;color:var(--muted);opacity:0.95}
 
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:20px;box-shadow:0 10px 40px rgba(2,6,23,0.7);}
+    .dark body {
+      background-color: #0f172a;
+    }
 
-    .row{display:flex;gap:16px}
-    .col{flex:1}
+    .gradient-bg {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    }
 
-    .intro{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px}
-    h1{margin:0;font-size:20px}
-    p{margin:6px 0 0;color:var(--muted);font-size:14px}
+    .card-glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
 
-    .controls{display:flex;gap:10px;align-items:center;margin-top:12px}
-    input[type=text], input[type=email], textarea, select{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 12px;border-radius:8px;color:inherit;min-width:220px}
-    textarea{min-height:90px;font-family:inherit}
-    button{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:0;padding:10px 14px;border-radius:10px;color:#001018;font-weight:700;cursor:pointer}
-    button.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent)}
+    .dark .card-glass {
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-    .quiz-area{margin-top:18px}
-    .question{font-size:18px;margin-bottom:8px}
-    .answers{display:flex;flex-direction:column;gap:10px}
-    .ans{padding:12px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:transform .12s, box-shadow .12s}
-    .ans:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(2,6,23,0.6)}
-    .ans.locked{cursor:default;pointer-events:none}
+    .answer-option {
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
 
-    .footer{display:flex;justify-content:space-between;align-items:center;margin-top:18px;color:var(--muted);font-size:13px}
+    .answer-option:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
 
-    .cert-preview{margin-top:18px;padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+    .answer-option.correct {
+      border-color: #10b981;
+      background-color: rgba(16, 185, 129, 0.1);
+    }
 
-    .settings{display:flex;gap:12px;flex-direction:column}
-    .small{font-size:13px;color:var(--muted)}
+    .answer-option.incorrect {
+      border-color: #ef4444;
+      background-color: rgba(239, 68, 68, 0.1);
+    }
 
-    .row-2{display:flex;gap:12px}
+    .answer-option.locked {
+      pointer-events: none;
+    }
 
-    @media(max-width:920px){
-      .row{flex-direction:column}
-      .row-2{flex-direction:column}
+    .certificate-border {
+      border: 20px solid transparent;
+      padding: 10px;
+      border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M20,20 L80,20 L80,80 L20,80 Z' fill='none' stroke='%236366f1' stroke-width='5'/%3E%3C/svg%3E") 30 stretch;
+    }
+
+    .quiz-progress {
+      height: 8px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .quiz-progress-bar {
+      height: 100%;
+      transition: width 0.5s ease;
+    }
+
+    .language-card {
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .language-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.7s;
+    }
+
+    .language-card:hover::before {
+      left: 100%;
+    }
+
+    .language-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .language-card.selected {
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+      transform: scale(1.03);
+    }
+
+    .floating-animation {
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+      }
+
+      70% {
+        box-shadow: 0 0 0 15px rgba(99, 102, 241, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+      }
+    }
+
+    .typewriter {
+      overflow: hidden;
+      border-right: .15em solid #6366f1;
+      white-space: nowrap;
+      margin: 0 auto;
+      animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0
+      }
+
+      to {
+        width: 100%
+      }
+    }
+
+    @keyframes blink-caret {
+
+      from,
+      to {
+        border-color: transparent
+      }
+
+      50% {
+        border-color: #6366f1;
+      }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #f59e0b;
+      opacity: 0.7;
+      border-radius: 50%;
+    }
+
+    /* Mobile responsive certificate */
+    @media (max-width: 768px) {
+      .certificate-container {
+        transform: scale(0.7);
+        transform-origin: top center;
+      }
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    .dark ::-webkit-scrollbar-track {
+      background: #1e293b;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #c7d2fe;
+      border-radius: 4px;
+    }
+
+    .dark ::-webkit-scrollbar-thumb {
+      background: #475569;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6366f1;
     }
   </style>
 </head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="logo">BYTECORE</div>
-      <div>
-        <div class="slogan">Computer Centre — Professional Quiz & Certificate</div>
-        <div style="font-size:12px;color:var(--muted)">Add your logo, customise questions, and get secure certificates</div>
+
+<body class="bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-100 transition-colors duration-300">
+  <!-- Header -->
+  <header
+    class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-3">
+            <img src="logo.png" alt="bytecore logo" class="h-10">
+          </div>
+          <h1 class="text-2xl font-bold bg-clip-text text-transparent gradient-bg">ByteCore</h1>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="#" class="font-medium hover:text-primary transition-colors">Home</a>
+          <a href="Courses.html" class="font-medium hover:text-primary transition-colors">Courses</a>
+          <a href="diploma.html" class="font-medium hover:text-primary transition-colors">Certificates</a>
+          <a href="About.html" class="font-medium hover:text-primary transition-colors">About</a>
+          <a href="contact.html" class="font-medium hover:text-primary transition-colors">Contact</a>
+          <a href="Fee.html" class="font-medium hover:text-primary transition-colors">Fees</a>
+        </nav>
+
+        <!-- Buttons -->
+        <div class="flex items-center space-x-4">
+          <button id="theme-toggle"
+            class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700">
+            <i class="fas fa-moon dark:hidden"></i>
+            <i class="fas fa-sun hidden dark:block"></i>
+          </button>
+          <a href="#registration"
+            class="hidden md:block px-6 py-2 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">Register
+            Now</a>
+          <button id="mobile-menu-toggle"
+            class="md:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <div class="card">
-      <div class="intro row">
-        <div class="col">
-          <h1>Professional Quiz — Customized for Bytecore</h1>
-          <p>Apna logo upload kijiye, questions textarea me JSON array me daaliye (sample diya hai). Quiz complete hone par user ka certificate high-quality PNG me milega. Sahi jawab green, galat jawab red. Answer change nahi kiya ja sakta (locked).</p>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu"
+    class="md:hidden fixed inset-0 z-50 bg-white dark:bg-slate-900 transform -translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="flex justify-between items-center p-4 border-b border-slate-200 dark:border-slate-700">
+      <h2 class="text-xl font-bold">Menu</h2>
+      <button id="close-mobile-menu"
+        class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col p-6 space-y-4">
+      <a href="#"
+        class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Home</a>
+      <a href="Courses.html"
+        class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Courses</a>
+      <a href="Fee.html"
+        class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Fees</a>
+      <a href="diploma.html"
+        class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Certificates</a>
+      <a href="About.html"
+        class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">About</a>
+      <a href="contact.html"
+        class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Contact</a>
+      <a href="#registration"
+        class="mt-4 px-6 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity text-center">Register
+        Now</a>
+    </nav>
+  </div>
 
-          <div class="row-2" style="margin-top:12px">
-            <div style="flex:1">
-              <label class="small">Upload Logo (optional)</label><br>
-              <input type="file" id="logoInput" accept="image/*" />
+  <!-- Quiz App Container -->
+  <div class="container mx-auto px-4 py-12">
+    <!-- Hero Section -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 typewriter">Bytecore Professional Quiz</h1>
+      <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-8">Test your programming knowledge, earn
+        a professional certificate, and showcase your skills to the world. Start your journey with Bytecore today!</p>
+      <div class="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto rounded-full"></div>
+    </div>
+
+    <!-- Language Selection Section -->
+    <div id="language-selection" class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Choose Your Programming Language</h2>
+        <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">Select a programming language to test
+          your skills and earn a certificate</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div
+          class="language-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 floating-animation"
+          data-language="python">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-16 h-16 rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-500 flex items-center justify-center mr-4 shadow-md">
+              <i class="fab fa-python text-white text-2xl"></i>
             </div>
-            <div style="flex:1">
-              <label class="small">Enter Your Coaching Name</label><br>
-              <input id="coachName" type="text" placeholder="Bytecore Computer Centre" value="Bytecore Computer Centre" />
+            <h3 class="text-xl font-bold">Python</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mb-4">Master Python programming with our comprehensive quiz
+            covering fundamentals to advanced concepts.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-slate-500">10 Questions</span>
+            <span class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium">Beginner to
+              Advanced</span>
+          </div>
+        </div>
+
+        <div
+          class="language-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 floating-animation"
+          style="animation-delay: 0.2s;" data-language="javascript">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-16 h-16 rounded-xl bg-gradient-to-r from-yellow-300 to-yellow-400 flex items-center justify-center mr-4 shadow-md">
+              <i class="fab fa-js-square text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">JavaScript</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mb-4">Test your JavaScript knowledge with questions on ES6+, DOM
+            manipulation, and modern frameworks.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-slate-500">12 Questions</span>
+            <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium">Intermediate</span>
+          </div>
+        </div>
+
+        <div
+          class="language-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 floating-animation"
+          style="animation-delay: 0.4s;" data-language="html">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-16 h-16 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center mr-4 shadow-md">
+              <i class="fab fa-html5 text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">HTML/CSS</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mb-4">Challenge your web development skills with HTML5, CSS3, and
+            responsive design questions.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-slate-500">8 Questions</span>
+            <span class="text-sm bg-purple-100 text-purple-800 px-3 py-1 rounded-full font-medium">Beginner</span>
+          </div>
+        </div>
+
+        <div
+          class="language-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 floating-animation"
+          style="animation-delay: 0.6s;" data-language="java">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-16 h-16 rounded-xl bg-gradient-to-r from-red-500 to-red-600 flex items-center justify-center mr-4 shadow-md">
+              <i class="fab fa-java text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">Java</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mb-4">Test your object-oriented programming knowledge with Java
+            fundamentals and advanced concepts.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-slate-500">15 Questions</span>
+            <span class="text-sm bg-red-100 text-red-800 px-3 py-1 rounded-full font-medium">Advanced</span>
+          </div>
+        </div>
+
+        <div
+          class="language-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 floating-animation"
+          style="animation-delay: 0.8s;" data-language="sql">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-16 h-16 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mr-4 shadow-md">
+              <i class="fas fa-database text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">SQL</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mb-4">Master database querying with SQL questions covering joins,
+            subqueries, and optimization.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-slate-500">10 Questions</span>
+            <span class="text-sm bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full font-medium">Intermediate</span>
+          </div>
+        </div>
+
+        <div
+          class="language-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 floating-animation"
+          style="animation-delay: 1s;" data-language="cpp">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-16 h-16 rounded-xl bg-gradient-to-r from-blue-700 to-blue-800 flex items-center justify-center mr-4 shadow-md">
+              <i class="fas fa-code text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">C++</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mb-4">Challenge yourself with C++ programming concepts, memory
+            management, and advanced syntax.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-slate-500">12 Questions</span>
+            <span class="text-sm bg-gray-100 text-gray-800 px-3 py-1 rounded-full font-medium">Advanced</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button id="select-language-btn"
+          class="px-10 py-4 rounded-xl gradient-bg text-white font-bold text-lg hover:opacity-90 transition-all transform hover:scale-105 shadow-lg pulse-animation opacity-50 cursor-not-allowed"
+          disabled>
+          Select Language to Continue
+        </button>
+      </div>
+    </div>
+
+    <!-- User Details Section -->
+    <div id="user-details" class="max-w-2xl mx-auto hidden">
+      <div
+        class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700">
+        <div class="p-8">
+          <h2 class="text-3xl font-bold mb-6 text-center">Enter Your Details</h2>
+          <form id="user-form" class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium mb-2">Full Name <span class="text-red-500">*</span></label>
+              <input type="text" id="user-name" required
+                class="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary transition-all">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Email Address (Optional)</label>
+              <input type="email" id="user-email"
+                class="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary transition-all">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Phone Number (Optional)</label>
+              <input type="tel" id="user-phone"
+                class="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary transition-all">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Selected Quiz</label>
+              <div id="selected-quiz-display"
+                class="px-4 py-3 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl text-center font-medium text-indigo-700 dark:text-indigo-300">
+              </div>
+            </div>
+
+            <!-- Telegram integration is now automatic and hidden from users -->
+
+            <div class="flex justify-between pt-4">
+              <button type="button" id="back-to-language"
+                class="px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-all transform hover:scale-105">
+                <i class="fas fa-arrow-left mr-2"></i> Back
+              </button>
+              <button type="submit"
+                class="px-8 py-3 rounded-xl gradient-bg text-white font-bold hover:opacity-90 transition-all transform hover:scale-105 shadow-lg">
+                Start Quiz <i class="fas fa-play ml-2"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Section -->
+    <div id="quiz-section" class="max-w-4xl mx-auto hidden">
+      <div
+        class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700">
+        <!-- Quiz Header -->
+        <div
+          class="p-6 border-b border-slate-200 dark:border-slate-700 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20">
+          <div class="flex justify-between items-center">
+            <div>
+              <h2 id="quiz-title" class="text-2xl font-bold"></h2>
+              <p id="quiz-description" class="text-slate-600 dark:text-slate-300"></p>
+            </div>
+            <div class="text-right">
+              <div class="text-sm text-slate-500">Question</div>
+              <div id="question-counter" class="text-xl font-bold"></div>
             </div>
           </div>
 
+          <!-- Progress Bar -->
+          <div class="mt-4">
+            <div class="flex justify-between text-sm text-slate-600 dark:text-slate-300 mb-2">
+              <span>Progress</span>
+              <span id="progress-percent">0%</span>
+            </div>
+            <div class="quiz-progress bg-slate-200 dark:bg-slate-700">
+              <div id="progress-bar" class="quiz-progress-bar gradient-bg" style="width: 0%"></div>
+            </div>
+          </div>
         </div>
-        <div style="min-width:320px">
-          <label class="small">User Details</label>
-          <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
-            <input id="nameInput" type="text" placeholder="Purna Naam — e.g. Rahul Kumar" />
-            <input id="emailInput" type="email" placeholder="Email — results send karne ke liye (optional)" />
 
-            <label class="small">Telegram (optional) — agar ap server nahi rakhte to token+chatId dene par attempt yahan se bhejega (CORS/server issue aa sakta hai)</label>
-            <input id="tgToken" type="text" placeholder="Bot Token (e.g. 123456:ABC-DEF...)" />
-            <input id="tgChat" type="text" placeholder="Chat ID (e.g. -1001234567890)" />
+        <!-- Question Area -->
+        <div class="p-8">
+          <div id="question-container">
+            <h3 id="question-text" class="text-xl font-semibold mb-6"></h3>
+            <div id="answers-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+          </div>
 
-            <div style="display:flex;gap:8px">
-              <button id="startBtn">Start Quiz</button>
-              <button id="editQuestions" class="ghost">Edit Questions</button>
+          <!-- Quiz Controls -->
+          <div class="flex justify-between items-center mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
+            <div id="timer" class="text-lg font-medium flex items-center">
+              <i class="fas fa-clock mr-2 text-indigo-500"></i> <span id="time-display">00:00</span>
+            </div>
+            <div>
+              <button id="next-question"
+                class="px-6 py-3 rounded-xl gradient-bg text-white font-medium hover:opacity-90 transition-all transform hover:scale-105 shadow-lg">
+                Next Question <i class="fas fa-arrow-right ml-2"></i>
+              </button>
+              <button id="finish-quiz"
+                class="px-6 py-3 rounded-xl bg-green-600 text-white font-medium hover:bg-green-700 transition-all transform hover:scale-105 shadow-lg hidden">
+                Finish Quiz <i class="fas fa-flag-checkered ml-2"></i>
+              </button>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div style="margin-top:12px">
-        <label class="small">Questions (JSON array) — har item me q, choices (array), answer (index)</label>
-        <textarea id="questionsArea">[
-  {"q":"HTML ka full form kya hai?","choices":["Hyper Text Markup Language","High Text Markup Language","Hyperlinks and Text Markup","Home Tool Markup Language"],"answer":0},
-  {"q":"CSS ka use kis cheez ke liye hota hai?","choices":["Structure","Styling","Database","Logic"],"answer":1},
-  {"q":"JavaScript me let aur var me mukhya antar kya hai?","choices":["Scope aur Hoisting","Speed","Donon same hain","Memory"],"answer":0}
-]</textarea>
-        <div style="display:flex;justify-content:flex-end;margin-top:8px;gap:8px">
-          <button id="loadQuestions">Load Questions</button>
-        </div>
-      </div>
+    <!-- Results Section -->
+    <div id="results-section" class="max-w-4xl mx-auto hidden">
+      <div
+        class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700">
+        <div class="p-8">
+          <div class="text-center mb-8">
+            <div
+              class="w-24 h-24 rounded-full bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center mx-auto mb-4 shadow-lg">
+              <i class="fas fa-trophy text-white text-4xl"></i>
+            </div>
+            <h2 class="text-3xl font-bold mb-2">Quiz Completed!</h2>
+            <p id="user-greeting" class="text-lg text-slate-600 dark:text-slate-300"></p>
+          </div>
 
-      <div id="quizWrap" class="quiz-area" style="display:none">
-        <div id="questionBox" class="">
-          <div id="qText" class="question">Question text</div>
-          <div id="answers" class="answers"></div>
-        </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div
+              class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-6 text-center shadow-md">
+              <div class="text-4xl font-bold text-indigo-600 dark:text-indigo-400 mb-2" id="score-display"></div>
+              <div class="text-slate-600 dark:text-slate-300 font-medium">Your Score</div>
+            </div>
+            <div
+              class="bg-gradient-to-br from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 rounded-2xl p-6 text-center shadow-md">
+              <div class="text-4xl font-bold text-green-600 dark:text-green-400 mb-2" id="percentage-display"></div>
+              <div class="text-slate-600 dark:text-slate-300 font-medium">Percentage</div>
+            </div>
+            <div
+              class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl p-6 text-center shadow-md">
+              <div class="text-4xl font-bold text-amber-600 dark:text-amber-400 mb-2" id="time-taken-display"></div>
+              <div class="text-slate-600 dark:text-slate-300 font-medium">Time Taken</div>
+            </div>
+          </div>
 
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
-          <div style="font-size:13px;color:var(--muted)">Question <span id="qNumber">1</span>/<span id="qTotal">1</span></div>
-          <div>
-            <button id="nextBtn" class="ghost">Next</button>
-            <button id="finishBtn" style="display:none">Finish & Certificate</button>
+          <div class="flex flex-wrap justify-center gap-4 mb-8">
+            <button id="download-certificate"
+              class="px-6 py-3 rounded-xl gradient-bg text-white font-bold hover:opacity-90 transition-all transform hover:scale-105 shadow-lg">
+              <i class="fas fa-download mr-2"></i> Download Certificate
+            </button>
+            <button id="retake-quiz"
+              class="px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-all transform hover:scale-105">
+              <i class="fas fa-redo mr-2"></i> Retake Quiz
+            </button>
+            <button id="try-another"
+              class="px-6 py-3 rounded-xl bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-all transform hover:scale-105">
+              <i class="fas fa-code mr-2"></i> Try Another Language
+            </button>
+          </div>
+
+          <!-- Certificate Preview -->
+          <div id="certificate-preview" class="mt-8 p-6 bg-slate-50 dark:bg-slate-700 rounded-2xl hidden">
+            <h3 class="text-xl font-bold mb-4 text-center">Certificate Preview</h3>
+            <div class="certificate-container flex justify-center">
+              <div class="certificate-border bg-white p-8 max-w-2xl w-full">
+                <canvas id="certificate-canvas" width="800" height="600"></canvas>
+              </div>
+            </div>
+            <div class="text-center mt-4">
+              <p class="text-slate-600 dark:text-slate-300 text-sm">Your certificate is ready! Click the download button
+                above to save it.</p>
+            </div>
           </div>
         </div>
-
-        <div id="result" style="display:none;margin-top:14px" class="cert-preview"></div>
-      </div>
-
-      <div class="footer">
-        <div id="footerName">Bytecore Computer Centre</div>
-        <div>Made with ❤️</div>
       </div>
     </div>
   </div>
 
+  <!-- Footer -->
+  <footer class="bg-slate-800 text-white pt-16 pb-8 mt-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div>
+          <h3 class="text-xl font-bold mb-6">Bytecore</h3>
+          <p class="text-slate-400 mb-6">Transforming careers through quality IT education since 2010.</p>
+          <div class="flex space-x-4">
+            <a href="https://www.facebook.com/bytecorecomputercentre/" target="_blank" rel="noopener noreferrer"
+              class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://x.com/bytecores" target="_blank" rel="noopener noreferrer"
+              class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/bytecore_computer_centre/?hl=en" target="_blank"
+              rel="noopener noreferrer"
+              class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/bytecore-computer-centre-69ba7a344/" target="_blank"
+              rel="noopener noreferrer"
+              class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="/" class="text-slate-400 hover:text-white transition-colors">Home</a></li>
+            <li><a href="About.html" class="text-slate-400 hover:text-white transition-colors">About Us</a></li>
+            <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Courses</a></li>
+            <li><a href="Fee.html" class="text-slate-400 hover:text-white transition-colors">Fees Structure</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-6">Courses</h3>
+          <ul class="space-y-3">
+            <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Full Stack
+                Development</a></li>
+            <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Python Programming</a>
+            </li>
+            <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">O Level</a></li>
+            <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">ADCA</a></li>
+            <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-6">Contact Us</h3>
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+              <span class="text-slate-400">Bithri Road, Opposite Sheetala Mata Mandir, Nariyawal BLY, India -
+                243123</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-phone-alt mt-1 mr-3 text-primary"></i>
+              <span class="text-slate-400">+91 6396835709</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-envelope mt-1 mr-3 text-primary"></i>
+              <span class="text-slate-400">bytecore.info@gmail.com</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-clock mt-1 mr-3 text-primary"></i>
+              <span class="text-slate-400">Mon-Sat: 8:00 AM - 7:00 PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-slate-700 text-center text-slate-500">
+        <p>© 2025 Bytecore Computer Centre. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
   <script>
-    // state
-    let quiz = [];
-    let logoImg = null;
+    // Quiz Data
+    const quizData = {
+      python: {
+        title: "Python Programming Quiz",
+        description: "Test your Python knowledge with these challenging questions",
+        questions: [
+          {
+            question: "What is the output of print(2 ** 3 ** 2) in Python?",
+            options: ["64", "512", "256", "Syntax Error"],
+            correct: 1,
+            explanation: "Exponentiation is right-associative in Python, so 2 ** 3 ** 2 is evaluated as 2 ** (3 ** 2) = 2 ** 9 = 512."
+          },
+          {
+            question: "Which of these is NOT a valid variable name in Python?",
+            options: ["_my_var", "my_var_2", "2my_var", "myVar"],
+            correct: 2,
+            explanation: "Variable names cannot start with a number in Python."
+          },
+          {
+            question: "What does the 'pass' statement do in Python?",
+            options: [
+              "Terminates the program",
+              "Skips the current iteration in a loop",
+              "Is a null operation - nothing happens",
+              "Continues to the next statement"
+            ],
+            correct: 2,
+            explanation: "The pass statement is a null operation; it does nothing when executed."
+          },
+          {
+            question: "Which method would you use to convert a string to lowercase in Python?",
+            options: ["lowercase()", "tolower()", "lower()", "casefold()"],
+            correct: 2,
+            explanation: "The lower() method returns a string where all characters are lowercase."
+          },
+          {
+            question: "What is the output of 'Hello'[1:4] in Python?",
+            options: ["Hell", "ello", "ell", "Hel"],
+            correct: 2,
+            explanation: "String slicing in Python: 'Hello'[1:4] returns characters from index 1 to 3 (4 is exclusive)."
+          },
+          {
+            question: "Which of these data types is mutable in Python?",
+            options: ["Tuple", "String", "List", "Integer"],
+            correct: 2,
+            explanation: "Lists are mutable in Python, meaning their elements can be changed after creation."
+          },
+          {
+            question: "What does the 'zip()' function do in Python?",
+            options: [
+              "Compresses files",
+              "Creates an iterator that aggregates elements from each of the iterables",
+              "Combines two strings",
+              "Creates a backup of data"
+            ],
+            correct: 1,
+            explanation: "The zip() function returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables."
+          },
+          {
+            question: "Which keyword is used to define a function in Python?",
+            options: ["def", "function", "define", "func"],
+            correct: 0,
+            explanation: "The 'def' keyword is used to define a function in Python."
+          },
+          {
+            question: "What is the output of bool('False') in Python?",
+            options: ["False", "True", "Error", "None"],
+            correct: 1,
+            explanation: "Any non-empty string evaluates to True in Python, including the string 'False'."
+          },
+          {
+            question: "Which module would you import to work with regular expressions in Python?",
+            options: ["regex", "re", "regexp", "pattern"],
+            correct: 1,
+            explanation: "The 're' module provides regular expression matching operations in Python."
+          }
+        ]
+      },
+      javascript: {
+        title: "JavaScript Quiz",
+        description: "Test your JavaScript knowledge with these questions",
+        questions: [
+          {
+            question: "What will be the output of console.log(typeof null) in JavaScript?",
+            options: ["null", "undefined", "object", "string"],
+            correct: 2,
+            explanation: "In JavaScript, typeof null returns 'object', which is a known language quirk."
+          },
+          {
+            question: "Which method is used to add one or more elements to the end of an array?",
+            options: ["push()", "append()", "add()", "insert()"],
+            correct: 0,
+            explanation: "The push() method adds one or more elements to the end of an array and returns the new length."
+          },
+          {
+            question: "What does the '===' operator do in JavaScript?",
+            options: [
+              "Compares values only",
+              "Compares values and types",
+              "Assigns a value",
+              "Checks for inequality"
+            ],
+            correct: 1,
+            explanation: "The '===' operator is the strict equality operator that compares both value and type."
+          },
+          {
+            question: "Which keyword is used to declare a variable with block scope in JavaScript?",
+            options: ["var", "let", "const", "both let and const"],
+            correct: 3,
+            explanation: "Both let and const declare block-scoped variables in JavaScript."
+          },
+          {
+            question: "What will be the result of 3 + 4 + '5' in JavaScript?",
+            options: ["12", "75", "'345'", "'75'"],
+            correct: 3,
+            explanation: "JavaScript evaluates from left to right: 3+4=7, then 7+'5'='75' (string concatenation)."
+          }
+        ]
+      },
+      html: {
+        title: "HTML/CSS Quiz",
+        description: "Test your HTML and CSS knowledge",
+        questions: [
+          {
+            question: "Which HTML tag is used to define an internal style sheet?",
+            options: ["<css>", "<style>", "<script>", "<link>"],
+            correct: 1,
+            explanation: "The <style> tag is used to define internal CSS styles within an HTML document."
+          },
+          {
+            question: "Which property is used to change the background color in CSS?",
+            options: ["bgcolor", "color", "background-color", "bg-color"],
+            correct: 2,
+            explanation: "The background-color property sets the background color of an element."
+          },
+          {
+            question: "Which HTML attribute is used to define inline styles?",
+            options: ["styles", "style", "class", "font"],
+            correct: 1,
+            explanation: "The style attribute is used to add inline styles to an HTML element."
+          },
+          {
+            question: "How do you select an element with id 'demo' in CSS?",
+            options: ["#demo", ".demo", "demo", "*demo"],
+            correct: 0,
+            explanation: "The # symbol is used to select an element by its id in CSS."
+          }
+        ]
+      },
+      java: {
+        title: "Java Programming Quiz",
+        description: "Test your Java knowledge",
+        questions: [
+          {
+            question: "Which of these is not a primitive data type in Java?",
+            options: ["int", "String", "boolean", "double"],
+            correct: 1,
+            explanation: "String is a class in Java, not a primitive data type."
+          },
+          {
+            question: "What is the default value of a boolean variable in Java?",
+            options: ["true", "false", "null", "0"],
+            correct: 1,
+            explanation: "The default value of a boolean variable in Java is false."
+          },
+          {
+            question: "Which keyword is used to inherit a class in Java?",
+            options: ["implements", "extends", "inherits", "super"],
+            correct: 1,
+            explanation: "The extends keyword is used to indicate that a class is inheriting from another class."
+          }
+        ]
+      },
+      sql: {
+        title: "SQL Quiz",
+        description: "Test your SQL knowledge",
+        questions: [
+          {
+            question: "Which SQL statement is used to extract data from a database?",
+            options: ["GET", "EXTRACT", "SELECT", "OPEN"],
+            correct: 2,
+            explanation: "The SELECT statement is used to select data from a database."
+          },
+          {
+            question: "Which SQL clause is used to filter records?",
+            options: ["FILTER", "WHERE", "QUERY", "CONDITION"],
+            correct: 1,
+            explanation: "The WHERE clause is used to filter records in SQL."
+          }
+        ]
+      },
+      cpp: {
+        title: "C++ Programming Quiz",
+        description: "Test your C++ knowledge",
+        questions: [
+          {
+            question: "Which operator is used to allocate memory in C++?",
+            options: ["new", "malloc", "create", "allocate"],
+            correct: 0,
+            explanation: "The new operator is used to allocate memory in C++."
+          },
+          {
+            question: "What does OOP stand for?",
+            options: [
+              "Object-Oriented Programming",
+              "Object-Option Programming",
+              "Objective-Oriented Programming",
+              "Object-Organized Programming"
+            ],
+            correct: 0,
+            explanation: "OOP stands for Object-Oriented Programming."
+          }
+        ]
+      }
+    };
 
-    const nameInput = document.getElementById('nameInput');
-    const startBtn = document.getElementById('startBtn');
-    const quizWrap = document.getElementById('quizWrap');
-    const qText = document.getElementById('qText');
-    const answers = document.getElementById('answers');
-    const qNumber = document.getElementById('qNumber');
-    const qTotal = document.getElementById('qTotal');
-    const nextBtn = document.getElementById('nextBtn');
-    const finishBtn = document.getElementById('finishBtn');
-    const resultDiv = document.getElementById('result');
-    const questionsArea = document.getElementById('questionsArea');
-    const loadQuestions = document.getElementById('loadQuestions');
-    const editQuestions = document.getElementById('editQuestions');
-    const logoInput = document.getElementById('logoInput');
-    const coachNameInput = document.getElementById('coachName');
-    const footerName = document.getElementById('footerName');
-    const emailInput = document.getElementById('emailInput');
-    const tgToken = document.getElementById('tgToken');
-    const tgChat = document.getElementById('tgChat');
-
-    let current = 0;
-    let selected = null;
+    // App State
+    let currentState = 'language-selection';
+    let selectedLanguage = null;
+    let currentQuestionIndex = 0;
     let score = 0;
+    let userAnswers = [];
+    let quizStartTime = null;
+    let quizEndTime = null;
     let userName = '';
+    let userEmail = '';
+    let userPhone = '';
+    let telegramToken = '8231458651:AAGE9xiTBI5gfD9ninO_ysfL-PGUYv4PxJs';
+    let telegramChatId = '8037442083';
 
-    // Load default questions from textarea
-    function tryLoadQuestions(){
-      try{
-        const parsed = JSON.parse(questionsArea.value);
-        if(!Array.isArray(parsed)) throw new Error('Array expected');
-        // minimal validation
-        for(const it of parsed){ if(typeof it.q !== 'string' || !Array.isArray(it.choices) || typeof it.answer !== 'number') throw new Error('Invalid format'); }
-        quiz = parsed;
-        qTotal.innerText = quiz.length;
-        alert('Questions loaded: ' + quiz.length);
-      }catch(e){ alert('Question JSON parse error: '+ e.message); }
-    }
+    // DOM Elements
+    const languageSelectionSection = document.getElementById('language-selection');
+    const userDetailsSection = document.getElementById('user-details');
+    const quizSection = document.getElementById('quiz-section');
+    const resultsSection = document.getElementById('results-section');
+    const languageCards = document.querySelectorAll('.language-card');
+    const selectLanguageBtn = document.getElementById('select-language-btn');
+    const selectedQuizDisplay = document.getElementById('selected-quiz-display');
+    const backToLanguageBtn = document.getElementById('back-to-language');
+    const userForm = document.getElementById('user-form');
+    const quizTitle = document.getElementById('quiz-title');
+    const quizDescription = document.getElementById('quiz-description');
+    const questionCounter = document.getElementById('question-counter');
+    const progressBar = document.getElementById('progress-bar');
+    const progressPercent = document.getElementById('progress-percent');
+    const questionText = document.getElementById('question-text');
+    const answersContainer = document.getElementById('answers-container');
+    const nextQuestionBtn = document.getElementById('next-question');
+    const finishQuizBtn = document.getElementById('finish-quiz');
+    const timerDisplay = document.getElementById('time-display');
+    const userGreeting = document.getElementById('user-greeting');
+    const scoreDisplay = document.getElementById('score-display');
+    const percentageDisplay = document.getElementById('percentage-display');
+    const timeTakenDisplay = document.getElementById('time-taken-display');
+    const downloadCertificateBtn = document.getElementById('download-certificate');
+    const retakeQuizBtn = document.getElementById('retake-quiz');
+    const tryAnotherBtn = document.getElementById('try-another');
+    const certificatePreview = document.getElementById('certificate-preview');
+    const certificateCanvas = document.getElementById('certificate-canvas');
+    const telegramSettings = document.getElementById('telegram-settings');
+    const tgTokenInput = document.getElementById('tg-token');
+    const tgChatInput = document.getElementById('tg-chat');
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMobileMenu = document.getElementById('close-mobile-menu');
 
-    loadQuestions.addEventListener('click', tryLoadQuestions);
-    editQuestions.addEventListener('click', ()=>{ questionsArea.focus(); });
+    // Language Selection
+    languageCards.forEach(card => {
+      card.addEventListener('click', () => {
+        // Remove selected class from all cards
+        languageCards.forEach(c => c.classList.remove('selected'));
 
-    logoInput.addEventListener('change', (e)=>{
-      const f = e.target.files[0];
-      if(!f) return; const reader = new FileReader();
-      reader.onload = ()=>{
-        logoImg = new Image(); logoImg.src = reader.result;
-      };
-      reader.readAsDataURL(f);
+        // Add selected class to clicked card
+        card.classList.add('selected');
+
+        // Enable the select button
+        selectLanguageBtn.disabled = false;
+        selectLanguageBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        selectLanguageBtn.textContent = `Continue with ${card.querySelector('h3').textContent}`;
+
+        // Store the selected language
+        selectedLanguage = card.getAttribute('data-language');
+      });
     });
 
-    function renderQuestion(i){
-      const item = quiz[i];
-      qText.innerText = item.q;
-      answers.innerHTML = '';
-      item.choices.forEach((c, idx)=>{
-        const el = document.createElement('div');
-        el.className = 'ans';
-        el.tabIndex = 0;
-        el.innerText = c;
-        el.onclick = ()=> selectAnswer(idx, el);
-        el.onkeydown = (e)=>{ if(e.key==='Enter') selectAnswer(idx, el)}
-        answers.appendChild(el);
-      });
-      qNumber.innerText = i+1;
-      selected = null;
-      // hide finish until last
-      if(i === quiz.length-1){ nextBtn.style.display = 'none'; finishBtn.style.display = 'inline-block'; }
-      else{ nextBtn.style.display = 'inline-block'; finishBtn.style.display = 'none'; }
+    // Select Language Button
+    selectLanguageBtn.addEventListener('click', () => {
+      if (selectedLanguage) {
+        showSection('user-details');
+        selectedQuizDisplay.textContent = quizData[selectedLanguage].title;
+
+        // Telegram settings are now hidden from users
+      }
+    });
+
+    // Back to Language Selection
+    backToLanguageBtn.addEventListener('click', () => {
+      showSection('language-selection');
+    });
+
+    // User Form Submission
+    userForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      userName = document.getElementById('user-name').value.trim();
+      userEmail = document.getElementById('user-email').value.trim();
+      userPhone = document.getElementById('user-phone').value.trim();
+      // Telegram credentials are now hardcoded
+
+      if (!userName) {
+        alert('Please enter your name');
+        return;
+      }
+
+      startQuiz();
+    });
+
+    // Start Quiz
+    function startQuiz() {
+      currentQuestionIndex = 0;
+      score = 0;
+      userAnswers = [];
+      quizStartTime = new Date();
+
+      showSection('quiz-section');
+      loadQuestion();
+      startTimer();
     }
 
-    function selectAnswer(idx, el){
-      if(el.classList.contains('locked')) return; // cannot change
-      // lock UI so user can't edit after choosing
-      Array.from(answers.children).forEach(x=>x.classList.remove('selected'));
-      el.classList.add('selected');
-      // mark correct/incorrect and lock all
-      const correctIdx = quiz[current].answer;
-      Array.from(answers.children).forEach((x, i)=>{
-        x.classList.add('locked');
-        if(i===correctIdx){
-          x.style.background = 'linear-gradient(90deg, rgba(0,0,0,0.12), rgba(255,255,255,0.02))';
-          x.style.border = '2px solid rgba(0,229,255,0.12)';
-        }
+    // Load Question
+    function loadQuestion() {
+      const quiz = quizData[selectedLanguage];
+      const question = quiz.questions[currentQuestionIndex];
+
+      // Update quiz info
+      quizTitle.textContent = quiz.title;
+      quizDescription.textContent = quiz.description;
+      questionCounter.textContent = `${currentQuestionIndex + 1} / ${quiz.questions.length}`;
+
+      // Update progress bar
+      const progress = ((currentQuestionIndex) / quiz.questions.length) * 100;
+      progressBar.style.width = `${progress}%`;
+      progressPercent.textContent = `${Math.round(progress)}%`;
+
+      // Set question text
+      questionText.textContent = question.question;
+
+      // Clear previous answers
+      answersContainer.innerHTML = '';
+
+      // Create answer options
+      question.options.forEach((option, index) => {
+        const answerElement = document.createElement('div');
+        answerElement.className = 'answer-option bg-slate-50 dark:bg-slate-700 rounded-xl p-4 cursor-pointer';
+        answerElement.innerHTML = `
+          <div class="flex items-center">
+            <div class="w-10 h-10 rounded-full border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center mr-4 font-bold text-slate-700 dark:text-slate-300">
+              ${String.fromCharCode(65 + index)}
+            </div>
+            <span class="font-medium">${option}</span>
+          </div>
+        `;
+
+        answerElement.addEventListener('click', () => selectAnswer(index, answerElement));
+        answersContainer.appendChild(answerElement);
       });
-      // give immediate feedback
-      if(idx === correctIdx){
-        el.style.background = 'linear-gradient(90deg, rgba(0,0,0,0.12), rgba(255,255,255,0.02))';
-        el.style.border = '3px solid var(--ok)';
-        // green flash
-        el.style.boxShadow = '0 8px 30px rgba(29,185,84,0.12)';
+
+      // Update button visibility
+      if (currentQuestionIndex === quiz.questions.length - 1) {
+        nextQuestionBtn.classList.add('hidden');
+        finishQuizBtn.classList.remove('hidden');
+      } else {
+        nextQuestionBtn.classList.remove('hidden');
+        finishQuizBtn.classList.add('hidden');
+      }
+    }
+
+    // Select Answer
+    function selectAnswer(selectedIndex, element) {
+      const quiz = quizData[selectedLanguage];
+      const question = quiz.questions[currentQuestionIndex];
+
+      // Disable all answers
+      const allAnswers = answersContainer.querySelectorAll('.answer-option');
+      allAnswers.forEach(answer => {
+        answer.classList.add('locked');
+        answer.style.pointerEvents = 'none';
+      });
+
+      // Check if answer is correct
+      const isCorrect = selectedIndex === question.correct;
+
+      // Mark selected answer
+      if (isCorrect) {
+        element.classList.add('correct');
         score++;
       } else {
-        el.style.border = '3px solid var(--bad)';
-        el.style.boxShadow = '0 8px 30px rgba(255,82,82,0.12)';
-        // also highlight correct one in green
-        const correctEl = answers.children[quiz[current].answer];
-        correctEl.style.border = '3px solid var(--ok)';
-      }
-      selected = idx;
-    }
+        element.classList.add('incorrect');
 
-    nextBtn.addEventListener('click', ()=>{
-      if(selected === null){ alert('Kripya ek vikalp chune.'); return; }
-      current++;
-      renderQuestion(current);
-      // reset styles
-    });
-
-    finishBtn.addEventListener('click', ()=>{
-      if(selected === null){ alert('Kripya ek vikalp chune.'); return; }
-      showResult();
-    });
-
-    startBtn.addEventListener('click', ()=>{
-      userName = nameInput.value.trim();
-      if(!userName){ alert('Kripya apna naam dalein'); nameInput.focus(); return; }
-      if(quiz.length===0){ tryLoadQuestions(); if(quiz.length===0){ alert('Koi questions nahi hai. Pehle questions load karo.'); return; } }
-      // start
-      current = 0; score = 0;
-      quizWrap.style.display = 'block';
-      resultDiv.style.display = 'none';
-      renderQuestion(current);
-      footerName.innerText = coachNameInput.value || 'Bytecore Computer Centre';
-      quizWrap.scrollIntoView({behavior:'smooth'});
-    });
-
-    function showResult(){
-      const percent = Math.round((score/quiz.length)*100);
-      resultDiv.style.display = 'block';
-      resultDiv.innerHTML = "\n        <div style=\"display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap\">\n          <div>\n            <div style=\"font-size:18px;font-weight:700\">Shabaash, " + escapeHtml(userName) + "!</div>\n            <div style=\"color:var(--muted);margin-top:6px\">Aapka score: <strong>" + score + "/" + quiz.length + "</strong> (" + percent + "%)</div>\n          </div>\n          <div style=\"display:flex;gap:8px;align-items:center;\">\n            <button id=\"downloadCert\">Certificate Download karein</button>\n            <button id=\"sendEmail\" class=\"ghost\">Email bhejein</button>\n            <button id=\"retake\" class=\"ghost\">Dobara</button>\n          </div>\n        </div>\n      ";
-
-      document.getElementById('downloadCert').addEventListener('click', ()=>generateCertificate(userName, score, percent));
-      document.getElementById('retake').addEventListener('click', ()=>{ quizWrap.style.display='none'; nameInput.focus(); });
-      document.getElementById('sendEmail').addEventListener('click', ()=>sendResults(userName, score, percent));
-
-      // auto attempt Telegram notify if token+chat present
-      const token = tgToken.value.trim(); const chat = tgChat.value.trim();
-      if(token && chat){ attemptTelegramNotify(token, chat, userName, score, percent); }
-    }
-
-    // escape to avoid html injection in name
-    function escapeHtml(str){ return String(str).replace(/[&<>\"'`]/g, function(s){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;','\'':'&#39;',"`":'&#96;'})[s]; }); }
-
-    // Certificate generator using canvas -> download PNG (professional)
-    function generateCertificate(name, score, percent){
-      const w = 1600; const h = 1100;
-      const c = document.createElement('canvas'); c.width = w; c.height = h;
-      const ctx = c.getContext('2d');
-
-      // background
-      const grd = ctx.createLinearGradient(0,0,0,h);
-      grd.addColorStop(0,'#ffffff'); grd.addColorStop(1,'#f6fbff');
-      // subtle paper texture - light
-      ctx.fillStyle = '#ffffff'; ctx.fillRect(0,0,w,h);
-
-      // outer border
-      ctx.strokeStyle = '#0b3b47'; ctx.lineWidth = 10; roundRect(ctx, 30,30,w-60,h-60,20); ctx.stroke();
-
-      // header bar
-      ctx.fillStyle = '#0b3b47'; ctx.fillRect(60,80,w-120,120);
-      ctx.fillStyle = '#fff'; ctx.font = '40px "Segoe UI", Roboto, Arial'; ctx.textAlign='left'; ctx.fillText(coachNameInput.value || 'Bytecore Computer Centre', 120, 155);
-
-      // logo if exists
-      if(logoImg && logoImg.complete){
-        const lw = 140; const lh = 140; ctx.drawImage(logoImg, w-120-lw, 60, lw, lh);
-      } else {
-        // fallback small emblem
-        ctx.beginPath(); ctx.fillStyle='#0b3b47'; ctx.arc(w-120-70, 130, 60, 0, Math.PI*2); ctx.fill(); ctx.fillStyle='#fff'; ctx.font='28px Arial'; ctx.textAlign='center'; ctx.fillText('BC', w-120-70, 142);
+        // Highlight correct answer
+        const correctAnswer = allAnswers[question.correct];
+        correctAnswer.classList.add('correct');
       }
 
-      // "Certificate of Completion"
-      ctx.fillStyle = '#0b3b47'; ctx.textAlign='center'; ctx.font = '46px Georgia'; ctx.fillText('Certificate of Completion', w/2, 320);
-
-      // name
-      ctx.font = '56px "Segoe UI"'; ctx.fillStyle = '#0b3b47'; ctx.fillText(name, w/2, 420);
-
-      // body text
-      ctx.font = '20px Arial'; ctx.fillStyle = '#2f5f67'; ctx.fillText(`has successfully completed the Bytecore Quiz with a score of ${score}/${quiz.length} (${percent}%)`, w/2, 480);
-
-      // signature line
-      ctx.strokeStyle = '#2f5f67'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(w/2+120, h-220); ctx.lineTo(w-140, h-220); ctx.stroke();
-      ctx.font='18px Arial'; ctx.textAlign='right'; ctx.fillStyle='#2f5f67'; ctx.fillText('Director — '+(coachNameInput.value||'Bytecore'), w-120, h-190);
-
-      // date
-      const dateStr = new Date().toLocaleDateString('en-GB'); ctx.textAlign='left'; ctx.fillText('Date: ' + dateStr, 120, h-190);
-
-      // footer small
-      ctx.textAlign='center'; ctx.font='14px Arial'; ctx.fillStyle='#7a8b90'; ctx.fillText('This certificate is generated by Bytecore Computer Centre', w/2, h-80);
-
-      c.toBlob(function(blob){
-        const filename = `${name.replace(/[^a-z0-9\- ]/gi,'').replace(/\s+/g,'_')}_Bytecore_Certificate.png`;
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = filename;
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
+      // Store user answer
+      userAnswers.push({
+        question: question.question,
+        selected: selectedIndex,
+        correct: question.correct,
+        isCorrect: isCorrect,
+        explanation: question.explanation
       });
     }
 
-    // Try to send results by email (mailto fallback) and also to server if available
-    function sendResults(name, score, percent){
-      const to = emailInput.value.trim();
-      const subject = encodeURIComponent('Bytecore Quiz Result — ' + name);
-      const body = encodeURIComponent(`Name: ${name}\nScore: ${score}/${quiz.length} (${percent}%)\nDate: ${new Date().toLocaleString()}\n\n-- Generated by Bytecore Quiz`);
-      if(to){
-        // open mail client
-        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-      } else {
-        alert('Koi email address nahi diya. Agar aap chahte hain ki result aapke Telegram par aaye to token+chatId dekar Start ke baad send karein.');
-      }
+    // Next Question
+    nextQuestionBtn.addEventListener('click', () => {
+      currentQuestionIndex++;
+      loadQuestion();
+    });
+
+    // Finish Quiz
+    finishQuizBtn.addEventListener('click', () => {
+      quizEndTime = new Date();
+      showResults();
+    });
+
+    // Show Results
+    function showResults() {
+      showSection('results-section');
+
+      const quiz = quizData[selectedLanguage];
+      const percentage = Math.round((score / quiz.questions.length) * 100);
+      const timeTaken = Math.round((quizEndTime - quizStartTime) / 1000);
+      const minutes = Math.floor(timeTaken / 60);
+      const seconds = timeTaken % 60;
+
+      // Update results display
+      userGreeting.textContent = `Congratulations, ${userName}!`;
+      scoreDisplay.textContent = `${score}/${quiz.questions.length}`;
+      percentageDisplay.textContent = `${percentage}%`;
+      timeTakenDisplay.textContent = `${minutes}m ${seconds}s`;
+
+      // Show certificate preview
+      certificatePreview.classList.remove('hidden');
+      generateCertificatePreview();
+
+      // Send results to Telegram automatically
+      sendTelegramMessage(percentage, timeTaken);
+
+      // Create confetti effect
+      createConfetti();
     }
 
-    // Attempt to notify Telegram using Bot API. Note: browser CORS may block; recommended server-side.
-    function attemptTelegramNotify(token, chatId, name, score, percent){
-      const msg = encodeURIComponent(`New Quiz Result:\nName: ${name}\nScore: ${score}/${quiz.length} (${percent}%)\nCoaching: ${coachNameInput.value || 'Bytecore'}`);
-      const url = `https://api.telegram.org/bot${token}/sendMessage`;
-      // try POST
-      fetch(url, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({chat_id: chatId, text: decodeURIComponent(msg)})})
-        .then(r=>r.json()).then(d=>{
-          if(d.ok) alert('Telegram par bhej diya gaya (response ok).'); else alert('Telegram response: ' + JSON.stringify(d));
-        }).catch(err=>{
-          console.warn('Telegram notify failed (likely CORS).', err);
-          alert('Telegram notify failed from browser (CORS). Server-side request recommended.');
+    // Generate Certificate Preview
+    function generateCertificatePreview() {
+      const ctx = certificateCanvas.getContext('2d');
+      const width = certificateCanvas.width;
+      const height = certificateCanvas.height;
+
+      // Clear canvas
+      ctx.clearRect(0, 0, width, height);
+
+      // Load logo first with proper error handling
+      const logo = new Image();
+      logo.crossOrigin = 'anonymous'; // Handle CORS if needed
+
+      logo.onload = function () {
+        // Wait a bit to ensure logo is fully loaded
+        setTimeout(() => {
+          drawCertificateContent(ctx, width, height, logo);
+        }, 100);
+      };
+
+      logo.onerror = function () {
+        console.log('Logo failed to load, drawing without logo');
+        drawCertificateContent(ctx, width, height, null);
+      };
+
+      // Try to load logo
+      logo.src = 'logo.png?' + new Date().getTime(); // Add cache buster
+    }
+
+    // Draw certificate content
+    function drawCertificateContent(ctx, width, height, logo) {
+
+      // Background with gradient
+      const gradient = ctx.createLinearGradient(0, 0, width, height);
+      gradient.addColorStop(0, '#fefefe');
+      gradient.addColorStop(1, '#f8fafc');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+
+      // Ornamental border
+      ctx.strokeStyle = '#6366f1';
+      ctx.lineWidth = 15;
+      ctx.strokeRect(0, 0, width, height);
+
+      // Decorative corner elements
+      ctx.strokeStyle = '#8b5cf6';
+      ctx.lineWidth = 3;
+
+      // Top-left corner
+      ctx.beginPath();
+      ctx.moveTo(30, 30);
+      ctx.lineTo(80, 30);
+      ctx.moveTo(30, 30);
+      ctx.lineTo(30, 80);
+      ctx.stroke();
+
+      // Top-right corner
+      ctx.beginPath();
+      ctx.moveTo(width - 30, 30);
+      ctx.lineTo(width - 80, 30);
+      ctx.moveTo(width - 30, 30);
+      ctx.lineTo(width - 30, 80);
+      ctx.stroke();
+
+      // Bottom-left corner
+      ctx.beginPath();
+      ctx.moveTo(30, height - 30);
+      ctx.lineTo(80, height - 30);
+      ctx.moveTo(30, height - 30);
+      ctx.lineTo(30, height - 80);
+      ctx.stroke();
+
+      // Bottom-right corner
+      ctx.beginPath();
+      ctx.moveTo(width - 30, height - 30);
+      ctx.lineTo(width - 80, height - 30);
+      ctx.moveTo(width - 30, height - 30);
+      ctx.lineTo(width - 30, height - 80);
+      ctx.stroke();
+
+      // Header with gradient
+      const headerGradient = ctx.createLinearGradient(0, 0, width, 0);
+      headerGradient.addColorStop(0, '#6366f1');
+      headerGradient.addColorStop(1, '#8b5cf6');
+      ctx.fillStyle = headerGradient;
+      ctx.fillRect(0, 0, width, 120);
+
+      // Draw Bytecore Logo if available
+      if (logo && logo.complete && logo.naturalWidth > 0) {
+        try {
+          // Draw logo with proper positioning
+          const logoSize = 60;
+          const logoX = 50;
+          const logoY = 30;
+
+          // Make sure logo fits within header bounds
+          ctx.drawImage(logo, logoX, logoY, logoSize, logoSize);
+
+          // Company name next to logo
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 30px Arial';
+          ctx.textAlign = 'left';
+          ctx.fillText('BYTECORE COMPUTER CENTRE', logoX + logoSize + 20, 70);
+        } catch (error) {
+          console.log('Error drawing logo:', error);
+          // Draw fallback text if logo drawing fails
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 36px Arial';
+          ctx.textAlign = 'center';
+          ctx.fillText('BYTECORE COMPUTER CENTRE', width / 2, 70);
+        }
+      } else {
+        // Fallback text if logo doesn't load or isn't ready
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 36px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('BYTECORE COMPUTER CENTRE', width / 2, 70);
+      }
+
+      // Certificate Title - Reset text alignment to center
+      ctx.fillStyle = '#2d3748';
+      ctx.font = 'bold 40px Georgia';
+      ctx.textAlign = 'center';
+      ctx.fillText('CERTIFICATE OF ACHIEVEMENT', width / 2, 200);
+
+      // Decorative line
+      ctx.strokeStyle = '#c7d2fe';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(width / 2 - 150, 220);
+      ctx.lineTo(width / 2 + 150, 220);
+      ctx.stroke();
+
+      // Awarded to
+      ctx.fillStyle = '#4a5568';
+      ctx.font = 'italic 24px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('This certificate is proudly presented to', width / 2, 270);
+
+      // User Name
+      ctx.fillStyle = '#6366f1';
+      ctx.font = 'bold 48px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText(userName.toUpperCase(), width / 2, 330);
+
+      // Completion Text
+      ctx.fillStyle = '#4a5568';
+      ctx.font = '20px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('for successfully completing the', width / 2, 380);
+
+      // Quiz Name
+      ctx.fillStyle = '#2d3748';
+      ctx.font = 'bold 32px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText(quizData[selectedLanguage].title, width / 2, 420);
+
+      // Score
+      const percentage = Math.round((score / quizData[selectedLanguage].questions.length) * 100);
+      ctx.fillStyle = '#4a5568';
+      ctx.font = '18px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText(`with a score of ${score}/${quizData[selectedLanguage].questions.length} (${percentage}%)`, width / 2, 460);
+
+      // Date
+      const today = new Date();
+      const dateStr = today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      ctx.textAlign = 'center';
+      ctx.fillText(`on ${dateStr}`, width / 2, 490);
+
+      // Signature Area
+      ctx.fillStyle = '#2d3748';
+      ctx.font = 'bold 18px Arial';
+      ctx.textAlign = 'left';
+      ctx.fillText('Director Signature', 100, 540);
+
+      ctx.textAlign = 'right';
+      ctx.fillText('Bytecore Computer Centre', width - 100, 540);
+
+      // Draw signature line (replace with actual signature image)
+      ctx.beginPath();
+      ctx.moveTo(100, 560);
+      ctx.lineTo(300, 560);
+      ctx.strokeStyle = '#2d3748';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(width - 300, 560);
+      ctx.lineTo(width - 100, 560);
+      ctx.stroke();
+
+      // Official seal removed as requested
+    }
+
+    // Download Certificate
+    downloadCertificateBtn.addEventListener('click', () => {
+      const link = document.createElement('a');
+      link.download = `Bytecore_Certificate_${userName.replace(/\s+/g, '_')}.png`;
+      link.href = certificateCanvas.toDataURL('image/png');
+      link.click();
+    });
+
+    // Retake Quiz
+    retakeQuizBtn.addEventListener('click', () => {
+      startQuiz();
+    });
+
+    // Try Another Language
+    tryAnotherBtn.addEventListener('click', () => {
+      showSection('language-selection');
+    });
+
+    // Send Telegram Message
+    function sendTelegramMessage(percentage, timeTaken) {
+      const quiz = quizData[selectedLanguage];
+      const message = `
+🆕 *New Quiz Result* 🆕
+
+*Name:* ${userName}
+${userEmail ? `*Email:* ${userEmail}\n` : ''}${userPhone ? `*Phone:* ${userPhone}\n` : ''}
+*Quiz:* ${quiz.title}
+*Score:* ${score}/${quiz.questions.length} (${percentage}%)
+*Time Taken:* ${Math.floor(timeTaken / 60)}m ${timeTaken % 60}s
+*Date:* ${new Date().toLocaleString()}
+
+*Bytecore Computer Centre*
+      `;
+
+      const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
+
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          chat_id: telegramChatId,
+          text: message,
+          parse_mode: 'Markdown'
+        })
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.ok) {
+            console.log('Telegram message sent successfully');
+          } else {
+            console.error('Failed to send Telegram message:', data);
+          }
+        })
+        .catch(error => {
+          console.error('Error sending Telegram message:', error);
         });
     }
 
-    // helper: rounded rectangle path
-    function roundRect(ctx, x, y, w, h, r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+    // Timer
+    function startTimer() {
+      let seconds = 0;
+      const timer = setInterval(() => {
+        seconds++;
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
 
-    // initial load
-    tryLoadQuestions();
+        // Stop timer when quiz ends
+        if (currentState !== 'quiz-section') {
+          clearInterval(timer);
+        }
+      }, 1000);
+    }
+
+    // Create Confetti Effect
+    function createConfetti() {
+      const container = document.getElementById('results-section');
+      const colors = ['#6366f1', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981'];
+
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.top = '-10px';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.width = Math.random() * 10 + 5 + 'px';
+        confetti.style.height = confetti.style.width;
+        confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+
+        document.body.appendChild(confetti);
+
+        // Remove confetti after animation
+        setTimeout(() => {
+          confetti.remove();
+        }, 5000);
+      }
+
+      // Add fall animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes fall {
+          to {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    // Show Section
+    function showSection(section) {
+      currentState = section;
+
+      // Hide all sections
+      languageSelectionSection.classList.add('hidden');
+      userDetailsSection.classList.add('hidden');
+      quizSection.classList.add('hidden');
+      resultsSection.classList.add('hidden');
+
+      // Show selected section
+      document.getElementById(section).classList.remove('hidden');
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Theme Toggle
+    themeToggle.addEventListener('click', () => {
+      const htmlElement = document.documentElement;
+      htmlElement.classList.toggle('dark');
+      const isDark = htmlElement.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+      // Update button icons
+      const moonIcon = themeToggle.querySelector('.fa-moon');
+      const sunIcon = themeToggle.querySelector('.fa-sun');
+
+      if (isDark) {
+        moonIcon.classList.add('hidden');
+        sunIcon.classList.remove('hidden');
+      } else {
+        moonIcon.classList.remove('hidden');
+        sunIcon.classList.add('hidden');
+      }
+    });
+
+    // Mobile Menu Toggle
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenu.classList.remove('-translate-x-full');
+    });
+
+    closeMobileMenu.addEventListener('click', () => {
+      mobileMenu.classList.add('-translate-x-full');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('-translate-x-full');
+      });
+    });
+
+    // Close menu when clicking outside
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        mobileMenu.classList.add('-translate-x-full');
+      }
+    });
+
+    // Initialize theme
+    document.addEventListener('DOMContentLoaded', () => {
+      // Load saved theme
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+        themeToggle.querySelector('.fa-moon').classList.add('hidden');
+        themeToggle.querySelector('.fa-sun').classList.remove('hidden');
+      }
+
+      // Add floating animation to hero section
+      const heroSection = document.querySelector('.text-center.mb-16');
+      heroSection.classList.add('floating-animation');
+    });
   </script>
 </body>
+
 </html>
