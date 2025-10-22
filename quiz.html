@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bytecore Quiz — Professional Certificate Generator</title>
+  <style>
+    :root{
+      --bg:#06070a; --card:#0e1418; --muted:#98a6b0; --accent:#00e5ff; --accent-2:#7c4dff; --ok:#1db954; --bad:#ff5252; --glass: rgba(255,255,255,0.03);
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#030407);color:#e6f0f3;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px}
+    .wrap{max-width:1100px;width:100%}
+    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    .logo{font-weight:900;font-size:22px;letter-spacing:0.6px;color:var(--accent)}
+    .slogan{font-size:13px;color:var(--muted);opacity:0.95}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:20px;box-shadow:0 10px 40px rgba(2,6,23,0.7);}
+
+    .row{display:flex;gap:16px}
+    .col{flex:1}
+
+    .intro{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px}
+    h1{margin:0;font-size:20px}
+    p{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+    .controls{display:flex;gap:10px;align-items:center;margin-top:12px}
+    input[type=text], input[type=email], textarea, select{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 12px;border-radius:8px;color:inherit;min-width:220px}
+    textarea{min-height:90px;font-family:inherit}
+    button{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:0;padding:10px 14px;border-radius:10px;color:#001018;font-weight:700;cursor:pointer}
+    button.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent)}
+
+    .quiz-area{margin-top:18px}
+    .question{font-size:18px;margin-bottom:8px}
+    .answers{display:flex;flex-direction:column;gap:10px}
+    .ans{padding:12px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:transform .12s, box-shadow .12s}
+    .ans:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    .ans.locked{cursor:default;pointer-events:none}
+
+    .footer{display:flex;justify-content:space-between;align-items:center;margin-top:18px;color:var(--muted);font-size:13px}
+
+    .cert-preview{margin-top:18px;padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+
+    .settings{display:flex;gap:12px;flex-direction:column}
+    .small{font-size:13px;color:var(--muted)}
+
+    .row-2{display:flex;gap:12px}
+
+    @media(max-width:920px){
+      .row{flex-direction:column}
+      .row-2{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">BYTECORE</div>
+      <div>
+        <div class="slogan">Computer Centre — Professional Quiz & Certificate</div>
+        <div style="font-size:12px;color:var(--muted)">Add your logo, customise questions, and get secure certificates</div>
+      </div>
+    </header>
+
+    <div class="card">
+      <div class="intro row">
+        <div class="col">
+          <h1>Professional Quiz — Customized for Bytecore</h1>
+          <p>Apna logo upload kijiye, questions textarea me JSON array me daaliye (sample diya hai). Quiz complete hone par user ka certificate high-quality PNG me milega. Sahi jawab green, galat jawab red. Answer change nahi kiya ja sakta (locked).</p>
+
+          <div class="row-2" style="margin-top:12px">
+            <div style="flex:1">
+              <label class="small">Upload Logo (optional)</label><br>
+              <input type="file" id="logoInput" accept="image/*" />
+            </div>
+            <div style="flex:1">
+              <label class="small">Enter Your Coaching Name</label><br>
+              <input id="coachName" type="text" placeholder="Bytecore Computer Centre" value="Bytecore Computer Centre" />
+            </div>
+          </div>
+
+        </div>
+        <div style="min-width:320px">
+          <label class="small">User Details</label>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+            <input id="nameInput" type="text" placeholder="Purna Naam — e.g. Rahul Kumar" />
+            <input id="emailInput" type="email" placeholder="Email — results send karne ke liye (optional)" />
+
+            <label class="small">Telegram (optional) — agar ap server nahi rakhte to token+chatId dene par attempt yahan se bhejega (CORS/server issue aa sakta hai)</label>
+            <input id="tgToken" type="text" placeholder="Bot Token (e.g. 123456:ABC-DEF...)" />
+            <input id="tgChat" type="text" placeholder="Chat ID (e.g. -1001234567890)" />
+
+            <div style="display:flex;gap:8px">
+              <button id="startBtn">Start Quiz</button>
+              <button id="editQuestions" class="ghost">Edit Questions</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px">
+        <label class="small">Questions (JSON array) — har item me q, choices (array), answer (index)</label>
+        <textarea id="questionsArea">[
+  {"q":"HTML ka full form kya hai?","choices":["Hyper Text Markup Language","High Text Markup Language","Hyperlinks and Text Markup","Home Tool Markup Language"],"answer":0},
+  {"q":"CSS ka use kis cheez ke liye hota hai?","choices":["Structure","Styling","Database","Logic"],"answer":1},
+  {"q":"JavaScript me let aur var me mukhya antar kya hai?","choices":["Scope aur Hoisting","Speed","Donon same hain","Memory"],"answer":0}
+]</textarea>
+        <div style="display:flex;justify-content:flex-end;margin-top:8px;gap:8px">
+          <button id="loadQuestions">Load Questions</button>
+        </div>
+      </div>
+
+      <div id="quizWrap" class="quiz-area" style="display:none">
+        <div id="questionBox" class="">
+          <div id="qText" class="question">Question text</div>
+          <div id="answers" class="answers"></div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+          <div style="font-size:13px;color:var(--muted)">Question <span id="qNumber">1</span>/<span id="qTotal">1</span></div>
+          <div>
+            <button id="nextBtn" class="ghost">Next</button>
+            <button id="finishBtn" style="display:none">Finish & Certificate</button>
+          </div>
+        </div>
+
+        <div id="result" style="display:none;margin-top:14px" class="cert-preview"></div>
+      </div>
+
+      <div class="footer">
+        <div id="footerName">Bytecore Computer Centre</div>
+        <div>Made with ❤️</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // state
+    let quiz = [];
+    let logoImg = null;
+
+    const nameInput = document.getElementById('nameInput');
+    const startBtn = document.getElementById('startBtn');
+    const quizWrap = document.getElementById('quizWrap');
+    const qText = document.getElementById('qText');
+    const answers = document.getElementById('answers');
+    const qNumber = document.getElementById('qNumber');
+    const qTotal = document.getElementById('qTotal');
+    const nextBtn = document.getElementById('nextBtn');
+    const finishBtn = document.getElementById('finishBtn');
+    const resultDiv = document.getElementById('result');
+    const questionsArea = document.getElementById('questionsArea');
+    const loadQuestions = document.getElementById('loadQuestions');
+    const editQuestions = document.getElementById('editQuestions');
+    const logoInput = document.getElementById('logoInput');
+    const coachNameInput = document.getElementById('coachName');
+    const footerName = document.getElementById('footerName');
+    const emailInput = document.getElementById('emailInput');
+    const tgToken = document.getElementById('tgToken');
+    const tgChat = document.getElementById('tgChat');
+
+    let current = 0;
+    let selected = null;
+    let score = 0;
+    let userName = '';
+
+    // Load default questions from textarea
+    function tryLoadQuestions(){
+      try{
+        const parsed = JSON.parse(questionsArea.value);
+        if(!Array.isArray(parsed)) throw new Error('Array expected');
+        // minimal validation
+        for(const it of parsed){ if(typeof it.q !== 'string' || !Array.isArray(it.choices) || typeof it.answer !== 'number') throw new Error('Invalid format'); }
+        quiz = parsed;
+        qTotal.innerText = quiz.length;
+        alert('Questions loaded: ' + quiz.length);
+      }catch(e){ alert('Question JSON parse error: '+ e.message); }
+    }
+
+    loadQuestions.addEventListener('click', tryLoadQuestions);
+    editQuestions.addEventListener('click', ()=>{ questionsArea.focus(); });
+
+    logoInput.addEventListener('change', (e)=>{
+      const f = e.target.files[0];
+      if(!f) return; const reader = new FileReader();
+      reader.onload = ()=>{
+        logoImg = new Image(); logoImg.src = reader.result;
+      };
+      reader.readAsDataURL(f);
+    });
+
+    function renderQuestion(i){
+      const item = quiz[i];
+      qText.innerText = item.q;
+      answers.innerHTML = '';
+      item.choices.forEach((c, idx)=>{
+        const el = document.createElement('div');
+        el.className = 'ans';
+        el.tabIndex = 0;
+        el.innerText = c;
+        el.onclick = ()=> selectAnswer(idx, el);
+        el.onkeydown = (e)=>{ if(e.key==='Enter') selectAnswer(idx, el)}
+        answers.appendChild(el);
+      });
+      qNumber.innerText = i+1;
+      selected = null;
+      // hide finish until last
+      if(i === quiz.length-1){ nextBtn.style.display = 'none'; finishBtn.style.display = 'inline-block'; }
+      else{ nextBtn.style.display = 'inline-block'; finishBtn.style.display = 'none'; }
+    }
+
+    function selectAnswer(idx, el){
+      if(el.classList.contains('locked')) return; // cannot change
+      // lock UI so user can't edit after choosing
+      Array.from(answers.children).forEach(x=>x.classList.remove('selected'));
+      el.classList.add('selected');
+      // mark correct/incorrect and lock all
+      const correctIdx = quiz[current].answer;
+      Array.from(answers.children).forEach((x, i)=>{
+        x.classList.add('locked');
+        if(i===correctIdx){
+          x.style.background = 'linear-gradient(90deg, rgba(0,0,0,0.12), rgba(255,255,255,0.02))';
+          x.style.border = '2px solid rgba(0,229,255,0.12)';
+        }
+      });
+      // give immediate feedback
+      if(idx === correctIdx){
+        el.style.background = 'linear-gradient(90deg, rgba(0,0,0,0.12), rgba(255,255,255,0.02))';
+        el.style.border = '3px solid var(--ok)';
+        // green flash
+        el.style.boxShadow = '0 8px 30px rgba(29,185,84,0.12)';
+        score++;
+      } else {
+        el.style.border = '3px solid var(--bad)';
+        el.style.boxShadow = '0 8px 30px rgba(255,82,82,0.12)';
+        // also highlight correct one in green
+        const correctEl = answers.children[quiz[current].answer];
+        correctEl.style.border = '3px solid var(--ok)';
+      }
+      selected = idx;
+    }
+
+    nextBtn.addEventListener('click', ()=>{
+      if(selected === null){ alert('Kripya ek vikalp chune.'); return; }
+      current++;
+      renderQuestion(current);
+      // reset styles
+    });
+
+    finishBtn.addEventListener('click', ()=>{
+      if(selected === null){ alert('Kripya ek vikalp chune.'); return; }
+      showResult();
+    });
+
+    startBtn.addEventListener('click', ()=>{
+      userName = nameInput.value.trim();
+      if(!userName){ alert('Kripya apna naam dalein'); nameInput.focus(); return; }
+      if(quiz.length===0){ tryLoadQuestions(); if(quiz.length===0){ alert('Koi questions nahi hai. Pehle questions load karo.'); return; } }
+      // start
+      current = 0; score = 0;
+      quizWrap.style.display = 'block';
+      resultDiv.style.display = 'none';
+      renderQuestion(current);
+      footerName.innerText = coachNameInput.value || 'Bytecore Computer Centre';
+      quizWrap.scrollIntoView({behavior:'smooth'});
+    });
+
+    function showResult(){
+      const percent = Math.round((score/quiz.length)*100);
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = "\n        <div style=\"display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap\">\n          <div>\n            <div style=\"font-size:18px;font-weight:700\">Shabaash, " + escapeHtml(userName) + "!</div>\n            <div style=\"color:var(--muted);margin-top:6px\">Aapka score: <strong>" + score + "/" + quiz.length + "</strong> (" + percent + "%)</div>\n          </div>\n          <div style=\"display:flex;gap:8px;align-items:center;\">\n            <button id=\"downloadCert\">Certificate Download karein</button>\n            <button id=\"sendEmail\" class=\"ghost\">Email bhejein</button>\n            <button id=\"retake\" class=\"ghost\">Dobara</button>\n          </div>\n        </div>\n      ";
+
+      document.getElementById('downloadCert').addEventListener('click', ()=>generateCertificate(userName, score, percent));
+      document.getElementById('retake').addEventListener('click', ()=>{ quizWrap.style.display='none'; nameInput.focus(); });
+      document.getElementById('sendEmail').addEventListener('click', ()=>sendResults(userName, score, percent));
+
+      // auto attempt Telegram notify if token+chat present
+      const token = tgToken.value.trim(); const chat = tgChat.value.trim();
+      if(token && chat){ attemptTelegramNotify(token, chat, userName, score, percent); }
+    }
+
+    // escape to avoid html injection in name
+    function escapeHtml(str){ return String(str).replace(/[&<>\"'`]/g, function(s){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;','\'':'&#39;',"`":'&#96;'})[s]; }); }
+
+    // Certificate generator using canvas -> download PNG (professional)
+    function generateCertificate(name, score, percent){
+      const w = 1600; const h = 1100;
+      const c = document.createElement('canvas'); c.width = w; c.height = h;
+      const ctx = c.getContext('2d');
+
+      // background
+      const grd = ctx.createLinearGradient(0,0,0,h);
+      grd.addColorStop(0,'#ffffff'); grd.addColorStop(1,'#f6fbff');
+      // subtle paper texture - light
+      ctx.fillStyle = '#ffffff'; ctx.fillRect(0,0,w,h);
+
+      // outer border
+      ctx.strokeStyle = '#0b3b47'; ctx.lineWidth = 10; roundRect(ctx, 30,30,w-60,h-60,20); ctx.stroke();
+
+      // header bar
+      ctx.fillStyle = '#0b3b47'; ctx.fillRect(60,80,w-120,120);
+      ctx.fillStyle = '#fff'; ctx.font = '40px "Segoe UI", Roboto, Arial'; ctx.textAlign='left'; ctx.fillText(coachNameInput.value || 'Bytecore Computer Centre', 120, 155);
+
+      // logo if exists
+      if(logoImg && logoImg.complete){
+        const lw = 140; const lh = 140; ctx.drawImage(logoImg, w-120-lw, 60, lw, lh);
+      } else {
+        // fallback small emblem
+        ctx.beginPath(); ctx.fillStyle='#0b3b47'; ctx.arc(w-120-70, 130, 60, 0, Math.PI*2); ctx.fill(); ctx.fillStyle='#fff'; ctx.font='28px Arial'; ctx.textAlign='center'; ctx.fillText('BC', w-120-70, 142);
+      }
+
+      // "Certificate of Completion"
+      ctx.fillStyle = '#0b3b47'; ctx.textAlign='center'; ctx.font = '46px Georgia'; ctx.fillText('Certificate of Completion', w/2, 320);
+
+      // name
+      ctx.font = '56px "Segoe UI"'; ctx.fillStyle = '#0b3b47'; ctx.fillText(name, w/2, 420);
+
+      // body text
+      ctx.font = '20px Arial'; ctx.fillStyle = '#2f5f67'; ctx.fillText(`has successfully completed the Bytecore Quiz with a score of ${score}/${quiz.length} (${percent}%)`, w/2, 480);
+
+      // signature line
+      ctx.strokeStyle = '#2f5f67'; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(w/2+120, h-220); ctx.lineTo(w-140, h-220); ctx.stroke();
+      ctx.font='18px Arial'; ctx.textAlign='right'; ctx.fillStyle='#2f5f67'; ctx.fillText('Director — '+(coachNameInput.value||'Bytecore'), w-120, h-190);
+
+      // date
+      const dateStr = new Date().toLocaleDateString('en-GB'); ctx.textAlign='left'; ctx.fillText('Date: ' + dateStr, 120, h-190);
+
+      // footer small
+      ctx.textAlign='center'; ctx.font='14px Arial'; ctx.fillStyle='#7a8b90'; ctx.fillText('This certificate is generated by Bytecore Computer Centre', w/2, h-80);
+
+      c.toBlob(function(blob){
+        const filename = `${name.replace(/[^a-z0-9\- ]/gi,'').replace(/\s+/g,'_')}_Bytecore_Certificate.png`;
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      });
+    }
+
+    // Try to send results by email (mailto fallback) and also to server if available
+    function sendResults(name, score, percent){
+      const to = emailInput.value.trim();
+      const subject = encodeURIComponent('Bytecore Quiz Result — ' + name);
+      const body = encodeURIComponent(`Name: ${name}\nScore: ${score}/${quiz.length} (${percent}%)\nDate: ${new Date().toLocaleString()}\n\n-- Generated by Bytecore Quiz`);
+      if(to){
+        // open mail client
+        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+      } else {
+        alert('Koi email address nahi diya. Agar aap chahte hain ki result aapke Telegram par aaye to token+chatId dekar Start ke baad send karein.');
+      }
+    }
+
+    // Attempt to notify Telegram using Bot API. Note: browser CORS may block; recommended server-side.
+    function attemptTelegramNotify(token, chatId, name, score, percent){
+      const msg = encodeURIComponent(`New Quiz Result:\nName: ${name}\nScore: ${score}/${quiz.length} (${percent}%)\nCoaching: ${coachNameInput.value || 'Bytecore'}`);
+      const url = `https://api.telegram.org/bot${token}/sendMessage`;
+      // try POST
+      fetch(url, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({chat_id: chatId, text: decodeURIComponent(msg)})})
+        .then(r=>r.json()).then(d=>{
+          if(d.ok) alert('Telegram par bhej diya gaya (response ok).'); else alert('Telegram response: ' + JSON.stringify(d));
+        }).catch(err=>{
+          console.warn('Telegram notify failed (likely CORS).', err);
+          alert('Telegram notify failed from browser (CORS). Server-side request recommended.');
+        });
+    }
+
+    // helper: rounded rectangle path
+    function roundRect(ctx, x, y, w, h, r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+
+    // initial load
+    tryLoadQuestions();
+  </script>
+</body>
+</html>
