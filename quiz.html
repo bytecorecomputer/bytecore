@@ -7,6 +7,7 @@
   <title>Bytecore Quiz | Professional Certificate Generator</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="config.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -907,8 +908,10 @@
     let userName = '';
     let userEmail = '';
     let userPhone = '';
-    let telegramToken = '8231458651:AAGE9xiTBI5gfD9ninO_ysfL-PGUYv4PxJs';
-    let telegramChatId = '8037442083';
+    // Initialize configuration
+    const config = new Config();
+    let telegramToken = config.getTelegramBotToken();
+    let telegramChatId = config.getTelegramChatId();
 
     // DOM Elements
     const languageSelectionSection = document.getElementById('language-selection');
