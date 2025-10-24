@@ -1315,13 +1315,38 @@
       ctx.textAlign = 'right';
       ctx.fillText('Bytecore Computer Centre', width - 100, 540);
 
-      // Draw signature line (replace with actual signature image)
-      ctx.beginPath();
-      ctx.moveTo(100, 560);
-      ctx.lineTo(300, 560);
-      ctx.strokeStyle = '#2d3748';
-      ctx.lineWidth = 2;
-      ctx.stroke();
+      // Load and draw signature image
+      const signature = new Image();
+      signature.onload = function() {
+        try {
+          // Draw signature image above the text
+          const sigWidth = 120;
+          const sigHeight = 60;
+          const sigX = 100;
+          const sigY = 480; // Above "Director Signature" text
+          
+          ctx.drawImage(signature, sigX, sigY, sigWidth, sigHeight);
+        } catch (error) {
+          console.log('Error drawing signature:', error);
+          // Draw fallback line if signature fails
+          drawSignatureLine();
+        }
+      };
+      signature.onerror = function() {
+        console.log('Signature image failed to load, drawing line');
+        drawSignatureLine();
+      };
+      signature.src = 'images/cd/sign.png';
+      
+      // Fallback function to draw signature line
+      function drawSignatureLine() {
+        ctx.beginPath();
+        ctx.moveTo(100, 560);
+        ctx.lineTo(300, 560);
+        ctx.strokeStyle = '#2d3748';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
 
       ctx.beginPath();
       ctx.moveTo(width - 300, 560);
