@@ -22,6 +22,17 @@
   </url>
 
   <url>
+    <loc>https://bytecore-flax.vercel.app/quiz.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://bytecore-flax.vercel.app/logo.png</image:loc>
+      <image:title>Bytecore Programming Quiz - Test Your Skills</image:title>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://bytecore-flax.vercel.app/courses/full-stack-development</loc>
     <lastmod>2025-01-17</lastmod>
     <changefreq>monthly</changefreq>
