@@ -6,13 +6,13 @@ class Config {
     // Try to load from environment variables first
     this.telegramBotToken = this.getEnvVar('TELEGRAM_BOT_TOKEN');
     this.telegramChatId = this.getEnvVar('TELEGRAM_CHAT_ID');
-    
+
     // Fallback to default values if env vars not available (for client-side)
     if (!this.telegramBotToken || !this.telegramChatId) {
       this.loadFromSecureSource();
     }
   }
-  
+
   getEnvVar(name) {
     // For Node.js environment
     if (typeof process !== 'undefined' && process.env) {
@@ -20,14 +20,14 @@ class Config {
     }
     return null;
   }
-  
+
   loadFromSecureSource() {
     // This method will be called on client-side
     // You can implement secure token retrieval here
     // For now, using encoded values that are less obvious
-    const encodedToken = 'ODIzMTQ1ODY1MTpBQUdFOXhpVEJJNWdEOW5pbk9feXNmTC1QR1VZdjRQeEpz';
+    const encodedToken = 'ODIzMTQ1ODY1MTpBQUdFOXhpVEJJNWdmRDluaW5PX3lzZkwtUEdVWXY0UHhKcw==';
     const encodedChatId = 'ODAzNzQ0MjA4Mw==';
-    
+
     try {
       this.telegramBotToken = atob(encodedToken);
       this.telegramChatId = atob(encodedChatId);
@@ -37,15 +37,15 @@ class Config {
       this.telegramChatId = '';
     }
   }
-  
+
   getTelegramBotToken() {
     return this.telegramBotToken;
   }
-  
+
   getTelegramChatId() {
     return this.telegramChatId;
   }
-  
+
   // Method to check if config is properly loaded
   isConfigured() {
     return this.telegramBotToken && this.telegramChatId;

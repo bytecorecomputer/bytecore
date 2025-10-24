@@ -1351,6 +1351,15 @@
 
     // Send Telegram Message
     function sendTelegramMessage(percentage, timeTaken) {
+      // Debug: Check if config is loaded
+      console.log('Telegram Token:', telegramToken ? 'Loaded' : 'Not loaded');
+      console.log('Telegram Chat ID:', telegramChatId ? 'Loaded' : 'Not loaded');
+      
+      if (!telegramToken || !telegramChatId) {
+        console.error('Telegram configuration not loaded properly');
+        return;
+      }
+      
       const quiz = quizData[selectedLanguage];
       const message = `
 🆕 *New Quiz Result* 🆕
@@ -1367,6 +1376,8 @@ ${userEmail ? `*Email:* ${userEmail}\n` : ''}${userPhone ? `*Phone:* ${userPhone
 
       const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
 
+      console.log('Sending message to Telegram...', url);
+      
       fetch(url, {
         method: 'POST',
         headers: {
@@ -1378,16 +1389,20 @@ ${userEmail ? `*Email:* ${userEmail}\n` : ''}${userPhone ? `*Phone:* ${userPhone
           parse_mode: 'Markdown'
         })
       })
-        .then(response => response.json())
+        .then(response => {
+          console.log('Response status:', response.status);
+          return response.json();
+        })
         .then(data => {
+          console.log('Telegram API response:', data);
           if (data.ok) {
-            console.log('Telegram message sent successfully');
+            console.log('✅ Telegram message sent successfully');
           } else {
-            console.error('Failed to send Telegram message:', data);
+            console.error('❌ Failed to send Telegram message:', data);
           }
         })
         .catch(error => {
-          console.error('Error sending Telegram message:', error);
+          console.error('❌ Error sending Telegram message:', error);
         });
     }
 
