@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   
   <!-- SEO Meta Tags -->
-  <title>Course Fees & Payment Details | Bytecore Computer Centre</title>
-  <meta name="description" content="Check your course fees, payment details, and fee slip at Bytecore Computer Centre. Affordable IT training courses with flexible payment options." />
-  <meta name="keywords" content="Bytecore fees, course fees, payment details, fee slip, IT course fees, computer training fees, programming course fees, affordable IT education" />
+  <title>Student Fee Portal - Check Payment Status | Bytecore Computer Centre</title>
+  <meta name="description" content="Secure student fee portal to check course fees, payment status, and download fee receipts at Bytecore Computer Centre. Quick and easy fee verification system." />
+  <meta name="keywords" content="Bytecore student portal, fee status, payment verification, fee receipt, student fees, course payment, fee slip download, Bytecore fee portal, student account" />
   <meta name="author" content="Bytecore Computer Centre" />
   <meta name="robots" content="index, follow" />
   
   <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Course Fees & Payment Details | Bytecore Computer Centre" />
-  <meta property="og:description" content="Check your course fees and payment details at Bytecore Computer Centre. Affordable IT training with flexible payment options." />
+  <meta property="og:title" content="Student Fee Portal - Secure Payment Verification | Bytecore Computer Centre" />
+  <meta property="og:description" content="Access your fee details and payment status securely. Download receipts and check course payment information." />
   <meta property="og:image" content="https://bytecore-flax.vercel.app/logo.png" />
   <meta property="og:url" content="https://bytecore-flax.vercel.app/Fee.html" />
   <meta property="og:type" content="website" />
@@ -22,54 +22,374 @@
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="canonical" href="https://bytecore-flax.vercel.app/Fee.html" />
   
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-hover: #3c3bce;
+      --accent-start: #06b6d4;
+      --accent-end: #10b981;
+      --accent-hover: #0ea277;
+      --bg: #f0f4ff;
+      --card-bg: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --success: #10b981;
+      --error: #ef4444;
+      --warning: #f59e0b;
+      --radius: 0.75rem;
+      --transition: 0.25s ease;
+      --shadow: 0 8px 24px rgba(0,0,0,0.05);
+      --shadow-hover: 0 12px 32px rgba(0,0,0,0.1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #e0e7ff, #f0fdf4);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+      line-height: 1.5;
+    }
+
+    .security-banner {
+      background: linear-gradient(to right, var(--primary), #6366f1);
+      color: white;
+      text-align: center;
+      padding: 0.75rem;
+      font-size: 0.9rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .security-banner i {
+      margin-right: 0.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      max-width: 520px;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition);
+      margin-top: 2rem;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    
+    @keyframes shimmer {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(180deg); }
+    }
+    
+    .logo {
+      width: 4rem;
+      height: 4rem;
+      margin: 0 auto 1rem;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+    }
+    
+    .logo img {
+      width: 2.5rem;
+      height: 2.5rem;
+      object-fit: contain;
+    }
+
+    .form-container {
+      padding: 2rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 2px solid #e5e7eb;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      transition: all var(--transition);
+      background: #fafafa;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+    
+    .btn {
+      background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+      color: white;
+      border: none;
+      padding: 0.875rem 2rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+    }
+    
+    .btn:active {
+      transform: translateY(0);
+    }
+    
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .error-message {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: var(--error);
+      padding: 1rem;
+      border-radius: var(--radius);
+      margin-top: 1rem;
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .success-message {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: var(--success);
+      padding: 1rem;
+      border-radius: var(--radius);
+      margin-top: 1rem;
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .fee-slip {
+      background: #fafafa;
+      border-top: 1px solid #e5e7eb;
+      padding: 2rem;
+      display: none;
+    }
+    
+    .slip-header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--primary);
+    }
+    
+    .slip-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .slip-subtitle {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    
+    .slip-content {
+      display: grid;
+      gap: 1rem;
+    }
+    
+    .slip-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    
+    .slip-row:last-child {
+      border-bottom: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+    
+    .slip-label {
+      font-weight: 500;
+      color: var(--text);
+    }
+    
+    .slip-value {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .status-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    .status-paid {
+      background: #dcfce7;
+      color: #166534;
+    }
+    
+    .status-pending {
+      background: #fef3c7;
+      color: #92400e;
+    }
+    
+    .status-overdue {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    @media (max-width: 640px) {
+      .card {
+        margin: 1rem 0;
+      }
+      
+      .header, .form-container, .fee-slip {
+        padding: 1.5rem;
+      }
+      
+      .slip-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
-  <div class="max-w-2xl w-full bg-white shadow-xl rounded-2xl overflow-hidden">
+<body>
+  <!-- Security Banner -->
+  <div class="security-banner">
+    <i class="fas fa-shield-alt"></i>
+    Secure Student Fee Portal - Your payment information is protected
+  </div>
+
+  <!-- Main Card -->
+  <div class="card">
     <!-- Header -->
-    <div class="flex items-center space-x-4 bg-gradient-to-r from-blue-600 to-teal-400 p-4 sm:p-6">
-      <img src="logo.png" alt="Bytecore Logo" class="w-12 h-12 sm:w-16 sm:h-16 object-contain" />
-      <h1 class="text-xl sm:text-3xl font-bold text-white">Bytecore Computer Centre</h1>
+    <div class="header">
+      <div class="logo">
+        <img src="logo.png" alt="Bytecore Logo" />
+      </div>
+      <h1 class="text-2xl font-bold mb-2">Student Fee Portal</h1>
+      <p class="opacity-90">Check your course fees and payment status</p>
     </div>
 
-    <!-- Form -->
-    <div class="p-4 sm:p-6">
-      <label for="rollInput" class="block text-gray-700 font-semibold mb-2">Enter Roll Number</label>
-      <div class="flex flex-col sm:flex-row sm:space-x-2 space-y-2 sm:space-y-0">
-        <input id="rollInput" type="text" placeholder="e.g. 1001" 
-               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400" />
-        <button id="viewBtn" class="w-full sm:w-auto px-6 py-3 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition">
-          View Details
-        </button>
+    <!-- Form Container -->
+    <div class="form-container">
+      <div class="form-group">
+        <label for="rollInput" class="form-label">
+          <i class="fas fa-id-card mr-2"></i>Student Roll Number
+        </label>
+        <input 
+          id="rollInput" 
+          type="text" 
+          placeholder="Enter your roll number (e.g. 1001)" 
+          class="form-input"
+          autocomplete="off"
+        />
       </div>
-      <p id="errorMsg" class="mt-3 text-red-500 font-medium hidden">❌ No record found. Please check the roll number.</p>
+      
+      <button id="viewBtn" class="btn">
+        <i class="fas fa-search"></i>
+        <span>View Fee Details</span>
+      </button>
+      
+      <!-- Error Message -->
+      <div id="errorMsg" class="error-message">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span>No record found. Please check your roll number and try again.</span>
+      </div>
+      
+      <!-- Success Message -->
+      <div id="successMsg" class="success-message">
+        <i class="fas fa-check-circle"></i>
+        <span>Fee details loaded successfully!</span>
+      </div>
     </div>
 
-    <!-- Slip Card -->
-    <div id="feesSlip" class="p-4 sm:p-6 bg-gray-50 border-t border-gray-200 space-y-4 hidden">
-      <h2 class="text-xl sm:text-2xl font-bold text-gray-800">Student Fee Details</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div><span class="font-semibold">Name:</span> <span id="studentName" class="text-gray-700"></span></div>
-        <div><span class="font-semibold">Roll Number:</span> <span id="rollNumber" class="text-gray-700"></span></div>
-        <div><span class="font-semibold">Course:</span> <span id="course" class="text-gray-700"></span></div>
+    <!-- Fee Slip -->
+    <div id="feesSlip" class="fee-slip">
+      <div class="slip-header">
+        <div class="slip-title">Fee Receipt</div>
+        <div class="slip-subtitle">Bytecore Computer Centre</div>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div><span class="font-semibold">Total Fees:</span> ₹<span id="totalFees" class="text-gray-700"></span></div>
-        <div><span class="font-semibold">Remaining Fees:</span> ₹<span id="remainingFees" class="text-gray-700"></span></div>
-      </div>
-      <!-- QR & Actions -->
-      <div id="qrContainer" class="mt-4 hidden">
-        <p class="font-semibold text-gray-800 mb-2">Scan to Pay:</p>
-        <img id="qrCode" src="" alt="QR Code" class="mx-auto w-32 h-32" />
-      </div>
-      <div class="mt-6 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-        <button id="printBtn" class="w-full sm:w-1/2 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition">
-          Print / Download
-        </button>
-        <button id="resetBtn" class="w-full sm:w-1/2 py-3 bg-gray-300 text-gray-700 font-semibold rounded-lg hover:bg-gray-400 transition">
-          New Search
-        </button>
+      
+      <div class="slip-content" id="slipContent">
+        <!-- Dynamic content will be inserted here -->
       </div>
     </div>
   </div>
@@ -86,46 +406,128 @@
       }
     }
 
-    function clearSlip() {
-      document.getElementById('feesSlip').classList.add('hidden');
-      document.getElementById('errorMsg').classList.add('hidden');
-      document.getElementById('rollInput').value = '';
+    function clearMessages() {
+      document.getElementById('errorMsg').style.display = 'none';
+      document.getElementById('successMsg').style.display = 'none';
+    }
+
+    function showError() {
+      clearMessages();
+      document.getElementById('errorMsg').style.display = 'flex';
+      document.getElementById('feesSlip').style.display = 'none';
+    }
+
+    function showSuccess() {
+      clearMessages();
+      document.getElementById('successMsg').style.display = 'flex';
+    }
+
+    function getStatusBadge(remaining) {
+      const amount = parseFloat(remaining);
+      if (amount <= 0) {
+        return '<span class="status-badge status-paid">Paid</span>';
+      } else if (amount > 0 && amount < 5000) {
+        return '<span class="status-badge status-pending">Pending</span>';
+      } else {
+        return '<span class="status-badge status-overdue">Overdue</span>';
+      }
     }
 
     function generateSlip() {
       const roll = document.getElementById('rollInput').value.trim();
-      const slip = document.getElementById('feesSlip');
-      const error = document.getElementById('errorMsg');
-
-      if (feeData[roll]) {
-        const data = feeData[roll];
-        document.getElementById('studentName').innerText = data.name;
-        document.getElementById('rollNumber').innerText = roll;
-        document.getElementById('course').innerText = data.course;
-        document.getElementById('totalFees').innerText = data.total;
-        document.getElementById('remainingFees').innerText = data.remaining;
-
-        const qrCont = document.getElementById('qrContainer');
-        const qrImg = document.getElementById('qrCode');
-        if (+data.remaining > 0) {
-          const upi = `upi://pay?pa=bytecore@upi&am=${data.remaining}&cu=INR&tn=Bytecore+Fees+Payment`;
-          qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(upi)}&size=150x150`;
-          qrCont.classList.remove('hidden');
-        } else {
-          qrCont.classList.add('hidden');
-        }
-
-        error.classList.add('hidden');
-        slip.classList.remove('hidden');
-      } else {
-        slip.classList.add('hidden');
-        error.classList.remove('hidden');
+      const btn = document.getElementById('viewBtn');
+      
+      if (!roll) {
+        showError();
+        return;
       }
+
+      // Show loading state
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Loading...</span>';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        if (feeData[roll]) {
+          const data = feeData[roll];
+          showSuccess();
+          
+          // Generate slip content
+          const slipContent = document.getElementById('slipContent');
+          const remaining = parseFloat(data.remaining);
+          
+          slipContent.innerHTML = `
+            <div class="slip-row">
+              <span class="slip-label"><i class="fas fa-user mr-2"></i>Student Name</span>
+              <span class="slip-value">${data.name}</span>
+            </div>
+            <div class="slip-row">
+              <span class="slip-label"><i class="fas fa-id-card mr-2"></i>Roll Number</span>
+              <span class="slip-value">${roll}</span>
+            </div>
+            <div class="slip-row">
+              <span class="slip-label"><i class="fas fa-graduation-cap mr-2"></i>Course</span>
+              <span class="slip-value">${data.course}</span>
+            </div>
+            <div class="slip-row">
+              <span class="slip-label"><i class="fas fa-calendar mr-2"></i>Academic Year</span>
+              <span class="slip-value">2024-25</span>
+            </div>
+            <div class="slip-row">
+              <span class="slip-label"><i class="fas fa-rupee-sign mr-2"></i>Total Fees</span>
+              <span class="slip-value">₹${data.total}</span>
+            </div>
+            <div class="slip-row">
+              <span class="slip-label"><i class="fas fa-credit-card mr-2"></i>Paid Amount</span>
+              <span class="slip-value">₹${(parseFloat(data.total) - remaining).toFixed(2)}</span>
+            </div>
+            <div class="slip-row">
+              <span class="slip-label"><i class="fas fa-exclamation-circle mr-2"></i>Payment Status</span>
+              <span class="slip-value">${getStatusBadge(data.remaining)}</span>
+            </div>
+            <div class="slip-row">
+              <span class="slip-label"><i class="fas fa-money-bill mr-2"></i>Remaining Balance</span>
+              <span class="slip-value">₹${data.remaining}</span>
+            </div>
+            ${remaining > 0 ? `
+            <div style="margin-top: 2rem; padding: 1.5rem; background: #f0fdf4; border-radius: var(--radius); text-align: center;">
+              <h3 style="color: var(--success); margin-bottom: 1rem; font-weight: 600;">
+                <i class="fas fa-qrcode mr-2"></i>Pay Online
+              </h3>
+              <img src="https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(`upi://pay?pa=bytecore@upi&am=${data.remaining}&cu=INR&tn=Bytecore+Fees+Payment`)}&size=150x150" 
+                   alt="Payment QR Code" style="margin: 0 auto; display: block; border-radius: 8px;">
+              <p style="margin-top: 1rem; color: var(--muted); font-size: 0.9rem;">
+                Scan QR code to pay ₹${data.remaining} instantly
+              </p>
+            </div>
+            ` : `
+            <div style="margin-top: 2rem; padding: 1.5rem; background: #f0fdf4; border-radius: var(--radius); text-align: center;">
+              <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--success); margin-bottom: 1rem;"></i>
+              <h3 style="color: var(--success); margin-bottom: 0.5rem; font-weight: 600;">All Fees Paid!</h3>
+              <p style="color: var(--muted);">Your course fees are fully paid. Thank you!</p>
+            </div>
+            `}
+          `;
+          
+          document.getElementById('feesSlip').style.display = 'block';
+        } else {
+          showError();
+        }
+        
+        // Reset button
+        btn.innerHTML = '<i class="fas fa-search"></i><span>View Fee Details</span>';
+        btn.disabled = false;
+      }, 1000);
     }
 
+    // Event listeners
     document.getElementById('viewBtn').addEventListener('click', generateSlip);
-    document.getElementById('printBtn').addEventListener('click', () => window.print());
-    document.getElementById('resetBtn').addEventListener('click', clearSlip);
+    
+    // Enter key support
+    document.getElementById('rollInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        generateSlip();
+      }
+    });
 
     // Initialize
     loadData();

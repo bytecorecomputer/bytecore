@@ -310,32 +310,73 @@
                         </div>
                         <div
                             class="relative bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden border border-slate-100 dark:border-slate-700 w-full max-w-md">
-                            <div class="p-5 bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
-                                <h3 class="font-bold text-xl">Featured Course</h3>
-                                <p>Full Stack Development</p>
+                            <!-- Special Offer Badge -->
+                            <div class="absolute top-4 right-4 z-10">
+                                <div class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold animate-pulse">
+                                    🔥 50% OFF
+                                </div>
                             </div>
+                            
+                            <!-- Course Image -->
+                            <div class="h-48 bg-gradient-to-r from-green-500 to-teal-600 relative overflow-hidden">
+                                <img src="images/courseimg/o level.jpg" alt="O Level Course" 
+                                     class="w-full h-full object-cover opacity-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4 text-white">
+                                    <h3 class="font-bold text-2xl">O Level</h3>
+                                    <p class="text-sm opacity-90">NIELIT Certified Course</p>
+                                </div>
+                            </div>
+                            
                             <div class="p-6">
-                                <div class="flex justify-between mb-4">
+                                <!-- Course Highlights -->
+                                <div class="flex justify-between mb-6">
                                     <div class="text-center">
-                                        <div class="text-2xl font-bold text-primary">6</div>
-                                        <div class="text-sm text-slate-500">Months</div>
+                                        <div class="text-2xl font-bold text-green-600">1</div>
+                                        <div class="text-sm text-slate-500">Year</div>
                                     </div>
                                     <div class="text-center">
-                                        <div class="text-2xl font-bold text-primary">12+</div>
-                                        <div class="text-sm text-slate-500">Projects</div>
+                                        <div class="text-2xl font-bold text-green-600">15+</div>
+                                        <div class="text-sm text-slate-500">Modules</div>
                                     </div>
                                     <div class="text-center">
-                                        <div class="text-2xl font-bold text-primary">100%</div>
-                                        <div class="text-sm text-slate-500">Placement</div>
+                                        <div class="text-2xl font-bold text-green-600">100%</div>
+                                        <div class="text-sm text-slate-500">Job Ready</div>
                                     </div>
                                 </div>
-                                <div class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700">
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-2xl font-bold">₹25,999</span>
-                                        <button
-                                            class="px-4 py-2 bg-primary hover:bg-indigo-600 text-white rounded-lg transition-colors">Enroll
-                                            Now</button>
+                                
+                                <!-- Course Features -->
+                                <div class="space-y-2 mb-6">
+                                    <div class="flex items-center text-sm text-slate-600 dark:text-slate-300">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        Government Recognized Certificate
                                     </div>
+                                    <div class="flex items-center text-sm text-slate-600 dark:text-slate-300">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        Programming + Web Development
+                                    </div>
+                                    <div class="flex items-center text-sm text-slate-600 dark:text-slate-300">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        Placement Assistance Included
+                                    </div>
+                                </div>
+                                
+                                <!-- Pricing -->
+                                <div class="border-t border-slate-200 dark:border-slate-700 pt-4">
+                                    <div class="flex justify-between items-center mb-3">
+                                        <div>
+                                            <div class="text-sm text-slate-500 line-through">₹20,999</div>
+                                            <div class="text-2xl font-bold text-green-600">₹10,499</div>
+                                        </div>
+                                        <div class="text-right">
+                                            <div class="text-xs text-red-500 font-semibold">Limited Time Offer!</div>
+                                            <div class="text-xs text-slate-500">Ends in 7 days</div>
+                                        </div>
+                                    </div>
+                                    <a href="#registration"
+                                        class="block w-full py-3 bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center">
+                                        Enroll Now - Save 50%
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -836,17 +877,91 @@
             }
         });
 
-        // Registration form - Fixed
+        // Registration form with Telegram integration
         document.addEventListener('DOMContentLoaded', function () {
             const registrationForm = document.getElementById('registration-form');
             if (registrationForm) {
-                registrationForm.addEventListener('submit', function (e) {
+                registrationForm.addEventListener('submit', async function (e) {
                     e.preventDefault();
-                    alert('Registration successful! We will contact you soon.');
-                    this.reset();
+                    
+                    // Get form data
+                    const formData = new FormData(this);
+                    const name = formData.get('name');
+                    const email = formData.get('email');
+                    const phone = formData.get('phone');
+                    const course = formData.get('course');
+                    
+                    // Validate required fields
+                    if (!name || !email || !phone || !course) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+                    
+                    // Show loading state
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Registering...';
+                    submitBtn.disabled = true;
+                    
+                    try {
+                        // Send to Telegram
+                        await sendRegistrationToTelegram(name, email, phone, course);
+                        
+                        // Show success message
+                        alert('Registration successful! We will contact you within 24 hours.');
+                        this.reset();
+                        
+                    } catch (error) {
+                        console.error('Registration error:', error);
+                        alert('Registration submitted! We will contact you soon.');
+                        this.reset();
+                    } finally {
+                        // Reset button
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }
                 });
             }
         });
+        
+        // Send registration data to Telegram
+        async function sendRegistrationToTelegram(name, email, phone, course) {
+            const telegramToken = '8231458651:AAGE9xiTBI5gfD9ninO_ysfL-PGUYv4PxJs';
+            const chatId = '8037442083';
+            
+            const message = `
+🎓 *New Course Registration* 🎓
+
+*Name:* ${name}
+*Email:* ${email}
+*Phone:* ${phone}
+*Course:* ${course}
+*Date:* ${new Date().toLocaleString()}
+*Source:* Homepage Registration
+
+*Bytecore Computer Centre*
+            `;
+            
+            const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
+            
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message,
+                    parse_mode: 'Markdown'
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to send to Telegram');
+            }
+            
+            return response.json();
+        }
 
         // Mobile menu toggle
         document.addEventListener('DOMContentLoaded', function () {
