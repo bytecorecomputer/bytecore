@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO Meta Tags -->
-    <title>Bytecore Computer Centre | Learn Python, O Level, CCC & More</title>
+    <title>Bytecore Computer Centre | Tech Mastery Starts Here - Python, Java, Full Stack Development</title>
     <meta name="description"
-        content="Bytecore Computer Centre offers top computer courses including Python, O Level, CCC, and more. Join the best computer training institute to boost your IT skills." />
+        content="Tech Mastery Starts Here! Bytecore Computer Centre offers top computer training in Python, Full Stack Development, Java, C++, Graphic Design. Join 10000+ successful students. Best IT institute since 2010." />
     <meta name="keywords"
-        content="Bytecore, Computer Courses, Python, CCC, O Level, Programming Classes, Best Institute" />
-    <meta name="author" content="Bytecore Team" />
-    <meta name="robots" content="index, follow" />
+        content="Bytecore Computer Centre, Tech Mastery Starts Here, Python course, Java programming, Full Stack Development, C++ training, O Level certification, ADCA, MDCA, Graphic Design, Bytecore Bareilly, best computer institute, IT training center, programming courses, coding bootcamp, computer education" />
+    <meta name="author" content="Bytecore Computer Centre" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
     <!-- Social Media Meta Tags -->
     <meta property="og:title" content="Bytecore Computer Centre | Best Computer Training" />
@@ -268,21 +268,39 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 py-12">
+                    <div class="mb-4">
+                        <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold text-sm mb-4">
+                            🎓 Tech Mastery Starts Here
+                        </span>
+                    </div>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                         Build Your Future in
                         <span class="bg-clip-text text-transparent gradient-bg">Technology</span>
                     </h1>
                     <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-xl">
-                        Since 2010, we've helped thousands of students master programming, web development, and IT skills. 
-                        Join our community and start your tech journey today.
+                        Since 2010, we've trained 10000+ students to become successful developers. From Python to Full Stack, master the skills that land high-paying jobs.
                     </p>
-                    <div class="flex flex-wrap gap-4">
+                    <div class="flex flex-wrap gap-4 mb-6">
                         <a href="#courses"
-                            class="px-8 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">Explore
-                            Courses</a>
+                            class="px-8 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity transform hover:scale-105 shadow-lg">
+                            <i class="fas fa-rocket mr-2"></i>Explore Courses</a>
                         <a href="#registration"
-                            class="px-8 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">Free
-                            Demo Class</a>
+                            class="px-8 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                            <i class="fas fa-phone mr-2"></i>Free Demo Class</a>
+                    </div>
+                    <div class="flex items-center space-x-8 text-sm">
+                        <div>
+                            <div class="text-2xl font-bold text-primary">10000+</div>
+                            <div class="text-slate-600 dark:text-slate-400">Students Trained</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-primary">95%</div>
+                            <div class="text-slate-600 dark:text-slate-400">Job Placement</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-primary">15+</div>
+                            <div class="text-slate-600 dark:text-slate-400">Years Experience</div>
+                        </div>
                     </div>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
@@ -327,10 +345,15 @@
         </div>
     </section>
 
-    <!-- Features Section
+    <!-- Features Section -->
     <section class="py-16 bg-slate-50 dark:bg-slate-900">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
+                <div class="mb-4">
+                    <span class="inline-block px-6 py-2 bg-primary/10 text-primary rounded-full font-bold text-lg">
+                        ⚡ Tech Mastery Starts Here ⚡
+                    </span>
+                </div>
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose Bytecore?</h2>
                 <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">Over 15 years of experience in training students for successful IT careers</p>
             </div>
@@ -369,7 +392,7 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
     <!-- Courses Section -->
     <section id="courses" class="py-16">
@@ -673,6 +696,37 @@
         </div>
     </footer>
 
+    <!-- Course Details Modal -->
+    <div id="course-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 p-6 flex justify-between items-center">
+                <h2 id="modal-course-title" class="text-2xl font-bold"></h2>
+                <button id="close-modal" class="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <div id="modal-course-content" class="space-y-4"></div>
+            </div>
+            <div class="sticky bottom-0 bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 p-6 flex justify-between items-center">
+                <div>
+                    <span id="modal-course-price" class="text-2xl font-bold text-primary"></span>
+                    <span id="modal-course-duration" class="text-slate-600 dark:text-slate-400 ml-4"></span>
+                </div>
+                <div class="flex gap-3">
+                    <a href="#registration" id="modal-enroll-btn"
+                        class="px-6 py-3 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+                        <i class="fas fa-phone mr-2"></i>Call Now
+                    </a>
+                    <a href="#registration" id="modal-call-btn"
+                        class="px-6 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">
+                        <i class="fas fa-user-plus mr-2"></i>Enroll Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // SIMPLE SWIPER INITIALIZATION
         document.addEventListener('DOMContentLoaded', function () {
@@ -784,6 +838,153 @@
                         target.scrollIntoView({ behavior: 'smooth' });
                     }
                 });
+            });
+        });
+
+        // Course Details Modal
+        const courseData = {
+            'ADCA': {
+                title: 'Advanced Diploma in Computer Applications (ADCA)',
+                price: '₹7,999',
+                duration: '6 Months',
+                description: 'Comprehensive computer applications course covering all essential software and programming basics.',
+                whatYoullLearn: [
+                    'MS Office Suite (Word, Excel, PowerPoint, Outlook)',
+                    'Computer Fundamentals & Internet',
+                    'HTML & CSS basics',
+                    'JavaScript Programming',
+                    'Database Management',
+                    'Digital Marketing basics',
+                    'Project Work & Assignments'
+                ],
+                career: 'Office Automation Specialist, Data Entry Operator, Computer Operator, Office Assistant'
+            },
+            'MDCA': {
+                title: 'Master Diploma in Computer Applications (MDCA)',
+                price: '₹10,999',
+                duration: '7 Months',
+                description: 'Advanced programming course covering web development, database, and modern technologies.',
+                whatYoullLearn: [
+                    'Advanced Java Programming',
+                    'Python Programming',
+                    'HTML, CSS, JavaScript',
+                    'MySQL Database',
+                    'Node.js & Express',
+                    'React.js',
+                    'Project Development',
+                    'Interview Preparation'
+                ],
+                career: 'Junior Developer, Web Developer, Software Developer, Application Developer'
+            },
+            'FULL STACK WEB DEV': {
+                title: 'Full Stack Web Development',
+                price: '₹25,999',
+                duration: '10 Months',
+                description: 'Complete web development bootcamp covering frontend, backend, and deployment.',
+                whatYoullLearn: [
+                    'HTML5, CSS3, JavaScript (ES6+)',
+                    'React.js & Next.js',
+                    'Node.js, Express.js',
+                    'MongoDB & PostgreSQL',
+                    'RESTful APIs & GraphQL',
+                    'Git, GitHub & Deployment',
+                    'AWS/DigitalOcean Basics',
+                    '12+ Live Projects',
+                    'Industry Mentorship'
+                ],
+                career: 'Full Stack Developer, Frontend Developer, Backend Developer, Software Engineer'
+            },
+            'O Level': {
+                title: 'NIELIT O Level Certification',
+                price: '₹20,999',
+                duration: '1 Year',
+                description: 'Government-recognized O Level certification covering IT fundamentals and programming.',
+                whatYoullLearn: [
+                    'IT Tools & Business Systems',
+                    'Internet Technology & Web Design',
+                    'Programming with C & C++',
+                    'Introduction to Data Structures',
+                    'Linux Operating System',
+                    'Practical Training',
+                    'Government Exam Preparation'
+                ],
+                career: 'Software Developer, Systems Analyst, Network Administrator, IT Support'
+            },
+            'Graphic Designing': {
+                title: 'Professional Graphic Design',
+                price: '₹10,000',
+                duration: '6 Months',
+                description: 'Complete graphic design course covering Adobe Creative Suite and modern design principles.',
+                whatYoullLearn: [
+                    'Adobe Photoshop (Advanced)',
+                    'Adobe Illustrator (Vector Graphics)',
+                    'Adobe InDesign (Page Layout)',
+                    'Brand Identity Design',
+                    'Logo & Icon Design',
+                    'Poster & Banner Design',
+                    'Social Media Graphics',
+                    'Portfolio Development'
+                ],
+                career: 'Graphic Designer, UI/UX Designer, Creative Designer, Brand Designer'
+            }
+        };
+
+        // Modal functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('course-modal');
+            const closeBtn = document.getElementById('close-modal');
+            const viewDetailsBtns = document.querySelectorAll('.course-card button');
+
+            function openModal(courseName) {
+                const course = courseData[courseName];
+                if (!course) return;
+
+                document.getElementById('modal-course-title').textContent = course.title;
+                document.getElementById('modal-course-price').textContent = course.price;
+                document.getElementById('modal-course-duration').textContent = course.duration;
+
+                const content = document.getElementById('modal-course-content');
+                content.innerHTML = `
+                    <p class="text-lg text-slate-600 dark:text-slate-300">${course.description}</p>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">What You'll Learn</h3>
+                        <ul class="space-y-2">
+                            ${course.whatYoullLearn.map(item => `
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                    <span class="text-slate-700 dark:text-slate-300">${item}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">Career Opportunities</h3>
+                        <p class="text-slate-700 dark:text-slate-300">${course.career}</p>
+                    </div>
+                `;
+
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+
+            viewDetailsBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const courseCard = this.closest('.course-card');
+                    const courseTitle = courseCard.querySelector('h3').textContent.trim();
+                    openModal(courseTitle);
+                });
+            });
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeModal();
             });
         });
     </script>
