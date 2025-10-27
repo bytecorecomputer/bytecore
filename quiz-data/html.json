@@ -1,0 +1,69 @@
+{
+  "title": "HTML/CSS Quiz",
+  "description": "Test your web development skills with HTML and CSS questions",
+  "questions": [
+    {
+      "question": "Which HTML tag is used to create a hyperlink?",
+      "options": ["<link>", "<a>", "<href>", "<url>"],
+      "correct": 1,
+      "explanation": "The <a> (anchor) tag is used to create hyperlinks in HTML."
+    },
+    {
+      "question": "What does CSS stand for?",
+      "options": [
+        "Computer Style Sheets",
+        "Cascading Style Sheets",
+        "Creative Style Sheets",
+        "Colorful Style Sheets"
+      ],
+      "correct": 1,
+      "explanation": "CSS stands for Cascading Style Sheets."
+    },
+    {
+      "question": "Which CSS property is used to change the text color?",
+      "options": ["text-color", "font-color", "color", "text-style"],
+      "correct": 2,
+      "explanation": "The 'color' property is used to set the text color in CSS."
+    },
+    {
+      "question": "What is the correct HTML tag for the largest heading?",
+      "options": ["<h6>", "<h1>", "<heading>", "<header>"],
+      "correct": 1,
+      "explanation": "<h1> is the largest heading tag in HTML, with <h6> being the smallest."
+    },
+    {
+      "question": "Which CSS property is used to make text bold?",
+      "options": ["font-weight", "text-weight", "font-style", "text-bold"],
+      "correct": 0,
+      "explanation": "The font-weight property is used to make text bold (font-weight: bold)."
+    },
+    {
+      "question": "What is the correct way to include CSS in an HTML document?",
+      "options": [
+        "<style src='style.css'>",
+        "<link rel='stylesheet' href='style.css'>",
+        "<css href='style.css'>",
+        "<include css='style.css'>"
+      ],
+      "correct": 1,
+      "explanation": "The <link> tag with rel='stylesheet' is used to include external CSS files."
+    },
+    {
+      "question": "Which HTML attribute specifies an alternate text for an image?",
+      "options": ["title", "alt", "src", "text"],
+      "correct": 1,
+      "explanation": "The 'alt' attribute provides alternative text for images when they cannot be displayed."
+    },
+    {
+      "question": "What does the CSS box model consist of?",
+      "options": [
+        "Content, padding, border, margin",
+        "Content, spacing, border, outline",
+        "Text, padding, border, background",
+        "Content, margin, outline, shadow"
+      ],
+      "correct": 0,
+      "explanation": "The CSS box model consists of content, padding, border, and margin (from inside to outside)."
+    }
+  ]
+}

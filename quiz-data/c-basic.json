@@ -1,0 +1,128 @@
+{
+  "title": "C Programming - Basic Level",
+  "description": "Test your basic C programming knowledge",
+  "difficulty": "basic",
+  "questions": [
+    {
+      "question": "Which header file should be included for printf() and scanf() functions?",
+      "options": ["#include <stdio.h>", "#include <stdlib.h>", "#include <string.h>", "#include <math.h>"],
+      "correct": 0,
+      "explanation": "stdio.h (Standard Input Output) contains printf() and scanf() functions."
+    },
+    {
+      "question": "What is the size of 'int' data type in C?",
+      "options": ["2 bytes", "4 bytes", "It depends on the system", "8 bytes"],
+      "correct": 2,
+      "explanation": "The size of int is implementation-dependent, typically 2 or 4 bytes depending on the system."
+    },
+    {
+      "question": "Which symbol is used to print an address in C?",
+      "options": ["%p", "%x", "%d", "%a"],
+      "correct": 0,
+      "explanation": "%p is used to print pointers/addresses in C."
+    },
+    {
+      "question": "What will be the output of: int x = 5; printf(\"%d\", x++);",
+      "options": ["5", "6", "4", "Error"],
+      "correct": 0,
+      "explanation": "Post-increment operator returns the value first, then increments. So it prints 5."
+    },
+    {
+      "question": "Which operator is used for modulo operation in C?",
+      "options": ["MOD", "%", "/", "&"],
+      "correct": 1,
+      "explanation": "% operator is used for modulo (remainder) operation in C."
+    },
+    {
+      "question": "What is the correct syntax to declare a variable in C?",
+      "options": ["int x = 10;", "declare int x = 10;", "variable int x = 10;", "var x = 10;"],
+      "correct": 0,
+      "explanation": "In C, you declare variables using 'data_type variable_name = value;'"
+    },
+    {
+      "question": "Which of these is NOT a valid identifier name?",
+      "options": ["myVar", "my_var123", "_value", "123variable"],
+      "correct": 3,
+      "explanation": "Variable names cannot start with a number in C."
+    },
+    {
+      "question": "What is the return type of printf() function?",
+      "options": ["void", "int", "char", "float"],
+      "correct": 1,
+      "explanation": "printf() returns an integer representing the number of characters printed."
+    },
+    {
+      "question": "Which operator is used to get the address of a variable?",
+      "options": ["*", "&", "@", "$"],
+      "correct": 1,
+      "explanation": "& (ampersand) operator is used to get the address of a variable."
+    },
+    {
+      "question": "What will be the output: printf(\"%f\", 5/2);",
+      "options": ["2.5", "2.000000", "2", "Error"],
+      "correct": 1,
+      "explanation": "Integer division (5/2) gives 2, which is converted to 2.000000 when printed with %f."
+    },
+    {
+      "question": "Which keyword is used to define a constant in C?",
+      "options": ["define", "const", "constant", "final"],
+      "correct": 1,
+      "explanation": "'const' keyword is used to define constants in C."
+    },
+    {
+      "question": "What does 'void' keyword mean in C?",
+      "options": ["Error", "No return type", "Empty value", "Null value"],
+      "correct": 1,
+      "explanation": "void means no data type or no return type."
+    },
+    {
+      "question": "Which of these is a valid way to initialize an array in C?",
+      "options": ["int arr[5] = {1,2,3,4,5};", "int arr[] = 1,2,3;", "int arr = [1,2,3];", "array arr = {1,2,3};"],
+      "correct": 0,
+      "explanation": "Arrays are initialized using curly braces: int arr[5] = {1,2,3,4,5};"
+    },
+    {
+      "question": "What is the correct syntax for a for loop in C?",
+      "options": ["for(int i=0; i<10; i++)", "for i in range(10)", "for(int i=0; i<10)", "loop i = 0 to 10"],
+      "correct": 0,
+      "explanation": "for loop syntax: for(initialization; condition; increment)"
+    },
+    {
+      "question": "Which function is used to read a string from user in C?",
+      "options": ["read()", "fgets() or scanf()", "input()", "getline()"],
+      "correct": 1,
+      "explanation": "fgets() and scanf() are used to read strings in C."
+    },
+    {
+      "question": "What will be the output: char ch = 'A'; printf(\"%c\", ch+1);",
+      "options": ["A", "B", "66", "Error"],
+      "correct": 1,
+      "explanation": "Adding 1 to 'A' (ASCII 65) gives 'B' (ASCII 66)."
+    },
+    {
+      "question": "Which operator is used to compare two values for equality?",
+      "options": ["=", "==", "===", ".equals()"],
+      "correct": 1,
+      "explanation": "== (double equals) is used for comparison, = is assignment."
+    },
+    {
+      "question": "What is the purpose of break statement?",
+      "options": ["End the program", "Exit a loop or switch", "Skip one iteration", "Continue to next statement"],
+      "correct": 1,
+      "explanation": "break statement exits the current loop or switch case."
+    },
+    {
+      "question": "What will be the size of array int arr[10];",
+      "options": ["10 bytes", "20 bytes", "40 bytes", "Depends on system"],
+      "correct": 3,
+      "explanation": "Size depends on system - 40 bytes if int is 4 bytes, 20 if int is 2 bytes."
+    },
+    {
+      "question": "What is a string in C?",
+      "options": ["Array of characters", "Primitive type", "Object", "Built-in class"],
+      "correct": 0,
+      "explanation": "In C, a string is an array of characters terminated by null character."
+    }
+  ]
+}
+

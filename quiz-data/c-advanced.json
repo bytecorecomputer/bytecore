@@ -1,0 +1,128 @@
+{
+  "title": "C Programming - Advanced Level",
+  "description": "Test your advanced C programming knowledge",
+  "difficulty": "advanced",
+  "questions": [
+    {
+      "question": "What is the difference between strcpy() and memcpy()?",
+      "options": ["No difference", "strcpy() works with strings, memcpy() copies bytes", "memcpy() is faster", "Both same"],
+      "correct": 1,
+      "explanation": "strcpy() is string-based and stops at null terminator, memcpy() is byte-based and copies exact bytes."
+    },
+    {
+      "question": "What is a dangling pointer in C?",
+      "options": ["Pointer to NULL", "Pointer that points to deallocated memory", "Pointer to zero", "Valid pointer"],
+      "correct": 1,
+      "explanation": "Dangling pointer points to memory that has been freed/deallocated."
+    },
+    {
+      "question": "What is void pointer and why is it used?",
+      "options": ["Pointer to void", "Generic pointer that can point to any type", "Invalid pointer", "Empty pointer"],
+      "correct": 1,
+      "explanation": "void* (void pointer) can point to any data type, used for generic programming."
+    },
+    {
+      "question": "What is the difference between int **p and int *p?",
+      "options": ["No difference", "**p is pointer to pointer, *p is pointer to int", "Both are pointers", "Syntax error"],
+      "correct": 1,
+      "explanation": "**p is pointer to pointer (double indirection), *p is pointer to integer."
+    },
+    {
+      "question": "What will happen if you don't include appropriate header file?",
+      "options": ["No problem", "Compilation error", "Runtime error", "Warning"],
+      "correct": 1,
+      "explanation": "Undefined functions will cause compilation errors."
+    },
+    {
+      "question": "What is the difference between stack and heap memory?",
+      "options": ["No difference", "Stack is LIFO, heap is dynamic", "Same thing", "Both are data structures"],
+      "correct": 1,
+      "explanation": "Stack is LIFO for local variables, heap is dynamic memory via malloc/calloc."
+    },
+    {
+      "question": "What is a memory leak in C?",
+      "options": ["Missing memory", "Memory not freed after malloc()", "Invalid pointer", "Dangling pointer"],
+      "correct": 1,
+      "explanation": "Memory leak occurs when allocated memory is not freed."
+    },
+    {
+      "question": "What does sizeof() return?",
+      "options": ["Size in bits", "Size in bytes", "Number of elements", "Memory address"],
+      "correct": 1,
+      "explanation": "sizeof() returns size of data type or variable in bytes."
+    },
+    {
+      "question": "What is the difference between calloc() and malloc()?",
+      "options": ["No difference", "calloc() initializes to 0, malloc() doesn't", "malloc() is faster", "Both same"],
+      "correct": 1,
+      "explanation": "calloc() initializes memory to zero, malloc() doesn't initialize."
+    },
+    {
+      "question": "What is a volatile variable in C?",
+      "options": ["Variable that changes", "Variable not to be optimized by compiler", "Invalid syntax", "Const variable"],
+      "correct": 1,
+      "explanation": "volatile prevents compiler from optimizing variable that may change externally."
+    },
+    {
+      "question": "What is a union in C and how is it different from structure?",
+      "options": ["Same as struct", "Shares same memory for all members", "Different memory", "Error"],
+      "correct": 1,
+      "explanation": "Union shares same memory for all members, structure has separate memory for each."
+    },
+    {
+      "question": "What does register keyword do?",
+      "options": ["Registers variable", "Hints compiler to store in CPU register", "Invalid", "Declares register"],
+      "correct": 1,
+      "explanation": "register keyword suggests compiler to keep variable in CPU register for speed."
+    },
+    {
+      "question": "What is function prototype in C?",
+      "options": ["Function definition", "Declaration before definition", "Error", "Invalid syntax"],
+      "correct": 1,
+      "explanation": "Function prototype declares function signature before its definition."
+    },
+    {
+      "question": "What is the purpose of extern keyword?",
+      "options": ["Internal variable", "Declares variable in another file", "Private variable", "Local variable"],
+      "correct": 1,
+      "explanation": "extern declares variable/function defined in another file."
+    },
+    {
+      "question": "What is command line argument in C?",
+      "options": ["Function arguments", "Arguments passed to main() from command line", "Error", "Invalid"],
+      "correct": 1,
+      "explanation": "Command line arguments are passed to main(int argc, char *argv[])."
+    },
+    {
+      "question": "What is bitwise XOR operator in C?",
+      "options": ["XOR", "^", "&", "|"],
+      "correct": 1,
+      "explanation": "^ (caret) is bitwise XOR operator in C."
+    },
+    {
+      "question": "What is left shift operator in C?",
+      "options": ["<<", ">>", "<", ">"],
+      "correct": 0,
+      "explanation": "<< is left shift operator, >> is right shift operator."
+    },
+    {
+      "question": "What is the difference between ++(*p) and (*p)++?",
+      "options": ["No difference", "++(*p) increments value, (*p)++ returns then increments", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "++(*p) increments then returns, (*p)++ returns then increments."
+    },
+    {
+      "question": "What is a macro in C?",
+      "options": ["Function", "Text replacement by preprocessor", "Variable", "Error"],
+      "correct": 1,
+      "explanation": "Macro is defined with #define and replaced by preprocessor."
+    },
+    {
+      "question": "What is the purpose of #include directive?",
+      "options": ["Include function", "Include external files", "Error", "Invalid"],
+      "correct": 1,
+      "explanation": "#include copies content of specified file into current file."
+    }
+  ]
+}
+

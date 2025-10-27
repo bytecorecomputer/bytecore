@@ -1,0 +1,108 @@
+{
+  "title": "JavaScript Quiz",
+  "description": "Test your JavaScript skills with modern ES6+ questions",
+  "questions": [
+    {
+      "question": "What is the output of console.log(typeof null) in JavaScript?",
+      "options": ["null", "undefined", "object", "boolean"],
+      "correct": 2,
+      "explanation": "This is a well-known quirk in JavaScript. typeof null returns 'object' due to a bug in the original JavaScript implementation."
+    },
+    {
+      "question": "Which method is used to add an element to the end of an array?",
+      "options": ["push()", "add()", "append()", "insert()"],
+      "correct": 0,
+      "explanation": "The push() method adds one or more elements to the end of an array and returns the new length."
+    },
+    {
+      "question": "What does the '===' operator do in JavaScript?",
+      "options": [
+        "Checks for equality with type coercion",
+        "Checks for strict equality without type coercion",
+        "Assigns a value",
+        "Compares references only"
+      ],
+      "correct": 1,
+      "explanation": "The === operator checks for strict equality, meaning both value and type must be the same."
+    },
+    {
+      "question": "Which of these is NOT a valid way to declare a variable in modern JavaScript?",
+      "options": ["let x = 5;", "const x = 5;", "var x = 5;", "variable x = 5;"],
+      "correct": 3,
+      "explanation": "'variable' is not a valid keyword for declaring variables in JavaScript. Use let, const, or var."
+    },
+    {
+      "question": "What is the output of [1, 2, 3].map(x => x * 2)?",
+      "options": ["[1, 2, 3]", "[2, 4, 6]", "[1, 4, 9]", "6"],
+      "correct": 1,
+      "explanation": "The map() method creates a new array with the results of calling a function for every array element."
+    },
+    {
+      "question": "Which method is used to convert a JSON string to a JavaScript object?",
+      "options": ["JSON.parse()", "JSON.stringify()", "JSON.convert()", "JSON.toObject()"],
+      "correct": 0,
+      "explanation": "JSON.parse() parses a JSON string and constructs the JavaScript value or object described by the string."
+    },
+    {
+      "question": "What is a closure in JavaScript?",
+      "options": [
+        "A way to close the browser",
+        "A function that has access to variables in its outer scope",
+        "A method to end a loop",
+        "A type of error"
+      ],
+      "correct": 1,
+      "explanation": "A closure is a function that has access to variables in its outer (enclosing) scope even after the outer function has returned."
+    },
+    {
+      "question": "Which of these is the correct way to create an arrow function?",
+      "options": [
+        "function => (x) { return x * 2; }",
+        "(x) => { return x * 2; }",
+        "=> (x) { return x * 2; }",
+        "arrow (x) { return x * 2; }"
+      ],
+      "correct": 1,
+      "explanation": "Arrow functions are written as (parameters) => { function body } or (parameters) => expression."
+    },
+    {
+      "question": "What does 'hoisting' mean in JavaScript?",
+      "options": [
+        "Moving code to the server",
+        "Variable and function declarations are moved to the top of their scope",
+        "Lifting heavy objects",
+        "Optimizing code performance"
+      ],
+      "correct": 1,
+      "explanation": "Hoisting is JavaScript's behavior of moving variable and function declarations to the top of their containing scope during compilation."
+    },
+    {
+      "question": "Which method is used to remove the last element from an array?",
+      "options": ["pop()", "remove()", "delete()", "splice()"],
+      "correct": 0,
+      "explanation": "The pop() method removes the last element from an array and returns that element."
+    },
+    {
+      "question": "What is the difference between 'let' and 'var'?",
+      "options": [
+        "No difference",
+        "let has block scope, var has function scope",
+        "var has block scope, let has function scope",
+        "let is faster than var"
+      ],
+      "correct": 1,
+      "explanation": "let has block scope and is not hoisted in the same way as var, which has function scope."
+    },
+    {
+      "question": "What does the spread operator (...) do?",
+      "options": [
+        "Creates a comment",
+        "Spreads elements of an iterable into individual elements",
+        "Creates a loop",
+        "Defines a function"
+      ],
+      "correct": 1,
+      "explanation": "The spread operator (...) allows an iterable to be expanded in places where zero or more arguments or elements are expected."
+    }
+  ]
+}

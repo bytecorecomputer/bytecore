@@ -1,0 +1,128 @@
+{
+  "title": "C++ Programming - Advanced Level",
+  "description": "Master advanced C++ including metaprogramming, concurrency, and optimization",
+  "difficulty": "advanced",
+  "questions": [
+    {
+      "question": "What is SFINAE (Substitution Failure Is Not An Error)?",
+      "options": ["Template feature", "Failed substitution doesn't error, discards template", "Overloading resolution", "All of above"],
+      "correct": 3,
+      "explanation": "SFINAE: substitution failures don't produce errors, enable template overloading."
+    },
+    {
+      "question": "What is CRTP (Curiously Recurring Template Pattern)?",
+      "options": ["Pattern", "Inherit from template with derived class", "Mixin pattern", "All of above"],
+      "correct": 3,
+      "explanation": "CRTP: class Derived : public Base<Derived> - static polymorphism."
+    },
+    {
+      "question": "What is the difference between std::thread and std::async?",
+      "options": ["Same", "thread creates thread, async returns future with potential thread", "Both create threads", "Error"],
+      "correct": 1,
+      "explanation": "thread creates thread, async may defer execution, returns future."
+    },
+    {
+      "question": "What is perfect forwarding?",
+      "options": ["Forward", "Preserves argument value category", "std::forward", "All of above"],
+      "correct": 3,
+      "explanation": "Perfect forwarding preserves lvalue/rvalue when forwarding arguments."
+    },
+    {
+      "question": "What is variadic template?",
+      "options": ["Template", "Variable number of template parameters", "std::tuple", "All of above"],
+      "correct": 1,
+      "explanation": "Variadic templates accept variable number of type parameters: template<class... Args>."
+    },
+    {
+      "question": "What is copy elision?",
+      "options": ["Copy", "Compiler optimization skipping copy/move", "RVO", "All of above"],
+      "correct": 3,
+      "explanation": "Copy elision: compiler optimizes away copy/move operations (RVO, NRVO)."
+    },
+    {
+      "question": "What is the difference between shared_ptr and weak_ptr?",
+      "options": ["Same", "shared_ptr owns, weak_ptr observes without ownership", "Both own", "Error"],
+      "correct": 1,
+      "explanation": "shared_ptr: strong ownership, weak_ptr: non-owning observer."
+    },
+    {
+      "question": "What is noexcept specifier?",
+      "options": ["Exception", "Guarantees function won't throw", "std::terminate on exception", "All of above"],
+      "correct": 3,
+      "explanation": "noexcept indicates function will never throw exceptions - std::terminate if does."
+    },
+    {
+      "question": "What is ADL (Argument Dependent Lookup)?",
+      "options": ["Koenig lookup", "Unqualified name lookup", "Looks in parameter namespaces", "All of above"],
+      "correct": 3,
+      "explanation": "ADL searches namespaces of function arguments for unqualified functions."
+    },
+    {
+      "question": "What is type erasure?",
+      "options": ["Erase type", "Hide concrete type behind abstraction", "std::function", "All of above"],
+      "correct": 3,
+      "explanation": "Type erasure hides concrete type behind interface (e.g., std::function)."
+    },
+    {
+      "question": "What is the difference between std::lock and std::scoped_lock?",
+      "options": ["Same", "std::lock requires manual unlock, scoped_lock RAII", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "scoped_lock provides RAII wrapper for std::lock."
+    },
+    {
+      "question": "What is concept in C++20?",
+      "options": ["Concept", "Constraints on template parameters", "template<class T> requires", "All of above"],
+      "correct": 3,
+      "explanation": "Concepts define requirements for template parameters: template<typename T> concept C;"
+    },
+    {
+      "question": "What is placement new?",
+      "options": ["New placement", "Construct object in pre-allocated memory", "Memory address", "All of above"],
+      "correct": 3,
+      "explanation": "placement new constructs object at specific memory address."
+    },
+    {
+      "question": "What is the difference between std::atomic and std::mutex?",
+      "options": ["atomic lock-free", "atomic: lock-free atomic ops, mutex: lock", "Both locks", "Error"],
+      "correct": 1,
+      "explanation": "std::atomic: lock-free atomic operations, std::mutex: mutual exclusion lock."
+    },
+    {
+      "question": "What is template specialization?",
+      "options": ["Specialize template", "Provide specific implementation for specific types", "Template for specific type", "All of above"],
+      "correct": 3,
+      "explanation": "Template specialization provides specific implementation for specific type(s)."
+    },
+    {
+      "question": "What is the difference between std::optional and nullptr?",
+      "options": ["Same", "optional value or none, nullptr just null pointer", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "std::optional represents optional value (has_value() or not), nullptr is null pointer."
+    },
+    {
+      "question": "What is memory alignment in C++?",
+      "options": ["Alignment", "Memory address alignment", "alignas", "All of above"],
+      "correct": 3,
+      "explanation": "Memory alignment arranges data at addresses divisible by alignment size."
+    },
+    {
+      "question": "What is the Rule of Three/Five/Zero?",
+      "options": ["Rule", "Destructor/copy/move special functions", "When to define", "All of above"],
+      "correct": 3,
+      "explanation": "Rule: if you define one of destructor/copy ctor/copy assignment, define all (or use defaults)."
+    },
+    {
+      "question": "What is std::variant?",
+      "options": ["Union", "Type-safe union", "Holds one of several types", "All of above"],
+      "correct": 3,
+      "explanation": "std::variant is type-safe union that holds one of several alternative types."
+    },
+    {
+      "question": "What is the difference between lvalue and rvalue?",
+      "options": ["Same", "lvalue: persistent, rvalue: temporary", "References", "All of above"],
+      "correct": 3,
+      "explanation": "lvalue: persists beyond expression, rvalue: temporary (enables move semantics)."
+    }
+  ]
+}
+

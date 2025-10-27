@@ -1,0 +1,182 @@
+{
+  "title": "Python Programming - Advanced Level",
+  "description": "Master advanced Python concepts including metaprogramming and optimization",
+  "difficulty": "advanced",
+  "questions": [
+    {
+      "question": "What is metaprogramming in Python?",
+      "options": ["Writing programs about programs", "Code that manipulates code at runtime", "Error", "Type checking"],
+      "correct": 1,
+      "explanation": "Metaprogramming is writing programs that manipulate other programs or themselves at runtime."
+    },
+    {
+      "question": "What is __str__ vs __repr__ in Python?",
+      "options": ["Same", "__str__ user-friendly, __repr__ developer-friendly", "Both user-friendly", "Error"],
+      "correct": 1,
+      "explanation": "__str__ is for end users, __repr__ should ideally recreate the object."
+    },
+    {
+      "question": "What are metaclasses in Python?",
+      "options": ["Classes for classes", "Functions", "Variables", "Loops"],
+      "correct": 0,
+      "explanation": "Metaclasses are classes for classes. They control class creation."
+    },
+    {
+      "question": "What is the difference between isinstance() and type()?",
+      "options": ["Same", "isinstance() checks inheritance, type() exact type", "Both check type", "Error"],
+      "correct": 1,
+      "explanation": "isinstance() respects inheritance hierarchy, type() checks exact type."
+    },
+    {
+      "question": "What is the Global Interpreter Lock (GIL)?",
+      "options": ["Python feature preventing true parallelism", "Memory lock", "File lock", "Thread lock"],
+      "correct": 0,
+      "explanation": "GIL allows only one thread to execute Python bytecode at a time, limiting parallelism."
+    },
+    {
+      "question": "What is the difference between __getattr__ and __getattribute__?",
+      "options": ["Same", "__getattr__ for missing attributes, __getattribute__ called always", "Both called always", "Error"],
+      "correct": 1,
+      "explanation": "__getattribute__ called for every attribute access, __getattr__ only when attribute not found."
+    },
+    {
+      "question": "What is a context manager protocol in Python?",
+      "options": ["__enter__ and __exit__", "try-except", "with statement", "Error"],
+      "correct": 0,
+      "explanation": "Context managers implement __enter__ and __exit__ methods for resource management."
+    },
+    {
+      "question": "What is the purpose of __slots__ in Python?",
+      "options": ["Restrict attributes", "Optimize memory", "Error", "Both restrict attributes and optimize memory"],
+      "correct": 3,
+      "explanation": "__slots__ restricts attributes and saves memory by preventing __dict__."
+    },
+    {
+      "question": "What is duck typing in Python?",
+      "options": ["Type checking", "\"If it walks like a duck and quacks like a duck, it's a duck\"", "Error", "String typing"],
+      "correct": 1,
+      "explanation": "Duck typing means object's type is determined by methods it has, not its class."
+    },
+    {
+      "question": "What is a coroutine in Python?",
+      "options": ["Function", "Function with async/await", "Generator", "Iterator"],
+      "correct": 1,
+      "explanation": "Coroutine is function that can suspend/resume execution, defined with async/await."
+    },
+    {
+      "question": "What is the difference between __new__ and __init__?",
+      "options": ["Same", "__new__ creates object, __init__ initializes it", "Both create", "Error"],
+      "correct": 1,
+      "explanation": "__new__ instantiates object (called before __init__), __init__ initializes it."
+    },
+    {
+      "question": "What are Python descriptors?",
+      "options": ["Functions", "Objects controlling attribute access", "Variables", "Classes"],
+      "correct": 1,
+      "explanation": "Descriptors are objects that define how attributes are accessed/modified."
+    },
+    {
+      "question": "What is monkey patching in Python?",
+      "options": ["Modifying module/class at runtime", "Error", "Type checking", "Importing"],
+      "correct": 0,
+      "explanation": "Monkey patching is dynamically modifying module/class/instance at runtime."
+    },
+    {
+      "question": "What is the purpose of functools.lru_cache?",
+      "options": ["Cache results", "Store functions", "Error", "Delete cache"],
+      "correct": 0,
+      "explanation": "LRU cache decorator caches most recent function calls to avoid recomputation."
+    },
+    {
+      "question": "What is the difference between multiprocessing and threading?",
+      "options": ["Same", "multiprocessing uses processes, threading uses threads", "Both use threads", "Error"],
+      "correct": 1,
+      "explanation": "multiprocessing bypasses GIL using separate processes, threading uses threads within GIL."
+    },
+    {
+      "question": "What is the mermaid of class.__mro__ in Python?",
+      "options": ["Method Resolution Order", "Method Repair Order", "Error", "Memory Order"],
+      "correct": 0,
+      "explanation": "MRO is order in which Python looks for methods in inheritance hierarchy."
+    },
+    {
+      "question": "What is the purpose of __call__ method?",
+      "options": ["Called automatically", "Makes object callable", "Error", "Initializer"],
+      "correct": 1,
+      "explanation": "__call__ makes instance callable like function: obj()"
+    },
+    {
+      "question": "What is pytest vs unittest in Python?",
+      "options": ["Same", "pytest is more concise, unittest is built-in", "Both built-in", "Error"],
+      "correct": 1,
+      "explanation": "pytest is third-party with concise syntax, unittest is built-in testing framework."
+    },
+    {
+      "question": "What is the purpose of property() in Python?",
+      "options": ["Creates getter/setter", "Function", "Variable", "Error"],
+      "correct": 0,
+      "explanation": "property() decorator creates getter/setter methods for attribute access."
+    },
+    {
+      "question": "What is the difference between iterable and iterator?",
+      "options": ["Same", "Iterable has __iter__(), iterator also has __next__()", "Both have __next__", "Error"],
+      "correct": 1,
+      "explanation": "Iterable implements __iter__(), iterator implements both __iter__() and __next__()."
+    },
+    {
+      "question": "What is the purpose of asyncio in Python?",
+      "options": ["Async", "Asynchronous programming", "Event loop", "All of above"],
+      "correct": 3,
+      "explanation": "asyncio provides async/await for writing concurrent code using single-threaded event loop."
+    },
+    {
+      "question": "What is dependency injection in Python?",
+      "options": ["Inject dependencies", "Provide dependencies externally", "Loose coupling", "All of above"],
+      "correct": 3,
+      "explanation": "Dependency injection provides objects a function/class needs rather than creating them inside."
+    },
+    {
+      "question": "What is the purpose of __dict__ in Python?",
+      "options": ["Dictionary", "Stores object attributes", "Namespace", "All of above"],
+      "correct": 3,
+      "explanation": "__dict__ is dictionary containing object's attributes (unless __slots__ is used)."
+    },
+    {
+      "question": "What is list vs tuple vs set vs dict difference?",
+      "options": ["List ordered mutable, tuple immutable, set unique, dict key-value", "All same", "Error", "All mutable"],
+      "correct": 0,
+      "explanation": "List: ordered mutable, Tuple: ordered immutable, Set: unordered unique, Dict: key-value pairs."
+    },
+    {
+      "question": "What is the difference between args and kwargs?",
+      "options": ["args positional, kwargs keyword", "*args variable positional, **kwargs variable keyword", "Both positional", "Error"],
+      "correct": 1,
+      "explanation": "*args collects variable positional arguments, **kwargs collects variable keyword arguments."
+    },
+    {
+      "question": "What is the purpose of dataclass in Python 3.7+?",
+      "options": ["Class decorator", "Reduces boilerplate for data classes", "@dataclass", "All of above"],
+      "correct": 3,
+      "explanation": "@dataclass decorator generates __init__, __repr__, __eq__ for data classes automatically."
+    },
+    {
+      "question": "What is the Walrus Operator (:=) in Python?",
+      "options": ["Walrus", "Assignment expression", ":=", "All of above"],
+      "correct": 3,
+      "explanation": ":= (walrus operator) assigns and returns value in expression: if (n := len(a)) > 10."
+    },
+    {
+      "question": "What is the difference between class method and static method?",
+      "options": ["Same", "classmethod gets class, staticmethod gets nothing", "Both get cls", "Error"],
+      "correct": 1,
+      "explanation": "@classmethod receives class as first arg (cls), @staticmethod receives neither self nor cls."
+    },
+    {
+      "question": "What is the purpose of __init_subclass__ method?",
+      "options": ["Initialize subclass", "Called when subclass is created", "Hook for subclass creation", "All of above"],
+      "correct": 3,
+      "explanation": "__init_subclass__ is class method called when class is subclassed - customizes subclass creation."
+    }
+  ]
+}
+

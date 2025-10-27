@@ -1,0 +1,128 @@
+{
+  "title": "C++ Programming - Intermediate Level",
+  "description": "Master intermediate C++ including templates, smart pointers, and STL",
+  "difficulty": "intermediate",
+  "questions": [
+    {
+      "question": "What are smart pointers in C++?",
+      "options": ["unique_ptr, shared_ptr", "Automatic memory management", "RAII", "All of above"],
+      "correct": 3,
+      "explanation": "Smart pointers (unique_ptr, shared_ptr, weak_ptr) automatically manage memory."
+    },
+    {
+      "question": "What is the difference between unique_ptr and shared_ptr?",
+      "options": ["Same", "unique_ptr exclusive ownership, shared_ptr shared ownership", "Both shared", "Error"],
+      "correct": 1,
+      "explanation": "unique_ptr: exclusive owner, shared_ptr: multiple owners with reference counting."
+    },
+    {
+      "question": "What is template in C++?",
+      "options": ["Template", "Generic programming", "Type parameters", "All of above"],
+      "correct": 3,
+      "explanation": "Templates allow generic code working with different types."
+    },
+    {
+      "question": "What is the difference between stack and heap?",
+      "options": ["Same", "Stack: function local, Heap: dynamic allocation", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "Stack: local variables (fast), Heap: dynamic memory (slower, flexible)."
+    },
+    {
+      "question": "What is RAII (Resource Acquisition Is Initialization)?",
+      "options": ["RAII", "Automatic resource management", "Destructor cleanup", "All of above"],
+      "correct": 3,
+      "explanation": "RAII: acquire resources in constructor, release in destructor."
+    },
+    {
+      "question": "What is virtual function in C++?",
+      "options": ["Function", "Runtime polymorphism", "Late binding", "All of above"],
+      "correct": 3,
+      "explanation": "virtual enables runtime polymorphism (dynamic binding)."
+    },
+    {
+      "question": "What is the difference between override and final?",
+      "options": ["Same", "override: explicit override, final: prevent further override", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "override: indicates override, final: prevents further overriding."
+    },
+    {
+      "question": "What is STL (Standard Template Library)?",
+      "options": ["Library", "Containers, algorithms, iterators", "Standard library", "All of above"],
+      "correct": 3,
+      "explanation": "STL provides containers, algorithms, and iterators."
+    },
+    {
+      "question": "What is the difference between map and unordered_map?",
+      "options": ["Same", "map ordered O(log n), unordered_map O(1) no order", "Both ordered", "Error"],
+      "correct": 1,
+      "explanation": "map: sorted O(log n), unordered_map: hash table O(1) average."
+    },
+    {
+      "question": "What is lambda expression in C++?",
+      "options": ["Expression", "Anonymous function", "Inline function", "All of above"],
+      "correct": 3,
+      "explanation": "Lambda: [capture](params){ body } - anonymous function."
+    },
+    {
+      "question": "What is exception handling in C++?",
+      "options": ["try-catch", "Error handling", "throw-catch", "All of above"],
+      "correct": 3,
+      "explanation": "try-catch-throw for exception handling."
+    },
+    {
+      "question": "What is the difference between deep copy and shallow copy?",
+      "options": ["Same", "Shallow shares pointers, deep creates new objects", "Both deep", "Error"],
+      "correct": 1,
+      "explanation": "Shallow: copies pointers, Deep: creates independent copies."
+    },
+    {
+      "question": "What is move semantics in C++?",
+      "options": ["Move", "Transfers ownership", "std::move", "All of above"],
+      "correct": 3,
+      "explanation": "Move semantics transfer ownership efficiently (rvalue references)."
+    },
+    {
+      "question": "What is the difference between const and constexpr?",
+      "options": ["Same", "const: constant, constexpr: compile-time constant", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "const: runtime, constexpr: compile-time evaluation."
+    },
+    {
+      "question": "What is auto keyword in C++?",
+      "options": ["Auto type", "Type deduction", "Let compiler infer type", "All of above"],
+      "correct": 3,
+      "explanation": "auto deduces type from initializer: auto x = 5; // x is int."
+    },
+    {
+      "question": "What is the difference between throw and noexcept?",
+      "options": ["Same", "throw throws exception, noexcept guarantees no exception", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "throw raises exception, noexcept guarantees no exceptions thrown."
+    },
+    {
+      "question": "What is iterators in C++?",
+      "options": ["Iterate", "Access elements in containers", "Abstraction for iteration", "All of above"],
+      "correct": 3,
+      "explanation": "Iterators provide access to container elements (begin, end, ++, etc.)."
+    },
+    {
+      "question": "What is the difference between array and vector?",
+      "options": ["Same", "array fixed stack, vector dynamic heap", "Both dynamic", "Error"],
+      "correct": 1,
+      "explanation": "array: fixed-size on stack, vector: dynamic size on heap."
+    },
+    {
+      "question": "What is operator overloading?",
+      "options": ["Overload operators", "Define custom behavior for operators", "++ for custom class", "All of above"],
+      "correct": 3,
+      "explanation": "Operator overloading allows custom behavior for +, -, [], etc."
+    },
+    {
+      "question": "What is the difference between stack and queue?",
+      "options": ["Same", "stack LIFO, queue FIFO", "Both LIFO", "Error"],
+      "correct": 1,
+      "explanation": "stack: Last In First Out, queue: First In First Out."
+    }
+  ]
+}
+

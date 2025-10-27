@@ -1,0 +1,128 @@
+{
+  "title": "C Programming - Intermediate Level",
+  "description": "Test your intermediate C programming skills",
+  "difficulty": "intermediate",
+  "questions": [
+    {
+      "question": "What is the difference between char *str and char str[10]?",
+      "options": ["No difference", "str is pointer, str[10] is array", "str[10] is string, str is not", "Both are same"],
+      "correct": 1,
+      "explanation": "char *str is a pointer to string, char str[10] is array of 10 characters."
+    },
+    {
+      "question": "What will be the output: int *p = NULL; printf(\"%d\", sizeof(p));",
+      "options": ["0", "4 or 8 bytes", "Error", "NULL"],
+      "correct": 1,
+      "explanation": "Size of pointer is system dependent (4 bytes on 32-bit, 8 bytes on 64-bit)."
+    },
+    {
+      "question": "What is the correct way to pass array to a function?",
+      "options": ["int func(int arr)", "int func(int *arr)", "Both are correct", "Neither is correct"],
+      "correct": 2,
+      "explanation": "Both int arr[] and int *arr are valid ways to pass arrays to functions."
+    },
+    {
+      "question": "What does malloc() return if memory allocation fails?",
+      "options": ["NULL", "-1", "0", "Nothing"],
+      "correct": 0,
+      "explanation": "malloc() returns NULL when memory allocation fails."
+    },
+    {
+      "question": "What is the purpose of free() function?",
+      "options": ["Initialize memory", "Deallocate memory", "Clear variable", "Delete pointer"],
+      "correct": 1,
+      "explanation": "free() deallocates memory allocated by malloc(), calloc(), or realloc()."
+    },
+    {
+      "question": "What will happen if you free() a pointer twice?",
+      "options": ["Nothing", "Error/Undefined behavior", "Memory cleared twice", "Compilation error"],
+      "correct": 1,
+      "explanation": "Calling free() on already freed memory causes undefined behavior/double free error."
+    },
+    {
+      "question": "What is the difference between strcpy() and strncpy()?",
+      "options": ["No difference", "strcpy() copies whole string, strncpy() copies n characters", "strncpy() is faster", "Both same"],
+      "correct": 1,
+      "explanation": "strcpy() copies entire string, strncpy() copies specified number of characters (safer)."
+    },
+    {
+      "question": "What is a structure in C?",
+      "options": ["Function", "Collection of related variables", "Loop", "Memory location"],
+      "correct": 1,
+      "explanation": "Structure is a user-defined data type that holds related variables together."
+    },
+    {
+      "question": "What is the correct syntax to access structure members using pointer?",
+      "options": ["ptr->member", "ptr.member", "Both are valid", "Neither"],
+      "correct": 2,
+      "explanation": "Both ptr->member and (*ptr).member are valid ways to access structure members."
+    },
+    {
+      "question": "What is recursion?",
+      "options": ["Calling same function repeatedly", "Function calling itself", "Loop in C", "Error"],
+      "correct": 1,
+      "explanation": "Recursion is when a function calls itself, either directly or indirectly."
+    },
+    {
+      "question": "What is the difference between ++i and i++?",
+      "options": ["No difference", "++i increments then uses, i++ uses then increments", "Both same", "++i is faster"],
+      "correct": 1,
+      "explanation": "++i is pre-increment (increment then use), i++ is post-increment (use then increment)."
+    },
+    {
+      "question": "What will be the output: int arr[5] = {1}; printf(\"%d\", arr[3]);",
+      "options": ["0", "1", "Error", "Random value"],
+      "correct": 0,
+      "explanation": "In C, if array is partially initialized, remaining elements are initialized to 0."
+    },
+    {
+      "question": "What is a function pointer in C?",
+      "options": ["Pointer to function", "Function returning pointer", "Error", "Invalid syntax"],
+      "correct": 0,
+      "explanation": "Function pointer is a pointer that stores address of a function."
+    },
+    {
+      "question": "What is the scope of a static variable?",
+      "options": ["Global scope", "Local scope", "File scope", "Both file and local depends on declaration"],
+      "correct": 1,
+      "explanation": "Static variable retains its value between function calls and has file/local scope depending on where declared."
+    },
+    {
+      "question": "What does realloc() function do?",
+      "options": ["Reallocates memory", "Changes size of allocated memory", "Reinitializes memory", "Deletes memory"],
+      "correct": 1,
+      "explanation": "realloc() changes the size of previously allocated memory."
+    },
+    {
+      "question": "What is the difference between #define and const?",
+      "options": ["No difference", "#define is preprocessor, const is compiler", "const is preprocessor", "Both same"],
+      "correct": 1,
+      "explanation": "#define is handled by preprocessor, const is handled by compiler."
+    },
+    {
+      "question": "What is typedef in C?",
+      "options": ["Function", "Creates type alias", "Variable", "Loop"],
+      "correct": 1,
+      "explanation": "typedef creates an alias for existing data types."
+    },
+    {
+      "question": "What will be the output: int x = 5, y = 10; int z = x<y ? x : y; printf(\"%d\", z);",
+      "options": ["5", "10", "Error", "0"],
+      "correct": 0,
+      "explanation": "Ternary operator: if x<y is true (5<10), returns x (5), else returns y."
+    },
+    {
+      "question": "What is the difference between = and == in C?",
+      "options": ["No difference", "= is assignment, == is comparison", "Both same", "Both different"],
+      "correct": 1,
+      "explanation": "= is assignment operator, == is comparison operator."
+    },
+    {
+      "question": "What is the purpose of continue statement?",
+      "options": ["End program", "Exit loop", "Skip current iteration", "Next statement"],
+      "correct": 2,
+      "explanation": "continue statement skips the current iteration and continues with next iteration."
+    }
+  ]
+}
+

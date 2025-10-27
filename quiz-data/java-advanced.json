@@ -1,0 +1,128 @@
+{
+  "title": "Java Programming - Advanced Level",
+  "description": "Master advanced Java including streams, concurrency, and performance optimization",
+  "difficulty": "advanced",
+  "questions": [
+    {
+      "question": "What is Java Stream API?",
+      "options": ["Data stream", "Processing collections declaratively", "I/O stream", "All of above"],
+      "correct": 1,
+      "explanation": "Stream API processes collections in functional, declarative style."
+    },
+    {
+      "question": "What is the difference between Runnable and Callable?",
+      "options": ["Callable returns value", "Runnable no return, Callable returns value", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "Runnable: void run(), Callable: returns value, throws checked exceptions."
+    },
+    {
+      "question": "What is Fork/Join framework in Java?",
+      "options": ["Framework", "Divide-and-conquer parallelism", "Multithreading", "All of above"],
+      "correct": 3,
+      "explanation": "Fork/Join framework for parallelizing recursive algorithms."
+    },
+    {
+      "question": "What is the difference between equals() and hashCode()?",
+      "options": ["hashCode for hashing", "equals() compares objects, hashCode() for hash-based collections", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "If equals() returns true, hashCode() must be same (contract)."
+    },
+    {
+      "question": "What is Java Memory Model?",
+      "options": ["Memory", "Specifies how threads interact through memory", "JMM", "All of above"],
+      "correct": 3,
+      "explanation": "JMM defines how variables are shared between threads."
+    },
+    {
+      "question": "What is the difference between ConcurrentHashMap and Hashtable?",
+      "options": ["ConcurrentHashMap partitioned locking", "Hashtable full lock, ConcurrentHashMap finer-grained", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "ConcurrentHashMap uses lock striping (multiple locks), Hashtable uses single lock."
+    },
+    {
+      "question": "What is CompletableFuture in Java?",
+      "options": ["Future", "Asynchronous programming", "Non-blocking computation", "All of above"],
+      "correct": 3,
+      "explanation": "CompletableFuture provides non-blocking asynchronous computation."
+    },
+    {
+      "question": "What is the difference between flatMap and map in Streams?",
+      "options": ["Same", "map one-to-one, flatMap one-to-many", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "map transforms each element, flatMap transforms and flattens nested streams."
+    },
+    {
+      "question": "What is Java Reflection API?",
+      "options": ["Reflection", "Inspect classes at runtime", "Class information", "All of above"],
+      "correct": 3,
+      "explanation": "Reflection inspects classes, methods, fields at runtime."
+    },
+    {
+      "question": "What is the difference between WeakReference and StrongReference?",
+      "options": ["WeakReference allows garbage collection", "Strong prevents GC, Weak allows GC", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "Strong prevents GC, Weak allows GC when only WeakReferences exist."
+    },
+    {
+      "question": "What is Java Virtual Threads (Project Loom)?",
+      "options": ["Virtual threads", "Lightweight threads", "Platform threads", "All of above"],
+      "correct": 1,
+      "explanation": "Virtual threads are lightweight threads (millions possible) for high concurrency."
+    },
+    {
+      "question": "What is the purpose of volatile keyword?",
+      "options": ["Visibility", "Ensures variable changes visible to all threads", "Volatile", "All of above"],
+      "correct": 3,
+      "explanation": "volatile ensures variable changes are immediately visible to all threads."
+    },
+    {
+      "question": "What is the difference between parallel() and sequential() stream?",
+      "options": ["parallel() uses multiple threads", "parallel() concurrent, sequential() single thread", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "parallel() uses multiple threads, sequential() uses single thread."
+    },
+    {
+      "question": "What is PhantomReference in Java?",
+      "options": ["Phantom", "References object after finalization", "Before GC", "All of above"],
+      "correct": 3,
+      "explanation": "PhantomReference enqueued after finalization, before GC - for cleanup."
+    },
+    {
+      "question": "What is the difference between parallelStream() and stream().parallel()?",
+      "options": ["Same", "parallelStream() creates parallel stream directly", "Both create sequential", "Error"],
+      "correct": 1,
+      "explanation": "parallelStream() returns parallel stream, stream().parallel() converts to parallel."
+    },
+    {
+      "question": "What is Java Records?",
+      "options": ["Records", "Immutable data classes", "Record types", "All of above"],
+      "correct": 3,
+      "explanation": "Records (Java 14+) are immutable data containers with auto-generated methods."
+    },
+    {
+      "question": "What is the difference between CountDownLatch and CyclicBarrier?",
+      "options": ["CountDownLatch one-time", "CountDownLatch one-time, CyclicBarrier reusable", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "CountDownLatch one-time use, CyclicBarrier can be reused."
+    },
+    {
+      "question": "What is the purpose of thread pools in Java?",
+      "options": ["Reuse threads", "Manage thread lifecycle efficiently", "Performance", "All of above"],
+      "correct": 3,
+      "explanation": "Thread pools reuse threads, avoiding expensive thread creation overhead."
+    },
+    {
+      "question": "What is the difference between ExecutorService and ForkJoinPool?",
+      "options": ["Same", "ExecutorService general purpose, ForkJoinPool for divide-and-conquer", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "ExecutorService for general tasks, ForkJoinPool for recursive/parallel algorithms."
+    },
+    {
+      "question": "What is pattern matching in Java?",
+      "options": ["Patterns", "Match against patterns (switch expressions)", "Pattern matching", "All of above"],
+      "correct": 1,
+      "explanation": "Pattern matching allows matching objects against patterns (instanceof pattern, switch expressions)."
+    }
+  ]
+}
+

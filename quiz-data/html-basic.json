@@ -1,0 +1,128 @@
+{
+  "title": "HTML/CSS - Basic Level",
+  "description": "Master HTML and CSS fundamentals",
+  "difficulty": "basic",
+  "questions": [
+    {
+      "question": "Which HTML tag is used to create a hyperlink?",
+      "options": ["<link>", "<a>", "<href>", "<url>"],
+      "correct": 1,
+      "explanation": "<a> (anchor) tag is used to create hyperlinks: <a href='url'>text</a>"
+    },
+    {
+      "question": "What does CSS stand for?",
+      "options": ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style Sheets", "Colorful Style Sheets"],
+      "correct": 0,
+      "explanation": "CSS stands for Cascading Style Sheets."
+    },
+    {
+      "question": "Which CSS property changes text color?",
+      "options": ["text-color", "font-color", "color", "text-style"],
+      "correct": 2,
+      "explanation": "color property sets the color of text."
+    },
+    {
+      "question": "What is the largest heading tag?",
+      "options": ["<h6>", "<h1>", "<heading>", "<header>"],
+      "correct": 1,
+      "explanation": "<h1> is the largest heading, <h6> is smallest."
+    },
+    {
+      "question": "Which CSS property makes text bold?",
+      "options": ["font-weight", "text-weight", "font-style", "text-bold"],
+      "correct": 0,
+      "explanation": "font-weight property makes text bold: font-weight: bold"
+    },
+    {
+      "question": "How to link external CSS file?",
+      "options": ["<style src=''>", "<link rel='stylesheet' href=''>", "<css href=''>", "<include>"],
+      "correct": 1,
+      "explanation": "<link rel='stylesheet' href='style.css'> links external CSS file."
+    },
+    {
+      "question": "Which attribute provides alternate text for images?",
+      "options": ["title", "alt", "src", "text"],
+      "correct": 1,
+      "explanation": "alt attribute provides alternative text when image can't be displayed."
+    },
+    {
+      "question": "What does CSS box model consist of?",
+      "options": ["Content, padding, border, margin", "Only content", "Content and border", "Margin and padding"],
+      "correct": 0,
+      "explanation": "Box model: content (innermost), padding, border, margin (outermost)."
+    },
+    {
+      "question": "Which tag creates a line break?",
+      "options": ["<lb>", "<br>", "<break>", "<line>"],
+      "correct": 1,
+      "explanation": "<br> tag creates a line break (new line)."
+    },
+    {
+      "question": "What is the purpose of CSS margin?",
+      "options": ["Space inside element", "Space outside element", "Border", "Padding"],
+      "correct": 1,
+      "explanation": "margin creates space outside element's border."
+    },
+    {
+      "question": "Which tag is used for unordered list?",
+      "options": ["<ol>", "<ul>", "<list>", "<li>"],
+      "correct": 1,
+      "explanation": "<ul> creates unordered (bulleted) list."
+    },
+    {
+      "question": "What does CSS position: absolute do?",
+      "options": ["Absolute position", "Positioned relative to nearest positioned ancestor", "Fixed position", "Error"],
+      "correct": 1,
+      "explanation": "position: absolute positions element relative to nearest positioned ancestor."
+    },
+    {
+      "question": "Which CSS property centers text?",
+      "options": ["align: center", "text-align: center", "center: true", "text: center"],
+      "correct": 1,
+      "explanation": "text-align: center centers text horizontally."
+    },
+    {
+      "question": "What is a div tag?",
+      "options": ["Division", "Container element", "Document", "Division container"],
+      "correct": 1,
+      "explanation": "<div> is block-level container used for layout."
+    },
+    {
+      "question": "Which property changes background color?",
+      "options": ["bgcolor", "bg-color", "background-color", "back-color"],
+      "correct": 2,
+      "explanation": "background-color property sets background color: background-color: red"
+    },
+    {
+      "question": "What does CSS z-index do?",
+      "options": ["Stack order", "Controls element stacking", "Depth", "All of the above"],
+      "correct": 3,
+      "explanation": "z-index controls stacking order of positioned elements."
+    },
+    {
+      "question": "Which tag creates a paragraph?",
+      "options": ["<para>", "<p>", "<paragraph>", "<text>"],
+      "correct": 1,
+      "explanation": "<p> tag creates a paragraph."
+    },
+    {
+      "question": "What is the difference between class and id?",
+      "options": ["Same", "id is unique, class can be reused", "Both unique", "Error"],
+      "correct": 1,
+      "explanation": "id is unique identifier, class can be used multiple times."
+    },
+    {
+      "question": "Which CSS property makes element display inline?",
+      "options": ["display: inline", "inline: true", "show: inline", "type: inline"],
+      "correct": 0,
+      "explanation": "display: inline makes element inline (takes only needed width)."
+    },
+    {
+      "question": "What does CSS float do?",
+      "options": ["Float element", "Position element left/right", "Raise element", "All of above"],
+      "correct": 1,
+      "explanation": "float positions element to left or right of container."
+    }
+  ]
+}
+

@@ -1,0 +1,128 @@
+{
+  "title": "Java Programming - Intermediate Level",
+  "description": "Master intermediate Java including collections, generics, and design patterns",
+  "difficulty": "intermediate",
+  "questions": [
+    {
+      "question": "What is the difference between HashMap and Hashtable?",
+      "options": ["Same", "HashMap allows null, Hashtable synchronized", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "HashMap allows null, not synchronized. Hashtable synchronized, no null."
+    },
+    {
+      "question": "What is generics in Java?",
+      "options": ["Generics", "Type-safe code", "Parameterized types", "All of above"],
+      "correct": 3,
+      "explanation": "Generics provide type safety and eliminate casting."
+    },
+    {
+      "question": "What is the difference between HashSet and TreeSet?",
+      "options": ["Same", "HashSet unordered, TreeSet sorted", "Both ordered", "Error"],
+      "correct": 1,
+      "explanation": "HashSet: unordered O(1), TreeSet: sorted O(log n)."
+    },
+    {
+      "question": "What is lambda expression in Java?",
+      "options": ["Expression", "Anonymous function", "Concise code", "All of above"],
+      "correct": 1,
+      "explanation": "Lambda provides concise way to express instances of functional interface."
+    },
+    {
+      "question": "What is the difference between abstract class and concrete class?",
+      "options": ["Same", "Abstract cannot be instantiated, concrete can", "Both instantiable", "Error"],
+      "correct": 1,
+      "explanation": "Abstract class cannot be instantiated, concrete class can."
+    },
+    {
+      "question": "What is method overriding?",
+      "options": ["Override", "Redefine method in subclass", "Replace method", "Error"],
+      "correct": 1,
+      "explanation": "Overriding redefines superclass method in subclass."
+    },
+    {
+      "question": "What is the difference between .equals() and == with strings?",
+      "options": ["Same", ".equals() compares values, == compares references", "Both same", "Error"],
+      "correct": 1,
+      "explanation": ".equals() compares content, == compares memory references."
+    },
+    {
+      "question": "What is try-catch-finally block?",
+      "options": ["Error handling", "try: code, catch: exceptions, finally: always executes", "Flow control", "All of above"],
+      "correct": 3,
+      "explanation": "try-catch handles exceptions, finally always executes."
+    },
+    {
+      "question": "What is the difference between ArrayList and LinkedList?",
+      "options": ["Same", "ArrayList: array-based O(1) access, LinkedList: linked-based O(n) access", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "ArrayList: array-based (fast access), LinkedList: linked (fast insert/delete)."
+    },
+    {
+      "question": "What is polymorphism in Java?",
+      "options": ["Multiple forms", "One interface many implementations", "Same name different behavior", "All of above"],
+      "correct": 3,
+      "explanation": "Polymorphism allows object to take many forms - same interface, different implementations."
+    },
+    {
+      "question": "What is the difference between Iterator and ListIterator?",
+      "options": ["Same", "ListIterator bidirectional, Iterator unidirectional", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "ListIterator can traverse both ways, Iterator only forward."
+    },
+    {
+      "question": "What is the purpose of super keyword?",
+      "options": ["Super", "References superclass", "Call superclass constructor/method", "All of above"],
+      "correct": 3,
+      "explanation": "super refers to parent class (constructor, method, variable)."
+    },
+    {
+      "question": "What is the difference between checked and unchecked exceptions?",
+      "options": ["Checked: compile-time", "IOException checked, RuntimeException unchecked", "Both compile-time", "Error"],
+      "correct": 1,
+      "explanation": "Checked: compiler checks (IOException), Unchecked: runtime (RuntimeException)."
+    },
+    {
+      "question": "What is wrapper class in Java?",
+      "options": ["Wrapper", "Wraps primitive in object", "Integer, Double, etc.", "All of above"],
+      "correct": 3,
+      "explanation": "Wrapper classes (Integer, Double, etc.) wrap primitives in objects."
+    },
+    {
+      "question": "What is the difference between synchronized method and synchronized block?",
+      "options": ["Same", "Method locks whole object, block locks specific block", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "Method locks entire object, block locks specific code block."
+    },
+    {
+      "question": "What is immutability in Java?",
+      "options": ["Unchangeable", "Object cannot be modified after creation", "final keyword", "All of above"],
+      "correct": 3,
+      "explanation": "Immutability means object state cannot change after creation."
+    },
+    {
+      "question": "What is the difference between instance and class variable?",
+      "options": ["Same", "Instance per object, class shared", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "Instance variable: each object has own copy. Class (static): shared by all objects."
+    },
+    {
+      "question": "What is autoboxing and unboxing?",
+      "options": ["Boxing", "Auto conversion: primitive↔wrapper", "int to Integer", "All of above"],
+      "correct": 3,
+      "explanation": "Autoboxing: primitive→wrapper, Unboxing: wrapper→primitive."
+    },
+    {
+      "question": "What is the difference between String, StringBuilder, and StringBuffer?",
+      "options": ["StringBuffer synchronized", "String immutable, StringBuilder/Buffer mutable, Buffer synchronized", "All immutable", "Error"],
+      "correct": 1,
+      "explanation": "String: immutable. StringBuilder: mutable, not thread-safe. StringBuffer: mutable, thread-safe."
+    },
+    {
+      "question": "What is the purpose of @Override annotation?",
+      "options": ["Documentation", "Indicates method override", "Compile-time check", "All of above"],
+      "correct": 3,
+      "explanation": "@Override indicates method overrides superclass method - compiler enforces correctness."
+    }
+  ]
+}
+

@@ -1,0 +1,128 @@
+{
+  "title": "JavaScript - Basic Level",
+  "description": "Master JavaScript fundamentals and basic concepts",
+  "difficulty": "basic",
+  "questions": [
+    {
+      "question": "What is the output of console.log(typeof null)?",
+      "options": ["null", "undefined", "object", "boolean"],
+      "correct": 2,
+      "explanation": "typeof null returns 'object' in JavaScript (this is a well-known quirk)."
+    },
+    {
+      "question": "Which method adds an element to the end of an array?",
+      "options": ["append()", "add()", "push()", "insert()"],
+      "correct": 2,
+      "explanation": "push() method adds one or more elements to the end of an array."
+    },
+    {
+      "question": "What does === operator do?",
+      "options": ["Assigns value", "Compares value and type", "Compares value only", "Checks inequality"],
+      "correct": 1,
+      "explanation": "=== is strict equality operator that compares both value and type."
+    },
+    {
+      "question": "Which keyword is used to declare a variable with block scope?",
+      "options": ["var", "let", "const", "both let and const"],
+      "correct": 3,
+      "explanation": "Both let and const declare block-scoped variables in ES6+."
+    },
+    {
+      "question": "What is the result of 3 + 4 + '5'?",
+      "options": ["12", "'345'", "'75'", "75"],
+      "correct": 2,
+      "explanation": "JavaScript evaluates left to right: 3+4=7, then 7+'5'='75' (string concat)."
+    },
+    {
+      "question": "What is an array in JavaScript?",
+      "options": ["Collection of elements", "Single value", "Function", "Object only"],
+      "correct": 0,
+      "explanation": "Array is a collection of elements stored in indexed positions."
+    },
+    {
+      "question": "Which method removes the last element from an array?",
+      "options": ["remove()", "pop()", "delete()", "splice()"],
+      "correct": 1,
+      "explanation": "pop() removes and returns the last element from an array."
+    },
+    {
+      "question": "What is a function in JavaScript?",
+      "options": ["Block of code", "Variable", "Object", "All of the above"],
+      "correct": 0,
+      "explanation": "Function is a block of code designed to perform a specific task."
+    },
+    {
+      "question": "What will be the output: console.log('5' - 2)?",
+      "options": ["'3'", "3", "Error", "'32'"],
+      "correct": 1,
+      "explanation": "String '5' is coerced to number, then 5-2=3."
+    },
+    {
+      "question": "Which method converts number to string?",
+      "options": ["toString()", "toStr()", "convertString()", "stringify()"],
+      "correct": 0,
+      "explanation": "toString() method converts number to string."
+    },
+    {
+      "question": "What is the difference between null and undefined?",
+      "options": ["Same", "null is intentional absence, undefined means not assigned", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "null represents intentional absence of value, undefined means variable not assigned."
+    },
+    {
+      "question": "What does this keyword refer to in JavaScript?",
+      "options": ["Current object", "Parent object", "Global object", "Context-dependent"],
+      "correct": 3,
+      "explanation": "'this' refers to the object that owns the function - context-dependent."
+    },
+    {
+      "question": "Which operator is used for exponentiation?",
+      "options": ["^", "**", "exp", "pow"],
+      "correct": 1,
+      "explanation": "** is exponentiation operator: 2**3 = 8"
+    },
+    {
+      "question": "What is the correct way to declare an arrow function?",
+      "options": ["function => x", "(x) => x * 2", "=> function", "arrow x"],
+      "correct": 1,
+      "explanation": "Arrow function syntax: (parameters) => expression"
+    },
+    {
+      "question": "What does JSON.parse() do?",
+      "options": ["Creates object", "Converts string to object", "Parses HTML", "Error"],
+      "correct": 1,
+      "explanation": "JSON.parse() parses JSON string and returns JavaScript object."
+    },
+    {
+      "question": "What is the output: console.log([] == false)?",
+      "options": ["true", "false", "Error", "undefined"],
+      "correct": 0,
+      "explanation": "[] == false is true due to type coercion in JavaScript."
+    },
+    {
+      "question": "Which method finds an element in an array?",
+      "options": ["find()", "search()", "locate()", "get()"],
+      "correct": 0,
+      "explanation": "find() method returns first element that satisfies test function."
+    },
+    {
+      "question": "What is the output: console.log(typeof [])?",
+      "options": ["array", "object", "list", "undefined"],
+      "correct": 1,
+      "explanation": "Arrays are objects in JavaScript, so typeof [] returns 'object'."
+    },
+    {
+      "question": "Which method creates a new array with modified elements?",
+      "options": ["modify()", "map()", "change()", "update()"],
+      "correct": 1,
+      "explanation": "map() creates new array by calling function for each element."
+    },
+    {
+      "question": "What is hoisting in JavaScript?",
+      "options": ["Lifting variables", "Declarations moved to top", "Moving functions", "All of the above"],
+      "correct": 3,
+      "explanation": "Hoisting means variable and function declarations are moved to top of scope."
+    }
+  ]
+}
+

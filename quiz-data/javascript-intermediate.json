@@ -1,0 +1,128 @@
+{
+  "title": "JavaScript - Intermediate Level",
+  "description": "Master intermediate JavaScript including closures, async, and modern ES6+",
+  "difficulty": "intermediate",
+  "questions": [
+    {
+      "question": "What is a closure in JavaScript?",
+      "options": ["Close function", "Function with access to outer scope", "End function", "Private function"],
+      "correct": 1,
+      "explanation": "Closure is a function that has access to variables in its outer (enclosing) scope."
+    },
+    {
+      "question": "What is the output: const obj = {x: 1, y: () => this.x}; obj.y()?",
+      "options": ["1", "undefined", "Error", "this.x"],
+      "correct": 1,
+      "explanation": "Arrow functions don't bind 'this', so this.x is undefined here."
+    },
+    {
+      "question": "What does async/await do?",
+      "options": ["Makes code synchronous", "Handles promises asynchronously", "Blocks execution", "Error"],
+      "correct": 1,
+      "explanation": "async/await allows handling promises with synchronous-like syntax."
+    },
+    {
+      "question": "What is the spread operator (...) used for?",
+      "options": ["Expand iterables", "Create space", "Delete elements", "Error"],
+      "correct": 0,
+      "explanation": "Spread operator (...) expands iterables into individual elements."
+    },
+    {
+      "question": "What is destructuring in JavaScript?",
+      "options": ["Break structure", "Extract values from objects/arrays", "Create variables", "Error"],
+      "correct": 1,
+      "explanation": "Destructuring extracts values from arrays or properties from objects."
+    },
+    {
+      "question": "What is a promise in JavaScript?",
+      "options": ["Guarantee", "Object representing async operation", "Function", "Variable"],
+      "correct": 1,
+      "explanation": "Promise represents eventual completion/failure of asynchronous operation."
+    },
+    {
+      "question": "What is the difference between let, var, and const?",
+      "options": ["No difference", "let/const block scope, var function scope", "All same", "let is global"],
+      "correct": 1,
+      "explanation": "let/const have block scope, var has function scope."
+    },
+    {
+      "question": "What is callback hell?",
+      "options": ["Nested callbacks creating complex code", "Error", "Function", "Promise"],
+      "correct": 0,
+      "explanation": "Callback hell is deeply nested callbacks making code hard to read/maintain."
+    },
+    {
+      "question": "What is the event loop in JavaScript?",
+      "options": ["Event loop", "Mechanism handling async code", "Function loop", "Error"],
+      "correct": 1,
+      "explanation": "Event loop handles execution of code and events in async manner."
+    },
+    {
+      "question": "What are higher-order functions?",
+      "options": ["High priority functions", "Functions that take other functions", "Fast functions", "Error"],
+      "correct": 1,
+      "explanation": "Higher-order functions accept other functions as arguments or return functions."
+    },
+    {
+      "question": "What is prototypal inheritance?",
+      "options": ["Class inheritance", "Inheritance via prototypes", "Copy inheritance", "Error"],
+      "correct": 1,
+      "explanation": "JavaScript uses prototype chain for inheritance (not class-based)."
+    },
+    {
+      "question": "What is the difference between map and forEach?",
+      "options": ["No difference", "map returns new array, forEach returns undefined", "Both same", "forEach is faster"],
+      "correct": 1,
+      "explanation": "map() returns new array with results, forEach() returns undefined."
+    },
+    {
+      "question": "What is currying in JavaScript?",
+      "options": ["Cooking", "Converting multi-arg to single-arg functions", "Error", "Function"],
+      "correct": 1,
+      "explanation": "Currying transforms function with multiple arguments into sequence of functions."
+    },
+    {
+      "question": "What is memoization?",
+      "options": ["Memory usage", "Caching function results", "Deleting memory", "Error"],
+      "correct": 1,
+      "explanation": "Memoization caches function results to avoid redundant calculations."
+    },
+    {
+      "question": "What does Promise.all() do?",
+      "options": ["Waits all", "All promises at once", "Resolves when all resolve", "Error"],
+      "correct": 2,
+      "explanation": "Promise.all() resolves when all promises resolve, rejects if any reject."
+    },
+    {
+      "question": "What is the purpose of bind() method?",
+      "options": ["Bind function", "Creates new function with fixed 'this'", "Ties function", "Error"],
+      "correct": 1,
+      "explanation": "bind() creates new function with specific 'this' value and arguments."
+    },
+    {
+      "question": "What is rest parameters (...args)?",
+      "options": ["Remaining parameters", "All remaining args", "Multiple args", "Error"],
+      "correct": 1,
+      "explanation": "Rest parameters represent indefinite number of arguments as array."
+    },
+    {
+      "question": "What is the difference between == and ===?",
+      "options": ["No difference", "== coerces types, === strict", "Both strict", "=== faster"],
+      "correct": 1,
+      "explanation": "== performs type coercion, === checks equality without coercion (strict)."
+    },
+    {
+      "question": "What is a generator function?",
+      "options": ["Creates generators", "Function with yield, can pause", "Fast function", "Error"],
+      "correct": 1,
+      "explanation": "Generator functions use yield keyword and can pause/resume execution."
+    },
+    {
+      "question": "What is the purpose of Object.freeze()?",
+      "options": ["Freezes object", "Prevents modification", "Locks object", "Error"],
+      "correct": 1,
+      "explanation": "Object.freeze() prevents adding/removing/modifying object properties."
+    }
+  ]
+}
+

@@ -1,0 +1,128 @@
+{
+  "title": "Java Programming - Basic Level",
+  "description": "Master Java fundamentals and basic concepts",
+  "difficulty": "basic",
+  "questions": [
+    {
+      "question": "What is NOT a primitive data type in Java?",
+      "options": ["int", "String", "boolean", "double"],
+      "correct": 1,
+      "explanation": "String is a class in Java, not primitive. Primitives: byte, short, int, long, float, double, char, boolean."
+    },
+    {
+      "question": "What is the default value of boolean variable?",
+      "options": ["true", "false", "null", "0"],
+      "correct": 1,
+      "explanation": "Default value of boolean in Java is false."
+    },
+    {
+      "question": "Which keyword is used for inheritance in Java?",
+      "options": ["inherits", "extends", "implements", "super"],
+      "correct": 1,
+      "explanation": "extends keyword is used for class inheritance, implements for interface implementation."
+    },
+    {
+      "question": "What is the difference between == and .equals()?",
+      "options": ["Same", "== compares references, .equals() compares values", "Both compare values", "Error"],
+      "correct": 1,
+      "explanation": "== compares references (addresses), .equals() compares values/content."
+    },
+    {
+      "question": "What is an interface in Java?",
+      "options": ["Class", "Contract for implementing class", "Object", "Variable"],
+      "correct": 1,
+      "explanation": "Interface is contract that specifies what methods implementing class must have."
+    },
+    {
+      "question": "What is the purpose of 'public static void main(String[] args)'?",
+      "options": ["Entry point", "Main method - entry point of Java program", "Function", "Error"],
+      "correct": 1,
+      "explanation": "main() is entry point - JVM calls this method to start program."
+    },
+    {
+      "question": "What is an array in Java?",
+      "options": ["Collection", "Fixed-size collection of same type", "List", "Variable"],
+      "correct": 1,
+      "explanation": "Array is fixed-size collection of elements of same type."
+    },
+    {
+      "question": "Which keyword prevents inheritance?",
+      "options": ["private", "final", "static", "protected"],
+      "correct": 1,
+      "explanation": "final keyword prevents class from being extended (inherited)."
+    },
+    {
+      "question": "What is the difference between String and StringBuilder?",
+      "options": ["Same", "String immutable, StringBuilder mutable", "Both mutable", "Error"],
+      "correct": 1,
+      "explanation": "String is immutable, StringBuilder is mutable (can modify)."
+    },
+    {
+      "question": "What is method overloading?",
+      "options": ["Same method name, different parameters", "Multiple methods", "Same parameters", "Error"],
+      "correct": 0,
+      "explanation": "Overloading is having multiple methods with same name but different parameters."
+    },
+    {
+      "question": "What is constructor in Java?",
+      "options": ["Function", "Special method to initialize object", "Variable", "Object"],
+      "correct": 1,
+      "explanation": "Constructor is special method called when object is created to initialize it."
+    },
+    {
+      "question": "What does 'this' keyword refer to?",
+      "options": ["Current object", "Instance of current class", "Current context", "All of above"],
+      "correct": 3,
+      "explanation": "'this' refers to current object instance of the class."
+    },
+    {
+      "question": "What is exception in Java?",
+      "options": ["Error", "Runtime error", "Exception event", "All of above"],
+      "correct": 3,
+      "explanation": "Exception is error event that disrupts normal program flow."
+    },
+    {
+      "question": "What is the difference between checked and unchecked exceptions?",
+      "options": ["Same", "Checked compile-time, unchecked runtime", "Both compile", "Error"],
+      "correct": 1,
+      "explanation": "Checked: compiler checks, Unchecked: runtime exceptions."
+    },
+    {
+      "question": "What is ArrayList in Java?",
+      "options": ["Array", "Dynamic array", "List collection", "All of above"],
+      "correct": 1,
+      "explanation": "ArrayList is resizable array implementation of List interface."
+    },
+    {
+      "question": "What is the difference between method and constructor?",
+      "options": ["Same", "Constructor has same name as class, method has different name", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "Constructor has same name as class and no return type, method has return type."
+    },
+    {
+      "question": "What is package in Java?",
+      "options": ["Folder", "Namespace for organizing classes", "Container", "All of above"],
+      "correct": 1,
+      "explanation": "Package is namespace that organizes classes and provides access control."
+    },
+    {
+      "question": "What is static keyword used for?",
+      "options": ["Static binding", "Belongs to class not instance", "Fixed", "All of above"],
+      "correct": 1,
+      "explanation": "static means method/variable belongs to class, shared by all instances."
+    },
+    {
+      "question": "What is the difference between abstract class and interface?",
+      "options": ["Same", "Abstract can have implementation, interface cannot (in Java 7)", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "Abstract class can have implemented methods, interface cannot (Java 7 and earlier)."
+    },
+    {
+      "question": "What is garbage collection in Java?",
+      "options": ["Automatic memory management", "Removes unused objects", "Memory cleanup", "All of above"],
+      "correct": 3,
+      "explanation": "Garbage collection automatically reclaims memory from unused objects."
+    }
+  ]
+}
+

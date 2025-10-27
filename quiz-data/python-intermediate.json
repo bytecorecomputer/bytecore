@@ -1,0 +1,128 @@
+{
+  "title": "Python Programming - Intermediate Level",
+  "description": "Test your intermediate Python skills including OOP and data structures",
+  "difficulty": "intermediate",
+  "questions": [
+    {
+      "question": "What is list comprehension in Python?",
+      "options": ["Loop", "Concise way to create lists", "Error", "Conditional"],
+      "correct": 1,
+      "explanation": "List comprehension is a concise way to create lists. Example: [x*2 for x in range(5)]"
+    },
+    {
+      "question": "What is the difference between list and tuple in Python?",
+      "options": ["No difference", "Lists are mutable, tuples are immutable", "Tuples are mutable", "Both same"],
+      "correct": 1,
+      "explanation": "Lists can be modified (mutable), tuples cannot be modified (immutable)."
+    },
+    {
+      "question": "What is a dictionary in Python?",
+      "options": ["List of values", "Key-value pairs", "Collection of arrays", "String array"],
+      "correct": 1,
+      "explanation": "Dictionary stores key-value pairs: {'key': 'value'}"
+    },
+    {
+      "question": "What is __init__ method in Python?",
+      "options": ["Initializer", "Constructor method for classes", "Function", "Variable"],
+      "correct": 1,
+      "explanation": "__init__ is a constructor method automatically called when object is created."
+    },
+    {
+      "question": "What is the difference between append() and extend()?",
+      "options": ["No difference", "append() adds element, extend() adds list elements", "Both same", "extend() is faster"],
+      "correct": 1,
+      "explanation": "append() adds single element, extend() adds all elements of iterable."
+    },
+    {
+      "question": "What is lambda function in Python?",
+      "options": ["Error", "Anonymous small function", "Big function", "Class method"],
+      "correct": 1,
+      "explanation": "lambda creates anonymous single-expression functions: lambda x: x*2"
+    },
+    {
+      "question": "What is the purpose of 'self' in Python classes?",
+      "options": ["Error", "Reference to class instance", "Global variable", "Local variable"],
+      "correct": 1,
+      "explanation": "'self' refers to the instance of the class and binds attributes and methods."
+    },
+    {
+      "question": "What is a module in Python?",
+      "options": ["Function", "File containing Python code", "Variable", "Class"],
+      "correct": 1,
+      "explanation": "Module is a file containing Python definitions and statements."
+    },
+    {
+      "question": "What is the difference between == and is in Python?",
+      "options": ["No difference", "== compares values, 'is' compares identity", "Both same", "'is' is faster"],
+      "correct": 1,
+      "explanation": "== checks equality, 'is' checks if variables point to same object."
+    },
+    {
+      "question": "What are *args and **kwargs in Python?",
+      "options": ["Error", "Variable arguments (*args) and keyword arguments (**kwargs)", "Operators", "Functions"],
+      "correct": 1,
+      "explanation": "*args accepts variable arguments, **kwargs accepts keyword arguments."
+    },
+    {
+      "question": "What is a generator in Python?",
+      "options": ["Function", "Iterator created with yield", "Class", "Method"],
+      "correct": 1,
+      "explanation": "Generator is iterator created with yield, produces values one at a time."
+    },
+    {
+      "question": "What is the purpose of 'pass' statement?",
+      "options": ["Skip iteration", "Null operation placeholder", "Stop execution", "Error"],
+      "correct": 1,
+      "explanation": "'pass' is a null operation used as placeholder when syntax requires statement."
+    },
+    {
+      "question": "What is list slicing in Python?",
+      "options": ["Error", "Extracting portion of list", "Sorting", "Merging"],
+      "correct": 1,
+      "explanation": "List slicing extracts subset using syntax: list[start:end:step]"
+    },
+    {
+      "question": "What is the difference between shallow copy and deep copy?",
+      "options": ["No difference", "Shallow copies references, deep copies all objects", "Both same", "Deep is faster"],
+      "correct": 1,
+      "explanation": "Shallow copy copies references, deep copy recursively copies all nested objects."
+    },
+    {
+      "question": "What is a decorator in Python?",
+      "options": ["Function", "Function that modifies other functions", "Class", "Module"],
+      "correct": 1,
+      "explanation": "Decorator wraps function to extend its behavior without modifying it."
+    },
+    {
+      "question": "What is Exception handling in Python?",
+      "options": ["try-except block", "Error handling", "Loop", "Function"],
+      "correct": 0,
+      "explanation": "Exception handling uses try-except blocks to handle errors gracefully."
+    },
+    {
+      "question": "What is the purpose of 'with' statement?",
+      "options": ["Context manager", "Loop", "Function", "Class"],
+      "correct": 0,
+      "explanation": "'with' statement ensures proper resource management (file closing, etc)."
+    },
+    {
+      "question": "What is set in Python?",
+      "options": ["Collection of unique items", "List", "Dictionary", "Tuple"],
+      "correct": 0,
+      "explanation": "Set is unordered collection of unique elements: {1, 2, 3}"
+    },
+    {
+      "question": "What is map() function in Python?",
+      "options": ["Creates map", "Applies function to iterable", "Error", "Draws map"],
+      "correct": 1,
+      "explanation": "map() applies function to all items in iterable: map(fun, iterable)"
+    },
+    {
+      "question": "What is filter() function in Python?",
+      "options": ["Filters string", "Filters items based on condition", "Error", "Deletes items"],
+      "correct": 1,
+      "explanation": "filter() returns iterator of items where function returns True."
+    }
+  ]
+}
+

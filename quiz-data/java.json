@@ -1,0 +1,126 @@
+{
+  "title": "Java Programming Quiz",
+  "description": "Test your Java programming knowledge with OOP concepts",
+  "questions": [
+    {
+      "question": "Which of these is NOT a valid access modifier in Java?",
+      "options": ["public", "private", "protected", "package"],
+      "correct": 3,
+      "explanation": "Java has public, private, protected, and default (package-private) access modifiers. 'package' is not a valid access modifier keyword."
+    },
+    {
+      "question": "What is the output of System.out.println(10 / 3) in Java?",
+      "options": ["3.33", "3", "3.0", "Error"],
+      "correct": 1,
+      "explanation": "Integer division in Java truncates the decimal part, so 10/3 = 3."
+    },
+    {
+      "question": "Which keyword is used to inherit a class in Java?",
+      "options": ["inherits", "extends", "implements", "super"],
+      "correct": 1,
+      "explanation": "The 'extends' keyword is used for class inheritance in Java."
+    },
+    {
+      "question": "What is the difference between '==' and '.equals()' in Java?",
+      "options": [
+        "No difference",
+        "== compares references, .equals() compares content",
+        "== compares content, .equals() compares references",
+        "Both compare content"
+      ],
+      "correct": 1,
+      "explanation": "== compares object references (memory addresses), while .equals() compares the actual content of objects."
+    },
+    {
+      "question": "Which of these is a valid way to create an array in Java?",
+      "options": [
+        "int[] arr = new int[5];",
+        "int arr[] = new int[5];",
+        "int[] arr = {1, 2, 3, 4, 5};",
+        "All of the above"
+      ],
+      "correct": 3,
+      "explanation": "All three syntaxes are valid ways to create arrays in Java."
+    },
+    {
+      "question": "What does the 'final' keyword do when applied to a variable?",
+      "options": [
+        "Makes it private",
+        "Makes it static",
+        "Makes it constant (cannot be reassigned)",
+        "Makes it public"
+      ],
+      "correct": 2,
+      "explanation": "The 'final' keyword makes a variable constant - it can only be assigned once."
+    },
+    {
+      "question": "Which method is called when an object is created in Java?",
+      "options": ["main()", "constructor", "init()", "create()"],
+      "correct": 1,
+      "explanation": "A constructor is automatically called when an object is instantiated in Java."
+    },
+    {
+      "question": "What is method overloading in Java?",
+      "options": [
+        "Having multiple methods with the same name but different parameters",
+        "Having methods in different classes",
+        "Calling a method multiple times",
+        "Using inheritance"
+      ],
+      "correct": 0,
+      "explanation": "Method overloading allows multiple methods with the same name but different parameter lists in the same class."
+    },
+    {
+      "question": "Which collection class allows duplicate elements in Java?",
+      "options": ["Set", "HashSet", "ArrayList", "TreeSet"],
+      "correct": 2,
+      "explanation": "ArrayList allows duplicate elements, while Set implementations (HashSet, TreeSet) do not."
+    },
+    {
+      "question": "What is the purpose of the 'static' keyword in Java?",
+      "options": [
+        "Makes variables constant",
+        "Belongs to the class rather than instance",
+        "Makes methods private",
+        "Prevents inheritance"
+      ],
+      "correct": 1,
+      "explanation": "The 'static' keyword means the member belongs to the class itself rather than to any specific instance."
+    },
+    {
+      "question": "Which exception is thrown when dividing by zero in Java?",
+      "options": ["NullPointerException", "ArithmeticException", "NumberFormatException", "IllegalArgumentException"],
+      "correct": 1,
+      "explanation": "ArithmeticException is thrown when an exceptional arithmetic condition occurs, such as division by zero."
+    },
+    {
+      "question": "What is the correct way to start a thread in Java?",
+      "options": [
+        "thread.run()",
+        "thread.start()",
+        "thread.begin()",
+        "thread.execute()"
+      ],
+      "correct": 1,
+      "explanation": "The start() method is used to begin thread execution. Calling run() directly doesn't create a new thread."
+    },
+    {
+      "question": "Which interface must be implemented to make an object comparable in Java?",
+      "options": ["Comparable", "Comparator", "Serializable", "Cloneable"],
+      "correct": 0,
+      "explanation": "The Comparable interface must be implemented to make objects naturally comparable using compareTo() method."
+    },
+    {
+      "question": "What is the size of an int in Java?",
+      "options": ["16 bits", "32 bits", "64 bits", "Depends on platform"],
+      "correct": 1,
+      "explanation": "An int in Java is always 32 bits (4 bytes) regardless of the platform."
+    },
+    {
+      "question": "Which keyword is used to handle exceptions in Java?",
+      "options": ["catch", "handle", "except", "error"],
+      "correct": 0,
+      "explanation": "The 'catch' keyword is used along with 'try' to handle exceptions in Java."
+    }
+  ]
+}

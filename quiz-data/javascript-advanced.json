@@ -1,0 +1,128 @@
+{
+  "title": "JavaScript - Advanced Level",
+  "description": "Master advanced JavaScript including classes, modules, and advanced patterns",
+  "difficulty": "advanced",
+  "questions": [
+    {
+      "question": "What is the difference between prototypal and classical inheritance?",
+      "options": ["Same", "Prototypal uses prototype chain", "Classical uses classes", "Both use classes"],
+      "correct": 1,
+      "explanation": "JavaScript uses prototypal inheritance via prototype chain, not classical class-based."
+    },
+    {
+      "question": "What is the Proxy API in JavaScript?",
+      "options": ["Network proxy", "Meta programming for objects", "Cache", "Error"],
+      "correct": 1,
+      "explanation": "Proxy provides meta-programming allowing custom behavior for operations."
+    },
+    {
+      "question": "What is WeakMap and when to use it?",
+      "options": ["Weak map", "Map with weak references", "Slow map", "Error"],
+      "correct": 1,
+      "explanation": "WeakMap has weak references - keys can be garbage collected."
+    },
+    {
+      "question": "What is the Temporal Dead Zone?",
+      "options": ["Error zone", "Let/const not accessible before declaration", "Function zone", "Variable zone"],
+      "correct": 1,
+      "explanation": "TDZ is period between scope start and variable declaration where let/const can't be accessed."
+    },
+    {
+      "question": "What are Symbol primitives used for?",
+      "options": ["Icons", "Unique identifiers", "Strings", "Numbers"],
+      "correct": 1,
+      "explanation": "Symbol is unique, immutable primitive used as unique identifier for object properties."
+    },
+    {
+      "question": "What is the Reflect API?",
+      "options": ["Mirror", "Operations on objects", "Reflect functions", "Error"],
+      "correct": 1,
+      "explanation": "Reflect API provides methods for interceptable operations on objects."
+    },
+    {
+      "question": "What is the difference between static and instance methods?",
+      "options": ["No difference", "Static on class, instance on object", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "Static methods belong to class, instance methods belong to instances."
+    },
+    {
+      "question": "What are decorators in JavaScript?",
+      "options": ["Functions that modify classes/methods", "Objects", "Variables", "Error"],
+      "correct": 0,
+      "explanation": "Decorators are functions that add metadata or modify class/method behavior."
+    },
+    {
+      "question": "What is the difference between async and defer on script tags?",
+      "options": ["Same", "async downloads parallel, defer waits", "Both wait", "Error"],
+      "correct": 1,
+      "explanation": "async downloads while parsing, defer executes after parsing."
+    },
+    {
+      "question": "What is strict mode in JavaScript?",
+      "options": ["Error mode", "Stricter error checking", "Strict rules", "Error"],
+      "correct": 1,
+      "explanation": "Strict mode enables stricter parsing and error handling in JavaScript."
+    },
+    {
+      "question": "What is the difference between shallow and deep cloning?",
+      "options": ["No difference", "Shallow copies references, deep copies values", "Both deep", "Error"],
+      "correct": 1,
+      "explanation": "Shallow copies object references, deep copy creates new objects for nested properties."
+    },
+    {
+      "question": "What is the purpose of Set in JavaScript?",
+      "options": ["Collection", "Store unique values", "Array", "Error"],
+      "correct": 1,
+      "explanation": "Set is collection of unique values (no duplicates)."
+    },
+    {
+      "question": "What is the difference between apply, call, and bind?",
+      "options": ["Same", "call/bind set this, apply passes args as array", "All same", "Error"],
+      "correct": 1,
+      "explanation": "call/bind take arguments, apply takes array of arguments."
+    },
+    {
+      "question": "What are Web Workers in JavaScript?",
+      "options": ["Workers", "Run scripts in background", "Threads", "Error"],
+      "correct": 1,
+      "explanation": "Web Workers run scripts in background thread without blocking main thread."
+    },
+    {
+      "question": "What is optional chaining (?.) in JavaScript?",
+      "options": ["Chain", "Safe property access", "Error", "Optional"],
+      "correct": 1,
+      "explanation": "Optional chaining (?.) safely accesses nested properties without throwing errors."
+    },
+    {
+      "question": "What is the nullish coalescing operator (??)?",
+      "options": ["Null check", "Default value for null/undefined", "Error", "Coalesce"],
+      "correct": 1,
+      "explanation": "?? returns right operand when left is null or undefined."
+    },
+    {
+      "question": "What is the purpose of Array.from()?",
+      "options": ["Creates array", "Creates array from array-like objects", "Duplicate", "Error"],
+      "correct": 1,
+      "explanation": "Array.from() creates new array from array-like or iterable objects."
+    },
+    {
+      "question": "What are tagged template literals?",
+      "options": ["Tags", "Function calls with template literals", "Templates", "Error"],
+      "correct": 1,
+      "explanation": "Tagged templates allow parsing template literals with custom function."
+    },
+    {
+      "question": "What is the difference between Object.create() and constructor functions?",
+      "options": ["Same", "Object.create uses prototype, constructor uses new", "Both new", "Error"],
+      "correct": 1,
+      "explanation": "Object.create() uses prototype delegation, constructor functions use 'new' keyword."
+    },
+    {
+      "question": "What is memoization and how is it implemented?",
+      "options": ["Memory", "Caching function results", "Fast calculation", "Error"],
+      "correct": 1,
+      "explanation": "Memoization caches function results to avoid redundant calculations using closures."
+    }
+  ]
+}
+

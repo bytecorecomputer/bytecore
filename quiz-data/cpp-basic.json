@@ -1,0 +1,128 @@
+{
+  "title": "C++ Programming - Basic Level",
+  "description": "Master C++ fundamentals and basic concepts",
+  "difficulty": "basic",
+  "questions": [
+    {
+      "question": "Which operator allocates dynamic memory in C++?",
+      "options": ["new", "malloc", "create", "allocate"],
+      "correct": 0,
+      "explanation": "new operator allocates dynamic memory in C++."
+    },
+    {
+      "question": "What does OOP stand for?",
+      "options": ["Object-Oriented Programming", "Object-Option Programming", "Objective-Oriented Programming", "Object-Organized Programming"],
+      "correct": 0,
+      "explanation": "OOP stands for Object-Oriented Programming."
+    },
+    {
+      "question": "What is the output of: cout << sizeof(char)?",
+      "options": ["1", "2", "4", "8"],
+      "correct": 0,
+      "explanation": "sizeof(char) is always 1 byte in C++."
+    },
+    {
+      "question": "Which header file includes cout?",
+      "options": ["#include <iostream>", "#include <stdio.h>", "#include <iostream.h>", "#include <stream>"],
+      "correct": 0,
+      "explanation": "#include <iostream> provides cout, cin, etc."
+    },
+    {
+      "question": "What is the difference between struct and class in C++?",
+      "options": ["Same", "struct members public by default, class private", "No difference", "Error"],
+      "correct": 1,
+      "explanation": "struct: public by default, class: private by default."
+    },
+    {
+      "question": "What is a constructor?",
+      "options": ["Function", "Initializes object when created", "Special member function", "All of above"],
+      "correct": 3,
+      "explanation": "Constructor is special member function that initializes object."
+    },
+    {
+      "question": "What is the difference between new and malloc?",
+      "options": ["Same", "new calls constructor, malloc doesn't", "Both same", "new is faster"],
+      "correct": 1,
+      "explanation": "new calls constructor and returns typed pointer, malloc returns void*."
+    },
+    {
+      "question": "What is a destructor in C++?",
+      "options": ["Destroys object", "Cleans up when object destroyed", "~ClassName()", "All of above"],
+      "correct": 3,
+      "explanation": "Destructor (~ClassName()) cleans up resources when object destroyed."
+    },
+    {
+      "question": "What is the scope resolution operator?",
+      "options": ["::", ":", "->", "."],
+      "correct": 0,
+      "explanation": ":: is scope resolution operator (e.g., std::cout)."
+    },
+    {
+      "question": "What is the output: int x = 5; cout << x++ << endl; cout << x;",
+      "options": ["5 6", "6 6", "5 5", "6 5"],
+      "correct": 0,
+      "explanation": "x++ prints 5 first, then increments to 6."
+    },
+    {
+      "question": "Which keyword prevents inheritance?",
+      "options": ["private", "final", "sealed", "protected"],
+      "correct": 1,
+      "explanation": "final keyword prevents class inheritance."
+    },
+    {
+      "question": "What is the difference between pass by value and pass by reference?",
+      "options": ["Same", "Value copies, reference passes address", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "By value: copies value, by reference: passes address."
+    },
+    {
+      "question": "What is function overloading?",
+      "options": ["Same function name", "Different parameters", "Multiple versions", "All of above"],
+      "correct": 3,
+      "explanation": "Overloading: same function name with different parameters."
+    },
+    {
+      "question": "What is the difference between ++i and i++?",
+      "options": ["Same", "++i pre-increment, i++ post-increment", "Both same", "++i faster"],
+      "correct": 1,
+      "explanation": "++i increments before using, i++ uses then increments."
+    },
+    {
+      "question": "What is a pointer in C++?",
+      "options": ["Variable", "Stores memory address", "References location", "All of above"],
+      "correct": 3,
+      "explanation": "Pointer stores memory address of another variable."
+    },
+    {
+      "question": "What is the difference between vector and array?",
+      "options": ["Same", "vector dynamic, array fixed size", "Both fixed", "Error"],
+      "correct": 1,
+      "explanation": "vector: dynamic size, array: fixed size."
+    },
+    {
+      "question": "What is namespace in C++?",
+      "options": ["Namespace", "Prevents naming conflicts", "Organizes code", "All of above"],
+      "correct": 3,
+      "explanation": "namespace prevents naming conflicts (e.g., std::)."
+    },
+    {
+      "question": "What is the difference between public, private, protected?",
+      "options": ["Same", "public: accessible everywhere, private: class only, protected: class+derived", "All public", "Error"],
+      "correct": 1,
+      "explanation": "public: anywhere, private: class only, protected: class and derived classes."
+    },
+    {
+      "question": "What is polymorphism in C++?",
+      "options": ["Multiple forms", "Same name different behavior", "Virtual functions", "All of above"],
+      "correct": 3,
+      "explanation": "Polymorphism allows same interface to behave differently (virtual functions)."
+    },
+    {
+      "question": "What is the purpose of this pointer?",
+      "options": ["Current object", "References current instance", "Implicit parameter", "All of above"],
+      "correct": 3,
+      "explanation": "this pointer refers to current object instance."
+    }
+  ]
+}
+

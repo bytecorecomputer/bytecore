@@ -1,0 +1,103 @@
+{
+  "title": "C++ Programming Quiz",
+  "description": "Test your C++ programming skills with advanced concepts",
+  "questions": [
+    {
+      "question": "What is the output of cout << sizeof(char) in C++?",
+      "options": ["1", "2", "4", "8"],
+      "correct": 0,
+      "explanation": "The size of char is always 1 byte in C++, by definition."
+    },
+    {
+      "question": "Which operator is used for dynamic memory allocation in C++?",
+      "options": ["malloc", "new", "alloc", "create"],
+      "correct": 1,
+      "explanation": "The 'new' operator is used for dynamic memory allocation in C++."
+    },
+    {
+      "question": "What is the difference between struct and class in C++?",
+      "options": [
+        "No difference",
+        "struct members are public by default, class members are private by default",
+        "struct is for data, class is for functions",
+        "struct cannot have constructors"
+      ],
+      "correct": 1,
+      "explanation": "The only difference is default access: struct members are public by default, class members are private by default."
+    },
+    {
+      "question": "Which header file is needed for input/output operations in C++?",
+      "options": ["<stdio.h>", "<iostream>", "<io.h>", "<input.h>"],
+      "correct": 1,
+      "explanation": "<iostream> is the standard header for input/output operations in C++."
+    },
+    {
+      "question": "What does the 'virtual' keyword do in C++?",
+      "options": [
+        "Makes a function private",
+        "Enables runtime polymorphism",
+        "Makes a variable constant",
+        "Prevents inheritance"
+      ],
+      "correct": 1,
+      "explanation": "The 'virtual' keyword enables runtime polymorphism by allowing function overriding in derived classes."
+    },
+    {
+      "question": "Which of these is NOT a valid loop in C++?",
+      "options": ["for", "while", "do-while", "repeat-until"],
+      "correct": 3,
+      "explanation": "C++ has for, while, and do-while loops. 'repeat-until' is not a valid loop construct in C++."
+    },
+    {
+      "question": "What is a destructor in C++?",
+      "options": [
+        "A function that creates objects",
+        "A function that destroys objects and cleans up resources",
+        "A type of variable",
+        "A loop construct"
+      ],
+      "correct": 1,
+      "explanation": "A destructor is automatically called when an object goes out of scope to clean up resources."
+    },
+    {
+      "question": "Which access specifier allows access from derived classes but not from outside?",
+      "options": ["public", "private", "protected", "internal"],
+      "correct": 2,
+      "explanation": "Protected members are accessible within the class and its derived classes, but not from outside."
+    },
+    {
+      "question": "What is function overloading in C++?",
+      "options": [
+        "Having multiple functions with the same name but different parameters",
+        "Calling a function multiple times",
+        "Using inheritance",
+        "Making functions virtual"
+      ],
+      "correct": 0,
+      "explanation": "Function overloading allows multiple functions with the same name but different parameter lists."
+    },
+    {
+      "question": "Which operator is used to access members of a structure through a pointer?",
+      "options": [".", "->", "::", "*"],
+      "correct": 1,
+      "explanation": "The arrow operator (->) is used to access members through a pointer."
+    },
+    {
+      "question": "What is the correct way to declare a constant in C++?",
+      "options": [
+        "constant int x = 5;",
+        "const int x = 5;",
+        "final int x = 5;",
+        "readonly int x = 5;"
+      ],
+      "correct": 1,
+      "explanation": "The 'const' keyword is used to declare constants in C++."
+    },
+    {
+      "question": "Which of these is used for exception handling in C++?",
+      "options": ["try-catch", "if-else", "switch-case", "for-loop"],
+      "correct": 0,
+      "explanation": "try-catch blocks are used for exception handling in C++."
+    }
+  ]
+}

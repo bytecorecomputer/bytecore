@@ -1,0 +1,128 @@
+{
+  "title": "HTML/CSS - Intermediate Level",
+  "description": "Master intermediate HTML/CSS including flexbox, grid, and responsive design",
+  "difficulty": "intermediate",
+  "questions": [
+    {
+      "question": "What is CSS Flexbox?",
+      "options": ["Layout mode", "One-dimensional layout", "Flexible container", "All of above"],
+      "correct": 3,
+      "explanation": "Flexbox is one-dimensional layout mode that provides flexible containers."
+    },
+    {
+      "question": "What is CSS Grid?",
+      "options": ["Grid system", "Two-dimensional layout", "Table layout", "All of above"],
+      "correct": 1,
+      "explanation": "CSS Grid is two-dimensional layout system (rows and columns)."
+    },
+    {
+      "question": "What does media query do in CSS?",
+      "options": ["Media type", "Responsive design based on screen size", "Query media", "Error"],
+      "correct": 1,
+      "explanation": "Media queries apply styles based on device features (screen size, orientation)."
+    },
+    {
+      "question": "What is CSS specificity?",
+      "options": ["Priority", "Determines which CSS rule applies", "Importance", "All of above"],
+      "correct": 1,
+      "explanation": "Specificity determines which CSS rule applies when multiple rules match."
+    },
+    {
+      "question": "What is the difference between display: none and visibility: hidden?",
+      "options": ["Same", "none removes element, hidden hides but keeps space", "Both hide", "Error"],
+      "correct": 1,
+      "explanation": "display:none removes element, visibility:hidden hides but keeps space."
+    },
+    {
+      "question": "What is the ::before pseudo-element?",
+      "options": ["Before element", "Inserts content before", "Element before", "Error"],
+      "correct": 1,
+      "explanation": "::before inserts content before element's content."
+    },
+    {
+      "question": "What is the box-sizing property?",
+      "options": ["Box size", "Controls how box size is calculated", "Element size", "Error"],
+      "correct": 1,
+      "explanation": "box-sizing controls how width/height are calculated (content-box vs border-box)."
+    },
+    {
+      "question": "What is CSS animation?",
+      "options": ["Moving", "Transitioning between styles", "Movement", "All of above"],
+      "correct": 1,
+      "explanation": "Animation transitions element from one style to another."
+    },
+    {
+      "question": "What is the difference between absolute and relative positioning?",
+      "options": ["Same", "absolute: positioned relative to parent, relative: normal flow", "Both absolute", "Error"],
+      "correct": 1,
+      "explanation": "absolute positions relative to nearest positioned ancestor, relative to own position."
+    },
+    {
+      "question": "What is CSS transform?",
+      "options": ["Transform element", "Modify appearance (rotate, scale)", "Change element", "Error"],
+      "correct": 1,
+      "explanation": "transform modifies element appearance (rotate, scale, translate)."
+    },
+    {
+      "question": "What does CSS !important do?",
+      "options": ["Important", "Overrides other rules", "Priority", "All of above"],
+      "correct": 1,
+      "explanation": "!important gives rule highest specificity, overriding other rules."
+    },
+    {
+      "question": "What is CSS preprocessor?",
+      "options": ["Sass/Less", "Extends CSS with variables", "Compiles to CSS", "All of above"],
+      "correct": 3,
+      "explanation": "Preprocessors like Sass/Less add variables, nesting, mixins to CSS."
+    },
+    {
+      "question": "What is rem unit in CSS?",
+      "options": ["Relative to root font-size", "Root em", "Font size", "All of above"],
+      "correct": 1,
+      "explanation": "rem is relative to root element's font-size (html tag)."
+    },
+    {
+      "question": "What is semantic HTML?",
+      "options": ["Meaningful tags", "Tags with meaning", "Better HTML", "All of above"],
+      "correct": 3,
+      "explanation": "Semantic HTML uses tags that convey meaning: <article>, <section>, <nav>, etc."
+    },
+    {
+      "question": "What does CSS calc() do?",
+      "options": ["Calculate", "Perform calculations in CSS", "Math in CSS", "All of above"],
+      "correct": 1,
+      "explanation": "calc() performs calculations: width: calc(100% - 20px)"
+    },
+    {
+      "question": "What is BEM methodology?",
+      "options": ["Block Element Modifier", "CSS naming convention", "Organized CSS", "All of above"],
+      "correct": 3,
+      "explanation": "BEM (Block__Element--Modifier) is CSS naming convention for maintainability."
+    },
+    {
+      "question": "What is CSS custom property (variable)?",
+      "options": ["--var", "CSS variables", "Reusable values", "All of above"],
+      "correct": 3,
+      "explanation": "CSS custom properties: --main-color: blue; color: var(--main-color)"
+    },
+    {
+      "question": "What does CSS transition do?",
+      "options": ["Transition", "Smooth change between states", "Animation", "All of above"],
+      "correct": 1,
+      "explanation": "transition smoothly animates property changes over time."
+    },
+    {
+      "question": "What is mobile-first design?",
+      "options": ["Design for mobile first", "Responsive design starting with mobile", "Mobile design", "All of above"],
+      "correct": 1,
+      "explanation": "Mobile-first means designing for mobile devices first, then scaling up."
+    },
+    {
+      "question": "What is CSS containment?",
+      "options": ["Contain", "Isolate element rendering", "Performance optimization", "All of above"],
+      "correct": 3,
+      "explanation": "CSS containment optimizes rendering by isolating parts of page."
+    }
+  ]
+}
+

@@ -1,0 +1,81 @@
+{
+  "title": "Python Programming Quiz",
+  "description": "Test your Python knowledge with these challenging questions",
+  "questions": [
+    {
+      "question": "What is the output of print(2 ** 3 ** 2) in Python?",
+      "options": ["64", "512", "256", "Syntax Error"],
+      "correct": 1,
+      "explanation": "Exponentiation is right-associative in Python, so 2 ** 3 ** 2 is evaluated as 2 ** (3 ** 2) = 2 ** 9 = 512."
+    },
+    {
+      "question": "Which of these is NOT a valid variable name in Python?",
+      "options": ["_my_var", "my_var_2", "2my_var", "myVar"],
+      "correct": 2,
+      "explanation": "Variable names cannot start with a number in Python."
+    },
+    {
+      "question": "What does the 'pass' statement do in Python?",
+      "options": [
+        "Terminates the program",
+        "Skips the current iteration in a loop",
+        "Is a null operation - nothing happens",
+        "Continues to the next statement"
+      ],
+      "correct": 2,
+      "explanation": "The pass statement is a null operation; it does nothing when executed."
+    },
+    {
+      "question": "Which method would you use to convert a string to lowercase in Python?",
+      "options": ["lowercase()", "tolower()", "lower()", "casefold()"],
+      "correct": 2,
+      "explanation": "The lower() method returns a string where all characters are lowercase."
+    },
+    {
+      "question": "What is the output of 'Hello'[1:4] in Python?",
+      "options": ["Hell", "ello", "ell", "Hel"],
+      "correct": 2,
+      "explanation": "String slicing in Python: 'Hello'[1:4] returns characters from index 1 to 3 (4 is exclusive)."
+    },
+    {
+      "question": "Which of these data types is mutable in Python?",
+      "options": ["Tuple", "String", "List", "Integer"],
+      "correct": 2,
+      "explanation": "Lists are mutable in Python, meaning their elements can be changed after creation."
+    },
+    {
+      "question": "What does the 'zip()' function do in Python?",
+      "options": [
+        "Compresses files",
+        "Creates an iterator that aggregates elements from each of the iterables",
+        "Combines two strings",
+        "Creates a backup of data"
+      ],
+      "correct": 1,
+      "explanation": "The zip() function returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables."
+    },
+    {
+      "question": "Which keyword is used to define a function in Python?",
+      "options": ["def", "function", "define", "func"],
+      "correct": 0,
+      "explanation": "The 'def' keyword is used to define a function in Python."
+    },
+    {
+      "question": "What is the output of bool('False') in Python?",
+      "options": ["False", "True", "Error", "None"],
+      "correct": 1,
+      "explanation": "Any non-empty string in Python is considered True when converted to boolean, including the string 'False'."
+    },
+    {
+      "question": "Which of these is the correct way to create a dictionary in Python?",
+      "options": [
+        "dict = {key: value}",
+        "dict = [key: value]",
+        "dict = (key: value)",
+        "dict = <key: value>"
+      ],
+      "correct": 0,
+      "explanation": "Dictionaries in Python are created using curly braces {} with key:value pairs."
+    }
+  ]
+}

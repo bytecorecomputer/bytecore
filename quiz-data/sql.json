@@ -1,0 +1,91 @@
+{
+  "title": "SQL Database Quiz",
+  "description": "Test your database knowledge with SQL queries and concepts",
+  "questions": [
+    {
+      "question": "Which SQL statement is used to retrieve data from a database?",
+      "options": ["GET", "SELECT", "RETRIEVE", "FETCH"],
+      "correct": 1,
+      "explanation": "SELECT is the SQL statement used to retrieve data from database tables."
+    },
+    {
+      "question": "What does SQL stand for?",
+      "options": [
+        "Structured Query Language",
+        "Simple Query Language",
+        "Standard Query Language",
+        "System Query Language"
+      ],
+      "correct": 0,
+      "explanation": "SQL stands for Structured Query Language."
+    },
+    {
+      "question": "Which clause is used to filter records in SQL?",
+      "options": ["FILTER", "WHERE", "HAVING", "IF"],
+      "correct": 1,
+      "explanation": "The WHERE clause is used to filter records based on specified conditions."
+    },
+    {
+      "question": "What is a PRIMARY KEY in SQL?",
+      "options": [
+        "A key that opens the database",
+        "A unique identifier for each record in a table",
+        "The first column in a table",
+        "A password for the database"
+      ],
+      "correct": 1,
+      "explanation": "A PRIMARY KEY uniquely identifies each record in a database table."
+    },
+    {
+      "question": "Which SQL command is used to add new records to a table?",
+      "options": ["ADD", "INSERT", "CREATE", "NEW"],
+      "correct": 1,
+      "explanation": "INSERT is used to add new records to a database table."
+    },
+    {
+      "question": "What does the JOIN operation do in SQL?",
+      "options": [
+        "Combines rows from two or more tables",
+        "Adds new columns to a table",
+        "Deletes records from tables",
+        "Creates a new table"
+      ],
+      "correct": 0,
+      "explanation": "JOIN combines rows from two or more tables based on a related column between them."
+    },
+    {
+      "question": "Which SQL function is used to count the number of rows?",
+      "options": ["COUNT()", "SUM()", "TOTAL()", "NUMBER()"],
+      "correct": 0,
+      "explanation": "COUNT() function returns the number of rows that match a specified condition."
+    },
+    {
+      "question": "What is the difference between DELETE and DROP in SQL?",
+      "options": [
+        "No difference",
+        "DELETE removes records, DROP removes the entire table structure",
+        "DROP removes records, DELETE removes table structure",
+        "Both do the same thing"
+      ],
+      "correct": 1,
+      "explanation": "DELETE removes records from a table while keeping the table structure, DROP removes the entire table including its structure."
+    },
+    {
+      "question": "Which clause is used to sort the result set in SQL?",
+      "options": ["SORT BY", "ORDER BY", "GROUP BY", "ARRANGE BY"],
+      "correct": 1,
+      "explanation": "ORDER BY clause is used to sort the result set in ascending or descending order."
+    },
+    {
+      "question": "What is a FOREIGN KEY in SQL?",
+      "options": [
+        "A key from another country",
+        "A field that links to the primary key of another table",
+        "A backup key",
+        "An encrypted key"
+      ],
+      "correct": 1,
+      "explanation": "A FOREIGN KEY is a field that refers to the PRIMARY KEY in another table, creating a link between tables."
+    }
+  ]
+}

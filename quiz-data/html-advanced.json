@@ -1,0 +1,128 @@
+{
+  "title": "HTML/CSS - Advanced Level",
+  "description": "Master advanced HTML/CSS including advanced layouts, animations, and performance",
+  "difficulty": "advanced",
+  "questions": [
+    {
+      "question": "What is CSS Subgrid?",
+      "options": ["Grid inside grid", "Nested grid with parent alignment", "Subset of grid", "Error"],
+      "correct": 1,
+      "explanation": "Subgrid allows grid to align with parent grid lines."
+    },
+    {
+      "question": "What is CSS aspect-ratio property?",
+      "options": ["Aspect ratio", "Maintains width-to-height ratio", "Ratio", "All of above"],
+      "correct": 1,
+      "explanation": "aspect-ratio maintains proportional relationship between width and height."
+    },
+    {
+      "question": "What is CSS Cascade Layers?",
+      "options": ["Layers", "Organize cascade", "Control specificity", "All of above"],
+      "correct": 3,
+      "explanation": "Cascade layers organize cascade into explicit layers with @layer."
+    },
+    {
+      "question": "What is Container Queries?",
+      "options": ["Query containers", "Styles based on parent size", "Container-based responsive", "All of above"],
+      "correct": 1,
+      "explanation": "Container queries apply styles based on parent container size."
+    },
+    {
+      "question": "What is CSS Logical Properties?",
+      "options": ["Logical values", "Flow-relative direction", "Writing-mode aware", "All of above"],
+      "correct": 3,
+      "explanation": "Logical properties adapt to writing mode (LTR/RTL, vertical/horizontal)."
+    },
+    {
+      "question": "What is CSS scroll-snap?",
+      "options": ["Snap scrolling", "Snap to positions during scroll", "Scroll control", "All of above"],
+      "correct": 1,
+      "explanation": "scroll-snap creates snap positions during scrolling."
+    },
+    {
+      "question": "What is position: sticky?",
+      "options": ["Sticky position", "Switches between relative and fixed", "Sticks to position", "All of above"],
+      "correct": 1,
+      "explanation": "sticky switches between relative and fixed based on scroll position."
+    },
+    {
+      "question": "What is CSS Grid auto-fit vs auto-fill?",
+      "options": ["Same", "auto-fit collapses empty tracks, auto-fill keeps them", "Both same", "Error"],
+      "correct": 1,
+      "explanation": "auto-fit collapses empty tracks, auto-fill keeps empty tracks."
+    },
+    {
+      "question": "What is CSS backdrop-filter?",
+      "options": ["Backdrop blur", "Applies filter to backdrop", "Blur effect", "All of above"],
+      "correct": 1,
+      "explanation": "backdrop-filter applies filter effects to element's backdrop."
+    },
+    {
+      "question": "What is CSS clip-path?",
+      "options": ["Clipping", "Creates clipping region", "Shape element", "All of above"],
+      "correct": 3,
+      "explanation": "clip-path creates clipping region to show only part of element."
+    },
+    {
+      "question": "What is CSS variable scoping?",
+      "options": ["Scope", "Variables inherit through cascade", "Scoped variables", "All of above"],
+      "correct": 1,
+      "explanation": "CSS variables inherit through cascade, scoped by selector."
+    },
+    {
+      "question": "What is CSS content-visibility?",
+      "options": ["Visibility", "Performance by skipping rendering", "Hide content", "All of above"],
+      "correct": 1,
+      "explanation": "content-visibility skips rendering of off-screen content for performance."
+    },
+    {
+      "question": "What is will-change CSS property?",
+      "options": ["Will change", "Hints browser about future changes", "Performance optimization", "All of above"],
+      "correct": 1,
+      "explanation": "will-change hints browser about future changes for optimization."
+    },
+    {
+      "question": "What is CSS alignment in Grid?",
+      "options": ["Justify/align", "justify-* and align-* properties", "Grid alignment", "All of above"],
+      "correct": 1,
+      "explanation": "justify-* for inline axis, align-* for block axis in Grid."
+    },
+    {
+      "question": "What is CSS overflow-wrap?",
+      "options": ["Wrap overflow", "Controls word breaking", "Break long words", "All of above"],
+      "correct": 1,
+      "explanation": "overflow-wrap controls where long words can be broken."
+    },
+    {
+      "question": "What is CSS display: contents?",
+      "options": ["Display contents", "Element becomes transparent in layout", "Remove element", "Error"],
+      "correct": 1,
+      "explanation": "display: contents makes element's children behave as if element didn't exist."
+    },
+    {
+      "question": "What is CSS :has() selector?",
+      "options": ["Parent selector", "Selects parent based on child", "Matches condition", "All of above"],
+      "correct": 3,
+      "explanation": ":has() is parent selector - selects element that has specified descendant."
+    },
+    {
+      "question": "What is CSS Cascade Layers for?",
+      "options": ["Control specificity", "Organize styles", "Layer styles", "All of above"],
+      "correct": 3,
+      "explanation": "Cascade layers let you organize and control cascade order explicitly."
+    },
+    {
+      "question": "What is CSS scrollbar styling?",
+      "options": ["Style scrollbar", "Custom scrollbar appearance", "Scrollbar colors", "All of above"],
+      "correct": 3,
+      "explanation": "CSS can style scrollbar: ::-webkit-scrollbar, ::-webkit-scrollbar-thumb, etc."
+    },
+    {
+      "question": "What is CSS containment value all?",
+      "options": ["Contain all", "Max containment", "Performance optimization", "All of above"],
+      "correct": 3,
+      "explanation": "containment: layout style paint size provides maximum containment for performance."
+    }
+  ]
+}
+
