@@ -121,6 +121,51 @@
       "options": ["catch", "handle", "except", "error"],
       "correct": 0,
       "explanation": "The 'catch' keyword is used along with 'try' to handle exceptions in Java."
+    },
+    {
+      "question": "What is encapsulation in Java?",
+      "options": [
+        "Hiding implementation details",
+        "Wrapping data and methods together",
+        "Data protection mechanism",
+        "All of the above"
+      ],
+      "correct": 3,
+      "explanation": "Encapsulation is wrapping data and methods together and hiding implementation details."
+    },
+    {
+      "question": "Which method is called when an object is garbage collected?",
+      "options": ["finalize()", "destroy()", "cleanup()", "dispose()"],
+      "correct": 0,
+      "explanation": "finalize() method is called by garbage collector before object is destroyed."
+    },
+    {
+      "question": "What is the difference between HashMap and Hashtable?",
+      "options": [
+        "Same",
+        "HashMap is not synchronized, Hashtable is synchronized",
+        "Both are synchronized",
+        "HashMap is faster"
+      ],
+      "correct": 1,
+      "explanation": "HashMap is not thread-safe, Hashtable is synchronized and thread-safe."
+    },
+    {
+      "question": "What is method overriding in Java?",
+      "options": [
+        "Same method name in same class",
+        "Redefining parent class method in child class",
+        "Multiple methods with same name",
+        "Error handling"
+      ],
+      "correct": 1,
+      "explanation": "Method overriding is redefining a parent class method in the child class."
+    },
+    {
+      "question": "Which access modifier provides the widest accessibility?",
+      "options": ["private", "protected", "public", "default"],
+      "correct": 2,
+      "explanation": "public access modifier provides the widest accessibility - accessible from anywhere."
     }
   ]
 }

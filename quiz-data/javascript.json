@@ -103,6 +103,53 @@
       ],
       "correct": 1,
       "explanation": "The spread operator (...) allows an iterable to be expanded in places where zero or more arguments or elements are expected."
+    },
+    {
+      "question": "What is the output of console.log(0.1 + 0.2 === 0.3)?",
+      "options": ["true", "false", "undefined", "Error"],
+      "correct": 1,
+      "explanation": "Due to floating-point precision issues, 0.1 + 0.2 equals 0.30000000000000004, not exactly 0.3."
+    },
+    {
+      "question": "Which method creates a new array with elements that pass a test?",
+      "options": ["filter()", "map()", "reduce()", "find()"],
+      "correct": 0,
+      "explanation": "filter() creates a new array with all elements that pass the test implemented by the provided function."
+    },
+    {
+      "question": "What is the output of console.log([] + [])?",
+      "options": ["[]", "''", "undefined", "Error"],
+      "correct": 1,
+      "explanation": "When arrays are added, they are converted to strings. [] becomes '', so [] + [] = '' + '' = ''."
+    },
+    {
+      "question": "Which method converts a JavaScript object to a JSON string?",
+      "options": ["JSON.stringify()", "JSON.parse()", "toString()", "String()"],
+      "correct": 0,
+      "explanation": "JSON.stringify() converts a JavaScript object or value to a JSON string."
+    },
+    {
+      "question": "What is the output of console.log(typeof NaN)?",
+      "options": ["NaN", "undefined", "number", "object"],
+      "correct": 2,
+      "explanation": "NaN (Not a Number) is actually of type 'number' in JavaScript."
+    },
+    {
+      "question": "Which method removes the first element from an array?",
+      "options": ["shift()", "unshift()", "pop()", "splice()"],
+      "correct": 0,
+      "explanation": "shift() removes the first element from an array and returns that element."
+    },
+    {
+      "question": "What does the 'new' keyword do in JavaScript?",
+      "options": [
+        "Creates a new variable",
+        "Creates a new instance of an object",
+        "Creates a new function",
+        "Creates a new array"
+      ],
+      "correct": 1,
+      "explanation": "The 'new' keyword creates a new instance of a user-defined object type or built-in object type."
     }
   ]
 }

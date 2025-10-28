@@ -1,0 +1,166 @@
+{
+  "title": "Excel Basic Quiz",
+  "description": "Test your basic Excel knowledge with fundamental concepts and operations",
+  "questions": [
+    {
+      "question": "What is the default file extension for Excel workbooks in Excel 2016 and later?",
+      "options": [".xls", ".xlsx", ".xlsm", ".csv"],
+      "correct": 1,
+      "explanation": "Excel 2007 and later versions use .xlsx as the default file extension for workbooks."
+    },
+    {
+      "question": "Which key combination is used to select all cells in a worksheet?",
+      "options": ["Ctrl + A", "Ctrl + S", "Ctrl + All", "Alt + A"],
+      "correct": 0,
+      "explanation": "Ctrl + A selects all cells in the current worksheet."
+    },
+    {
+      "question": "What is a cell reference in Excel?",
+      "options": [
+        "A way to name worksheets",
+        "The address of a cell using column letter and row number",
+        "A type of formula",
+        "A formatting option"
+      ],
+      "correct": 1,
+      "explanation": "A cell reference is the address of a cell, combining the column letter and row number (e.g., A1, B5)."
+    },
+    {
+      "question": "Which symbol is used to start a formula in Excel?",
+      "options": ["#", "@", "=", "$"],
+      "correct": 2,
+      "explanation": "All Excel formulas must start with the equals sign (=)."
+    },
+    {
+      "question": "What does the SUM function do in Excel?",
+      "options": [
+        "Counts the number of cells",
+        "Adds up all the numbers in a range",
+        "Finds the average",
+        "Finds the maximum value"
+      ],
+      "correct": 1,
+      "explanation": "The SUM function adds up all the numbers in a specified range of cells."
+    },
+    {
+      "question": "How do you move to the next cell when entering data?",
+      "options": ["Press Space", "Press Enter or Tab", "Click with mouse only", "Press Shift"],
+      "correct": 1,
+      "explanation": "Pressing Enter moves down to the next cell, and Tab moves to the next cell to the right."
+    },
+    {
+      "question": "What is a worksheet in Excel?",
+      "options": [
+        "The entire Excel file",
+        "A single sheet within a workbook",
+        "A type of chart",
+        "A formula"
+      ],
+      "correct": 1,
+      "explanation": "A worksheet is a single sheet within an Excel workbook, containing rows and columns of cells."
+    },
+    {
+      "question": "Which function key opens the 'Go To' dialog box?",
+      "options": ["F2", "F4", "F5", "F7"],
+      "correct": 2,
+      "explanation": "F5 opens the 'Go To' dialog box, allowing you to navigate to specific cells or ranges."
+    },
+    {
+      "question": "What is the maximum number of rows in an Excel worksheet?",
+      "options": ["65,536", "1,048,576", "16,384", "Unlimited"],
+      "correct": 1,
+      "explanation": "Excel worksheets can have up to 1,048,576 rows."
+    },
+    {
+      "question": "How do you copy a cell in Excel?",
+      "options": ["Ctrl + C", "Ctrl + V", "Ctrl + X", "Ctrl + Z"],
+      "correct": 0,
+      "explanation": "Ctrl + C copies the selected cell or range to the clipboard."
+    },
+    {
+      "question": "What does AutoFill do in Excel?",
+      "options": [
+        "Automatically saves the file",
+        "Fills cells with a series or pattern",
+        "Corrects spelling errors",
+        "Formats cells automatically"
+      ],
+      "correct": 1,
+      "explanation": "AutoFill automatically fills cells with a series, pattern, or copies data based on adjacent cells."
+    },
+    {
+      "question": "Which tab contains the formatting options for cells?",
+      "options": ["File", "Home", "Insert", "Data"],
+      "correct": 1,
+      "explanation": "The Home tab contains most formatting options including font, alignment, and number formatting."
+    },
+    {
+      "question": "What is the name box in Excel?",
+      "options": [
+        "A box for entering names",
+        "Shows the address of the active cell",
+        "A search box",
+        "A help box"
+      ],
+      "correct": 1,
+      "explanation": "The name box displays the address of the currently selected cell or range."
+    },
+    {
+      "question": "How do you undo an action in Excel?",
+      "options": ["Ctrl + Z", "Ctrl + Y", "Ctrl + U", "Alt + Z"],
+      "correct": 0,
+      "explanation": "Ctrl + Z undoes the last action performed in Excel."
+    },
+    {
+      "question": "What is the purpose of the formula bar?",
+      "options": [
+        "To display charts",
+        "To show and edit the contents of the active cell",
+        "To navigate between worksheets",
+        "To format cells"
+      ],
+      "correct": 1,
+      "explanation": "The formula bar displays and allows editing of the contents of the active cell, including formulas."
+    },
+    {
+      "question": "Which function calculates the average of a range of numbers?",
+      "options": ["SUM", "COUNT", "AVERAGE", "MAX"],
+      "correct": 2,
+      "explanation": "The AVERAGE function calculates the arithmetic mean of a range of numbers."
+    },
+    {
+      "question": "How do you select an entire row in Excel?",
+      "options": [
+        "Click on the row number",
+        "Press Ctrl + Row",
+        "Double-click any cell in the row",
+        "Use Shift + Click"
+      ],
+      "correct": 0,
+      "explanation": "Clicking on the row number (on the left side) selects the entire row."
+    },
+    {
+      "question": "What does Ctrl + S do in Excel?",
+      "options": ["Select all", "Save the workbook", "Sort data", "Start a new line"],
+      "correct": 1,
+      "explanation": "Ctrl + S saves the current workbook."
+    },
+    {
+      "question": "Which of these is NOT a valid Excel data type?",
+      "options": ["Text", "Number", "Date", "Image"],
+      "correct": 3,
+      "explanation": "While Excel can display images, 'Image' is not a fundamental data type like Text, Number, and Date."
+    },
+    {
+      "question": "What happens when you double-click on a cell?",
+      "options": [
+        "The cell is deleted",
+        "The cell enters edit mode",
+        "The cell is copied",
+        "A new worksheet is created"
+      ],
+      "correct": 1,
+      "explanation": "Double-clicking on a cell puts it into edit mode, allowing you to modify its contents directly."
+    }
+  ]
+}

@@ -1,0 +1,306 @@
+{
+  "title": "CCC Intermediate Quiz",
+  "description": "Advanced CCC concepts including LibreOffice advanced features, internet security, and digital literacy",
+  "questions": [
+    {
+      "question": "Which menu in LibreOffice Writer contains the Mail Merge option?",
+      "options": ["File", "Tools", "Insert", "Format"],
+      "correct": 1,
+      "explanation": "Mail Merge option is available in the Tools menu of LibreOffice Writer."
+    },
+    {
+      "question": "What is the purpose of Mail Merge in LibreOffice Writer?",
+      "options": ["Merge documents", "Send bulk personalized letters", "Combine files", "Create templates"],
+      "correct": 1,
+      "explanation": "Mail Merge is used to send bulk personalized letters or documents to multiple recipients."
+    },
+    {
+      "question": "Which function in LibreOffice Calc is used to find the sum of a range?",
+      "options": ["SUM()", "ADD()", "TOTAL()", "PLUS()"],
+      "correct": 0,
+      "explanation": "SUM() function calculates the sum of values in a specified range in LibreOffice Calc."
+    },
+    {
+      "question": "What is the shortcut key to insert a new slide in LibreOffice Impress?",
+      "options": ["Ctrl + M", "Ctrl + N", "Ctrl + Shift + N", "Ctrl + I"],
+      "correct": 0,
+      "explanation": "Ctrl + M is used to insert a new slide in LibreOffice Impress."
+    },
+    {
+      "question": "Which protocol is used for receiving emails?",
+      "options": ["SMTP", "POP3", "HTTP", "FTP"],
+      "correct": 1,
+      "explanation": "POP3 (Post Office Protocol 3) is used for receiving emails from mail server."
+    },
+    {
+      "question": "What is two-factor authentication?",
+      "options": ["Two passwords", "Additional security layer using two verification methods", "Two usernames", "Two devices"],
+      "correct": 1,
+      "explanation": "Two-factor authentication adds extra security by requiring two different verification methods."
+    },
+    {
+      "question": "Which of these is a strong password characteristic?",
+      "options": ["Only lowercase letters", "Mix of letters, numbers, and symbols", "Personal information", "Common words"],
+      "correct": 1,
+      "explanation": "Strong passwords contain a mix of uppercase, lowercase letters, numbers, and special symbols."
+    },
+    {
+      "question": "What is phishing?",
+      "options": ["Fishing online", "Fraudulent attempt to obtain sensitive information", "Internet speed test", "File sharing"],
+      "correct": 1,
+      "explanation": "Phishing is a fraudulent attempt to obtain sensitive information by impersonating trustworthy entities."
+    },
+    {
+      "question": "Which LibreOffice application is used for mathematical formulas?",
+      "options": ["Writer", "Calc", "Math", "Draw"],
+      "correct": 2,
+      "explanation": "LibreOffice Math is specifically designed for creating and editing mathematical formulas."
+    },
+    {
+      "question": "What is the purpose of styles in LibreOffice Writer?",
+      "options": ["Change colors", "Consistent formatting throughout document", "Add images", "Create tables"],
+      "correct": 1,
+      "explanation": "Styles ensure consistent formatting throughout the document and make editing easier."
+    },
+    {
+      "question": "Which key combination applies bold formatting?",
+      "options": ["Ctrl + B", "Ctrl + I", "Ctrl + U", "Ctrl + F"],
+      "correct": 0,
+      "explanation": "Ctrl + B applies bold formatting to selected text in LibreOffice applications."
+    },
+    {
+      "question": "What is a digital signature?",
+      "options": ["Handwritten signature", "Electronic signature for document authenticity", "Password", "Username"],
+      "correct": 1,
+      "explanation": "Digital signature is an electronic signature that ensures document authenticity and integrity."
+    },
+    {
+      "question": "Which chart type is best for showing parts of a whole in LibreOffice Calc?",
+      "options": ["Line chart", "Bar chart", "Pie chart", "Scatter plot"],
+      "correct": 2,
+      "explanation": "Pie chart is best for showing parts of a whole or percentage distribution."
+    },
+    {
+      "question": "What is the purpose of conditional formatting in LibreOffice Calc?",
+      "options": ["Format based on cell values", "Change font only", "Add borders", "Insert images"],
+      "correct": 0,
+      "explanation": "Conditional formatting automatically formats cells based on their values or specified conditions."
+    },
+    {
+      "question": "Which protocol ensures secure data transmission over internet?",
+      "options": ["HTTP", "HTTPS", "FTP", "SMTP"],
+      "correct": 1,
+      "explanation": "HTTPS (HTTP Secure) ensures encrypted and secure data transmission over the internet."
+    },
+    {
+      "question": "What is a macro in LibreOffice?",
+      "options": ["Large text", "Automated sequence of commands", "Image file", "Font style"],
+      "correct": 1,
+      "explanation": "Macro is an automated sequence of commands that can be recorded and played back."
+    },
+    {
+      "question": "Which function key opens Help in LibreOffice applications?",
+      "options": ["F1", "F2", "F5", "F12"],
+      "correct": 0,
+      "explanation": "F1 key opens the Help system in LibreOffice applications."
+    },
+    {
+      "question": "What is the purpose of Track Changes in LibreOffice Writer?",
+      "options": ["Track file location", "Monitor document modifications", "Count words", "Check spelling"],
+      "correct": 1,
+      "explanation": "Track Changes monitors and records all modifications made to the document."
+    },
+    {
+      "question": "Which internet service allows real-time text communication?",
+      "options": ["Email", "Chat/Instant Messaging", "FTP", "Web browsing"],
+      "correct": 1,
+      "explanation": "Chat or Instant Messaging allows real-time text communication between users."
+    },
+    {
+      "question": "What is a template in LibreOffice?",
+      "options": ["Temporary file", "Pre-designed document format", "Backup file", "Deleted file"],
+      "correct": 1,
+      "explanation": "Template is a pre-designed document format that can be used to create new documents."
+    },
+    {
+      "question": "Which feature in LibreOffice Writer helps in creating table of contents?",
+      "options": ["Styles and Headings", "Tables", "Images", "Charts"],
+      "correct": 0,
+      "explanation": "Styles and Headings are used to automatically generate table of contents."
+    },
+    {
+      "question": "What is the purpose of pivot tables in LibreOffice Calc?",
+      "options": ["Rotate tables", "Summarize and analyze large datasets", "Create charts", "Format cells"],
+      "correct": 1,
+      "explanation": "Pivot tables are used to summarize, analyze, and present large amounts of data."
+    },
+    {
+      "question": "Which type of malware replicates itself?",
+      "options": ["Virus", "Trojan", "Spyware", "Adware"],
+      "correct": 0,
+      "explanation": "Virus is malware that replicates itself and spreads to other files or systems."
+    },
+    {
+      "question": "What is the purpose of slide transitions in LibreOffice Impress?",
+      "options": ["Change slide content", "Animate slide changes", "Add text", "Insert images"],
+      "correct": 1,
+      "explanation": "Slide transitions create animated effects when moving from one slide to another."
+    },
+    {
+      "question": "Which feature allows multiple users to work on the same document simultaneously?",
+      "options": ["Track Changes", "Collaboration/Sharing", "Mail Merge", "Styles"],
+      "correct": 1,
+      "explanation": "Collaboration or sharing features allow multiple users to work on the same document simultaneously."
+    },
+    {
+      "question": "What is the difference between Save and Save As?",
+      "options": ["No difference", "Save updates existing file, Save As creates new file", "Save As is faster", "Save is automatic"],
+      "correct": 1,
+      "explanation": "Save updates the existing file, while Save As creates a new file with a different name or location."
+    },
+    {
+      "question": "Which feature in LibreOffice Calc allows data validation?",
+      "options": ["Formatting", "Data Validity", "Sorting", "Filtering"],
+      "correct": 1,
+      "explanation": "Data Validity feature allows setting rules for data entry validation in cells."
+    },
+    {
+      "question": "What is a cookie in web browsing?",
+      "options": ["Food item", "Small data file stored by websites", "Browser error", "Internet speed"],
+      "correct": 1,
+      "explanation": "Cookie is a small data file stored by websites to remember user preferences and information."
+    },
+    {
+      "question": "Which key combination applies italic formatting?",
+      "options": ["Ctrl + I", "Ctrl + B", "Ctrl + U", "Ctrl + F"],
+      "correct": 0,
+      "explanation": "Ctrl + I applies italic formatting to selected text in LibreOffice applications."
+    },
+    {
+      "question": "What is the purpose of headers and footers in documents?",
+      "options": ["Add decorations", "Display information on every page", "Change fonts", "Insert images"],
+      "correct": 1,
+      "explanation": "Headers and footers display consistent information (like page numbers, titles) on every page."
+    },
+    {
+      "question": "Which protocol is used for secure file transfer?",
+      "options": ["FTP", "SFTP", "HTTP", "SMTP"],
+      "correct": 1,
+      "explanation": "SFTP (Secure File Transfer Protocol) provides secure file transfer with encryption."
+    },
+    {
+      "question": "What is the purpose of page breaks in documents?",
+      "options": ["Break pages", "Force content to start on new page", "Delete pages", "Number pages"],
+      "correct": 1,
+      "explanation": "Page breaks force content to start on a new page, controlling document layout."
+    },
+    {
+      "question": "Which feature allows automatic correction of common typing errors?",
+      "options": ["Spell check", "AutoCorrect", "Grammar check", "Find & Replace"],
+      "correct": 1,
+      "explanation": "AutoCorrect automatically fixes common typing errors and typos as you type."
+    },
+    {
+      "question": "What is bandwidth in internet terms?",
+      "options": ["Width of cable", "Data transfer capacity", "Number of websites", "Internet speed only"],
+      "correct": 1,
+      "explanation": "Bandwidth refers to the data transfer capacity or maximum rate of data transfer."
+    },
+    {
+      "question": "Which feature in LibreOffice allows finding and replacing text?",
+      "options": ["Search", "Find & Replace", "Locate", "Seek"],
+      "correct": 1,
+      "explanation": "Find & Replace feature allows searching for specific text and replacing it with new text."
+    },
+    {
+      "question": "What is the purpose of slide master in LibreOffice Impress?",
+      "options": ["Master slide content", "Control overall presentation design", "Delete slides", "Add animations"],
+      "correct": 1,
+      "explanation": "Slide master controls the overall design and formatting of all slides in the presentation."
+    },
+    {
+      "question": "Which type of chart shows trends over time?",
+      "options": ["Pie chart", "Line chart", "Bar chart", "Doughnut chart"],
+      "correct": 1,
+      "explanation": "Line chart is best for showing trends and changes over time periods."
+    },
+    {
+      "question": "What is social engineering in cybersecurity?",
+      "options": ["Building social networks", "Manipulating people to reveal information", "Engineering software", "Social media"],
+      "correct": 1,
+      "explanation": "Social engineering involves manipulating people to reveal confidential information or perform actions."
+    },
+    {
+      "question": "Which feature allows protecting documents with passwords?",
+      "options": ["Encryption", "Password Protection", "Security", "All of the above"],
+      "correct": 3,
+      "explanation": "Documents can be protected using encryption, password protection, and various security features."
+    },
+    {
+      "question": "What is the purpose of bookmarks in web browsers?",
+      "options": ["Mark pages", "Save favorite websites for quick access", "Read books", "Mark text"],
+      "correct": 1,
+      "explanation": "Bookmarks save favorite websites for quick and easy access later."
+    },
+    {
+      "question": "Which feature allows automatic numbering of pages?",
+      "options": ["Page Numbers", "Headers", "Footers", "All of the above"],
+      "correct": 3,
+      "explanation": "Page numbers can be inserted through headers, footers, or dedicated page numbering features."
+    },
+    {
+      "question": "What is the difference between copying and moving files?",
+      "options": ["Same operation", "Copy creates duplicate, move transfers location", "Move is faster", "Copy deletes original"],
+      "correct": 1,
+      "explanation": "Copy creates a duplicate while keeping original, move transfers file to new location."
+    },
+    {
+      "question": "Which protocol is used for web page transfer?",
+      "options": ["HTTP/HTTPS", "FTP", "SMTP", "POP3"],
+      "correct": 0,
+      "explanation": "HTTP (HyperText Transfer Protocol) and HTTPS are used for transferring web pages."
+    },
+    {
+      "question": "What is the purpose of spell check in word processors?",
+      "options": ["Check spelling errors", "Count words", "Format text", "Insert images"],
+      "correct": 0,
+      "explanation": "Spell check identifies and helps correct spelling errors in documents."
+    },
+    {
+      "question": "Which feature allows creating forms in LibreOffice?",
+      "options": ["Form Controls", "Tables", "Charts", "Images"],
+      "correct": 0,
+      "explanation": "Form Controls allow creating interactive forms with input fields, buttons, and other elements."
+    },
+    {
+      "question": "What is the purpose of data sorting in spreadsheets?",
+      "options": ["Delete data", "Arrange data in specific order", "Calculate data", "Format data"],
+      "correct": 1,
+      "explanation": "Data sorting arranges information in ascending or descending order based on specified criteria."
+    },
+    {
+      "question": "Which key combination redoes the last undone action?",
+      "options": ["Ctrl + Y", "Ctrl + Z", "Ctrl + R", "Ctrl + X"],
+      "correct": 0,
+      "explanation": "Ctrl + Y redoes the last action that was undone with Ctrl + Z."
+    },
+    {
+      "question": "What is the purpose of data filtering in spreadsheets?",
+      "options": ["Clean data", "Display specific data based on criteria", "Delete data", "Sort data"],
+      "correct": 1,
+      "explanation": "Data filtering displays only the data that meets specific criteria, hiding the rest."
+    },
+    {
+      "question": "Which feature allows inserting current date and time automatically?",
+      "options": ["Date field", "Auto date", "Insert Date/Time", "Time stamp"],
+      "correct": 2,
+      "explanation": "Insert Date/Time feature allows automatic insertion of current date and time in documents."
+    },
+    {
+      "question": "What is the purpose of version control in document management?",
+      "options": ["Control versions", "Track document changes over time", "Delete old versions", "Create versions"],
+      "correct": 1,
+      "explanation": "Version control tracks and manages changes to documents over time, maintaining history."
+    }
+  ]
+}

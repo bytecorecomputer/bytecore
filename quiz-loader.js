@@ -18,7 +18,7 @@ class QuizLoader {
    */
   async loadQuiz(language, difficulty = 'basic', topic = null) {
     const cacheKey = topic ? `${language}-${difficulty}-${topic}` : `${language}-${difficulty}`;
-    
+
     // Return cached data if available
     if (this.cache.has(cacheKey)) {
       return this.cache.get(cacheKey);
@@ -53,36 +53,36 @@ class QuizLoader {
   async fetchQuizData(language, difficulty = 'basic', topic = null) {
     try {
       let response;
-      
+
       // Try different file patterns in order
       if (topic) {
         // Try topic-specific file: language-difficulty-topic.json
         response = await fetch(`quiz-data/${language}-${difficulty}-${topic}.json`);
       }
-      
+
       if (!response || !response.ok) {
         // Try language-difficulty.json
         response = await fetch(`quiz-data/${language}-${difficulty}.json`);
       }
-      
+
       if (!response.ok) {
         // Try old format: language.json
         response = await fetch(`quiz-data/${language}.json`);
       }
-      
+
       if (!response.ok) {
         throw new Error(`Failed to load ${language} quiz: ${response.status}`);
       }
 
       const quizData = await response.json();
-      
+
       // Validate quiz data structure
       this.validateQuizData(quizData, language);
-      
+
       return quizData;
     } catch (error) {
       console.error(`Error loading ${language} quiz:`, error);
-      
+
       // Return fallback data if main file fails
       return this.getFallbackData(language);
     }
@@ -170,7 +170,7 @@ class QuizLoader {
    * @param {Array<string>} languages - Array of language names to preload
    */
   async preloadQuizzes(languages) {
-    const preloadPromises = languages.map(language => 
+    const preloadPromises = languages.map(language =>
       this.loadQuiz(language).catch(error => {
         console.warn(`Failed to preload ${language} quiz:`, error);
       })
@@ -185,7 +185,7 @@ class QuizLoader {
    * @returns {Array<string>} Array of available language names
    */
   getAvailableLanguages() {
-    return ['python', 'javascript', 'java', 'cpp', 'html', 'c'];
+    return ['python', 'javascript', 'java', 'cpp', 'html', 'c', 'excel', 'ccc'];
   }
 
   /**
@@ -223,5 +223,5 @@ window.quizLoader = new QuizLoader();
 // Preload popular quizzes for better performance
 document.addEventListener('DOMContentLoaded', () => {
   // Preload the most popular quizzes
-  window.quizLoader.preloadQuizzes(['python', 'javascript', 'java']);
+  window.quizLoader.preloadQuizzes(['python', 'javascript', 'java', 'excel', 'ccc']);
 });

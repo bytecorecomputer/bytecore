@@ -1,0 +1,306 @@
+{
+  "title": "CCC Advanced Quiz",
+  "description": "Expert level CCC concepts including advanced LibreOffice features, cybersecurity, digital governance, and emerging technologies",
+  "questions": [
+    {
+      "question": "Which scripting language is used for macros in LibreOffice?",
+      "options": ["JavaScript", "Python", "LibreOffice Basic", "VBA"],
+      "correct": 2,
+      "explanation": "LibreOffice Basic is the primary scripting language for creating macros in LibreOffice applications."
+    },
+    {
+      "question": "What is the purpose of Digital India initiative?",
+      "options": ["Digitize documents", "Transform India into digitally empowered society", "Create digital art", "Digital photography"],
+      "correct": 1,
+      "explanation": "Digital India is a campaign to transform India into a digitally empowered society and knowledge economy."
+    },
+    {
+      "question": "Which advanced function in LibreOffice Calc performs lookup operations?",
+      "options": ["VLOOKUP", "HLOOKUP", "INDEX/MATCH", "All of the above"],
+      "correct": 3,
+      "explanation": "VLOOKUP, HLOOKUP, and INDEX/MATCH are all advanced lookup functions in LibreOffice Calc."
+    },
+    {
+      "question": "What is blockchain technology?",
+      "options": ["Chain of blocks", "Distributed ledger technology", "Building blocks", "Block construction"],
+      "correct": 1,
+      "explanation": "Blockchain is a distributed ledger technology that maintains a continuously growing list of records."
+    },
+    {
+      "question": "Which protocol is used for secure email transmission?",
+      "options": ["SMTP", "S/MIME", "POP3", "IMAP"],
+      "correct": 1,
+      "explanation": "S/MIME (Secure/Multipurpose Internet Mail Extensions) provides secure email transmission with encryption."
+    },
+    {
+      "question": "What is artificial intelligence (AI)?",
+      "options": ["Fake intelligence", "Machine intelligence that mimics human cognitive functions", "Automatic intelligence", "Artificial creation"],
+      "correct": 1,
+      "explanation": "AI is machine intelligence that can perform tasks typically requiring human cognitive functions."
+    },
+    {
+      "question": "Which feature in LibreOffice allows creating complex mathematical equations?",
+      "options": ["Writer", "Calc formulas", "Math", "Draw"],
+      "correct": 2,
+      "explanation": "LibreOffice Math is specifically designed for creating complex mathematical equations and formulas."
+    },
+    {
+      "question": "What is the Internet of Things (IoT)?",
+      "options": ["Internet for things", "Network of interconnected physical devices", "Internet speed", "Online shopping"],
+      "correct": 1,
+      "explanation": "IoT is a network of physical devices connected to the internet, capable of collecting and sharing data."
+    },
+    {
+      "question": "Which advanced chart type shows correlation between two variables?",
+      "options": ["Pie chart", "Bar chart", "Scatter plot", "Line chart"],
+      "correct": 2,
+      "explanation": "Scatter plot is used to show correlation and relationship between two variables."
+    },
+    {
+      "question": "What is machine learning?",
+      "options": ["Learning about machines", "AI technique that enables systems to learn from data", "Machine operation", "Computer learning"],
+      "correct": 1,
+      "explanation": "Machine learning is an AI technique that enables systems to automatically learn and improve from experience."
+    },
+    {
+      "question": "Which advanced security measure uses biometric data?",
+      "options": ["Password", "Fingerprint authentication", "PIN", "Security questions"],
+      "correct": 1,
+      "explanation": "Biometric authentication uses unique biological characteristics like fingerprints for security."
+    },
+    {
+      "question": "What is cloud computing's main advantage?",
+      "options": ["Weather prediction", "Scalable, on-demand computing resources", "Cloud storage only", "Internet speed"],
+      "correct": 1,
+      "explanation": "Cloud computing provides scalable, on-demand access to computing resources over the internet."
+    },
+    {
+      "question": "Which LibreOffice feature allows creating interactive presentations?",
+      "options": ["Animation effects", "Slide transitions", "Interactive elements", "All of the above"],
+      "correct": 3,
+      "explanation": "Interactive presentations can be created using animations, transitions, and interactive elements."
+    },
+    {
+      "question": "What is big data?",
+      "options": ["Large files", "Extremely large datasets requiring special tools for processing", "Big storage", "Large databases"],
+      "correct": 1,
+      "explanation": "Big data refers to extremely large datasets that require specialized tools and techniques for processing."
+    },
+    {
+      "question": "Which advanced Excel function performs conditional calculations?",
+      "options": ["IF", "SUMIF", "COUNTIF", "All of the above"],
+      "correct": 3,
+      "explanation": "IF, SUMIF, and COUNTIF are all conditional functions that perform calculations based on criteria."
+    },
+    {
+      "question": "What is cybersecurity?",
+      "options": ["Cyber crimes", "Protection of digital systems from threats", "Internet security only", "Computer security"],
+      "correct": 1,
+      "explanation": "Cybersecurity involves protecting digital systems, networks, and data from cyber threats."
+    },
+    {
+      "question": "Which technology enables virtual reality experiences?",
+      "options": ["VR headsets", "3D graphics", "Motion sensors", "All of the above"],
+      "correct": 3,
+      "explanation": "VR experiences require VR headsets, 3D graphics, motion sensors, and other technologies working together."
+    },
+    {
+      "question": "What is the purpose of data analytics?",
+      "options": ["Store data", "Extract insights and patterns from data", "Delete data", "Copy data"],
+      "correct": 1,
+      "explanation": "Data analytics involves examining data to extract meaningful insights, patterns, and trends."
+    },
+    {
+      "question": "Which advanced feature allows real-time collaboration in documents?",
+      "options": ["Track Changes", "Comments", "Live editing/sharing", "Version control"],
+      "correct": 2,
+      "explanation": "Live editing and sharing features enable real-time collaboration where multiple users can edit simultaneously."
+    },
+    {
+      "question": "What is quantum computing?",
+      "options": ["Fast computing", "Computing using quantum mechanical phenomena", "Quantum physics", "Advanced computing"],
+      "correct": 1,
+      "explanation": "Quantum computing uses quantum mechanical phenomena to perform calculations exponentially faster."
+    },
+    {
+      "question": "Which protocol ensures end-to-end encryption in messaging?",
+      "options": ["HTTP", "HTTPS", "Signal Protocol", "FTP"],
+      "correct": 2,
+      "explanation": "Signal Protocol and similar technologies provide end-to-end encryption for secure messaging."
+    },
+    {
+      "question": "What is the purpose of data visualization?",
+      "options": ["Make data visible", "Present data in graphical format for better understanding", "Store data", "Process data"],
+      "correct": 1,
+      "explanation": "Data visualization presents data in graphical formats to make it easier to understand and analyze."
+    },
+    {
+      "question": "Which advanced LibreOffice feature allows creating custom functions?",
+      "options": ["Macros", "Extensions", "Add-ins", "All of the above"],
+      "correct": 3,
+      "explanation": "Custom functions can be created using macros, extensions, and add-ins in LibreOffice."
+    },
+    {
+      "question": "What is digital forensics?",
+      "options": ["Digital photography", "Investigation of digital devices for evidence", "Digital art", "Digital marketing"],
+      "correct": 1,
+      "explanation": "Digital forensics involves investigating digital devices and data to gather evidence for legal purposes."
+    },
+    {
+      "question": "Which technology enables augmented reality (AR)?",
+      "options": ["Camera", "Sensors", "Display overlay", "All of the above"],
+      "correct": 3,
+      "explanation": "AR requires cameras, sensors, display technology, and software to overlay digital content on real world."
+    },
+    {
+      "question": "What is the purpose of API (Application Programming Interface)?",
+      "options": ["Program applications", "Enable communication between software applications", "Create interfaces", "Program interfaces"],
+      "correct": 1,
+      "explanation": "API enables different software applications to communicate and share data with each other."
+    },
+    {
+      "question": "Which advanced security concept involves multiple layers of protection?",
+      "options": ["Single security", "Defense in depth", "Basic security", "Simple protection"],
+      "correct": 1,
+      "explanation": "Defense in depth uses multiple layers of security controls to protect against various threats."
+    },
+    {
+      "question": "What is the significance of 5G technology?",
+      "options": ["5th generation", "Ultra-fast wireless communication with low latency", "5 gigabytes", "5 computers"],
+      "correct": 1,
+      "explanation": "5G is the fifth generation of wireless technology offering ultra-fast speeds and low latency."
+    },
+    {
+      "question": "Which advanced feature allows creating dynamic content in presentations?",
+      "options": ["Static slides", "Interactive multimedia elements", "Text only", "Images only"],
+      "correct": 1,
+      "explanation": "Interactive multimedia elements like videos, animations, and hyperlinks create dynamic presentations."
+    },
+    {
+      "question": "What is edge computing?",
+      "options": ["Computing at edges", "Processing data closer to source rather than centralized cloud", "Edge detection", "Computer edges"],
+      "correct": 1,
+      "explanation": "Edge computing processes data closer to its source rather than in centralized cloud servers."
+    },
+    {
+      "question": "Which advanced concept involves protecting data through mathematical algorithms?",
+      "options": ["Encryption", "Compression", "Conversion", "Translation"],
+      "correct": 0,
+      "explanation": "Encryption protects data by converting it into coded form using mathematical algorithms."
+    },
+    {
+      "question": "What is the purpose of digital certificates?",
+      "options": ["Certificate printing", "Verify identity and enable secure communication", "Digital awards", "Online certificates"],
+      "correct": 1,
+      "explanation": "Digital certificates verify identity and enable secure communication over networks."
+    },
+    {
+      "question": "Which technology enables smart cities?",
+      "options": ["IoT sensors", "Data analytics", "Cloud computing", "All of the above"],
+      "correct": 3,
+      "explanation": "Smart cities use IoT sensors, data analytics, cloud computing, and other technologies together."
+    },
+    {
+      "question": "What is the concept of digital twin?",
+      "options": ["Two digital copies", "Virtual replica of physical object or system", "Twin computers", "Duplicate files"],
+      "correct": 1,
+      "explanation": "Digital twin is a virtual replica of a physical object or system used for simulation and analysis."
+    },
+    {
+      "question": "Which advanced database concept ensures data consistency?",
+      "options": ["ACID properties", "Data entry", "Data storage", "Data retrieval"],
+      "correct": 0,
+      "explanation": "ACID (Atomicity, Consistency, Isolation, Durability) properties ensure database transaction reliability."
+    },
+    {
+      "question": "What is the purpose of load balancing in networks?",
+      "options": ["Balance loads", "Distribute network traffic across multiple servers", "Physical balance", "Load distribution"],
+      "correct": 1,
+      "explanation": "Load balancing distributes network traffic across multiple servers to ensure optimal performance."
+    },
+    {
+      "question": "Which concept involves using multiple cloud service providers?",
+      "options": ["Single cloud", "Multi-cloud strategy", "Cloud storage", "Cloud backup"],
+      "correct": 1,
+      "explanation": "Multi-cloud strategy involves using services from multiple cloud providers for flexibility and redundancy."
+    },
+    {
+      "question": "What is the significance of open source software?",
+      "options": ["Free software", "Source code freely available for modification", "Open programs", "Public software"],
+      "correct": 1,
+      "explanation": "Open source software provides freely available source code that can be modified and distributed."
+    },
+    {
+      "question": "Which advanced concept involves predicting future trends from data?",
+      "options": ["Data storage", "Predictive analytics", "Data entry", "Data backup"],
+      "correct": 1,
+      "explanation": "Predictive analytics uses statistical algorithms and machine learning to predict future trends from data."
+    },
+    {
+      "question": "What is the purpose of containerization in software deployment?",
+      "options": ["Container storage", "Package applications with dependencies for consistent deployment", "Physical containers", "Container management"],
+      "correct": 1,
+      "explanation": "Containerization packages applications with their dependencies for consistent deployment across environments."
+    },
+    {
+      "question": "Which technology enables voice recognition systems?",
+      "options": ["Microphones only", "Natural Language Processing and AI", "Speakers", "Sound cards"],
+      "correct": 1,
+      "explanation": "Voice recognition systems use Natural Language Processing, AI, and machine learning technologies."
+    },
+    {
+      "question": "What is the concept of serverless computing?",
+      "options": ["No servers", "Cloud provider manages server infrastructure automatically", "Server removal", "Serverless networks"],
+      "correct": 1,
+      "explanation": "Serverless computing allows developers to run code without managing server infrastructure."
+    },
+    {
+      "question": "Which advanced security measure involves analyzing user behavior?",
+      "options": ["Password security", "Behavioral analytics", "Physical security", "Basic authentication"],
+      "correct": 1,
+      "explanation": "Behavioral analytics monitors and analyzes user behavior patterns to detect anomalies and threats."
+    },
+    {
+      "question": "What is the purpose of DevOps in software development?",
+      "options": ["Development only", "Integrate development and operations for faster delivery", "Operations only", "Device operations"],
+      "correct": 1,
+      "explanation": "DevOps integrates development and operations teams to improve collaboration and accelerate software delivery."
+    },
+    {
+      "question": "Which concept involves processing data as it arrives in real-time?",
+      "options": ["Batch processing", "Stream processing", "Data storage", "Data backup"],
+      "correct": 1,
+      "explanation": "Stream processing analyzes and processes data continuously as it arrives in real-time."
+    },
+    {
+      "question": "What is the significance of digital transformation?",
+      "options": ["Digital change", "Integration of digital technology into all business areas", "Technology upgrade", "Digital conversion"],
+      "correct": 1,
+      "explanation": "Digital transformation involves integrating digital technology into all areas of business to improve operations."
+    },
+    {
+      "question": "Which advanced concept ensures software quality through automated testing?",
+      "options": ["Manual testing", "Continuous Integration/Continuous Deployment (CI/CD)", "Code review", "Documentation"],
+      "correct": 1,
+      "explanation": "CI/CD pipelines automate testing and deployment processes to ensure software quality and faster delivery."
+    },
+    {
+      "question": "What is the purpose of data governance?",
+      "options": ["Government data", "Manage data availability, usability, integrity, and security", "Data control", "Data rules"],
+      "correct": 1,
+      "explanation": "Data governance ensures proper management of data availability, usability, integrity, and security across organizations."
+    },
+    {
+      "question": "Which technology enables autonomous vehicles?",
+      "options": ["GPS only", "AI, sensors, cameras, and machine learning", "Cameras only", "Sensors only"],
+      "correct": 1,
+      "explanation": "Autonomous vehicles use AI, various sensors, cameras, GPS, and machine learning technologies together."
+    },
+    {
+      "question": "What is the concept of microservices architecture?",
+      "options": ["Small services", "Breaking applications into small, independent services", "Micro computers", "Service reduction"],
+      "correct": 1,
+      "explanation": "Microservices architecture breaks applications into small, independent services that communicate over networks."
+    }
+  ]
+}

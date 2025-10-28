@@ -76,6 +76,66 @@
       ],
       "correct": 0,
       "explanation": "Dictionaries in Python are created using curly braces {} with key:value pairs."
+    },
+    {
+      "question": "What is the output of len([1, 2, 3, [4, 5]])?",
+      "options": ["5", "4", "3", "Error"],
+      "correct": 1,
+      "explanation": "The list has 4 elements: 1, 2, 3, and [4, 5]. Nested list counts as one element."
+    },
+    {
+      "question": "Which method is used to remove whitespace from both ends of a string?",
+      "options": ["strip()", "trim()", "clean()", "remove()"],
+      "correct": 0,
+      "explanation": "strip() method removes whitespace from both ends of a string."
+    },
+    {
+      "question": "What is the output of print(3 * 'Hello')?",
+      "options": ["HelloHelloHello", "3Hello", "Hello3", "Error"],
+      "correct": 0,
+      "explanation": "String multiplication repeats the string: 3 * 'Hello' = 'HelloHelloHello'"
+    },
+    {
+      "question": "Which function converts a string to an integer?",
+      "options": ["int()", "str()", "float()", "convert()"],
+      "correct": 0,
+      "explanation": "int() function converts a string to an integer."
+    },
+    {
+      "question": "What is the output of print(10 // 3)?",
+      "options": ["3.33", "3", "4", "3.0"],
+      "correct": 1,
+      "explanation": "// is floor division operator, which returns the integer part: 10 // 3 = 3"
+    },
+    {
+      "question": "Which keyword is used to skip the current iteration in a loop?",
+      "options": ["break", "continue", "skip", "next"],
+      "correct": 1,
+      "explanation": "continue keyword skips the current iteration and moves to the next iteration."
+    },
+    {
+      "question": "What is the output of print(type([]))?",
+      "options": ["<class 'array'>", "<class 'list'>", "<class 'collection'>", "list"],
+      "correct": 1,
+      "explanation": "type([]) returns <class 'list'> as [] creates an empty list."
+    },
+    {
+      "question": "Which method adds an element at a specific position in a list?",
+      "options": ["add()", "append()", "insert()", "place()"],
+      "correct": 2,
+      "explanation": "insert() method adds an element at a specific index: list.insert(index, element)"
+    },
+    {
+      "question": "What is the output of print('Python'[::-1])?",
+      "options": ["Python", "nohtyP", "Pytho", "Error"],
+      "correct": 1,
+      "explanation": "[::-1] reverses the string. 'Python'[::-1] = 'nohtyP'"
+    },
+    {
+      "question": "Which operator is used to check if a value is NOT in a list?",
+      "options": ["not in", "!in", "not contains", "!="],
+      "correct": 0,
+      "explanation": "'not in' operator checks if a value is not present in a list."
     }
   ]
 }

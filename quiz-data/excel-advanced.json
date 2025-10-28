@@ -1,0 +1,181 @@
+{
+  "title": "Excel Advanced Quiz",
+  "description": "Test your advanced Excel skills with complex formulas, macros, and data analysis",
+  "questions": [
+    {
+      "question": "What is the purpose of the INDEX and MATCH functions when used together?",
+      "options": [
+        "To create charts",
+        "To provide a more flexible alternative to VLOOKUP",
+        "To sort data",
+        "To format cells"
+      ],
+      "correct": 1,
+      "explanation": "INDEX and MATCH together provide a more flexible lookup solution than VLOOKUP, allowing lookups in any direction."
+    },
+    {
+      "question": "Which function creates an array formula in Excel?",
+      "options": [
+        "Press Enter",
+        "Press Ctrl + Shift + Enter",
+        "Press Alt + Enter",
+        "Press F2"
+      ],
+      "correct": 1,
+      "explanation": "Ctrl + Shift + Enter creates array formulas, which can perform multiple calculations on arrays of data."
+    },
+    {
+      "question": "What does the INDIRECT function do?",
+      "options": [
+        "Creates indirect references to cells",
+        "Returns a reference specified by a text string",
+        "Indents cell content",
+        "Creates hyperlinks"
+      ],
+      "correct": 1,
+      "explanation": "INDIRECT returns the reference specified by a text string, allowing dynamic cell references."
+    },
+    {
+      "question": "Which advanced feature allows you to record and replay actions in Excel?",
+      "options": ["Pivot Tables", "Macros", "Conditional Formatting", "Data Validation"],
+      "correct": 1,
+      "explanation": "Macros allow you to record, store, and replay sequences of commands and actions in Excel."
+    },
+    {
+      "question": "What is the SUMPRODUCT function used for?",
+      "options": [
+        "Adding products only",
+        "Multiplying corresponding array elements and summing the results",
+        "Creating product catalogs",
+        "Calculating profit margins"
+      ],
+      "correct": 1,
+      "explanation": "SUMPRODUCT multiplies corresponding elements in arrays and returns the sum of those products."
+    },
+    {
+      "question": "Which function is used for advanced text manipulation and pattern matching?",
+      "options": ["REGEX", "SUBSTITUTE", "REPLACE", "All of the above"],
+      "correct": 1,
+      "explanation": "SUBSTITUTE is commonly used for advanced text manipulation, replacing specific text within strings."
+    },
+    {
+      "question": "What does the OFFSET function do?",
+      "options": [
+        "Moves cells to different positions",
+        "Returns a reference offset from a starting reference",
+        "Calculates time differences",
+        "Creates cell borders"
+      ],
+      "correct": 1,
+      "explanation": "OFFSET returns a reference to a range that is offset from a starting reference by specified rows and columns."
+    },
+    {
+      "question": "Which tool is used for what-if analysis in Excel?",
+      "options": ["Goal Seek", "Solver", "Data Tables", "All of the above"],
+      "correct": 3,
+      "explanation": "Goal Seek, Solver, and Data Tables are all tools used for different types of what-if analysis in Excel."
+    },
+    {
+      "question": "What is the purpose of the CHOOSE function?",
+      "options": [
+        "To select files",
+        "To return a value from a list based on an index number",
+        "To create multiple choice questions",
+        "To choose chart types"
+      ],
+      "correct": 1,
+      "explanation": "CHOOSE returns a value from a list of values based on a specified index number."
+    },
+    {
+      "question": "Which function performs multiple criteria lookups?",
+      "options": ["VLOOKUP", "HLOOKUP", "INDEX/MATCH", "XLOOKUP"],
+      "correct": 3,
+      "explanation": "XLOOKUP (in newer Excel versions) can handle multiple criteria lookups more easily than traditional functions."
+    },
+    {
+      "question": "What does the TRANSPOSE function do?",
+      "options": [
+        "Translates text",
+        "Converts rows to columns and vice versa",
+        "Transfers data between worksheets",
+        "Creates transparent cells"
+      ],
+      "correct": 1,
+      "explanation": "TRANSPOSE converts a vertical range of cells to horizontal, or horizontal to vertical."
+    },
+    {
+      "question": "Which feature allows you to create custom functions in Excel?",
+      "options": ["Formulas", "VBA (Visual Basic for Applications)", "Pivot Tables", "Charts"],
+      "correct": 1,
+      "explanation": "VBA allows you to create custom functions and automate complex tasks in Excel."
+    },
+    {
+      "question": "What is the AGGREGATE function used for?",
+      "options": [
+        "To combine data from multiple sources",
+        "To perform calculations while ignoring errors and hidden rows",
+        "To create data aggregates",
+        "To group data"
+      ],
+      "correct": 1,
+      "explanation": "AGGREGATE performs various calculations (like SUM, AVERAGE) while ignoring errors, hidden rows, and filtered data."
+    },
+    {
+      "question": "Which function creates dynamic arrays in modern Excel?",
+      "options": ["DYNAMIC", "SPILL", "FILTER", "ARRAY"],
+      "correct": 2,
+      "explanation": "FILTER is one of the dynamic array functions that can return multiple results that spill into adjacent cells."
+    },
+    {
+      "question": "What does the XLOOKUP function offer over VLOOKUP?",
+      "options": [
+        "Faster performance only",
+        "Bidirectional lookup and better error handling",
+        "More chart options",
+        "Better formatting"
+      ],
+      "correct": 1,
+      "explanation": "XLOOKUP offers bidirectional lookup, better error handling, and more flexible matching options than VLOOKUP."
+    },
+    {
+      "question": "Which advanced charting feature allows interactive data exploration?",
+      "options": ["Slicers", "Sparklines", "Trendlines", "Data Labels"],
+      "correct": 0,
+      "explanation": "Slicers provide interactive filtering for PivotTables and charts, allowing dynamic data exploration."
+    },
+    {
+      "question": "What is the purpose of Power Query in Excel?",
+      "options": [
+        "To create powerful formulas",
+        "To import, transform, and combine data from various sources",
+        "To increase Excel's processing power",
+        "To create complex charts"
+      ],
+      "correct": 1,
+      "explanation": "Power Query is a data connection technology that enables you to discover, connect, combine, and refine data sources."
+    },
+    {
+      "question": "Which function is used for advanced date calculations?",
+      "options": ["DATEADD", "DATEDIF", "DATEPLUS", "DATECALC"],
+      "correct": 1,
+      "explanation": "DATEDIF calculates the difference between two dates in various units (days, months, years)."
+    },
+    {
+      "question": "What does the FORMULATEXT function do?",
+      "options": [
+        "Converts formulas to text",
+        "Returns the formula in a cell as text",
+        "Creates text-based formulas",
+        "Formats formula text"
+      ],
+      "correct": 1,
+      "explanation": "FORMULATEXT returns the formula in a given reference as text, useful for documentation and analysis."
+    },
+    {
+      "question": "Which advanced feature helps in scenario analysis and optimization?",
+      "options": ["Solver Add-in", "Goal Seek", "Data Tables", "All of the above"],
+      "correct": 3,
+      "explanation": "Solver, Goal Seek, and Data Tables are all advanced tools used for scenario analysis and optimization in Excel."
+    }
+  ]
+}

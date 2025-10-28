@@ -98,6 +98,68 @@
       "options": ["try-catch", "if-else", "switch-case", "for-loop"],
       "correct": 0,
       "explanation": "try-catch blocks are used for exception handling in C++."
+    },
+    {
+      "question": "What is the output of cout << (5 > 3 ? 'Y' : 'N');",
+      "options": ["Y", "N", "1", "0"],
+      "correct": 0,
+      "explanation": "Ternary operator: since 5 > 3 is true, it returns 'Y'."
+    },
+    {
+      "question": "Which header file is needed for string operations?",
+      "options": ["<string>", "<cstring>", "<str>", "<strings>"],
+      "correct": 0,
+      "explanation": "<string> header provides the string class in C++."
+    },
+    {
+      "question": "What is the difference between delete and delete[]?",
+      "options": [
+        "Same",
+        "delete for single object, delete[] for arrays",
+        "delete[] is faster",
+        "No difference"
+      ],
+      "correct": 1,
+      "explanation": "delete is for single objects, delete[] is for arrays allocated with new[]."
+    },
+    {
+      "question": "What is a reference in C++?",
+      "options": [
+        "Alias for existing variable",
+        "Pointer to variable",
+        "Copy of variable",
+        "New variable"
+      ],
+      "correct": 0,
+      "explanation": "Reference is an alias (another name) for an existing variable."
+    },
+    {
+      "question": "Which operator is used to access class members through an object?",
+      "options": [".", "->", "::", "*"],
+      "correct": 0,
+      "explanation": "Dot operator (.) is used to access members through an object."
+    },
+    {
+      "question": "What is multiple inheritance in C++?",
+      "options": [
+        "Class inheriting from multiple classes",
+        "Multiple objects of same class",
+        "Multiple methods in class",
+        "Multiple variables"
+      ],
+      "correct": 0,
+      "explanation": "Multiple inheritance allows a class to inherit from multiple base classes."
+    },
+    {
+      "question": "What is the purpose of inline functions?",
+      "options": [
+        "Faster execution by avoiding function call overhead",
+        "Smaller code size",
+        "Better readability",
+        "Error handling"
+      ],
+      "correct": 0,
+      "explanation": "inline functions are expanded at compile time to avoid function call overhead."
     }
   ]
 }

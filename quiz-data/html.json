@@ -64,6 +64,97 @@
       ],
       "correct": 0,
       "explanation": "The CSS box model consists of content, padding, border, and margin (from inside to outside)."
+    },
+    {
+      "question": "Which HTML tag is used to create a table?",
+      "options": ["<table>", "<tab>", "<tbl>", "<grid>"],
+      "correct": 0,
+      "explanation": "The <table> tag is used to create tables in HTML."
+    },
+    {
+      "question": "What does the CSS property 'display: none' do?",
+      "options": [
+        "Hides the element completely",
+        "Makes element transparent",
+        "Reduces element size",
+        "Changes element color"
+      ],
+      "correct": 0,
+      "explanation": "display: none completely removes the element from the document flow."
+    },
+    {
+      "question": "Which attribute specifies the URL of a linked resource?",
+      "options": ["src", "href", "link", "url"],
+      "correct": 1,
+      "explanation": "The href attribute specifies the URL of the page the link goes to."
+    },
+    {
+      "question": "What is the purpose of the <head> section in HTML?",
+      "options": [
+        "Contains visible content",
+        "Contains metadata about the document",
+        "Creates headers",
+        "Defines page structure"
+      ],
+      "correct": 1,
+      "explanation": "The <head> section contains metadata about the HTML document."
+    },
+    {
+      "question": "Which CSS property controls the space between lines of text?",
+      "options": ["line-height", "text-spacing", "line-spacing", "text-height"],
+      "correct": 0,
+      "explanation": "line-height property controls the space between lines of text."
+    },
+    {
+      "question": "What does the HTML5 <article> tag represent?",
+      "options": [
+        "A news article only",
+        "Independent, self-contained content",
+        "A blog post only",
+        "Page header"
+      ],
+      "correct": 1,
+      "explanation": "The <article> tag represents independent, self-contained content."
+    },
+    {
+      "question": "Which CSS property is used to create rounded corners?",
+      "options": ["corner-radius", "border-radius", "round-corner", "border-round"],
+      "correct": 1,
+      "explanation": "border-radius property creates rounded corners on elements."
+    },
+    {
+      "question": "What is the difference between <div> and <span>?",
+      "options": [
+        "No difference",
+        "div is block-level, span is inline",
+        "div is inline, span is block-level",
+        "Both are inline"
+      ],
+      "correct": 1,
+      "explanation": "<div> is a block-level element, <span> is an inline element."
+    },
+    {
+      "question": "Which HTML attribute makes an input field required?",
+      "options": ["mandatory", "required", "needed", "must"],
+      "correct": 1,
+      "explanation": "The required attribute makes an input field mandatory to fill out."
+    },
+    {
+      "question": "What does CSS 'position: fixed' do?",
+      "options": [
+        "Fixes element in place",
+        "Positions element relative to viewport",
+        "Prevents element from moving",
+        "All of the above"
+      ],
+      "correct": 3,
+      "explanation": "position: fixed positions element relative to viewport and keeps it in place during scrolling."
+    },
+    {
+      "question": "Which HTML tag is used for the largest heading?",
+      "options": ["<header>", "<h1>", "<title>", "<big>"],
+      "correct": 1,
+      "explanation": "<h1> creates the largest heading, with <h6> being the smallest."
     }
   ]
 }

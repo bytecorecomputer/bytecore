@@ -1,0 +1,191 @@
+{
+  "title": "Excel Intermediate Quiz",
+  "description": "Test your intermediate Excel skills with formulas, functions, and data management",
+  "questions": [
+    {
+      "question": "What does the VLOOKUP function do?",
+      "options": [
+        "Looks up values vertically in a table",
+        "Validates data entry",
+        "Creates vertical charts",
+        "Sorts data vertically"
+      ],
+      "correct": 0,
+      "explanation": "VLOOKUP searches for a value in the first column of a table and returns a value in the same row from another column."
+    },
+    {
+      "question": "Which function would you use to count cells that meet a specific criteria?",
+      "options": ["COUNT", "COUNTA", "COUNTIF", "COUNTBLANK"],
+      "correct": 2,
+      "explanation": "COUNTIF counts the number of cells that meet a specific criteria or condition."
+    },
+    {
+      "question": "What is the correct syntax for an IF function?",
+      "options": [
+        "IF(condition, true_value, false_value)",
+        "IF(true_value, condition, false_value)",
+        "IF(condition: true_value: false_value)",
+        "IF[condition, true_value, false_value]"
+      ],
+      "correct": 0,
+      "explanation": "The IF function syntax is: IF(logical_test, value_if_true, value_if_false)."
+    },
+    {
+      "question": "What does absolute referencing ($A$1) do in Excel?",
+      "options": [
+        "Makes the cell reference change when copied",
+        "Prevents the cell reference from changing when copied",
+        "Adds currency formatting",
+        "Creates a hyperlink"
+      ],
+      "correct": 1,
+      "explanation": "Absolute references ($A$1) remain fixed when formulas are copied to other cells."
+    },
+    {
+      "question": "Which function combines text from multiple cells?",
+      "options": ["COMBINE", "CONCATENATE", "MERGE", "JOIN"],
+      "correct": 1,
+      "explanation": "CONCATENATE (or the & operator) combines text from multiple cells into one cell."
+    },
+    {
+      "question": "What is a pivot table used for?",
+      "options": [
+        "Creating charts only",
+        "Summarizing and analyzing large datasets",
+        "Formatting cells",
+        "Printing data"
+      ],
+      "correct": 1,
+      "explanation": "Pivot tables are used to summarize, analyze, and present large amounts of data in a compact format."
+    },
+    {
+      "question": "Which function returns the current date and time?",
+      "options": ["TODAY()", "NOW()", "DATE()", "TIME()"],
+      "correct": 1,
+      "explanation": "NOW() returns the current date and time, while TODAY() returns only the current date."
+    },
+    {
+      "question": "What does the SUMIF function do?",
+      "options": [
+        "Sums all cells in a range",
+        "Sums cells that meet a specific criteria",
+        "Counts cells with numbers",
+        "Finds the maximum value"
+      ],
+      "correct": 1,
+      "explanation": "SUMIF adds up cells that meet a specified criteria or condition."
+    },
+    {
+      "question": "How do you create a drop-down list in Excel?",
+      "options": [
+        "Use Data Validation",
+        "Use AutoFilter",
+        "Use Conditional Formatting",
+        "Use Pivot Tables"
+      ],
+      "correct": 0,
+      "explanation": "Data Validation with a List source creates drop-down lists in Excel cells."
+    },
+    {
+      "question": "What is the difference between relative and mixed cell references?",
+      "options": [
+        "No difference",
+        "Mixed references have one absolute and one relative component",
+        "Relative references use letters, mixed use numbers",
+        "Mixed references are faster"
+      ],
+      "correct": 1,
+      "explanation": "Mixed references like $A1 or A$1 have one absolute component (with $) and one relative component."
+    },
+    {
+      "question": "Which function finds the position of text within another text string?",
+      "options": ["LOCATE", "FIND", "SEARCH", "Both FIND and SEARCH"],
+      "correct": 3,
+      "explanation": "Both FIND and SEARCH functions locate text within strings, with SEARCH being case-insensitive."
+    },
+    {
+      "question": "What does conditional formatting do?",
+      "options": [
+        "Formats cells based on their values or conditions",
+        "Creates conditional formulas",
+        "Validates data entry",
+        "Sorts data conditionally"
+      ],
+      "correct": 0,
+      "explanation": "Conditional formatting automatically applies formatting to cells based on specified conditions or rules."
+    },
+    {
+      "question": "Which function removes extra spaces from text?",
+      "options": ["CLEAN", "TRIM", "REMOVE", "SPACE"],
+      "correct": 1,
+      "explanation": "TRIM removes extra spaces from text, leaving only single spaces between words."
+    },
+    {
+      "question": "What is the purpose of the IFERROR function?",
+      "options": [
+        "To create errors",
+        "To handle and replace error values with specified text",
+        "To count errors",
+        "To find errors in formulas"
+      ],
+      "correct": 1,
+      "explanation": "IFERROR returns a specified value if a formula results in an error, otherwise returns the formula result."
+    },
+    {
+      "question": "How do you freeze panes in Excel?",
+      "options": [
+        "View tab > Freeze Panes",
+        "Home tab > Freeze",
+        "Insert tab > Freeze",
+        "Data tab > Freeze"
+      ],
+      "correct": 0,
+      "explanation": "Freeze Panes is located in the View tab and allows you to keep rows or columns visible while scrolling."
+    },
+    {
+      "question": "What does the ROUND function do?",
+      "options": [
+        "Creates circular charts",
+        "Rounds numbers to a specified number of digits",
+        "Finds round numbers only",
+        "Removes decimal places"
+      ],
+      "correct": 1,
+      "explanation": "ROUND rounds a number to a specified number of decimal places."
+    },
+    {
+      "question": "Which chart type is best for showing trends over time?",
+      "options": ["Pie chart", "Line chart", "Bar chart", "Scatter plot"],
+      "correct": 1,
+      "explanation": "Line charts are ideal for showing trends and changes over time periods."
+    },
+    {
+      "question": "What is the purpose of named ranges in Excel?",
+      "options": [
+        "To name worksheets",
+        "To assign meaningful names to cell ranges for easier reference",
+        "To create charts",
+        "To format cells"
+      ],
+      "correct": 1,
+      "explanation": "Named ranges allow you to assign descriptive names to cell ranges, making formulas easier to read and manage."
+    },
+    {
+      "question": "Which function converts text to uppercase?",
+      "options": ["UPPER", "CAPS", "UPPERCASE", "BIG"],
+      "correct": 0,
+      "explanation": "The UPPER function converts all letters in a text string to uppercase."
+    },
+    {
+      "question": "What does the PMT function calculate?",
+      "options": [
+        "Payment amounts for loans",
+        "Profit margins",
+        "Percentage calculations",
+        "Prime numbers"
+      ],
+      "correct": 0,
+      "explanation": "PMT calculates the payment amount for a loan based on constant payments and interest rate."
+    }
+  ]
+}
