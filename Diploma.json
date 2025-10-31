@@ -173,6 +173,21 @@
       "roll": "0192",
       "link": "https://raw.githubusercontent.com/Bytecore-website/ByteCore-diploma/main/husna0192.jpg",
       "dob":"09/11/2011"
+    },
+     {
+      "roll": "0181",
+      "link": "https://raw.githubusercontent.com/Bytecore-website/ByteCore-diploma/main/kaushal0181.jpg",
+      "dob":"09/11/2011"
+    },
+     {
+      "roll": "1034",
+      "link": "https://raw.githubusercontent.com/Bytecore-website/ByteCore-diploma/main/lalit1034.jpg",
+      "dob":"05/05/2005"
+    },
+     {
+      "roll": "0210",
+      "link": "https://raw.githubusercontent.com/Bytecore-website/ByteCore-diploma/main/raghav0210.jpg",
+      "dob":"12/02/2014"
     }
   ]
 }
