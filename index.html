@@ -182,200 +182,1278 @@
             border-radius: 8px;
         }
 
-        /* Scholarship Popup Styles */
+        /* Modern Scholarship Notification */
         .scholarship-popup {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
+            top: 20px;
+            right: 20px;
             z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.2s ease;
-            will-change: opacity, visibility;
+            transform: translateX(100%);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
         
         .scholarship-popup.show {
             opacity: 1;
             visibility: visible;
+            transform: translateX(0);
         }
         
-        .popup-content {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            padding: 0;
-            max-width: 500px;
-            width: 90%;
+        .modern-notification {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            width: 380px;
+            max-width: calc(100vw - 40px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.05);
             position: relative;
-            transform: scale(0.7);
-            transition: transform 0.3s ease;
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            will-change: transform;
-            backface-visibility: hidden;
         }
         
-        .scholarship-popup.show .popup-content {
-            transform: scale(1);
-        }
-        
-        .popup-close {
+        .close-btn {
             position: absolute;
-            top: 15px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.2);
+            top: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.05);
             border: none;
-            color: white;
-            font-size: 24px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            border-radius: 8px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            z-index: 10;
+            transition: all 0.2s ease;
+            color: #64748b;
+        }
+        
+        .close-btn:hover {
+            background: rgba(0, 0, 0, 0.1);
+            color: #334155;
+        }
+        
+        .notification-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 16px 12px 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .badge-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .badge-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: #6366f1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .notification-content {
+            padding: 16px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        
+        .scholarship-image {
+            flex-shrink: 0;
+        }
+        
+        .image-modern {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-text {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            margin: 0 0 4px 0;
+            line-height: 1.3;
+        }
+        
+        .subtitle {
+            font-size: 13px;
+            color: #64748b;
+            margin: 0 0 12px 0;
+            line-height: 1.4;
+        }
+        
+        .exam-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            color: #475569;
+        }
+        
+        .info-icon {
+            font-size: 12px;
+            width: 16px;
+            text-align: center;
+        }
+        
+        .notification-action {
+            padding: 12px 16px 16px 16px;
+        }
+        
+        .register-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .register-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Dark mode support */
+        .dark .modern-notification {
+            background: rgba(15, 23, 42, 0.95);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark .title {
+            color: #f1f5f9;
+        }
+        
+        .dark .subtitle {
+            color: #94a3b8;
+        }
+        
+        .dark .info-item {
+            color: #cbd5e1;
+        }
+        
+        .dark .close-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: #94a3b8;
+        }
+        
+        .dark .close-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 480px) {
+            .scholarship-popup {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+            }
+            
+            .modern-notification {
+                width: 100%;
+            }
+            
+            .notification-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .exam-info {
+                flex-direction: row;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Universal Header Styles */
+        .universal-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        /* Logo Section */
+        .logo-section {
+            flex-shrink: 0;
+        }
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .logo-wrapper:hover {
+            transform: scale(1.02);
+        }
+
+        .logo-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .brand-tagline {
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation Hub */
+        .nav-hub {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(248, 250, 252, 0.8);
+            padding: 8px;
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            background: transparent;
+            border: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: #475569;
+        }
+
+        .nav-item:hover {
+            background: white;
+            color: #6366f1;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .nav-icon {
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+        }
+
+        .nav-label {
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .dropdown-arrow {
+            font-size: 10px;
+            margin-left: 4px;
+            transition: transform 0.2s ease;
+        }
+
+        .dropdown-trigger:hover .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Special Highlight for Scholarship */
+        .special-highlight {
+            background: linear-gradient(135deg, #f59e0b, #f97316) !important;
+            color: white !important;
+            animation: pulse-glow 2s infinite;
+        }
+
+        .pulse-dot {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            width: 8px;
+            height: 8px;
+            background: #ef4444;
+            border-radius: 50%;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0); }
+            40%, 43% { transform: translate3d(0,-4px,0); }
+            70% { transform: translate3d(0,-2px,0); }
+        }
+
+        /* Mega Dropdown */
+        .mega-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(-10px);
+            transition: all 0.3s ease;
+            min-width: 600px;
+            margin-top: 12px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            padding: 24px;
+        }
+
+        .dropdown-trigger:hover .mega-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-section h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .dropdown-section a {
+            display: block;
+            padding: 8px 12px;
+            color: #64748b;
+            text-decoration: none;
+            font-size: 13px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            margin-bottom: 4px;
+        }
+
+        .dropdown-section a:hover {
+            color: #6366f1;
+            background: rgba(99, 102, 241, 0.05);
+            transform: translateX(4px);
+        }
+
+        /* Action Zone */
+        .action-zone {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-switcher {
+            position: relative;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            border: none;
+            background: rgba(248, 250, 252, 0.8);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            overflow: hidden;
+        }
+
+        .theme-switcher:hover {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
             transition: all 0.3s ease;
         }
-        
-        .popup-close:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(90deg);
+
+        .sun-icon {
+            opacity: 1;
+        }
+
+        .moon-icon {
+            opacity: 0;
+            transform: translate(-50%, -50%) rotate(180deg);
+        }
+
+        .dark .sun-icon {
+            opacity: 0;
+            transform: translate(-50%, -50%) rotate(-180deg);
+        }
+
+        .dark .moon-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+        .cta-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .cta-arrow {
+            transition: transform 0.2s ease;
+        }
+
+        .cta-button:hover .cta-arrow {
+            transform: translateX(4px);
+        }
+
+        .mobile-menu-trigger {
+            display: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            border: none;
+            background: rgba(248, 250, 252, 0.8);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hamburger span {
+            width: 20px;
+            height: 2px;
+            background: #475569;
+            border-radius: 1px;
+            transition: all 0.3s ease;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav-panel {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 320px;
+            height: 100vh;
+            background: white;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 1001;
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-nav-panel.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .mobile-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mobile-logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+        }
+
+        .mobile-close {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: none;
+            background: #f1f5f9;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .mobile-nav-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .mobile-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .mobile-nav-item:hover {
+            background: #f8fafc;
+            transform: translateX(4px);
+        }
+
+        .mobile-nav-item.special {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+        }
+
+        .mobile-nav-icon {
+            font-size: 20px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .mobile-pulse-dot {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            width: 8px;
+            height: 8px;
+            background: #ef4444;
+            border-radius: 50%;
+            animation: bounce 1s infinite;
+        }
+
+        .mobile-nav-footer {
+            padding: 24px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: auto;
+        }
+
+        .mobile-cta {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Dark Mode */
+        .dark .universal-header {
+            background: rgba(15, 23, 42, 0.95);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dark .nav-hub {
+            background: rgba(30, 41, 59, 0.8);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dark .nav-item {
+            color: #94a3b8;
+        }
+
+        .dark .nav-item:hover {
+            background: rgba(51, 65, 85, 0.8);
+            color: #c7d2fe;
+        }
+
+        .dark .brand-tagline {
+            color: #94a3b8;
+        }
+
+        .dark .theme-switcher,
+        .dark .mobile-menu-trigger {
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .dark .mega-dropdown {
+            background: #1e293b;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .dark .dropdown-section h4 {
+            color: #f1f5f9;
+            border-color: #334155;
+        }
+
+        .dark .dropdown-section a {
+            color: #94a3b8;
+        }
+
+        .dark .dropdown-section a:hover {
+            color: #c7d2fe;
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .dark .mobile-nav-panel {
+            background: #0f172a;
+        }
+
+        .dark .mobile-nav-header {
+            border-color: #334155;
+        }
+
+        .dark .mobile-close {
+            background: #334155;
+            color: #94a3b8;
+        }
+
+        .dark .mobile-nav-item:hover {
+            background: #1e293b;
+        }
+
+        .dark .mobile-nav-footer {
+            border-color: #334155;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-hub {
+                display: none;
+            }
+            
+            .mobile-menu-trigger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 16px;
+                height: 70px;
+            }
+            
+            .logo-img {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .brand-name {
+                font-size: 20px;
+            }
+            
+            .brand-tagline {
+                font-size: 10px;
+            }
+            
+            .cta-button {
+                display: none;
+            }
+            
+            .mobile-nav-panel {
+                width: 100%;
+            }
+        }
+
+        /* Add top margin to body to account for fixed header */
+        body {
+            margin-top: 80px !important;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                margin-top: 70px !important;
+            }
+        }
+
+        /* Modern Smart Navigation */
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 12px;
+            border: none;
+            background: transparent;
+            color: #64748b;
+            font-weight: 500;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            text-decoration: none;
         }
         
-        .bounce-in {
-            animation: bounceIn 0.6s ease-out;
+        .nav-btn:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: #6366f1;
+            transform: translateY(-1px);
         }
         
-        @keyframes bounceIn {
-            0% { transform: scale(0.3); opacity: 0; }
-            50% { transform: scale(1.05); }
-            70% { transform: scale(0.9); }
-            100% { transform: scale(1); opacity: 1; }
+        .nav-btn.active {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+        
+        .scholarship-highlight {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+            animation: pulse-glow 2s infinite;
+        }
+        
+        .notification-dot {
+            position: absolute;
+            top: 4px;
+            right: 8px;
+            width: 8px;
+            height: 8px;
+            background: #ef4444;
+            border-radius: 50%;
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% { transform: translate3d(0,0,0); }
+            40%, 43% { transform: translate3d(0,-8px,0); }
+            70% { transform: translate3d(0,-4px,0); }
+            90% { transform: translate3d(0,-2px,0); }
+        }
+        
+        /* Mega Menu */
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            min-width: 600px;
+            margin-top: 8px;
+        }
+        
+        .group:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        
+        .mega-menu-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            padding: 24px;
+        }
+        
+        .menu-section h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .menu-section a {
+            display: block;
+            padding: 8px 0;
+            color: #64748b;
+            text-decoration: none;
+            font-size: 13px;
+            transition: all 0.2s ease;
+            border-radius: 6px;
+            padding-left: 8px;
+            margin-left: -8px;
+        }
+        
+        .menu-section a:hover {
+            color: #6366f1;
+            background: rgba(99, 102, 241, 0.05);
+            transform: translateX(4px);
+        }
+        
+        /* Dark mode for navigation */
+        .dark .nav-btn {
+            color: #94a3b8;
+        }
+        
+        .dark .nav-btn:hover {
+            background: rgba(99, 102, 241, 0.2);
+            color: #c7d2fe;
+        }
+        
+        .dark .mega-menu {
+            background: #1e293b;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark .menu-section h4 {
+            color: #f1f5f9;
+            border-color: #334155;
+        }
+        
+        .dark .menu-section a {
+            color: #94a3b8;
+        }
+        
+        .dark .menu-section a:hover {
+            color: #c7d2fe;
+            background: rgba(99, 102, 241, 0.1);
+        }
+        
+        /* Mobile Navigation Update */
+        .mobile-nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: none;
+            background: transparent;
+            color: #64748b;
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            text-align: left;
+            width: 100%;
+        }
+        
+        .mobile-nav-btn:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: #6366f1;
+            transform: translateX(4px);
+        }
+        
+        .scholarship-mobile {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+        }
+        
+        .mobile-notification-dot {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            width: 8px;
+            height: 8px;
+            background: #ef4444;
+            border-radius: 50%;
+            animation: bounce 1s infinite;
+        }
+        
+        .dark .mobile-nav-btn {
+            color: #94a3b8;
+        }
+        
+        .dark .mobile-nav-btn:hover {
+            background: rgba(99, 102, 241, 0.2);
+            color: #c7d2fe;
+        }
+        
+        @media (max-width: 768px) {
+            .mega-menu {
+                min-width: 320px;
+                left: 0;
+                transform: translateX(0);
+            }
+            
+            .group:hover .mega-menu {
+                transform: translateX(0) translateY(0);
+            }
+            
+            .mega-menu-content {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 16px;
+            }
         }
     </style>
+    
+    <!-- Minimalist Header System -->
+    <script src="minimalist-header.js"></script>
+    <script>
+        // Simple header injection without fetch
+        document.addEventListener('DOMContentLoaded', function() {
+            const headerHTML = `
+                <!-- Universal Modern Header Component -->
+                <header class="universal-header">
+                    <div class="header-container">
+                        <!-- Logo Section -->
+                        <div class="logo-section">
+                            <div class="logo-wrapper" onclick="smartNavigate('index.html')">
+                                <img src="logo.png" alt="Bytecore" class="logo-img">
+                                <div class="logo-text">
+                                    <span class="brand-name">ByteCore</span>
+                                    <span class="brand-tagline">Tech Mastery Starts Here</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Hub -->
+                        <nav class="nav-hub">
+                            <div class="nav-item active" data-section="home" onclick="smartNavigate('index.html')">
+                                <div class="nav-icon">🏠</div>
+                                <span class="nav-label">Home</span>
+                            </div>
+                            
+                            <div class="nav-item dropdown-trigger" data-section="learn">
+                                <div class="nav-icon">📚</div>
+                                <span class="nav-label">Learn</span>
+                                <div class="dropdown-arrow">▼</div>
+                                
+                                <!-- Mega Dropdown -->
+                                <div class="mega-dropdown">
+                                    <div class="dropdown-section">
+                                        <h4>💻 Programming</h4>
+                                        <a href="#" onclick="smartNavigate('Courses.html')">Python Development</a>
+                                        <a href="#" onclick="smartNavigate('Courses.html')">Java Programming</a>
+                                        <a href="#" onclick="smartNavigate('Courses.html')">Full Stack Web</a>
+                                        <a href="#" onclick="smartNavigate('Courses.html')">C++ Programming</a>
+                                    </div>
+                                    <div class="dropdown-section">
+                                        <h4>🎓 Certifications</h4>
+                                        <a href="#" onclick="smartNavigate('diploma.html')">O Level</a>
+                                        <a href="#" onclick="smartNavigate('diploma.html')">CCC Course</a>
+                                        <a href="#" onclick="smartNavigate('diploma.html')">ADCA</a>
+                                        <a href="#" onclick="smartNavigate('diploma.html')">MDCA</a>
+                                    </div>
+                                    <div class="dropdown-section">
+                                        <h4>🎨 Design</h4>
+                                        <a href="#" onclick="smartNavigate('Courses.html')">Graphic Design</a>
+                                        <a href="#" onclick="smartNavigate('Courses.html')">UI/UX Design</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="nav-item" data-section="quiz" onclick="smartNavigate('quiz.html')">
+                                <div class="nav-icon">🧠</div>
+                                <span class="nav-label">Quiz</span>
+                            </div>
+                            
+                            <div class="nav-item special-highlight" data-section="scholarship" onclick="smartNavigate('scholarship.html')">
+                                <div class="nav-icon">🏆</div>
+                                <span class="nav-label">Scholarship</span>
+                                <div class="pulse-dot"></div>
+                            </div>
+                            
+                            <div class="nav-item" data-section="fees" onclick="smartNavigate('Fee.html')">
+                                <div class="nav-icon">💰</div>
+                                <span class="nav-label">Fees</span>
+                            </div>
+                            
+                            <div class="nav-item" data-section="about" onclick="smartNavigate('About.html')">
+                                <div class="nav-icon">ℹ️</div>
+                                <span class="nav-label">About</span>
+                            </div>
+                            
+                            <div class="nav-item" data-section="contact" onclick="smartNavigate('contact.html')">
+                                <div class="nav-icon">📞</div>
+                                <span class="nav-label">Contact</span>
+                            </div>
+                        </nav>
+
+                        <!-- Action Zone -->
+                        <div class="action-zone">
+                            <button class="theme-switcher" id="universal-theme-toggle">
+                                <div class="theme-icon sun-icon">☀️</div>
+                                <div class="theme-icon moon-icon">🌙</div>
+                            </button>
+                            
+                            <button class="cta-button" onclick="smartNavigate('scholarship.html')">
+                                <span class="cta-text">Register Now</span>
+                                <div class="cta-arrow">→</div>
+                            </button>
+                            
+                            <button class="mobile-menu-trigger" id="mobile-trigger">
+                                <div class="hamburger">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Navigation Panel -->
+                    <div class="mobile-nav-panel" id="mobile-panel">
+                        <div class="mobile-nav-header">
+                            <div class="mobile-logo">
+                                <img src="logo.png" alt="Bytecore">
+                                <span>ByteCore</span>
+                            </div>
+                            <button class="mobile-close" id="mobile-close">✕</button>
+                        </div>
+                        
+                        <div class="mobile-nav-content">
+                            <div class="mobile-nav-item" onclick="smartNavigate('index.html')">
+                                <div class="mobile-nav-icon">🏠</div>
+                                <span>Home</span>
+                            </div>
+                            
+                            <div class="mobile-nav-item" onclick="smartNavigate('Courses.html')">
+                                <div class="mobile-nav-icon">📚</div>
+                                <span>Courses</span>
+                            </div>
+                            
+                            <div class="mobile-nav-item" onclick="smartNavigate('quiz.html')">
+                                <div class="mobile-nav-icon">🧠</div>
+                                <span>Quiz</span>
+                            </div>
+                            
+                            <div class="mobile-nav-item special" onclick="smartNavigate('scholarship.html')">
+                                <div class="mobile-nav-icon">🏆</div>
+                                <span>Scholarship</span>
+                                <div class="mobile-pulse-dot"></div>
+                            </div>
+                            
+                            <div class="mobile-nav-item" onclick="smartNavigate('Fee.html')">
+                                <div class="mobile-nav-icon">💰</div>
+                                <span>Fees</span>
+                            </div>
+                            
+                            <div class="mobile-nav-item" onclick="smartNavigate('About.html')">
+                                <div class="mobile-nav-icon">ℹ️</div>
+                                <span>About</span>
+                            </div>
+                            
+                            <div class="mobile-nav-item" onclick="smartNavigate('contact.html')">
+                                <div class="mobile-nav-icon">📞</div>
+                                <span>Contact</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mobile-nav-footer">
+                            <button class="mobile-cta" onclick="smartNavigate('scholarship.html')">
+                                Register for Scholarship
+                            </button>
+                        </div>
+                    </div>
+                </header>
+            `;
+            
+            // Insert header at beginning of body
+            document.body.insertAdjacentHTML('afterbegin', headerHTML);
+            
+            // Initialize header functionality
+            initializeUniversalHeader();
+        });
+        
+        // Smart navigation function
+        function smartNavigate(url) {
+            const mobilePanel = document.getElementById('mobile-panel');
+            if (mobilePanel) {
+                mobilePanel.classList.remove('active');
+            }
+            
+            if (url.startsWith('#')) {
+                const element = document.querySelector(url);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            } else {
+                window.location.href = url;
+            }
+        }
+        
+        // Initialize header functionality
+        function initializeUniversalHeader() {
+            // Theme Toggle
+            const themeToggle = document.getElementById('universal-theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    document.documentElement.classList.toggle('dark');
+                    const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+                    localStorage.setItem('theme', theme);
+                });
+            }
+            
+            // Load saved theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+            
+            // Mobile Menu Toggle
+            const mobileTrigger = document.getElementById('mobile-trigger');
+            const mobilePanel = document.getElementById('mobile-panel');
+            const mobileClose = document.getElementById('mobile-close');
+            
+            if (mobileTrigger && mobilePanel) {
+                mobileTrigger.addEventListener('click', function() {
+                    mobilePanel.classList.add('active');
+                });
+            }
+            
+            if (mobileClose && mobilePanel) {
+                mobileClose.addEventListener('click', function() {
+                    mobilePanel.classList.remove('active');
+                });
+            }
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (mobilePanel && mobilePanel.classList.contains('active')) {
+                    if (!mobilePanel.contains(e.target) && !mobileTrigger.contains(e.target)) {
+                        mobilePanel.classList.remove('active');
+                    }
+                }
+            });
+        }
+    </script>
 </head>
 
 <body class="bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-100 transition-colors duration-300">
     
-    <!-- Scholarship Popup -->
+    <!-- Modern Scholarship Notification -->
     <div id="scholarshipPopup" class="scholarship-popup">
-        <div class="popup-content">
-            <button class="popup-close" onclick="closeScholarshipPopup()">
-                <i class="fas fa-times"></i>
+        <div class="modern-notification">
+            <button class="close-btn" onclick="closeScholarshipPopup()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
             </button>
             
-            <div class="text-center text-white p-8">
-                <!-- Scholarship Image -->
-                <div class="mb-6">
-                    <img src="images/courseimg/scolership.png" alt="Bytecore Scholarship" class="w-full max-w-xs mx-auto rounded-lg shadow-2xl bounce-in">
+            <!-- Notification Badge -->
+            <div class="notification-badge">
+                <div class="badge-icon">🎓</div>
+                <div class="badge-text">Scholarship Alert</div>
+            </div>
+            
+            <!-- Content -->
+            <div class="notification-content">
+                <div class="scholarship-image">
+                    <img src="images/courseimg/scolership.png" alt="Scholarship" class="image-modern">
                 </div>
                 
-                <!-- Main Heading -->
-                <div class="mb-6">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-3">
-                        🎓 Bytecore Scholarship 2025
-                    </h2>
-                    <div class="text-xl font-semibold text-yellow-300 mb-4">
-                        150% छूट + ₹500 नकद पुरस्कार!
+                <div class="content-text">
+                    <h3 class="title">Bytecore Scholarship 2025</h3>
+                    <p class="subtitle">Win up to 150% Fee Waiver + ₹500 Cash</p>
+                    
+                    <div class="exam-info">
+                        <div class="info-item">
+                            <span class="info-icon">📅</span>
+                            <span>23 Nov 2025</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">🕙</span>
+                            <span>10:00 AM</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-icon">💰</span>
+                            <span>₹50 Only</span>
+                        </div>
                     </div>
-                    <div class="text-lg">
-                        📅 23 नवंबर 2025 | 🕙 10:00 AM | 📍 नरियावल, बरेली
-                    </div>
                 </div>
-                
-                <!-- Action Button -->
-                <div class="space-y-3">
-                    <a href="scholarship.html#register-now" onclick="closeScholarshipPopup()" class="block w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 text-lg">
-                        <i class="fas fa-pen mr-2"></i>अभी रजिस्टर करें - ₹50
-                    </a>
-                </div>
-                
-                <!-- Urgency -->
-                <div class="mt-4 text-sm opacity-90">
-                    <i class="fas fa-fire mr-1 text-red-400"></i>
-                    सीमित सीटें उपलब्ध! जल्दी करें!
-                </div>
+            </div>
+            
+            <!-- Action -->
+            <div class="notification-action">
+                <a href="scholarship.html#register-now" onclick="closeScholarshipPopup()" class="register-btn">
+                    <span>Register Now</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>
-    <!-- Header -->
-    <header
-        class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <div class="flex items-center">
-                    <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-3">
-                        <a href="/"><img src="logo.png" alt="bytecore logo"></a>
-                    </div>
-                    <h1 class="text-2xl font-bold bg-clip-text text-transparent gradient-bg">ByteCore</h1>
-                </div>
-
-                <!-- Desktop Navigation -->
-                <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#" class="font-medium hover:text-primary transition-colors">Home</a>
-                    <a href="Courses.html" class="font-medium hover:text-primary transition-colors">Courses</a>
-                    <a href="quiz.html" class="font-medium hover:text-primary transition-colors">Quiz</a>
-                    <a href="scholarship.html" class="font-medium hover:text-primary transition-colors bg-yellow-100 dark:bg-yellow-900 px-3 py-1 rounded-full text-yellow-700 dark:text-yellow-300">🎓 Scholarship</a>
-                    <a href="diploma.html" class="font-medium hover:text-primary transition-colors">Certificates</a>
-                    <a href="About.html" class="font-medium hover:text-primary transition-colors">About</a>
-                    <a href="contact.html" class="font-medium hover:text-primary transition-colors">Contact</a>
-                     <a href="Fee.html" class="font-medium hover:text-primary transition-colors">Fees</a>
-                </nav>
-
-                <!-- Buttons -->
-                <div class="flex items-center space-x-4">
-                    <button id="theme-toggle"
-                        class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700">
-                        <i class="fas fa-moon dark:hidden"></i>
-                        <i class="fas fa-sun hidden dark:block"></i>
-                    </button>
-                    <a href="#registration"
-                        class="hidden md:block px-6 py-2 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">Register
-                        Now</a>
-                    <button id="mobile-menu-toggle"
-                        class="md:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu"
-        class="md:hidden fixed inset-0 z-50 bg-white dark:bg-slate-900 transform -translate-x-full transition-transform duration-300 ease-in-out">
-        <div class="flex justify-between items-center p-4 border-b border-slate-200 dark:border-slate-700">
-            <h2 class="text-xl font-bold">Menu</h2>
-            <button id="close-mobile-menu"
-                class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <nav class="flex flex-col p-6 space-y-4">
-            <a href="#"
-                class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Home</a>
-            <a href="Courses.html"
-                class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Courses</a>
-            <a href="quiz.html"
-                class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Quiz</a>
-                 <a href="Fee.html"
-                class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Fees</a>
-            <a href="diploma.html"
-                class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Certificates</a>
-            <a href="About.html"
-                class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">About</a>
-            <a href="contact.html"
-                class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Contact</a>
-            <a href="#registration"
-                class="mt-4 px-6 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity text-center">Register
-                Now</a>
-        </nav>
-    </div>
+    <!-- Universal Header will be loaded here automatically -->
 
     <!-- Hero Section -->
     <section class="relative pt-16 pb-24 overflow-hidden">
@@ -1303,6 +2381,48 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeScholarshipPopup();
+            }
+        });
+
+        // Smart Navigation Functions
+        function navigateTo(page) {
+            // Update active state
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-page="${page}"]`).classList.add('active');
+            
+            // Handle page navigation
+            if (page === 'home') {
+                // Already on home page, just scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function openInSameTab(url) {
+            // Replace current page instead of opening new tab
+            window.location.href = url;
+        }
+
+        // Prevent multiple tabs - intercept all external links
+        document.addEventListener('DOMContentLoaded', function() {
+            // Override all external links to open in same tab
+            const links = document.querySelectorAll('a[href$=".html"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    if (href && href !== '#') {
+                        window.location.href = href;
+                    }
+                });
+            });
+        });
+
+        // Smart back button handling
+        window.addEventListener('popstate', function(e) {
+            // Handle browser back/forward buttons intelligently
+            if (document.referrer.includes(window.location.hostname)) {
+                // If coming from same site, stay in same tab
+                return;
             }
         });
     </script>

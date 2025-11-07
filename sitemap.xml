@@ -3,6 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
 
+  <!-- Homepage - Highest Priority -->
   <url>
     <loc>https://bytecore-flax.vercel.app/</loc>
     <lastmod>2025-01-17</lastmod>
@@ -10,10 +11,27 @@
     <priority>1.00</priority>
     <image:image>
       <image:loc>https://bytecore-flax.vercel.app/hero.jpg</image:loc>
-      <image:title>Bytecore Computer Centre - IT Training Institute</image:title>
+      <image:title>Bytecore Computer Centre - Tech Mastery Starts Here</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://bytecore-flax.vercel.app/logo.png</image:loc>
+      <image:title>Bytecore Logo - Best IT Training Institute Bareilly</image:title>
     </image:image>
   </url>
 
+  <!-- Scholarship Page - Very High Priority (Time-Sensitive) -->
+  <url>
+    <loc>https://bytecore-flax.vercel.app/scholarship.html</loc>
+    <lastmod>2025-01-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://bytecore-flax.vercel.app/images/courseimg/scolership.png</image:loc>
+      <image:title>Bytecore Scholarship 2025 - Win 150% Fee Waiver + ₹500 Cash Rewards</image:title>
+    </image:image>
+  </url>
+
+  <!-- Main Pages - High Priority -->
   <url>
     <loc>https://bytecore-flax.vercel.app/Courses.html</loc>
     <lastmod>2025-01-17</lastmod>
@@ -28,7 +46,7 @@
     <priority>0.85</priority>
     <image:image>
       <image:loc>https://bytecore-flax.vercel.app/logo.png</image:loc>
-      <image:title>Bytecore Programming Quiz - Test Your Skills</image:title>
+      <image:title>Bytecore Programming Quiz - Test Your Coding Skills</image:title>
     </image:image>
   </url>
 
