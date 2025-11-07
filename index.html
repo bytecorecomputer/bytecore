@@ -119,31 +119,84 @@
     </script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
         * {
             scroll-behavior: smooth;
         }
 
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8fafc;
-            transition: background-color 0.3s ease;
+            font-family: 'Inter', 'Poppins', sans-serif;
+            background: #f8fafc;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Subtle Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        /* Glassmorphism Container */
+        .glass-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
         .dark body {
-            background-color: #0f172a;
+            background: #0f172a;
+        }
+
+        .dark body::before {
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+        }
+
+        .dark .glass-container {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .gradient-bg {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
+        /* Ultra Modern Course Card */
         .course-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             will-change: transform;
             position: relative;
             overflow: hidden;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .dark .course-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .course-card::before {
@@ -153,22 +206,66 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
-            transition: left 0.6s ease;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.15), transparent);
+            transition: left 0.8s ease;
             z-index: 1;
+        }
+
+        .course-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 0;
         }
 
         .course-card:hover::before {
             left: 100%;
         }
 
+        .course-card:hover::after {
+            opacity: 1;
+        }
+
         .course-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.3);
+            transform: translateY(-16px) scale(1.03) rotateX(2deg);
+            box-shadow: 
+                0 30px 60px -15px rgba(99, 102, 241, 0.4),
+                0 0 0 1px rgba(99, 102, 241, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
         }
 
         .course-card:active {
-            transform: translateY(-8px) scale(1.01);
+            transform: translateY(-12px) scale(1.01);
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Pulse Glow Effect */
+        @keyframes pulseGlow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(99, 102, 241, 0.8);
+            }
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
         }
 
         /* Smooth transitions for all interactive elements */
@@ -176,9 +273,32 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Fade-in animation for sections */
+        /* Modern Section Styles */
         section {
-            animation: fadeInUp 0.6s ease-out;
+            position: relative;
+            padding: 80px 0;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+        }
+
+        /* Fade-in animation for sections */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         @keyframes fadeInUp {
@@ -192,9 +312,152 @@
             }
         }
 
+        /* Modern Card Hover Effects */
+        .modern-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark .modern-card {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modern-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 20px 40px rgba(99, 102, 241, 0.2),
+                0 0 0 1px rgba(99, 102, 241, 0.1);
+        }
+
         /* Smooth hover effects for all cards */
         .bg-white, .dark\:bg-slate-800 {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Gradient Text Effect */
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Animated Underline */
+        .animated-underline {
+            position: relative;
+            display: inline-block;
+        }
+
+        .animated-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.4s ease;
+            border-radius: 2px;
+        }
+
+        .animated-underline:hover::after {
+            width: 100%;
+        }
+
+        /* Morphing Shapes Background */
+        @keyframes morphing {
+            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        }
+
+        .morphing-shape {
+            animation: morphing 8s ease-in-out infinite;
+        }
+
+        /* Blob Animation */
+        @keyframes blob {
+            0%, 100% {
+                transform: translate(0px, 0px) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+        }
+
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+
+        /* Gradient Animation */
+        @keyframes gradient {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient 3s ease infinite;
+        }
+
+        /* Bounce Slow */
+        @keyframes bounce-slow {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .animate-bounce-slow {
+            animation: bounce-slow 2s ease-in-out infinite;
+        }
+
+        /* Shine Effect */
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shine 3s infinite;
         }
 
         /* SIMPLE SWIPER STYLES */
@@ -204,7 +467,22 @@
         }
 
         .swiper-slide {
-            width: 300px;
+            width: 320px;
+            height: auto;
+        }
+
+        /* Uniform Course Card Sizing */
+        .course-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            object-position: center;
         }
 
         .swiper-pagination-bullet {
@@ -762,28 +1040,93 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 20px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            border-radius: 12px;
-            font-weight: 600;
+            border-radius: 16px;
+            font-weight: 700;
+            font-size: 15px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 
+                0 10px 30px rgba(102, 126, 234, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 
+                0 15px 40px rgba(102, 126, 234, 0.5),
+                0 0 0 3px rgba(102, 126, 234, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px) scale(1.02);
         }
 
         .cta-arrow {
-            transition: transform 0.2s ease;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .cta-button:hover .cta-arrow {
-            transform: translateX(4px);
+            transform: translateX(6px);
+        }
+
+        /* Modern Gradient Buttons */
+        .btn-modern {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-modern::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-modern:hover::after {
+            width: 300px;
+            height: 300px;
         }
 
         .mobile-menu-trigger {
@@ -1578,125 +1921,159 @@
     </div>
     <!-- Universal Header will be loaded here automatically -->
 
-    <!-- Hero Section -->
-    <section class="relative pt-16 pb-24 overflow-hidden">
-        <div
-            class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-slate-900 dark:to-slate-900 z-0">
-        </div>
+    <!-- Ultra Modern Hero Section -->
+    <section class="relative pt-20 pb-32 overflow-hidden min-h-screen flex items-center bg-gradient-to-br from-slate-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
+        <!-- Subtle Animated Background Shapes -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
+        <div class="absolute top-40 right-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
 
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col md:flex-row items-center">
+            <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2 py-12">
-                    <div class="mb-4">
-                        <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold text-sm mb-4">
-                            🎓 Tech Mastery Starts Here
+                    <!-- Modern Badge -->
+                    <div class="mb-6 inline-flex items-center gap-2 px-4 py-2 glass-container rounded-full font-semibold text-sm animate-bounce-slow">
+                        <span class="text-2xl">🎓</span>
+                        <span class="gradient-text font-bold">Tech Mastery Starts Here</span>
+                        <span class="flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-purple-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
                         </span>
                     </div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                        Build Your Future in
-                        <span class="bg-clip-text text-transparent gradient-bg">Technology</span>
+
+                    <!-- Ultra Modern Heading -->
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-6">
+                        <span class="block text-slate-900 dark:text-white">Build Your</span>
+                        <span class="block text-slate-900 dark:text-white">Future in</span>
+                        <span class="block gradient-text text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 animate-gradient">
+                            Technology
+                        </span>
                     </h1>
-                    <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-8 max-w-xl">
-                        Since 2010, we've trained 10000+ students to become successful developers. From Python to Full Stack, master the skills that land high-paying jobs.
+
+                    <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-10 max-w-xl leading-relaxed font-medium">
+                        Since 2010, we've trained <span class="font-bold gradient-text">10000+</span> students to become successful developers. Master the skills that land high-paying jobs.
                     </p>
-                    <div class="flex flex-wrap gap-4 mb-6">
+
+                    <!-- Modern CTA Buttons -->
+                    <div class="flex flex-wrap gap-4 mb-10">
                         <a href="#courses"
-                            class="px-8 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity transform hover:scale-105 shadow-lg">
-                            <i class="fas fa-rocket mr-2"></i>Explore Courses</a>
+                            class="group px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 flex items-center gap-2">
+                            <i class="fas fa-rocket group-hover:animate-bounce"></i>
+                            <span>Explore Courses</span>
+                            <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                        </a>
                         <a href="#registration"
-                            class="px-8 py-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
-                            <i class="fas fa-phone mr-2"></i>Free Demo Class</a>
+                            class="px-8 py-4 rounded-2xl glass-container font-bold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2 border-2 border-purple-200 dark:border-purple-800">
+                            <i class="fas fa-phone text-purple-600"></i>
+                            <span class="gradient-text">Free Demo Class</span>
+                        </a>
                     </div>
-                    <div class="flex items-center space-x-8 text-sm">
-                        <div>
-                            <div class="text-2xl font-bold text-primary">10000+</div>
-                            <div class="text-slate-600 dark:text-slate-400">Students Trained</div>
+
+                    <!-- Modern Stats with Glassmorphism -->
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="glass-container p-4 rounded-2xl text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                            <div class="text-3xl font-black gradient-text">10K+</div>
+                            <div class="text-sm text-slate-600 dark:text-slate-400 font-semibold">Students</div>
                         </div>
-                        <div>
-                            <div class="text-2xl font-bold text-primary">95%</div>
-                            <div class="text-slate-600 dark:text-slate-400">Job Placement</div>
+                        <div class="glass-container p-4 rounded-2xl text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                            <div class="text-3xl font-black gradient-text">95%</div>
+                            <div class="text-sm text-slate-600 dark:text-slate-400 font-semibold">Placement</div>
                         </div>
-                        <div>
-                            <div class="text-2xl font-bold text-primary">15+</div>
-                            <div class="text-slate-600 dark:text-slate-400">Years Experience</div>
+                        <div class="glass-container p-4 rounded-2xl text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+                            <div class="text-3xl font-black gradient-text">15+</div>
+                            <div class="text-sm text-slate-600 dark:text-slate-400 font-semibold">Years</div>
                         </div>
                     </div>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
-                    <div class="relative">
+                    <div class="relative floating">
+                        <!-- Floating Gradient Orbs -->
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 opacity-20 absolute -top-10 -left-10 blur-3xl animate-pulse morphing-shape"></div>
+                        <div class="w-48 h-48 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 opacity-20 absolute -bottom-10 -right-10 blur-3xl animate-pulse morphing-shape animation-delay-2000"></div>
+                        
+                        <!-- Ultra Modern Glass Card -->
                         <div
-                            class="w-64 h-64 md:w-80 md:h-80 rounded-full gradient-bg opacity-20 absolute -top-10 -left-10 animate-pulse">
-                        </div>
-                        <div
-                            class="relative bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden border border-slate-100 dark:border-slate-700 w-full max-w-md">
-                            <!-- Special Offer Badge -->
-                            <div class="absolute top-3 right-3 z-10">
-                                <div class="bg-red-500 text-white px-2.5 py-1 rounded-full text-xs font-bold animate-pulse">
+                            class="relative glass-container rounded-3xl shadow-2xl overflow-hidden w-full max-w-md transform hover:scale-105 transition-all duration-500 hover:shadow-purple-500/50">
+                            <!-- Ultra Modern Offer Badge -->
+                            <div class="absolute top-4 right-4 z-10">
+                                <div class="bg-gradient-to-r from-red-500 to-pink-500 text-white px-3 py-1.5 rounded-full text-xs font-black animate-bounce-slow shadow-lg shine-effect">
                                     🔥 50% OFF
                                 </div>
                             </div>
                             
-                            <!-- Compact Course Image -->
-                            <div class="h-36 bg-gradient-to-r from-green-500 to-teal-600 relative overflow-hidden">
+                            <!-- Modern Course Image with Overlay -->
+                            <div class="h-40 bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 relative overflow-hidden">
                                 <img src="images/courseimg/o level.jpg" alt="O Level Course" 
-                                     class="w-full h-full object-cover opacity-80">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                                <div class="absolute bottom-3 left-3 text-white">
-                                    <h3 class="font-bold text-xl">O Level</h3>
-                                    <p class="text-xs opacity-90">NIELIT Certified</p>
+                                     class="w-full h-full object-cover opacity-70 mix-blend-overlay">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4 text-white">
+                                    <h3 class="font-black text-2xl mb-1">O Level</h3>
+                                    <div class="flex items-center gap-2">
+                                        <span class="bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-full text-xs font-bold">NIELIT Certified</span>
+                                        <span class="bg-green-500 px-2 py-0.5 rounded-full text-xs font-bold">⭐ Popular</span>
+                                    </div>
                                 </div>
                             </div>
                             
-                            <div class="p-5">
-                                <!-- Compact Course Highlights -->
-                                <div class="flex justify-around mb-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
-                                    <div class="text-center">
-                                        <div class="text-lg font-bold text-green-600">1 Year</div>
-                                        <div class="text-xs text-slate-500">Duration</div>
+                            <div class="p-6">
+                                <!-- Ultra Modern Stats Grid -->
+                                <div class="grid grid-cols-3 gap-3 mb-5">
+                                    <div class="text-center p-3 rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 transform hover:scale-105 transition-all">
+                                        <div class="text-xl font-black gradient-text">1 Year</div>
+                                        <div class="text-xs text-slate-600 dark:text-slate-400 font-semibold">Duration</div>
                                     </div>
-                                    <div class="text-center border-l border-slate-300 dark:border-slate-600 pl-4">
-                                        <div class="text-lg font-bold text-green-600">15+</div>
-                                        <div class="text-xs text-slate-500">Modules</div>
+                                    <div class="text-center p-3 rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 transform hover:scale-105 transition-all">
+                                        <div class="text-xl font-black gradient-text">15+</div>
+                                        <div class="text-xs text-slate-600 dark:text-slate-400 font-semibold">Modules</div>
                                     </div>
-                                    <div class="text-center border-l border-slate-300 dark:border-slate-600 pl-4">
-                                        <div class="text-lg font-bold text-green-600">100%</div>
-                                        <div class="text-xs text-slate-500">Job Ready</div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Compact Course Features -->
-                                <div class="space-y-1.5 mb-4">
-                                    <div class="flex items-center text-xs text-slate-600 dark:text-slate-300">
-                                        <i class="fas fa-check-circle text-green-500 mr-2 text-sm"></i>
-                                        Government Recognized Certificate
-                                    </div>
-                                    <div class="flex items-center text-xs text-slate-600 dark:text-slate-300">
-                                        <i class="fas fa-check-circle text-green-500 mr-2 text-sm"></i>
-                                        Programming + Web Development
-                                    </div>
-                                    <div class="flex items-center text-xs text-slate-600 dark:text-slate-300">
-                                        <i class="fas fa-check-circle text-green-500 mr-2 text-sm"></i>
-                                        Placement Assistance Included
+                                    <div class="text-center p-3 rounded-xl bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 transform hover:scale-105 transition-all">
+                                        <div class="text-xl font-black gradient-text">100%</div>
+                                        <div class="text-xs text-slate-600 dark:text-slate-400 font-semibold">Job Ready</div>
                                     </div>
                                 </div>
                                 
-                                <!-- Compact Pricing -->
-                                <div class="border-t border-slate-200 dark:border-slate-700 pt-3">
+                                <!-- Modern Feature List -->
+                                <div class="space-y-2 mb-5">
+                                    <div class="flex items-center text-sm text-slate-700 dark:text-slate-300 font-medium">
+                                        <div class="w-6 h-6 rounded-full bg-gradient-to-r from-green-400 to-emerald-400 flex items-center justify-center mr-3">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        Government Recognized
+                                    </div>
+                                    <div class="flex items-center text-sm text-slate-700 dark:text-slate-300 font-medium">
+                                        <div class="w-6 h-6 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 flex items-center justify-center mr-3">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        Programming + Web Dev
+                                    </div>
+                                    <div class="flex items-center text-sm text-slate-700 dark:text-slate-300 font-medium">
+                                        <div class="w-6 h-6 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 flex items-center justify-center mr-3">
+                                            <i class="fas fa-check text-white text-xs"></i>
+                                        </div>
+                                        Placement Assistance
+                                    </div>
+                                </div>
+                                
+                                <!-- Ultra Modern Pricing -->
+                                <div class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-4 mb-4">
                                     <div class="flex justify-between items-center mb-3">
                                         <div>
-                                            <div class="text-xs text-slate-500 line-through">₹20,999</div>
-                                            <div class="text-xl font-bold text-green-600">₹10,499</div>
+                                            <div class="text-xs text-slate-500 line-through font-medium">₹20,999</div>
+                                            <div class="text-3xl font-black gradient-text">₹10,499</div>
                                         </div>
                                         <div class="text-right">
-                                            <div class="text-xs text-red-500 font-semibold">Limited Offer!</div>
-                                            <div class="text-xs text-slate-500">7 days left</div>
+                                            <div class="text-xs text-red-600 font-bold flex items-center gap-1">
+                                                <i class="fas fa-clock"></i> Limited!
+                                            </div>
+                                            <div class="text-xs text-slate-600 dark:text-slate-400 font-semibold">7 days left</div>
                                         </div>
                                     </div>
-                                    <a href="#registration"
-                                        class="block w-full py-2.5 bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center text-sm">
-                                        Enroll Now - Save 50%
-                                    </a>
                                 </div>
+                                
+                                <a href="#registration"
+                                    class="block w-full py-3.5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 hover:from-purple-700 hover:via-pink-700 hover:to-blue-700 text-white font-black rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl text-center text-base shine-effect">
+                                    <i class="fas fa-rocket mr-2"></i>Enroll Now - Save 50%
+                                </a>
                             </div>
                         </div>
                     </div>
