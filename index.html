@@ -121,9 +121,14 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+        * {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f8fafc;
+            transition: background-color 0.3s ease;
         }
 
         .dark body {
@@ -135,12 +140,61 @@
         }
 
         .course-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+            transition: left 0.6s ease;
+            z-index: 1;
+        }
+
+        .course-card:hover::before {
+            left: 100%;
         }
 
         .course-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.3);
+        }
+
+        .course-card:active {
+            transform: translateY(-8px) scale(1.01);
+        }
+
+        /* Smooth transitions for all interactive elements */
+        button, a, input, select, textarea {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Fade-in animation for sections */
+        section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Smooth hover effects for all cards */
+        .bg-white, .dark\:bg-slate-800 {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* SIMPLE SWIPER STYLES */
@@ -332,17 +386,39 @@
             color: white;
             border: none;
             border-radius: 10px;
-            padding: 12px 16px;
-            font-size: 14px;
-            font-weight: 600;
+            padding: 14px 20px;
+            font-size: 15px;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .register-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .register-btn:hover::before {
+            left: 100%;
         }
         
         .register-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4);
+        }
+        
+        .register-btn:active {
+            transform: translateY(0) scale(0.98);
         }
         
         /* Dark mode support */
@@ -379,6 +455,7 @@
                 top: 10px;
                 right: 10px;
                 left: 10px;
+                animation: slideInMobile 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             }
             
             .modern-notification {
@@ -394,6 +471,23 @@
                 flex-direction: row;
                 justify-content: space-around;
                 flex-wrap: wrap;
+            }
+
+            .register-btn {
+                padding: 16px 20px;
+                font-size: 16px;
+                font-weight: 800;
+            }
+        }
+
+        @keyframes slideInMobile {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
             }
         }
 
@@ -825,8 +919,37 @@
             color: white;
             border: none;
             border-radius: 12px;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 15px;
             cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mobile-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .mobile-cta:hover::before {
+            left: 100%;
+        }
+
+        .mobile-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .mobile-cta:active {
+            transform: translateY(0) scale(0.98);
         }
 
         /* Dark Mode */
@@ -1507,70 +1630,70 @@
                         <div
                             class="relative bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden border border-slate-100 dark:border-slate-700 w-full max-w-md">
                             <!-- Special Offer Badge -->
-                            <div class="absolute top-4 right-4 z-10">
-                                <div class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold animate-pulse">
+                            <div class="absolute top-3 right-3 z-10">
+                                <div class="bg-red-500 text-white px-2.5 py-1 rounded-full text-xs font-bold animate-pulse">
                                     🔥 50% OFF
                                 </div>
                             </div>
                             
-                            <!-- Course Image -->
-                            <div class="h-48 bg-gradient-to-r from-green-500 to-teal-600 relative overflow-hidden">
+                            <!-- Compact Course Image -->
+                            <div class="h-36 bg-gradient-to-r from-green-500 to-teal-600 relative overflow-hidden">
                                 <img src="images/courseimg/o level.jpg" alt="O Level Course" 
-                                     class="w-full h-full object-cover opacity-90">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                                <div class="absolute bottom-4 left-4 text-white">
-                                    <h3 class="font-bold text-2xl">O Level</h3>
-                                    <p class="text-sm opacity-90">NIELIT Certified Course</p>
+                                     class="w-full h-full object-cover opacity-80">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                <div class="absolute bottom-3 left-3 text-white">
+                                    <h3 class="font-bold text-xl">O Level</h3>
+                                    <p class="text-xs opacity-90">NIELIT Certified</p>
                                 </div>
                             </div>
                             
-                            <div class="p-6">
-                                <!-- Course Highlights -->
-                                <div class="flex justify-between mb-6">
+                            <div class="p-5">
+                                <!-- Compact Course Highlights -->
+                                <div class="flex justify-around mb-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
                                     <div class="text-center">
-                                        <div class="text-2xl font-bold text-green-600">1</div>
-                                        <div class="text-sm text-slate-500">Year</div>
+                                        <div class="text-lg font-bold text-green-600">1 Year</div>
+                                        <div class="text-xs text-slate-500">Duration</div>
                                     </div>
-                                    <div class="text-center">
-                                        <div class="text-2xl font-bold text-green-600">15+</div>
-                                        <div class="text-sm text-slate-500">Modules</div>
+                                    <div class="text-center border-l border-slate-300 dark:border-slate-600 pl-4">
+                                        <div class="text-lg font-bold text-green-600">15+</div>
+                                        <div class="text-xs text-slate-500">Modules</div>
                                     </div>
-                                    <div class="text-center">
-                                        <div class="text-2xl font-bold text-green-600">100%</div>
-                                        <div class="text-sm text-slate-500">Job Ready</div>
+                                    <div class="text-center border-l border-slate-300 dark:border-slate-600 pl-4">
+                                        <div class="text-lg font-bold text-green-600">100%</div>
+                                        <div class="text-xs text-slate-500">Job Ready</div>
                                     </div>
                                 </div>
                                 
-                                <!-- Course Features -->
-                                <div class="space-y-2 mb-6">
-                                    <div class="flex items-center text-sm text-slate-600 dark:text-slate-300">
-                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                <!-- Compact Course Features -->
+                                <div class="space-y-1.5 mb-4">
+                                    <div class="flex items-center text-xs text-slate-600 dark:text-slate-300">
+                                        <i class="fas fa-check-circle text-green-500 mr-2 text-sm"></i>
                                         Government Recognized Certificate
                                     </div>
-                                    <div class="flex items-center text-sm text-slate-600 dark:text-slate-300">
-                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <div class="flex items-center text-xs text-slate-600 dark:text-slate-300">
+                                        <i class="fas fa-check-circle text-green-500 mr-2 text-sm"></i>
                                         Programming + Web Development
                                     </div>
-                                    <div class="flex items-center text-sm text-slate-600 dark:text-slate-300">
-                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    <div class="flex items-center text-xs text-slate-600 dark:text-slate-300">
+                                        <i class="fas fa-check-circle text-green-500 mr-2 text-sm"></i>
                                         Placement Assistance Included
                                     </div>
                                 </div>
                                 
-                                <!-- Pricing -->
-                                <div class="border-t border-slate-200 dark:border-slate-700 pt-4">
+                                <!-- Compact Pricing -->
+                                <div class="border-t border-slate-200 dark:border-slate-700 pt-3">
                                     <div class="flex justify-between items-center mb-3">
                                         <div>
-                                            <div class="text-sm text-slate-500 line-through">₹20,999</div>
-                                            <div class="text-2xl font-bold text-green-600">₹10,499</div>
+                                            <div class="text-xs text-slate-500 line-through">₹20,999</div>
+                                            <div class="text-xl font-bold text-green-600">₹10,499</div>
                                         </div>
                                         <div class="text-right">
-                                            <div class="text-xs text-red-500 font-semibold">Limited Time Offer!</div>
-                                            <div class="text-xs text-slate-500">Ends in 7 days</div>
+                                            <div class="text-xs text-red-500 font-semibold">Limited Offer!</div>
+                                            <div class="text-xs text-slate-500">7 days left</div>
                                         </div>
                                     </div>
                                     <a href="#registration"
-                                        class="block w-full py-3 bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center">
+                                        class="block w-full py-2.5 bg-gradient-to-r from-green-500 to-teal-600 hover:from-green-600 hover:to-teal-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg text-center text-sm">
                                         Enroll Now - Save 50%
                                     </a>
                                 </div>
@@ -1765,25 +1888,33 @@
                         </div>
                     </div>
 
-                    <!-- Course 4 -->
+                    <!-- Course 4 - O Level (Compact Modern Design) -->
                     <div class="swiper-slide">
                         <div
                             class="course-card bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-700">
-                            <div class="h-48 bg-gradient-to-r from-green-500 to-teal-600">
+                            <!-- Compact Image Section -->
+                            <div class="h-32 bg-gradient-to-r from-green-500 to-teal-600 relative">
                                 <img src="images/courseimg/o level.jpg" alt="O Level Course"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2">O Level</h3>
-                                <p class="text-slate-600 dark:text-slate-300 mb-4">NIELIT O Level certification course
-                                    covering IT fundamentals, programming, and web development.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg font-bold text-primary">₹20,999</span>
-                                    <span class="bg-green-100 text-green-800 text-sm px-2 py-1 rounded">1 YEAR</span>
+                                    class="w-full h-full object-cover opacity-80">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                                <div class="absolute bottom-2 left-3">
+                                    <span class="bg-white/90 text-green-700 text-xs font-bold px-2 py-1 rounded">NIELIT Certified</span>
                                 </div>
-                                <button
-                                    class="w-full mt-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors">View
-                                    Details</button>
+                            </div>
+                            <!-- Compact Content -->
+                            <div class="p-4">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h3 class="text-lg font-bold">O Level</h3>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">1 Year</span>
+                                </div>
+                                <p class="text-slate-600 dark:text-slate-300 text-sm mb-3">IT fundamentals & programming certification</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xl font-bold text-primary">₹20,999</span>
+                                    <button
+                                        class="px-4 py-2 bg-gradient-to-r from-green-500 to-teal-600 text-white text-sm font-semibold rounded-lg hover:shadow-lg transition-all">
+                                        View Details
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2424,6 +2555,114 @@
                 // If coming from same site, stay in same tab
                 return;
             }
+        });
+
+        // ========== SMOOTH ANIMATIONS & INTERACTIONS ==========
+        
+        // Intersection Observer for fade-in animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections and cards
+            document.querySelectorAll('section, .course-card, .feature-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(el);
+            });
+
+            // Smooth scroll for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add ripple effect to buttons
+            document.querySelectorAll('button, .nav-btn, .cta-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        width: ${size}px;
+                        height: ${size}px;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.5);
+                        left: ${x}px;
+                        top: ${y}px;
+                        pointer-events: none;
+                        transform: scale(0);
+                        animation: ripple 0.6s ease-out;
+                    `;
+                    
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+
+            // Add CSS for ripple animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Smooth page load
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease-in';
+                document.body.style.opacity = '1';
+            }, 100);
+
+            // Parallax effect for hero section
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.gradient-bg');
+                parallaxElements.forEach(el => {
+                    el.style.transform = `translateY(${scrolled * 0.5}px)`;
+                });
+            });
+
+            // Smooth hover effects for cards
+            document.querySelectorAll('.course-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                });
+            });
+
+            console.log('✨ Smooth animations initialized!');
         });
     </script>
 </body>

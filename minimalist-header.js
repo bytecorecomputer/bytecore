@@ -23,6 +23,11 @@
                 <!-- Right Side Actions -->
                 <div class="header-actions">
                     <a href="#" onclick="smartNavigate('scholarship.html')" class="register-btn">Register Now</a>
+                    <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
+                        <svg id="theme-icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
                     <button class="menu-btn" id="menu-btn" aria-label="Menu">
                         <span></span>
                         <span></span>
@@ -69,17 +74,7 @@
                         <span>Contact</span>
                     </a>
                 </nav>
-                
-                <div class="nav-footer">
-                    <button class="theme-btn" id="theme-btn">
-                        <span id="theme-icon">🌙</span>
-                        <span id="theme-text">Dark Mode</span>
-                    </button>
-                    <div class="contact-info">
-                        <p>📞 +91-6396835709</p>
-                        <p>📧 bytecore.info@gmail.com</p>
-                    </div>
-                </div>
+
             </div>
         </header>
         
@@ -101,9 +96,10 @@
             margin: 0 auto;
             padding: 0 32px;
             height: 70px;
-            display: flex;
+            display: grid;
+            grid-template-columns: 200px 1fr 200px;
             align-items: center;
-            justify-content: space-between;
+            gap: 32px;
         }
 
         .logo {
@@ -131,13 +127,12 @@
             letter-spacing: -0.5px;
         }
 
-        /* Desktop Navigation */
+        /* Desktop Navigation - CENTER */
         .desktop-nav {
             display: flex;
             align-items: center;
-            gap: 32px;
-            margin-left: auto;
-            margin-right: 32px;
+            justify-content: center;
+            gap: 40px;
         }
 
         .desktop-nav a {
@@ -145,12 +140,29 @@
             font-weight: 500;
             color: #475569;
             text-decoration: none;
-            transition: color 0.2s;
+            transition: all 0.15s ease;
             position: relative;
+            padding: 8px 0;
+        }
+
+        .desktop-nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 100%;
+            height: 2px;
+            background: #6366f1;
+            transition: transform 0.2s ease;
         }
 
         .desktop-nav a:hover {
             color: #000;
+        }
+
+        .desktop-nav a:hover::before {
+            transform: translateX(-50%) scaleX(1);
         }
 
         .desktop-nav a.highlight {
@@ -160,40 +172,64 @@
 
         .desktop-nav a.active {
             color: #6366f1;
+            font-weight: 600;
         }
 
-        .desktop-nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: #6366f1;
+        .desktop-nav a.active::before {
+            transform: translateX(-50%) scaleX(1);
         }
 
-        /* Header Actions */
+        /* Header Actions - RIGHT */
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 16px;
+            justify-content: flex-end;
+            gap: 12px;
         }
 
         .register-btn {
-            padding: 10px 24px;
+            padding: 10px 20px;
             background: linear-gradient(135deg, #6366f1, #8b5cf6);
             color: white;
             text-decoration: none;
             border-radius: 8px;
             font-size: 14px;
             font-weight: 600;
-            transition: all 0.2s;
+            transition: all 0.15s ease;
             white-space: nowrap;
         }
 
         .register-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #475569;
+            transition: all 0.15s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            background: #f1f5f9;
+            color: #000;
+        }
+
+        .theme-toggle-btn svg {
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle-btn:hover svg {
+            transform: rotate(20deg);
         }
 
         /* Hamburger Menu */
@@ -260,55 +296,65 @@
             position: absolute;
             top: 20px;
             right: 32px;
-            width: 40px;
-            height: 40px;
-            background: none;
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 0, 0, 0.05);
             border: none;
+            border-radius: 12px;
             font-size: 24px;
             cursor: pointer;
             color: #000;
-            transition: opacity 0.2s;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .close-btn:hover {
-            opacity: 0.7;
+            background: rgba(0, 0, 0, 0.1);
+            transform: rotate(90deg);
         }
 
-        /* Navigation Menu */
+        /* Navigation Menu - Modern Mobile */
         .nav-menu {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             height: 100vh;
-            gap: 8px;
-            padding: 80px 32px;
+            gap: 4px;
+            padding: 80px 40px;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .nav-menu a {
             display: flex;
             align-items: center;
-            gap: 24px;
-            font-size: 48px;
+            gap: 20px;
+            font-size: 36px;
             font-weight: 700;
             color: #000;
             text-decoration: none;
-            padding: 16px 32px;
-            transition: all 0.3s ease;
+            padding: 12px 20px;
+            transition: all 0.2s ease;
             position: relative;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
+            width: 100%;
+            border-radius: 12px;
         }
 
         .nav-menu a:hover {
             color: #6366f1;
-            transform: translateX(10px);
+            background: rgba(99, 102, 241, 0.05);
+            transform: translateX(8px);
         }
 
         .nav-menu a .num {
-            font-size: 16px;
-            font-weight: 500;
+            font-size: 14px;
+            font-weight: 600;
             color: #94a3b8;
-            min-width: 40px;
+            min-width: 32px;
         }
 
         .nav-menu a.highlight {
@@ -316,48 +362,16 @@
         }
 
         .nav-menu a .badge {
-            font-size: 12px;
-            font-weight: 600;
+            font-size: 11px;
+            font-weight: 700;
             background: #ef4444;
             color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            margin-left: 12px;
+            padding: 4px 10px;
+            border-radius: 10px;
+            margin-left: auto;
         }
 
-        /* Navigation Footer */
-        .nav-footer {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-        }
 
-        .theme-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            background: #f1f5f9;
-            border: none;
-            border-radius: 24px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            transition: all 0.2s;
-        }
-
-        .theme-btn:hover {
-            background: #e2e8f0;
-        }
-
-        .contact-info {
-            font-size: 14px;
-            color: #64748b;
-            line-height: 1.8;
-        }
 
         /* Dark Mode */
         .dark .minimal-header {
@@ -379,6 +393,11 @@
 
         .dark .close-btn {
             color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .dark .close-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
         }
 
         .dark .nav-menu a {
@@ -398,7 +417,7 @@
             background: #334155;
         }
 
-        /* Dark Mode for Desktop Nav */
+        /* Dark Mode */
         .dark .desktop-nav a {
             color: #94a3b8;
         }
@@ -411,17 +430,36 @@
             color: #818cf8;
         }
 
-        .dark .desktop-nav a.active::after {
+        .dark .desktop-nav a.active::before,
+        .dark .desktop-nav a:hover::before {
             background: #818cf8;
+        }
+
+        .dark .theme-toggle-btn {
+            color: #94a3b8;
+        }
+
+        .dark .theme-toggle-btn:hover {
+            background: #1e293b;
+            color: #fff;
         }
 
         /* Mobile Responsive */
         @media (max-width: 1024px) {
+            .header-wrap {
+                grid-template-columns: 1fr auto;
+                gap: 16px;
+            }
+
             .desktop-nav {
                 display: none;
             }
 
             .register-btn {
+                display: none;
+            }
+
+            .desktop-theme-toggle {
                 display: none;
             }
 
@@ -445,18 +483,45 @@
                 font-size: 18px;
             }
 
+            .nav-menu {
+                padding: 80px 24px;
+                gap: 2px;
+            }
+
             .nav-menu a {
-                font-size: 32px;
-                padding: 12px 20px;
+                font-size: 28px;
+                padding: 10px 16px;
+                gap: 16px;
             }
 
             .nav-menu a .num {
-                font-size: 14px;
-                min-width: 30px;
+                font-size: 12px;
+                min-width: 28px;
             }
 
-            .nav-footer {
-                bottom: 20px;
+            .nav-menu a .badge {
+                font-size: 10px;
+                padding: 3px 8px;
+            }
+
+            .close-btn {
+                top: 16px;
+                right: 20px;
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-menu a {
+                font-size: 24px;
+                padding: 8px 12px;
+            }
+
+            .nav-menu a .num {
+                font-size: 11px;
+                min-width: 24px;
             }
         }
 
@@ -527,28 +592,36 @@
 
     // Theme Toggle
     function setupTheme() {
-        const themeBtn = document.getElementById('theme-btn');
-        const themeIcon = document.getElementById('theme-icon');
-        const themeText = document.getElementById('theme-text');
+        const themeToggle = document.getElementById('theme-toggle-btn');
+        const themeIcon = document.getElementById('theme-icon-svg');
+        
+        // Moon icon (for light mode)
+        const moonIcon = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+        // Sun icon (for dark mode)
+        const sunIcon = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
         
         // Load saved theme
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
             document.documentElement.classList.add('dark');
-            if (themeIcon) themeIcon.textContent = '☀️';
-            if (themeText) themeText.textContent = 'Light Mode';
+            if (themeIcon) themeIcon.innerHTML = sunIcon;
         }
         
-        if (themeBtn) {
-            themeBtn.addEventListener('click', () => {
-                document.documentElement.classList.toggle('dark');
-                const isDark = document.documentElement.classList.contains('dark');
-                
-                if (themeIcon) themeIcon.textContent = isDark ? '☀️' : '🌙';
-                if (themeText) themeText.textContent = isDark ? 'Light Mode' : 'Dark Mode';
-                
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            });
+        // Toggle theme function
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            
+            if (themeIcon) {
+                themeIcon.innerHTML = isDark ? sunIcon : moonIcon;
+            }
+            
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }
+        
+        // Theme toggle
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
         }
     }
 
@@ -579,13 +652,20 @@
         });
     }
 
-    // Smart Navigation
+    // Smart Navigation with Page Transition
     window.smartNavigate = function(url) {
         if (url.startsWith('#')) {
             const el = document.querySelector(url);
             if (el) el.scrollIntoView({ behavior: 'smooth' });
         } else {
-            window.location.href = url;
+            // Add fade effect for smooth transition
+            document.body.style.opacity = '0.7';
+            document.body.style.transition = 'opacity 0.15s ease';
+            
+            // Navigate after brief fade
+            setTimeout(() => {
+                window.location.href = url;
+            }, 150);
         }
     };
 
