@@ -78,10 +78,145 @@
             70% { box-shadow: 0 0 0 15px rgba(102, 126, 234, 0); }
             100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
         }
+        
+        /* Scholarship Popup Styles */
+        .scholarship-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .scholarship-popup.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .popup-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 0;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scholarship-popup.show .popup-content {
+            transform: scale(1);
+        }
+        
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        
+        .popup-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+        
+        .celebration-animation {
+            animation: celebrate 2s ease-in-out infinite;
+        }
+        
+        @keyframes celebrate {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.1) rotate(-5deg); }
+            75% { transform: scale(1.1) rotate(5deg); }
+        }
+        
+        .sparkle {
+            position: absolute;
+            color: #ffd700;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        
+        .bounce-in {
+            animation: bounceIn 0.6s ease-out;
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
     </style>
 </head>
 
 <body class="bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-100 transition-colors duration-300">
+    
+    <!-- Scholarship Popup -->
+    <div id="scholarshipPopup" class="scholarship-popup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closeScholarshipPopup()">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="text-center text-white p-8">
+                <!-- Scholarship Image -->
+                <div class="mb-6">
+                    <img src="images/courseimg/scolership.png" alt="Bytecore Scholarship" class="w-full max-w-xs mx-auto rounded-lg shadow-2xl bounce-in">
+                </div>
+                
+                <!-- Main Heading -->
+                <div class="mb-6">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-3">
+                        🎓 Bytecore Scholarship 2025
+                    </h2>
+                    <div class="text-xl font-semibold text-yellow-300 mb-4">
+                        150% छूट + ₹500 नकद पुरस्कार!
+                    </div>
+                    <div class="text-lg">
+                        📅 23 मार्च 2025 | 🕙 10:00 AM | 📍 नरियावल, बरेली
+                    </div>
+                </div>
+                
+                <!-- Action Button -->
+                <div class="space-y-3">
+                    <a href="scholarship.html#register-now" onclick="closeScholarshipPopup()" class="block w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 text-lg">
+                        <i class="fas fa-pen mr-2"></i>अभी रजिस्टर करें - ₹50
+                    </a>
+                </div>
+                
+                <!-- Urgency -->
+                <div class="mt-4 text-sm opacity-90">
+                    <i class="fas fa-fire mr-1 text-red-400"></i>
+                    सीमित सीटें उपलब्ध! जल्दी करें!
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Header -->
     <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -182,7 +317,7 @@
                                 <i class="fas fa-calendar text-white text-2xl"></i>
                             </div>
                             <h3 class="font-bold text-lg mb-2 dark:text-white">Exam Date</h3>
-                            <p class="text-gray-600 dark:text-gray-300 font-semibold">23rd November 2025</p>
+                            <p class="text-gray-600 dark:text-gray-300 font-semibold">23rd March 2025</p>
                         </div>
 
                         <div class="text-center">
@@ -748,6 +883,60 @@
                 console.error('❌ Error sending photo to Telegram:', error);
             });
         }
+
+        // Scholarship Popup Functions
+        function showScholarshipPopup() {
+            const popup = document.getElementById('scholarshipPopup');
+            popup.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeScholarshipPopup() {
+            const popup = document.getElementById('scholarshipPopup');
+            popup.classList.remove('show');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+            
+            // Set cookie to not show popup again for 24 hours
+            const expiryDate = new Date();
+            expiryDate.setTime(expiryDate.getTime() + (24 * 60 * 60 * 1000)); // 24 hours
+            document.cookie = `scholarshipPopupSeen=true; expires=${expiryDate.toUTCString()}; path=/`;
+        }
+
+        // Check if popup should be shown
+        function shouldShowPopup() {
+            // Check if user has seen popup in last 24 hours
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const [name, value] = cookie.trim().split('=');
+                if (name === 'scholarshipPopupSeen' && value === 'true') {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        // Show popup after page loads
+        window.addEventListener('load', function() {
+            if (shouldShowPopup()) {
+                // Show popup after 2 seconds delay for better user experience
+                setTimeout(showScholarshipPopup, 2000);
+            }
+        });
+
+        // Close popup when clicking outside
+        document.addEventListener('click', function(e) {
+            const popup = document.getElementById('scholarshipPopup');
+            if (e.target === popup) {
+                closeScholarshipPopup();
+            }
+        });
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeScholarshipPopup();
+            }
+        });
     </script>
 </body>
 
