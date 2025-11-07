@@ -197,7 +197,8 @@
             justify-content: center;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            will-change: opacity, visibility;
         }
         
         .scholarship-popup.show {
@@ -216,6 +217,8 @@
             transition: transform 0.3s ease;
             overflow: hidden;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            will-change: transform;
+            backface-visibility: hidden;
         }
         
         .scholarship-popup.show .popup-content {
@@ -1280,32 +1283,12 @@
             const popup = document.getElementById('scholarshipPopup');
             popup.classList.remove('show');
             document.body.style.overflow = 'auto'; // Restore scrolling
-            
-            // Set cookie to not show popup again for 24 hours
-            const expiryDate = new Date();
-            expiryDate.setTime(expiryDate.getTime() + (24 * 60 * 60 * 1000)); // 24 hours
-            document.cookie = `scholarshipPopupSeen=true; expires=${expiryDate.toUTCString()}; path=/`;
         }
 
-        // Check if popup should be shown
-        function shouldShowPopup() {
-            // Check if user has seen popup in last 24 hours
-            const cookies = document.cookie.split(';');
-            for (let cookie of cookies) {
-                const [name, value] = cookie.trim().split('=');
-                if (name === 'scholarshipPopupSeen' && value === 'true') {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        // Show popup after page loads
-        window.addEventListener('load', function() {
-            if (shouldShowPopup()) {
-                // Show popup after 3 seconds delay for better user experience
-                setTimeout(showScholarshipPopup, 3000);
-            }
+        // Show popup immediately when page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            // Show popup immediately - no delay, no cookie check
+            showScholarshipPopup();
         });
 
         // Close popup when clicking outside
