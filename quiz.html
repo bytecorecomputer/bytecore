@@ -389,7 +389,7 @@
   <script src="minimalist-header.js"></script>
 </head>
 
-<body class="bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-100 transition-colors duration-300">
+<body class="bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-100 transition-colors duration-300" style="min-height: 100vh; display: flex; flex-direction: column;">
   <!-- Header -->
   <header
     class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
@@ -2000,6 +2000,133 @@ ${userEmail ? `*Email:* ${userEmail}\n` : ''}${userPhone ? `*Phone:* ${userPhone
       }
     });
   </script>
+<!-- Footer Component -->
+<footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Main Footer Content -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+            <!-- About Section -->
+            <div>
+                <div class="flex items-center mb-6">
+                    <img src="logo.png" alt="ByteCore Logo" class="w-10 h-10 mr-3">
+                    <h3 class="text-2xl font-bold text-white">ByteCore</h3>
+                </div>
+                <p class="text-slate-400 mb-6 leading-relaxed">
+                    Leading IT training institute offering comprehensive computer courses since 2010. Transform your career with industry-relevant skills.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="https://www.facebook.com/bytecorecomputercentre/" target="_blank" rel="noopener" 
+                       class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://x.com/bytecores" target="_blank" rel="noopener"
+                       class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.instagram.com/bytecore_computer_centre/" target="_blank" rel="noopener"
+                       class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/bytecore-computer-centre-69ba7a344/" target="_blank" rel="noopener"
+                       class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-white font-bold text-lg mb-6">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="index.html" class="hover:text-primary transition-colors duration-300 flex items-center group">
+                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Home
+                    </a></li>
+                    <li><a href="About.html" class="hover:text-primary transition-colors duration-300 flex items-center group">
+                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>About Us
+                    </a></li>
+                    <li><a href="Courses.html" class="hover:text-primary transition-colors duration-300 flex items-center group">
+                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Courses
+                    </a></li>
+                    <li><a href="scholarship.html" class="hover:text-primary transition-colors duration-300 flex items-center group">
+                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Scholarship
+                    </a></li>
+                    <li><a href="diploma.html" class="hover:text-primary transition-colors duration-300 flex items-center group">
+                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Certificates
+                    </a></li>
+                    <li><a href="contact.html" class="hover:text-primary transition-colors duration-300 flex items-center group">
+                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Contact
+                    </a></li>
+                </ul>
+            </div>
+
+            <!-- Popular Courses -->
+            <div>
+                <h4 class="text-white font-bold text-lg mb-6">Popular Courses</h4>
+                <ul class="space-y-3">
+                    <li><a href="Courses.html#python" class="hover:text-primary transition-colors duration-300 flex items-center group">
+                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Python Programming
+                    </a></li>
+                    <li><a href="Courses.html#fullstack" class="hover:text-primary transition-colors duration-300 flex items-center group">
+                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Full Stack Development
+                    </a></li>
+                    <li><a href="Courses.html#olevel" class="hover:text-primary transition-colors duration-300 flex items-center group">
+                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>O Level
+                    </a></li>
+                    <li><a href="Courses.html#adca" class="hover:text-primary transition-colors duration-300 flex items-center group">
+                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>ADCA
+                    </a></li>
+                    <li><a href="Courses.html#graphic" class="hover:text-primary transition-colors duration-300 flex items-center group">
+                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Graphic Design
+                    </a></li>
+                    <li><a href="quiz.html" class="hover:text-primary transition-colors duration-300 flex items-center group">
+                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Practice Quiz
+                    </a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h4 class="text-white font-bold text-lg mb-6">Contact Us</h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                        <span class="text-sm">Bithri Road, Opposite Sheetala Mata Mandir, Nariyawal BLY, 243123</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-phone text-primary mr-3"></i>
+                        <a href="tel:+916396835709" class="hover:text-primary transition-colors">+91-6396835709</a>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-envelope text-primary mr-3"></i>
+                        <a href="mailto:bytecore.info@gmail.com" class="hover:text-primary transition-colors">bytecore.info@gmail.com</a>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-clock text-primary mt-1 mr-3"></i>
+                        <span class="text-sm">Mon - Sat: 9:00 AM - 6:00 PM<br>Sunday: Closed</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-slate-800 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <p class="text-slate-400 text-sm text-center md:text-left">
+                    &copy; 2010-2025 ByteCore Computer Centre. All rights reserved.
+                </p>
+                <div class="flex space-x-6 text-sm">
+                    <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+                    <a href="Fee.html" class="hover:text-primary transition-colors">Fee Structure</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="components/page-wrapper-fix.js"></script>
 </body>
 
 </html>
+
+

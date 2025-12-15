@@ -1,0 +1,56 @@
+/* Footer Fix - Removes white space below footer */
+
+/* Ensure body and html take full height with no extra space */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make main content grow to push footer down */
+main, 
+.main-content,
+body > div:not(#mobile-menu):not(.modal) {
+    flex: 1 0 auto;
+}
+
+/* Footer stays at bottom with no extra space */
+footer {
+    flex-shrink: 0;
+    margin-top: auto;
+    margin-bottom: 0 !important;
+    padding-bottom: 2rem;
+}
+
+/* Remove any default margins/padding that cause white space */
+body::after,
+html::after {
+    content: none;
+    display: none;
+}
+
+/* Ensure footer is the last element visually */
+footer ~ * {
+    display: none;
+}
+
+/* Dark mode footer fix */
+.dark footer {
+    background-color: #0f172a;
+}
+
+/* Remove bottom spacing on all pages */
+body {
+    padding-bottom: 0 !important;
+}
+
+html {
+    padding-bottom: 0 !important;
+}
