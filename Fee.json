@@ -1322,14 +1322,15 @@
         "name": "sangeeta",
         "course": "Accounting",
         "total": 4800,
-        "remaining": 3200
+        "remaining": 0,
+        "date": "2025-12-17"
     },
     "1162": {
-        "name": "Muskan Fatima",
+        "name": "Muskan Fatima f",
         "course": "Accounting",
         "total": 4800,
-        "remaining": 4000,
-        "date": "2025-09-29"
+        "remaining": 0,
+        "date": "2025-12-17"
     },
     "1163": {
         "name": "Arif ansari",
