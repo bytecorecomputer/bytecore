@@ -1,172 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
-
-  <!-- Homepage - Highest Priority -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://bytecore-flax.vercel.app/</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.00</priority>
-    <image:image>
-      <image:loc>https://bytecore-flax.vercel.app/hero.jpg</image:loc>
-      <image:title>Bytecore Computer Centre - Tech Mastery Starts Here</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://bytecore-flax.vercel.app/logo.png</image:loc>
-      <image:title>Bytecore Logo - Best IT Training Institute Bareilly</image:title>
-    </image:image>
+    <lastmod>2025-12-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
-
-  <!-- Scholarship Page - Very High Priority (Time-Sensitive) -->
   <url>
-    <loc>https://bytecore-flax.vercel.app/scholarship.html</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://bytecore-flax.vercel.app/images/courseimg/scolership.png</image:loc>
-      <image:title>Bytecore Scholarship 2025 - Win 150% Fee Waiver + ₹500 Cash Rewards</image:title>
-    </image:image>
+    <loc>https://bytecore-flax.vercel.app/index.html</loc>
+    <lastmod>2025-12-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
-
-  <!-- Main Pages - High Priority -->
   <url>
     <loc>https://bytecore-flax.vercel.app/Courses.html</loc>
-    <lastmod>2025-01-17</lastmod>
+    <lastmod>2025-12-24</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.9</priority>
   </url>
-
-  <url>
-    <loc>https://bytecore-flax.vercel.app/quiz.html</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://bytecore-flax.vercel.app/logo.png</image:loc>
-      <image:title>Bytecore Programming Quiz - Test Your Coding Skills</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://bytecore-flax.vercel.app/courses/full-stack-development</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://bytecore-flax.vercel.app/courses/python-programming</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://bytecore-flax.vercel.app/courses/o-level</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://bytecore-flax.vercel.app/courses/ccc</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://bytecore-flax.vercel.app/courses/adca</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://bytecore-flax.vercel.app/courses/mdca</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://bytecore-flax.vercel.app/courses/graphic-design</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://bytecore-flax.vercel.app/Fee.html</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
   <url>
     <loc>https://bytecore-flax.vercel.app/diploma.html</loc>
-    <lastmod>2025-01-17</lastmod>
+    <lastmod>2025-12-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.8</priority>
   </url>
-
   <url>
-    <loc>https://bytecore-flax.vercel.app/enroll.html</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <loc>https://bytecore-flax.vercel.app/scholarship.html</loc>
+    <lastmod>2025-12-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://bytecore-flax.vercel.app/About.html</loc>
-    <lastmod>2025-01-17</lastmod>
+    <lastmod>2025-12-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://bytecore-flax.vercel.app/contact.html</loc>
-    <lastmod>2025-01-17</lastmod>
+    <lastmod>2025-12-24</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.7</priority>
   </url>
-
-  <url>
-    <loc>https://bytecore-flax.vercel.app/blog.html</loc>
-    <lastmod>2025-01-17</lastmod>
+   <url>
+    <loc>https://bytecore-flax.vercel.app/Fee.html</loc>
+    <lastmod>2025-12-24</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.70</priority>
+    <priority>0.6</priority>
   </url>
-
   <url>
-    <loc>https://bytecore-flax.vercel.app/resource.html</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
+    <loc>https://bytecore-flax.vercel.app/quiz.html</loc>
+    <lastmod>2025-12-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
-
-  <url>
-    <loc>https://bytecore-flax.vercel.app/placements</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://bytecore-flax.vercel.app/testimonials</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-
-  <url>
-    <loc>https://bytecore-flax.vercel.app/gallery</loc>
-    <lastmod>2025-01-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.60</priority>
-  </url>
-
 </urlset>

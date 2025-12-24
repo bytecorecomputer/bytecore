@@ -1,118 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- SEO Meta Tags -->
-    <title>Bytecore Computer Centre | Tech Mastery Starts Here - Python, Java, Full Stack Development</title>
+    <title>Bytecore Computer Centre | Tech Mastery Starts Here</title>
     <meta name="description"
-        content="Tech Mastery Starts Here! Bytecore Computer Centre offers top computer training in Python, Full Stack Development, Java, C++, Graphic Design. Join 10000+ successful students. Best IT institute since 2010." />
-    <meta name="keywords"
-        content="Bytecore Computer Centre, Tech Mastery Starts Here, Python course, Java programming, Full Stack Development, C++ training, O Level certification, ADCA, MDCA, Graphic Design, Bytecore Bareilly, best computer institute, IT training center, programming courses, coding bootcamp, computer education" />
-    <meta name="author" content="Bytecore Computer Centre" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        content="Master Python, Full Stack Development, Java, and Design at Bytecore Computer Centre. The best IT training institute since 2010." />
 
-    <!-- Social Media Meta Tags -->
-    <meta property="og:title" content="Bytecore Computer Centre | Best Computer Training" />
-    <meta property="og:description"
-        content="Join Bytecore Computer Centre for Python, CCC, O Level, and more programming courses." />
-    <meta property="og:image" content="https://bytecore-flax.vercel.app/logo.png" />
-    <meta property="og:url" content="https://bytecore-flax.vercel.app/" />
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="logo.png" />
-
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "EducationalOrganization",
-      "name": "Bytecore Computer Centre",
-      "alternateName": "Bytecore",
-      "url": "https://bytecore-flax.vercel.app",
-      "logo": "https://bytecore-flax.vercel.app/logo.png",
-      "description": "Leading IT training institute offering comprehensive computer courses including Python, Full Stack Development, O Level, CCC, ADCA, MDCA, and Graphic Design since 2010.",
-      "foundingDate": "2010",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Bithri Road, Opposite Sheetala Mata Mandir",
-        "addressLocality": "Nariyawal BLY",
-        "addressCountry": "India",
-        "postalCode": "243123"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91-6396835709",
-        "contactType": "customer service",
-        "email": "bytecore.info@gmail.com",
-        "availableLanguage": ["English", "Hindi"]
-      },
-      "sameAs": [
-        "https://www.facebook.com/bytecorecomputercentre/",
-        "https://x.com/bytecores",
-        "https://www.instagram.com/bytecore_computer_centre/",
-        "https://www.linkedin.com/in/bytecore-computer-centre-69ba7a344/"
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Computer Training Courses",
-        "itemListElement": [
-          {
-            "@type": "Course",
-            "name": "Full Stack Web Development",
-            "description": "Complete web development course covering modern frontend and backend technologies",
-            "provider": {
-              "@type": "Organization",
-              "name": "Bytecore Computer Centre"
-            }
-          },
-          {
-            "@type": "Course", 
-            "name": "Python Programming",
-            "description": "Comprehensive Python programming course from basics to advanced",
-            "provider": {
-              "@type": "Organization",
-              "name": "Bytecore Computer Centre"
-            }
-          },
-          {
-            "@type": "Course",
-            "name": "O Level Certification",
-            "description": "NIELIT O Level certification course covering IT fundamentals and programming",
-            "provider": {
-              "@type": "Organization",
-              "name": "Bytecore Computer Centre"
-            }
-          }
-        ]
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "reviewCount": "150",
-        "bestRating": "5"
-      }
-    }
-    </script>
-
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <link rel="stylesheet" href="global-styles.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
                     colors: {
                         primary: '#6366f1',
+                        secondary: '#a855f7',
                         dark: '#0f172a',
+                    },
+                    animation: {
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 4s infinite',
+                        'reveal': 'reveal 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+                            '50%': { opacity: '1', transform: 'scale(1.05)' },
+                        },
+                        reveal: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
                     }
                 }
             }
@@ -120,2982 +59,326 @@
     </script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-
-        * {
-            scroll-behavior: smooth;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
-        }
-
-        body {
-            font-family: 'Inter', 'Poppins', sans-serif;
-            background: #f8fafc;
-            overflow-x: hidden;
-        }
-
-        /* Subtle Background Pattern */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
-            z-index: -1;
-        }
-
-        /* Glassmorphism Container */
-        .glass-container {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .dark body {
-            background: #0f172a;
-        }
-
-        .dark body::before {
-            background:
-                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
-        }
-
-        .dark .glass-container {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        /* Ultra Modern Course Card */
-        .course-card {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: transform;
-            position: relative;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .dark .course-card {
-            background: rgba(30, 41, 59, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .course-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.15), transparent);
-            transition: left 0.8s ease;
-            z-index: 1;
-        }
-
-        .course-card::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: 0;
-        }
-
-        .course-card:hover::before {
-            left: 100%;
-        }
-
-        .course-card:hover::after {
-            opacity: 1;
-        }
-
-        .course-card:hover {
-            transform: translateY(-16px) scale(1.03) rotateX(2deg);
-            box-shadow:
-                0 30px 60px -15px rgba(99, 102, 241, 0.4),
-                0 0 0 1px rgba(99, 102, 241, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
-        }
-
-        .course-card:active {
-            transform: translateY(-12px) scale(1.01);
-        }
-
-        /* Floating Animation */
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .floating {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        /* Pulse Glow Effect */
-        @keyframes pulseGlow {
-
-            0%,
-            100% {
-                box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
-            }
-
-            50% {
-                box-shadow: 0 0 40px rgba(99, 102, 241, 0.8);
-            }
-        }
-
-        .pulse-glow {
-            animation: pulseGlow 2s ease-in-out infinite;
-        }
-
-        /* Smooth transitions for all interactive elements */
-        button,
-        a,
-        input,
-        select,
-        textarea {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Modern Section Styles */
-        section {
-            position: relative;
-            padding: 80px 0;
-        }
-
-        section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
-        }
-
-        /* Fade-in animation for sections */
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .fade-in-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Modern Card Hover Effects */
-        .modern-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 20px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .dark .modern-card {
-            background: rgba(30, 41, 59, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .modern-card:hover {
-            transform: translateY(-8px);
-            box-shadow:
-                0 20px 40px rgba(99, 102, 241, 0.2),
-                0 0 0 1px rgba(99, 102, 241, 0.1);
-        }
-
-        /* Smooth hover effects for all cards */
-        .bg-white,
-        .dark\:bg-slate-800 {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Gradient Text Effect */
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Animated Underline */
-        .animated-underline {
-            position: relative;
-            display: inline-block;
-        }
-
-        .animated-underline::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: width 0.4s ease;
-            border-radius: 2px;
-        }
-
-        .animated-underline:hover::after {
-            width: 100%;
-        }
-
-        /* Morphing Shapes Background */
-        @keyframes morphing {
-
-            0%,
-            100% {
-                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            }
-
-            50% {
-                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-            }
-        }
-
-        .morphing-shape {
-            animation: morphing 8s ease-in-out infinite;
-        }
-
-        /* Blob Animation */
-        @keyframes blob {
-
-            0%,
-            100% {
-                transform: translate(0px, 0px) scale(1);
-            }
-
-            33% {
-                transform: translate(30px, -50px) scale(1.1);
-            }
-
-            66% {
-                transform: translate(-20px, 20px) scale(0.9);
-            }
-        }
-
-        .animate-blob {
-            animation: blob 7s infinite;
-        }
-
-        .animation-delay-2000 {
-            animation-delay: 2s;
-        }
-
-        .animation-delay-4000 {
-            animation-delay: 4s;
-        }
-
-        /* Gradient Animation */
-        @keyframes gradient {
-
-            0%,
-            100% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-        }
-
-        .animate-gradient {
-            background-size: 200% 200%;
-            animation: gradient 3s ease infinite;
-        }
-
-        /* Bounce Slow */
-        @keyframes bounce-slow {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-5px);
-            }
-        }
-
-        .animate-bounce-slow {
-            animation: bounce-slow 2s ease-in-out infinite;
-        }
-
-        /* Shine Effect */
-        @keyframes shine {
-            0% {
-                left: -100%;
-            }
-
-            100% {
-                left: 100%;
-            }
-        }
-
-        .shine-effect {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .shine-effect::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            animation: shine 3s infinite;
-        }
-
-        /* SIMPLE SWIPER STYLES */
-        .swiper {
-            width: 100%;
-            padding: 30px 0 50px 0;
-        }
-
-        .swiper-slide {
-            width: 320px;
-            height: auto;
-        }
-
-        /* Uniform Course Card Sizing */
-        .course-card {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .course-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .swiper-pagination-bullet {
-            width: 12px;
-            height: 12px;
-            background: #c7d2fe;
-            opacity: 1;
-        }
-
-        .swiper-pagination-bullet-active {
-            background: #6366f1;
-        }
-
-        .feature-icon {
-            background: linear-gradient(135deg, #818cf8, #a78bfa);
-        }
-
-        .dark .feature-icon {
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
-        }
-
-        /* Mobile Menu Styles */
-        #mobile-menu {
-            backdrop-filter: blur(10px);
-        }
-
-        #mobile-menu a:hover {
-            background-color: rgba(99, 102, 241, 0.1);
-            border-radius: 8px;
-        }
-
-        /* Modern Scholarship Notification */
-        .scholarship-popup {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 9999;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateX(100%);
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        .scholarship-popup.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(0);
-        }
-
-        .modern-notification {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            width: 380px;
-            max-width: calc(100vw - 40px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(0, 0, 0, 0.05);
-            border: none;
-            border-radius: 8px;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            color: #64748b;
-        }
-
-        .close-btn:hover {
-            background: rgba(0, 0, 0, 0.1);
-            color: #334155;
-        }
-
-        .notification-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 16px 16px 12px 16px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .badge-icon {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-
-        .badge-text {
-            font-size: 12px;
-            font-weight: 600;
-            color: #6366f1;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .notification-content {
-            padding: 16px;
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-
-        .scholarship-image {
-            flex-shrink: 0;
-        }
-
-        .image-modern {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            object-fit: cover;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .content-text {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1e293b;
-            margin: 0 0 4px 0;
-            line-height: 1.3;
-        }
-
-        .subtitle {
-            font-size: 13px;
-            color: #64748b;
-            margin: 0 0 12px 0;
-            line-height: 1.4;
-        }
-
-        .exam-info {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            color: #475569;
-        }
-
-        .info-icon {
-            font-size: 12px;
-            width: 16px;
-            text-align: center;
-        }
-
-        .notification-action {
-            padding: 12px 16px 16px 16px;
-        }
-
-        .register-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            padding: 14px 20px;
-            font-size: 15px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .register-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .register-btn:hover::before {
-            left: 100%;
-        }
-
-        .register-btn:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.4);
-        }
-
-        .register-btn:active {
-            transform: translateY(0) scale(0.98);
-        }
-
-        /* Dark mode support */
-        .dark .modern-notification {
-            background: rgba(15, 23, 42, 0.95);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .dark .title {
-            color: #f1f5f9;
-        }
-
-        .dark .subtitle {
-            color: #94a3b8;
-        }
-
-        .dark .info-item {
-            color: #cbd5e1;
-        }
-
-        .dark .close-btn {
-            background: rgba(255, 255, 255, 0.05);
-            color: #94a3b8;
-        }
-
-        .dark .close-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #e2e8f0;
-        }
-
-        /* Mobile responsive */
-        @media (max-width: 480px) {
-            .scholarship-popup {
-                top: 10px;
-                right: 10px;
-                left: 10px;
-                animation: slideInMobile 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            }
-
-            .modern-notification {
-                width: 100%;
-            }
-
-            .notification-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .exam-info {
-                flex-direction: row;
-                justify-content: space-around;
-                flex-wrap: wrap;
-            }
-
-            .register-btn {
-                padding: 16px 20px;
-                font-size: 16px;
-                font-weight: 800;
-            }
-        }
-
-        @keyframes slideInMobile {
-            from {
-                opacity: 0;
-                transform: translateY(-50px) scale(0.9);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        /* Universal Header Styles */
-        .universal-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 80px;
-        }
-
-        /* Logo Section */
-        .logo-section {
-            flex-shrink: 0;
-        }
-
-        .logo-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-
-        .logo-wrapper:hover {
-            transform: scale(1.02);
-        }
-
-        .logo-img {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .brand-name {
-            font-size: 24px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-        }
-
-        .brand-tagline {
-            font-size: 11px;
-            color: #64748b;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        /* Navigation Hub */
-        .nav-hub {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(248, 250, 252, 0.8);
-            padding: 8px;
-            border-radius: 16px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 16px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            position: relative;
-            background: transparent;
-            border: none;
-            font-size: 14px;
-            font-weight: 500;
-            color: #475569;
-        }
-
-        .nav-item:hover {
-            background: white;
-            color: #6366f1;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
-        }
-
-        .nav-item.active {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: white;
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
-        }
-
-        .nav-icon {
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 20px;
-        }
-
-        .nav-label {
-            font-weight: 600;
-            white-space: nowrap;
-        }
-
-        .dropdown-arrow {
-            font-size: 10px;
-            margin-left: 4px;
-            transition: transform 0.2s ease;
-        }
-
-        .dropdown-trigger:hover .dropdown-arrow {
-            transform: rotate(180deg);
-        }
-
-        /* Special Highlight for Scholarship */
-        .special-highlight {
-            background: linear-gradient(135deg, #f59e0b, #f97316) !important;
-            color: white !important;
-            animation: pulse-glow 2s infinite;
-        }
-
-        .pulse-dot {
-            position: absolute;
-            top: 8px;
-            right: 12px;
-            width: 8px;
-            height: 8px;
-            background: #ef4444;
-            border-radius: 50%;
-            animation: bounce 1s infinite;
-        }
-
-        @keyframes pulse-glow {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
-            }
-
-            50% {
-                box-shadow: 0 0 0 8px rgba(245, 158, 11, 0);
-            }
-        }
-
-        @keyframes bounce {
-
-            0%,
-            20%,
-            53%,
-            80%,
-            100% {
-                transform: translate3d(0, 0, 0);
-            }
-
-            40%,
-            43% {
-                transform: translate3d(0, -4px, 0);
-            }
-
-            70% {
-                transform: translate3d(0, -2px, 0);
-            }
-        }
-
-        /* Mega Dropdown */
-        .mega-dropdown {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateX(-50%) translateY(-10px);
-            transition: all 0.3s ease;
-            min-width: 600px;
-            margin-top: 12px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            padding: 24px;
-        }
-
-        .dropdown-trigger:hover .mega-dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .dropdown-section h4 {
-            font-size: 14px;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #e2e8f0;
-        }
-
-        .dropdown-section a {
-            display: block;
-            padding: 8px 12px;
-            color: #64748b;
-            text-decoration: none;
-            font-size: 13px;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            margin-bottom: 4px;
-        }
-
-        .dropdown-section a:hover {
-            color: #6366f1;
-            background: rgba(99, 102, 241, 0.05);
-            transform: translateX(4px);
-        }
-
-        /* Action Zone */
-        .action-zone {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .theme-switcher {
-            position: relative;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            border: none;
-            background: rgba(248, 250, 252, 0.8);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            overflow: hidden;
-        }
-
-        .theme-switcher:hover {
-            background: white;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .theme-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .sun-icon {
-            opacity: 1;
-        }
-
-        .moon-icon {
-            opacity: 0;
-            transform: translate(-50%, -50%) rotate(180deg);
-        }
-
-        .dark .sun-icon {
-            opacity: 0;
-            transform: translate(-50%, -50%) rotate(-180deg);
-        }
-
-        .dark .moon-icon {
-            opacity: 1;
-            transform: translate(-50%, -50%) rotate(0deg);
-        }
-
-        .cta-button {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 28px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 16px;
-            font-weight: 700;
-            font-size: 15px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow:
-                0 10px 30px rgba(102, 126, 234, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow:
-                0 15px 40px rgba(102, 126, 234, 0.5),
-                0 0 0 3px rgba(102, 126, 234, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4);
-        }
-
-        .cta-button:active {
-            transform: translateY(-1px) scale(1.02);
-        }
-
-        .cta-arrow {
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .cta-button:hover .cta-arrow {
-            transform: translateX(6px);
-        }
-
-        /* Modern Gradient Buttons */
-        .btn-modern {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-modern:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-modern::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .btn-modern:hover::after {
-            width: 300px;
-            height: 300px;
-        }
-
-        .mobile-menu-trigger {
-            display: none;
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            border: none;
-            background: rgba(248, 250, 252, 0.8);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .hamburger {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hamburger span {
-            width: 20px;
-            height: 2px;
-            background: #475569;
-            border-radius: 1px;
-            transition: all 0.3s ease;
-        }
-
-        /* Mobile Navigation */
-        .mobile-nav-panel {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 320px;
-            height: 100vh;
-            background: white;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            z-index: 1001;
-            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .mobile-nav-panel.active {
-            transform: translateX(0);
-        }
-
-        .mobile-nav-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 24px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .mobile-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .mobile-logo img {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-        }
-
-        .mobile-close {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            border: none;
-            background: #f1f5f9;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .mobile-nav-content {
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .mobile-nav-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 16px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.2s ease;
+        /* Advanced Hero Background */
+        .hero-bg {
+            background-color: #000;
+            background-image:
+                radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.15) 0%, transparent 25%);
             position: relative;
         }
 
-        .mobile-nav-item:hover {
-            background: #f8fafc;
-            transform: translateX(4px);
-        }
-
-        .mobile-nav-item.special {
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            color: white;
-        }
-
-        .mobile-nav-icon {
-            font-size: 20px;
-            width: 24px;
-            text-align: center;
-        }
-
-        .mobile-pulse-dot {
+        .grid-overlay {
             position: absolute;
-            top: 12px;
-            right: 16px;
-            width: 8px;
-            height: 8px;
-            background: #ef4444;
-            border-radius: 50%;
-            animation: bounce 1s infinite;
-        }
-
-        .mobile-nav-footer {
-            padding: 24px;
-            border-top: 1px solid #e2e8f0;
-            margin-top: auto;
-        }
-
-        .mobile-cta {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 15px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mobile-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .mobile-cta:hover::before {
-            left: 100%;
-        }
-
-        .mobile-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
-        }
-
-        .mobile-cta:active {
-            transform: translateY(0) scale(0.98);
-        }
-
-        /* Dark Mode */
-        .dark .universal-header {
-            background: rgba(15, 23, 42, 0.95);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .dark .nav-hub {
-            background: rgba(30, 41, 59, 0.8);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .dark .nav-item {
-            color: #94a3b8;
-        }
-
-        .dark .nav-item:hover {
-            background: rgba(51, 65, 85, 0.8);
-            color: #c7d2fe;
-        }
-
-        .dark .brand-tagline {
-            color: #94a3b8;
-        }
-
-        .dark .theme-switcher,
-        .dark .mobile-menu-trigger {
-            background: rgba(30, 41, 59, 0.8);
-        }
-
-        .dark .mega-dropdown {
-            background: #1e293b;
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .dark .dropdown-section h4 {
-            color: #f1f5f9;
-            border-color: #334155;
-        }
-
-        .dark .dropdown-section a {
-            color: #94a3b8;
-        }
-
-        .dark .dropdown-section a:hover {
-            color: #c7d2fe;
-            background: rgba(99, 102, 241, 0.1);
-        }
-
-        .dark .mobile-nav-panel {
-            background: #0f172a;
-        }
-
-        .dark .mobile-nav-header {
-            border-color: #334155;
-        }
-
-        .dark .mobile-close {
-            background: #334155;
-            color: #94a3b8;
-        }
-
-        .dark .mobile-nav-item:hover {
-            background: #1e293b;
-        }
-
-        .dark .mobile-nav-footer {
-            border-color: #334155;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .nav-hub {
-                display: none;
-            }
-
-            .mobile-menu-trigger {
-                display: flex;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header-container {
-                padding: 0 16px;
-                height: 70px;
-            }
-
-            .logo-img {
-                width: 40px;
-                height: 40px;
-            }
-
-            .brand-name {
-                font-size: 20px;
-            }
-
-            .brand-tagline {
-                font-size: 10px;
-            }
-
-            .cta-button {
-                display: none;
-            }
-
-            .mobile-nav-panel {
-                width: 100%;
-            }
-        }
-
-        /* Add top margin to body to account for fixed header */
-        body {
-            margin-top: 80px !important;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                margin-top: 70px !important;
-            }
-        }
-
-        /* Modern Smart Navigation */
-        .nav-btn {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
-            border-radius: 12px;
-            border: none;
-            background: transparent;
-            color: #64748b;
-            font-weight: 500;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            position: relative;
-            text-decoration: none;
-        }
-
-        .nav-btn:hover {
-            background: rgba(99, 102, 241, 0.1);
-            color: #6366f1;
-            transform: translateY(-1px);
-        }
-
-        .nav-btn.active {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: white;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-        }
-
-        .scholarship-highlight {
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            color: white;
-            animation: pulse-glow 2s infinite;
-        }
-
-        .notification-dot {
-            position: absolute;
-            top: 4px;
-            right: 8px;
-            width: 8px;
-            height: 8px;
-            background: #ef4444;
-            border-radius: 50%;
-            animation: bounce 1s infinite;
-        }
-
-        @keyframes pulse-glow {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
-            }
-
-            50% {
-                box-shadow: 0 0 0 8px rgba(245, 158, 11, 0);
-            }
-        }
-
-        @keyframes bounce {
-
-            0%,
-            20%,
-            53%,
-            80%,
-            100% {
-                transform: translate3d(0, 0, 0);
-            }
-
-            40%,
-            43% {
-                transform: translate3d(0, -8px, 0);
-            }
-
-            70% {
-                transform: translate3d(0, -4px, 0);
-            }
-
-            90% {
-                transform: translate3d(0, -2px, 0);
-            }
-        }
-
-        /* Mega Menu */
-        .mega-menu {
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateX(-50%) translateY(-10px);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            min-width: 600px;
-            margin-top: 8px;
-        }
-
-        .group:hover .mega-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        .mega-menu-content {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            padding: 24px;
-        }
-
-        .menu-section h4 {
-            font-size: 14px;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #e2e8f0;
-        }
-
-        .menu-section a {
-            display: block;
-            padding: 8px 0;
-            color: #64748b;
-            text-decoration: none;
-            font-size: 13px;
-            transition: all 0.2s ease;
-            border-radius: 6px;
-            padding-left: 8px;
-            margin-left: -8px;
-        }
-
-        .menu-section a:hover {
-            color: #6366f1;
-            background: rgba(99, 102, 241, 0.05);
-            transform: translateX(4px);
-        }
-
-        /* Dark mode for navigation */
-        .dark .nav-btn {
-            color: #94a3b8;
-        }
-
-        .dark .nav-btn:hover {
-            background: rgba(99, 102, 241, 0.2);
-            color: #c7d2fe;
-        }
-
-        .dark .mega-menu {
-            background: #1e293b;
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .dark .menu-section h4 {
-            color: #f1f5f9;
-            border-color: #334155;
-        }
-
-        .dark .menu-section a {
-            color: #94a3b8;
-        }
-
-        .dark .menu-section a:hover {
-            color: #c7d2fe;
-            background: rgba(99, 102, 241, 0.1);
-        }
-
-        /* Mobile Navigation Update */
-        .mobile-nav-btn {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            border-radius: 12px;
-            border: none;
-            background: transparent;
-            color: #64748b;
-            font-weight: 500;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            position: relative;
-            text-align: left;
-            width: 100%;
-        }
-
-        .mobile-nav-btn:hover {
-            background: rgba(99, 102, 241, 0.1);
-            color: #6366f1;
-            transform: translateX(4px);
-        }
-
-        .scholarship-mobile {
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            color: white;
-        }
-
-        .mobile-notification-dot {
-            position: absolute;
-            top: 8px;
-            right: 16px;
-            width: 8px;
-            height: 8px;
-            background: #ef4444;
-            border-radius: 50%;
-            animation: bounce 1s infinite;
-        }
-
-        .dark .mobile-nav-btn {
-            color: #94a3b8;
-        }
-
-        .dark .mobile-nav-btn:hover {
-            background: rgba(99, 102, 241, 0.2);
-            color: #c7d2fe;
-        }
-
-        @media (max-width: 768px) {
-            .mega-menu {
-                min-width: 320px;
-                left: 0;
-                transform: translateX(0);
-            }
-
-            .group:hover .mega-menu {
-                transform: translateX(0) translateY(0);
-            }
-
-            .mega-menu-content {
-                grid-template-columns: 1fr;
-                gap: 16px;
-                padding: 16px;
-            }
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(circle at center, black, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+            pointer-events: none;
         }
     </style>
 
-    <!-- Minimalist Header System -->
-    <script src="minimalist-header.js"></script>
-    <script>
-        // Simple header injection without fetch
-        document.addEventListener('DOMContentLoaded', function () {
-            const headerHTML = `
-                <!-- Universal Modern Header Component -->
-                <header class="universal-header">
-                    <div class="header-container">
-                        <!-- Logo Section -->
-                        <div class="logo-section">
-                            <div class="logo-wrapper" onclick="smartNavigate('index.html')">
-                                <img src="logo.png" alt="Bytecore" class="logo-img">
-                                <div class="logo-text">
-                                    <span class="brand-name">ByteCore</span>
-                                    <span class="brand-tagline">Tech Mastery Starts Here</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Navigation Hub -->
-                        <nav class="nav-hub">
-                            <div class="nav-item active" data-section="home" onclick="smartNavigate('index.html')">
-                                <div class="nav-icon">🏠</div>
-                                <span class="nav-label">Home</span>
-                            </div>
-                            
-                            <div class="nav-item dropdown-trigger" data-section="learn">
-                                <div class="nav-icon">📚</div>
-                                <span class="nav-label">Learn</span>
-                                <div class="dropdown-arrow">▼</div>
-                                
-                                <!-- Mega Dropdown -->
-                                <div class="mega-dropdown">
-                                    <div class="dropdown-section">
-                                        <h4>💻 Programming</h4>
-                                        <a href="#" onclick="smartNavigate('Courses.html')">Python Development</a>
-                                        <a href="#" onclick="smartNavigate('Courses.html')">Java Programming</a>
-                                        <a href="#" onclick="smartNavigate('Courses.html')">Full Stack Web</a>
-                                        <a href="#" onclick="smartNavigate('Courses.html')">C++ Programming</a>
-                                    </div>
-                                    <div class="dropdown-section">
-                                        <h4>🎓 Certifications</h4>
-                                        <a href="#" onclick="smartNavigate('diploma.html')">O Level</a>
-                                        <a href="#" onclick="smartNavigate('diploma.html')">CCC Course</a>
-                                        <a href="#" onclick="smartNavigate('diploma.html')">ADCA</a>
-                                        <a href="#" onclick="smartNavigate('diploma.html')">MDCA</a>
-                                    </div>
-                                    <div class="dropdown-section">
-                                        <h4>🎨 Design</h4>
-                                        <a href="#" onclick="smartNavigate('Courses.html')">Graphic Design</a>
-                                        <a href="#" onclick="smartNavigate('Courses.html')">UI/UX Design</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="nav-item" data-section="quiz" onclick="smartNavigate('quiz.html')">
-                                <div class="nav-icon">🧠</div>
-                                <span class="nav-label">Quiz</span>
-                            </div>
-                            
-                            <div class="nav-item special-highlight" data-section="scholarship" onclick="smartNavigate('scholarship.html')">
-                                <div class="nav-icon">🏆</div>
-                                <span class="nav-label">Scholarship</span>
-                                <div class="pulse-dot"></div>
-                            </div>
-                            
-                            <div class="nav-item" data-section="fees" onclick="smartNavigate('Fee.html')">
-                                <div class="nav-icon">💰</div>
-                                <span class="nav-label">Fees</span>
-                            </div>
-                            
-                            <div class="nav-item" data-section="about" onclick="smartNavigate('About.html')">
-                                <div class="nav-icon">ℹ️</div>
-                                <span class="nav-label">About</span>
-                            </div>
-                            
-                            <div class="nav-item" data-section="contact" onclick="smartNavigate('contact.html')">
-                                <div class="nav-icon">📞</div>
-                                <span class="nav-label">Contact</span>
-                            </div>
-                        </nav>
-
-                        <!-- Action Zone -->
-                        <div class="action-zone">
-                            <button class="theme-switcher" id="universal-theme-toggle">
-                                <div class="theme-icon sun-icon">☀️</div>
-                                <div class="theme-icon moon-icon">🌙</div>
-                            </button>
-                            
-                            <button class="cta-button" onclick="smartNavigate('scholarship.html')">
-                                <span class="cta-text">Register Now</span>
-                                <div class="cta-arrow">→</div>
-                            </button>
-                            
-                            <button class="mobile-menu-trigger" id="mobile-trigger">
-                                <div class="hamburger">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Mobile Navigation Panel -->
-                    <div class="mobile-nav-panel" id="mobile-panel">
-                        <div class="mobile-nav-header">
-                            <div class="mobile-logo">
-                                <img src="logo.png" alt="Bytecore">
-                                <span>ByteCore</span>
-                            </div>
-                            <button class="mobile-close" id="mobile-close">✕</button>
-                        </div>
-                        
-                        <div class="mobile-nav-content">
-                            <div class="mobile-nav-item" onclick="smartNavigate('index.html')">
-                                <div class="mobile-nav-icon">🏠</div>
-                                <span>Home</span>
-                            </div>
-                            
-                            <div class="mobile-nav-item" onclick="smartNavigate('Courses.html')">
-                                <div class="mobile-nav-icon">📚</div>
-                                <span>Courses</span>
-                            </div>
-                            
-                            <div class="mobile-nav-item" onclick="smartNavigate('quiz.html')">
-                                <div class="mobile-nav-icon">🧠</div>
-                                <span>Quiz</span>
-                            </div>
-                            
-                            <div class="mobile-nav-item special" onclick="smartNavigate('scholarship.html')">
-                                <div class="mobile-nav-icon">🏆</div>
-                                <span>Scholarship</span>
-                                <div class="mobile-pulse-dot"></div>
-                            </div>
-                            
-                            <div class="mobile-nav-item" onclick="smartNavigate('Fee.html')">
-                                <div class="mobile-nav-icon">💰</div>
-                                <span>Fees</span>
-                            </div>
-                            
-                            <div class="mobile-nav-item" onclick="smartNavigate('About.html')">
-                                <div class="mobile-nav-icon">ℹ️</div>
-                                <span>About</span>
-                            </div>
-                            
-                            <div class="mobile-nav-item" onclick="smartNavigate('contact.html')">
-                                <div class="mobile-nav-icon">📞</div>
-                                <span>Contact</span>
-                            </div>
-                        </div>
-                        
-                        <div class="mobile-nav-footer">
-                            <button class="mobile-cta" onclick="smartNavigate('scholarship.html')">
-                                Register for Scholarship
-                            </button>
-                        </div>
-                    </div>
-                </header>
-            `;
-
-            // Insert header at beginning of body
-            document.body.insertAdjacentHTML('afterbegin', headerHTML);
-
-            // Initialize header functionality
-            initializeUniversalHeader();
-        });
-
-        // Smart navigation function
-        function smartNavigate(url) {
-            const mobilePanel = document.getElementById('mobile-panel');
-            if (mobilePanel) {
-                mobilePanel.classList.remove('active');
-            }
-
-            if (url.startsWith('#')) {
-                const element = document.querySelector(url);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
-            } else {
-                window.location.href = url;
-            }
-        }
-
-        // Initialize header functionality
-        function initializeUniversalHeader() {
-            // Theme Toggle
-            const themeToggle = document.getElementById('universal-theme-toggle');
-            if (themeToggle) {
-                themeToggle.addEventListener('click', function () {
-                    document.documentElement.classList.toggle('dark');
-                    const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-                    localStorage.setItem('theme', theme);
-                });
-            }
-
-            // Load saved theme
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.documentElement.classList.add('dark');
-            }
-
-            // Mobile Menu Toggle
-            const mobileTrigger = document.getElementById('mobile-trigger');
-            const mobilePanel = document.getElementById('mobile-panel');
-            const mobileClose = document.getElementById('mobile-close');
-
-            if (mobileTrigger && mobilePanel) {
-                mobileTrigger.addEventListener('click', function () {
-                    mobilePanel.classList.add('active');
-                });
-            }
-
-            if (mobileClose && mobilePanel) {
-                mobileClose.addEventListener('click', function () {
-                    mobilePanel.classList.remove('active');
-                });
-            }
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function (e) {
-                if (mobilePanel && mobilePanel.classList.contains('active')) {
-                    if (!mobilePanel.contains(e.target) && !mobileTrigger.contains(e.target)) {
-                        mobilePanel.classList.remove('active');
-                    }
-                }
-            });
-        }
+    <!-- Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Bytecore Computer Centre",
+      "url": "https://bytecore-flax.vercel.app",
+      "logo": "https://bytecore-flax.vercel.app/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/bytecorecomputercentre/",
+        "https://www.instagram.com/bytecore_computer_centre/"
+      ]
+    }
     </script>
 </head>
 
-<body class="bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-100 transition-colors duration-300">
+<body class="bg-slate-50 dark:bg-slate-950 font-sans selection:bg-primary/30">
 
-    <!-- Modern Scholarship Notification -->
-    <div id="scholarshipPopup" class="scholarship-popup">
-        <div class="modern-notification">
-            <button class="close-btn" onclick="closeScholarshipPopup()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden hero-bg pt-20">
+        <div class="grid-overlay"></div>
 
-            <!-- Notification Badge -->
-            <div class="notification-badge">
-                <div class="badge-icon">🎓</div>
-                <div class="badge-text">Scholarship Alert</div>
-            </div>
-
-            <!-- Content -->
-            <div class="notification-content">
-                <div class="scholarship-image">
-                    <img src="images/courseimg/scolership.png" alt="Scholarship" class="image-modern">
-                </div>
-
-                <div class="content-text">
-                    <h3 class="title">Bytecore Scholarship 2025</h3>
-                    <p class="subtitle">Win up to 150% Fee Waiver + ₹500 Cash</p>
-
-                    <div class="exam-info">
-                        <div class="info-item">
-                            <span class="info-icon">📅</span>
-                            <span>23 Nov 2025</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-icon">🕙</span>
-                            <span>10:00 AM</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-icon">💰</span>
-                            <span>₹50 Only</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Action -->
-            <div class="notification-action">
-                <a href="scholarship.html#register-now" onclick="closeScholarshipPopup()" class="register-btn">
-                    <span>Register Now</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="m9 18 6-6-6-6" />
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </div>
-    <!-- Universal Header will be loaded here automatically -->
-
-    <!-- Ultra Modern Hero Section -->
-    <section
-        class="relative pt-20 pb-32 overflow-hidden min-h-screen flex items-center bg-gradient-to-br from-slate-50 via-white to-purple-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
-        <!-- Subtle Animated Background Shapes -->
+        <!-- Floating Elements -->
         <div
-            class="absolute top-20 left-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob">
+            class="absolute top-1/4 left-10 w-24 h-24 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl blur-xl opacity-20 animate-float-slow">
         </div>
-        <div
-            class="absolute top-40 right-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000">
-        </div>
-        <div
-            class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000">
-        </div>
+        <div class="absolute bottom-1/4 right-10 w-32 h-32 bg-gradient-to-tr from-cyan-500 to-blue-500 rounded-full blur-xl opacity-20 animate-float-slow"
+            style="animation-delay: -3s"></div>
 
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2 py-12">
-                    <!-- Modern Badge -->
-                    <div
-                        class="mb-6 inline-flex items-center gap-2 px-4 py-2 glass-container rounded-full font-semibold text-sm animate-bounce-slow">
-                        <span class="text-2xl">🎓</span>
-                        <span class="gradient-text font-bold">Tech Mastery Starts Here</span>
-                        <span class="flex h-2 w-2">
-                            <span
-                                class="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-purple-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-                        </span>
-                    </div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
 
-                    <!-- Ultra Modern Heading -->
-                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-6">
-                        <span class="block text-slate-900 dark:text-white">Build Your</span>
-                        <span class="block text-slate-900 dark:text-white">Future in</span>
-                        <span
-                            class="block gradient-text text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 animate-gradient">
-                            Technology
-                        </span>
-                    </h1>
-
-                    <p
-                        class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-10 max-w-xl leading-relaxed font-medium">
-                        Since 2010, we've trained <span class="font-bold gradient-text">10000+</span> students to become
-                        successful developers. Master the skills that land high-paying jobs.
-                    </p>
-
-                    <!-- Modern CTA Buttons -->
-                    <div class="flex flex-wrap gap-4 mb-10">
-                        <a href="#courses"
-                            class="group px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white font-bold text-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 flex items-center gap-2">
-                            <i class="fas fa-rocket group-hover:animate-bounce"></i>
-                            <span>Explore Courses</span>
-                            <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
-                        </a>
-                        <a href="#registration"
-                            class="px-8 py-4 rounded-2xl glass-container font-bold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2 border-2 border-purple-200 dark:border-purple-800">
-                            <i class="fas fa-phone text-purple-600"></i>
-                            <span class="gradient-text">Free Demo Class</span>
-                        </a>
-                    </div>
-
-                    <!-- Modern Stats with Glassmorphism -->
-                    <div class="grid grid-cols-3 gap-4">
-                        <div
-                            class="glass-container p-4 rounded-2xl text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-                            <div class="text-3xl font-black gradient-text">10K+</div>
-                            <div class="text-sm text-slate-600 dark:text-slate-400 font-semibold">Students</div>
-                        </div>
-                        <div
-                            class="glass-container p-4 rounded-2xl text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-                            <div class="text-3xl font-black gradient-text">95%</div>
-                            <div class="text-sm text-slate-600 dark:text-slate-400 font-semibold">Placement</div>
-                        </div>
-                        <div
-                            class="glass-container p-4 rounded-2xl text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-                            <div class="text-3xl font-black gradient-text">15+</div>
-                            <div class="text-sm text-slate-600 dark:text-slate-400 font-semibold">Years</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="md:w-1/2 flex justify-center">
-                    <div class="relative floating">
-                        <!-- Floating Gradient Orbs -->
-                        <div
-                            class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 opacity-20 absolute -top-10 -left-10 blur-3xl animate-pulse morphing-shape">
-                        </div>
-                        <div
-                            class="w-48 h-48 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 opacity-20 absolute -bottom-10 -right-10 blur-3xl animate-pulse morphing-shape animation-delay-2000">
-                        </div>
-
-                        <!-- Ultra Modern Glass Card -->
-                        <div
-                            class="relative glass-container rounded-3xl shadow-2xl overflow-hidden w-full max-w-md transform hover:scale-105 transition-all duration-500 hover:shadow-purple-500/50">
-                            <!-- Ultra Modern Offer Badge -->
-                            <div class="absolute top-4 right-4 z-10">
-                                <div
-                                    class="bg-gradient-to-r from-red-500 to-pink-500 text-white px-3 py-1.5 rounded-full text-xs font-black animate-bounce-slow shadow-lg shine-effect">
-                                    🔥 50% OFF
-                                </div>
-                            </div>
-
-                            <!-- Modern Course Image with Overlay -->
-                            <div
-                                class="h-40 bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 relative overflow-hidden">
-                                <img src="images/courseimg/o level.jpg" alt="O Level Course"
-                                    class="w-full h-full object-cover opacity-70 mix-blend-overlay">
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
-                                </div>
-                                <div class="absolute bottom-4 left-4 text-white">
-                                    <h3 class="font-black text-2xl mb-1">O Level</h3>
-                                    <div class="flex items-center gap-2">
-                                        <span
-                                            class="bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-full text-xs font-bold">NIELIT
-                                            Certified</span>
-                                        <span class="bg-green-500 px-2 py-0.5 rounded-full text-xs font-bold">⭐
-                                            Popular</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="p-6">
-                                <!-- Ultra Modern Stats Grid -->
-                                <div class="grid grid-cols-3 gap-3 mb-5">
-                                    <div
-                                        class="text-center p-3 rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 transform hover:scale-105 transition-all">
-                                        <div class="text-xl font-black gradient-text">1 Year</div>
-                                        <div class="text-xs text-slate-600 dark:text-slate-400 font-semibold">Duration
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="text-center p-3 rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 transform hover:scale-105 transition-all">
-                                        <div class="text-xl font-black gradient-text">15+</div>
-                                        <div class="text-xs text-slate-600 dark:text-slate-400 font-semibold">Modules
-                                        </div>
-                                    </div>
-                                    <div
-                                        class="text-center p-3 rounded-xl bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 transform hover:scale-105 transition-all">
-                                        <div class="text-xl font-black gradient-text">100%</div>
-                                        <div class="text-xs text-slate-600 dark:text-slate-400 font-semibold">Job Ready
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Modern Feature List -->
-                                <div class="space-y-2 mb-5">
-                                    <div
-                                        class="flex items-center text-sm text-slate-700 dark:text-slate-300 font-medium">
-                                        <div
-                                            class="w-6 h-6 rounded-full bg-gradient-to-r from-green-400 to-emerald-400 flex items-center justify-center mr-3">
-                                            <i class="fas fa-check text-white text-xs"></i>
-                                        </div>
-                                        Government Recognized
-                                    </div>
-                                    <div
-                                        class="flex items-center text-sm text-slate-700 dark:text-slate-300 font-medium">
-                                        <div
-                                            class="w-6 h-6 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 flex items-center justify-center mr-3">
-                                            <i class="fas fa-check text-white text-xs"></i>
-                                        </div>
-                                        Programming + Web Dev
-                                    </div>
-                                    <div
-                                        class="flex items-center text-sm text-slate-700 dark:text-slate-300 font-medium">
-                                        <div
-                                            class="w-6 h-6 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 flex items-center justify-center mr-3">
-                                            <i class="fas fa-check text-white text-xs"></i>
-                                        </div>
-                                        Placement Assistance
-                                    </div>
-                                </div>
-
-                                <!-- Ultra Modern Pricing -->
-                                <div
-                                    class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-4 mb-4">
-                                    <div class="flex justify-between items-center mb-3">
-                                        <div>
-                                            <div class="text-xs text-slate-500 line-through font-medium">₹20,999</div>
-                                            <div class="text-3xl font-black gradient-text">₹10,499</div>
-                                        </div>
-                                        <div class="text-right">
-                                            <div class="text-xs text-red-600 font-bold flex items-center gap-1">
-                                                <i class="fas fa-clock"></i> Limited!
-                                            </div>
-                                            <div class="text-xs text-slate-600 dark:text-slate-400 font-semibold">7 days
-                                                left</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <a href="#registration"
-                                    class="block w-full py-3.5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 hover:from-purple-700 hover:via-pink-700 hover:to-blue-700 text-white font-black rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl text-center text-base shine-effect">
-                                    <i class="fas fa-rocket mr-2"></i>Enroll Now - Save 50%
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="py-16 bg-slate-50 dark:bg-slate-900">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <div class="mb-4">
-                    <span class="inline-block px-6 py-2 bg-primary/10 text-primary rounded-full font-bold text-lg">
-                        🚀 Quick Actions 🚀
-                    </span>
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Would You Like To Do?</h2>
-                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">Choose from our most popular
-                    services and get started right away</p>
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8 animate-reveal opacity-0"
+                style="animation-delay: 0.1s; animation-fill-mode: forwards;">
+                <span class="relative flex h-2 w-2">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="text-xs font-bold uppercase tracking-widest text-indigo-300">Accepting New
+                    Admissions</span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Take Quiz -->
-                <a href="quiz.html"
-                    class="group bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-white">
-                    <div class="text-center">
-                        <div
-                            class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white/30 transition-colors">
-                            <i class="fas fa-brain text-3xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">Take Quiz</h3>
-                        <p class="text-white/90 mb-4">Test your programming skills and get certified instantly</p>
-                        <div class="inline-flex items-center text-sm font-semibold">
-                            Start Now <i
-                                class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </div>
-                </a>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-tight mb-8 text-white animate-reveal opacity-0"
+                style="animation-delay: 0.3s; animation-fill-mode: forwards;">
+                <span
+                    class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400">Tech
+                    Mastery</span><br>
+                Starts Here
+            </h1>
 
-                <!-- View Courses -->
+            <p class="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto mb-12 animate-reveal opacity-0"
+                style="animation-delay: 0.5s; animation-fill-mode: forwards;">
+                Forge your future with industry-standard training in <span class="text-white font-semibold">Full
+                    Stack</span>, <span class="text-white font-semibold">Data Science</span>, and <span
+                    class="text-white font-semibold">Design</span>.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-reveal opacity-0"
+                style="animation-delay: 0.7s; animation-fill-mode: forwards;">
                 <a href="Courses.html"
-                    class="group bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-white">
-                    <div class="text-center">
-                        <div
-                            class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white/30 transition-colors">
-                            <i class="fas fa-graduation-cap text-3xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">Browse Courses</h3>
-                        <p class="text-white/90 mb-4">Explore our programming and IT courses with detailed info</p>
-                        <div class="inline-flex items-center text-sm font-semibold">
-                            View All <i
-                                class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </div>
+                    class="group relative px-8 py-4 bg-white text-dark font-bold rounded-xl overflow-hidden transition-transform hover:scale-105">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-indigo-400 to-purple-400 opacity-0 group-hover:opacity-10 transition-opacity">
                     </div>
+                    <span class="relative flex items-center gap-2">Explore Courses <i
+                            class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i></span>
                 </a>
-
-                <!-- Download Certificate -->
-                <a href="diploma.html"
-                    class="group bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-white">
-                    <div class="text-center">
-                        <div
-                            class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white/30 transition-colors">
-                            <i class="fas fa-certificate text-3xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">Get Certificate</h3>
-                        <p class="text-white/90 mb-4">Download your course completion certificates securely</p>
-                        <div class="inline-flex items-center text-sm font-semibold">
-                            Download <i
-                                class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Check Fees -->
-                <a href="Fee.html"
-                    class="group bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-white">
-                    <div class="text-center">
-                        <div
-                            class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-white/30 transition-colors">
-                            <i class="fas fa-receipt text-3xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3">Check Fees</h3>
-                        <p class="text-white/90 mb-4">View your fee details and payment status online</p>
-                        <div class="inline-flex items-center text-sm font-semibold">
-                            Check Now <i
-                                class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </div>
+                <a href="quiz.html"
+                    class="px-8 py-4 rounded-xl border border-white/20 text-white font-bold hover:bg-white/5 transition-colors backdrop-blur-sm">
+                    Free Skill Test
                 </a>
             </div>
 
-            <!-- Additional Quick Links -->
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-                <a href="About.html"
-                    class="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 text-center border border-slate-200 dark:border-slate-700 hover:border-primary">
-                    <i
-                        class="fas fa-info-circle text-2xl text-primary mb-3 group-hover:scale-110 transition-transform"></i>
-                    <h4 class="font-semibold text-slate-800 dark:text-slate-200">About Us</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Learn more about Bytecore</p>
-                </a>
-
-                <a href="contact.html"
-                    class="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 text-center border border-slate-200 dark:border-slate-700 hover:border-primary">
-                    <i class="fas fa-phone text-2xl text-primary mb-3 group-hover:scale-110 transition-transform"></i>
-                    <h4 class="font-semibold text-slate-800 dark:text-slate-200">Contact</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Get in touch with us</p>
-                </a>
-
-                <a href="#registration"
-                    class="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 text-center border border-slate-200 dark:border-slate-700 hover:border-primary">
-                    <i
-                        class="fas fa-user-plus text-2xl text-primary mb-3 group-hover:scale-110 transition-transform"></i>
-                    <h4 class="font-semibold text-slate-800 dark:text-slate-200">Register</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Join our next batch</p>
-                </a>
-
-                <a href="quiz.html"
-                    class="group bg-white dark:bg-slate-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 text-center border border-slate-200 dark:border-slate-700 hover:border-primary">
-                    <i class="fas fa-trophy text-2xl text-primary mb-3 group-hover:scale-110 transition-transform"></i>
-                    <h4 class="font-semibold text-slate-800 dark:text-slate-200">Leaderboard</h4>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">See top performers</p>
-                </a>
+            <!-- Stats Ribbon -->
+            <div class="mt-20 pt-10 border-t border-white/5 grid grid-cols-2 md:grid-cols-4 gap-8 animate-reveal opacity-0"
+                style="animation-delay: 1s; animation-fill-mode: forwards;">
+                <div>
+                    <h3 class="text-3xl font-bold text-white mb-1">10k+</h3>
+                    <p class="text-xs text-slate-500 uppercase tracking-widest">Graduates</p>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold text-white mb-1">15+</h3>
+                    <p class="text-xs text-slate-500 uppercase tracking-widest">Years Legacy</p>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold text-white mb-1">100%</h3>
+                    <p class="text-xs text-slate-500 uppercase tracking-widest">Practical</p>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold text-white mb-1">50+</h3>
+                    <p class="text-xs text-slate-500 uppercase tracking-widest">Modules</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Courses Section -->
-    <section id="courses" class="py-16">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Top Courses</h2>
-                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">Pick the course that fits your
-                    career goals and start learning today</p>
+    <!-- Popular Courses (Dark Mode Optimized) -->
+    <section class="section-padding bg-slate-50 dark:bg-slate-900">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <span class="text-indigo-500 font-bold uppercase tracking-widest text-xs mb-2 block">Our
+                        Curriculum</span>
+                    <h2 class="text-3xl md:text-5xl font-heading font-bold text-slate-900 dark:text-white">Popular <span
+                            class="text-primary">Courses</span></h2>
+                </div>
+                <!-- Desktop View All -->
+                <a href="Courses.html"
+                    class="hidden md:flex items-center gap-2 text-slate-500 hover:text-primary font-bold transition-colors">View
+                    All <i class="fas fa-arrow-right"></i></a>
             </div>
 
-            <div class="swiper">
+            <!-- Swiper -->
+            <div class="swiper courseSwiper !pb-12">
                 <div class="swiper-wrapper">
-                    <!-- Course 1 -->
+                    <!-- Slide 1 -->
                     <div class="swiper-slide">
-                        <div class="premium-card group shadow-md border border-slate-100 dark:border-slate-700">
-                            <div class="aspect-video-fixed">
-                                <img src="images/courseimg/adca.jpg" alt="ADCA Course">
+                        <div class="premium-card group h-full">
+                            <div class="h-48 rounded-xl overflow-hidden mb-6 relative">
+                                <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=500&auto=format&fit=crop&q=60"
+                                    alt="Python"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                                 <div
-                                    class="absolute top-4 right-4 bg-white/90 dark:bg-slate-800/90 text-indigo-600 dark:text-indigo-400 px-3 py-1 rounded-full text-xs font-bold shadow-sm">
-                                    NEW</div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">ADCA</h3>
-                                <p class="text-slate-600 dark:text-slate-300 mb-4 line-clamp-2">Advanced Diploma in
-                                    Computer Applications covering MS Office, programming basics, and computer
-                                    fundamentals.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg font-bold text-primary">₹7,999</span>
-                                    <span
-                                        class="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs px-2 py-1 rounded-lg font-semibold">6
-                                        Months</span>
+                                    class="absolute top-4 right-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-bold text-indigo-500 uppercase tracking-wider">
+                                    Bestseller
                                 </div>
-                                <button class="btn-premium w-full mt-4 text-sm">View Details</button>
                             </div>
+                            <h3 class="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">Python
+                                Masterclass</h3>
+                            <p class="text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">From basics to advanced AI &
+                                Data Science applications. Build the future with Python.</p>
+                            <a href="Courses.html"
+                                class="w-full btn btn-outline flex justify-between items-center group-hover:bg-primary group-hover:text-white group-hover:border-primary">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
-
-                    <!-- Course 2 -->
+                    <!-- Slide 2 -->
                     <div class="swiper-slide">
-                        <div class="premium-card group shadow-md border border-slate-100 dark:border-slate-700">
-                            <div class="aspect-video-fixed">
-                                <img src="images/courseimg/mdca.jpg" alt="MDCA Course">
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">MDCA</h3>
-                                <p class="text-slate-600 dark:text-slate-300 mb-4 line-clamp-2">Master Diploma in
-                                    Computer Applications covering advanced programming, web development, and database
-                                    management.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg font-bold text-primary">₹10,999</span>
-                                    <span
-                                        class="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs px-2 py-1 rounded-lg font-semibold">7
-                                        Months</span>
-                                </div>
-                                <button class="btn-premium w-full mt-4 text-sm">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Course 3 -->
-                    <div class="swiper-slide">
-                        <div class="premium-card group shadow-md border border-slate-100 dark:border-slate-700">
-                            <div class="aspect-video-fixed">
-                                <img src="images/courseimg/web dev.jpg" alt="Full Stack Web Development">
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors uppercase">
-                                    Full Stack Web Dev</h3>
-                                <p class="text-slate-600 dark:text-slate-300 mb-4 line-clamp-2">Complete web development
-                                    course covering modern frontend and backend technologies with hands-on projects.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg font-bold text-primary">₹25,999</span>
-                                    <span
-                                        class="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs px-2 py-1 rounded-lg font-semibold">10
-                                        Months</span>
-                                </div>
-                                <button class="btn-premium w-full mt-4 text-sm">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Course 4 -->
-                    <div class="swiper-slide">
-                        <div class="premium-card group shadow-md border border-slate-100 dark:border-slate-700">
-                            <div class="aspect-video-fixed">
-                                <img src="images/courseimg/o level.jpg" alt="O Level Course">
+                        <div class="premium-card group h-full">
+                            <div class="h-48 rounded-xl overflow-hidden mb-6 relative">
+                                <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=500&auto=format&fit=crop&q=60"
+                                    alt="Web Dev"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                                 <div
-                                    class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm">
-                                    POPULAR</div>
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">O Level
-                                </h3>
-                                <p class="text-slate-600 dark:text-slate-300 mb-4 line-clamp-2">NIELIT O Level
-                                    certification course covering IT fundamentals and programming.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg font-bold text-primary">₹20,999</span>
-                                    <span
-                                        class="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs px-2 py-1 rounded-lg font-semibold">1
-                                        Year</span>
+                                    class="absolute top-4 right-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-bold text-purple-500 uppercase tracking-wider">
+                                    Trending
                                 </div>
-                                <button class="btn-premium w-full mt-4 text-sm">View Details</button>
                             </div>
+                            <h3 class="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">Full Stack
+                                Dev</h3>
+                            <p class="text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Master MERN stack (MongoDB,
+                                Express, React, Node) and build legacy-leaving apps.</p>
+                            <a href="Courses.html"
+                                class="w-full btn btn-outline flex justify-between items-center group-hover:bg-primary group-hover:text-white group-hover:border-primary">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
-
-                    <!-- Course 5 -->
+                    <!-- Slide 3 -->
                     <div class="swiper-slide">
-                        <div class="premium-card group shadow-md border border-slate-100 dark:border-slate-700">
-                            <div class="aspect-video-fixed">
-                                <img src="images/courseimg/gd.jpg" alt="Graphic Design Course">
+                        <div class="premium-card group h-full">
+                            <div class="h-48 rounded-xl overflow-hidden mb-6 relative">
+                                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&auto=format&fit=crop&q=60"
+                                    alt="O Level"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Graphic
-                                    Designing</h3>
-                                <p class="text-slate-600 dark:text-slate-300 mb-4 line-clamp-2">Professional graphic
-                                    design course covering Adobe Creative Suite, branding, and visual communication.</p>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-lg font-bold text-primary">₹10,000</span>
-                                    <span
-                                        class="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-xs px-2 py-1 rounded-lg font-semibold">6
-                                        Months</span>
-                                </div>
-                                <button class="btn-premium w-full mt-4 text-sm">View Details</button>
+                            <h3 class="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">O Level
+                                (NIELIT)</h3>
+                            <p class="text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Government recognized
+                                certification essential for government jobs and competitive exams.</p>
+                            <a href="Courses.html"
+                                class="w-full btn btn-outline flex justify-between items-center group-hover:bg-primary group-hover:text-white group-hover:border-primary">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide">
+                        <div class="premium-card group h-full">
+                            <div class="h-48 rounded-xl overflow-hidden mb-6 relative">
+                                <img src="https://images.unsplash.com/photo-1626785774573-4b799312c95d?w=500&auto=format&fit=crop&q=60"
+                                    alt="ADCA"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                             </div>
+                            <h3 class="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">ADCA
+                                Professional</h3>
+                            <p class="text-slate-500 dark:text-slate-400 mb-6 line-clamp-2">Complete office automation
+                                and accounting mastery with our Advanced Diploma.</p>
+                            <a href="Courses.html"
+                                class="w-full btn btn-outline flex justify-between items-center group-hover:bg-primary group-hover:text-white group-hover:border-primary">
+                                <span>View Details</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
 
-            <div class="text-center mt-12">
-                <a href="Courses.html"
-                    class="inline-block px-8 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">View
-                    All Courses</a>
+            <div class="mt-8 text-center md:hidden">
+                <a href="Courses.html" class="btn btn-primary w-full">View All Courses</a>
             </div>
         </div>
     </section>
 
-    <!-- Registration Section -->
-    <section id="registration" class="py-16 bg-gradient-to-r from-indigo-500 to-purple-600">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-4xl mx-auto bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden">
-                <div class="md:flex">
+    <!-- Why Choose Us -->
+    <section class="section-padding bg-white dark:bg-slate-950/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-5xl font-heading font-bold mb-6">Why <span
+                        class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-purple-500">ByteCore?</span>
+                </h2>
+                <p class="text-lg text-slate-500 dark:text-slate-400">We don't just teach coding; we build careers.
+                    Experience the difference of industry-aligned education.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-indigo-500/30 transition-all hover:-translate-y-2 group">
                     <div
-                        class="md:w-2/5 bg-gradient-to-b from-indigo-600 to-purple-700 p-8 text-white flex flex-col justify-center">
-                        <h2 class="text-3xl font-bold mb-4">Join Our Next Batch!</h2>
-                        <p class="mb-6">New batch starting soon. Fill the form below and we'll call you with all the
-                            details.</p>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <i class="fas fa-calendar-check text-2xl mr-3"></i>
-                                <div>
-                                    <h4 class="font-bold">Next Batch Starts</h4>
-                                    <p>15 February 2025</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-clock text-2xl mr-3"></i>
-                                <div>
-                                    <h4 class="font-bold">Duration</h4>
-                                    <p>4-8 Months (Flexible)</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-rupee-sign text-2xl mr-3"></i>
-                                <div>
-                                    <h4 class="font-bold">Special Discount</h4>
-                                    <p>15% off for early registration</p>
-                                </div>
-                            </div>
-                        </div>
+                        class="w-16 h-16 rounded-2xl bg-indigo-100 dark:bg-indigo-900/30 text-indigo-500 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-chalkboard-teacher"></i>
                     </div>
-                    <div class="md:w-3/5 p-8">
-                        <h2 class="text-3xl font-bold mb-6">Registration Form</h2>
-                        <form id="registration-form" class="space-y-4">
-                            <div>
-                                <label class="block text-sm font-medium mb-1">Full Name</label>
-                                <input type="text" name="name" required
-                                    class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium mb-1">Email Address</label>
-                                <input type="email" name="email" required
-                                    class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium mb-1">Phone Number</label>
-                                <input type="tel" name="phone" required
-                                    class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium mb-1">Select Course</label>
-                                <select name="course" required
-                                    class="w-full px-4 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
-                                    <option value="">Choose a course</option>
-                                    <option value="Full Stack Development">Full Stack Development</option>
-                                    <option value="ADCA">ADCA</option>
-                                    <option value="MDCA">MDCA</option>
-                                    <option value="O Level">O Level</option>
-                                    <option value="Graphic Design">Graphic Design</option>
-                                </select>
-                            </div>
-                            <button type="submit"
-                                class="w-full py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">Register
-                                Now</button>
-                        </form>
+                    <h4 class="text-xl font-bold mb-4">Expert Faculty</h4>
+                    <p class="text-slate-500 dark:text-slate-400">Learn from industry veterans who bring real-world
+                        experience into the classroom.</p>
+                </div>
+                <div
+                    class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-purple-500/30 transition-all hover:-translate-y-2 group">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-purple-100 dark:bg-purple-900/30 text-purple-500 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-laptop-code"></i>
                     </div>
+                    <h4 class="text-xl font-bold mb-4">Practical Labs</h4>
+                    <p class="text-slate-500 dark:text-slate-400">State-of-the-art computer labs with high-end systems
+                        for lag-free coding sessions.</p>
+                </div>
+                <div
+                    class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-emerald-500/30 transition-all hover:-translate-y-2 group">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-500 flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Valid Certification</h4>
+                    <p class="text-slate-500 dark:text-slate-400">ISO 9001:2015 certified institute. Our certificates
+                        are recognized nationwide.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Course Details Modal -->
-    <div id="course-modal"
-        class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-            <div
-                class="sticky top-0 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 p-6 flex justify-between items-center">
-                <h2 id="modal-course-title" class="text-2xl font-bold"></h2>
-                <button id="close-modal"
-                    class="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors">
-                    <i class="fas fa-times text-2xl"></i>
-                </button>
-            </div>
-            <div class="p-6">
-                <div id="modal-course-content" class="space-y-4"></div>
-            </div>
-            <div
-                class="sticky bottom-0 bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 p-6 flex justify-between items-center">
-                <div>
-                    <span id="modal-course-price" class="text-2xl font-bold text-primary"></span>
-                    <span id="modal-course-duration" class="text-slate-600 dark:text-slate-400 ml-4"></span>
-                </div>
-                <div class="flex gap-3">
-                    <a href="#registration" id="modal-enroll-btn"
-                        class="px-6 py-3 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
-                        <i class="fas fa-phone mr-2"></i>Call Now
-                    </a>
-                    <a href="#registration" id="modal-call-btn"
-                        class="px-6 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">
-                        <i class="fas fa-user-plus mr-2"></i>Enroll Now
-                    </a>
-                </div>
+    <!-- CTA Section -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-slate-900 to-black z-0"></div>
+        <div
+            class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay z-0">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h2 class="text-4xl md:text-6xl font-heading font-bold text-white mb-8">Ready to Start Your Journey?</h2>
+            <p class="text-xl text-indigo-200 mb-12 max-w-2xl mx-auto">Join thousands of successful alumni who started
+                their tech career at ByteCore.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="contact.html"
+                    class="btn bg-white text-indigo-900 hover:bg-indigo-50 font-bold border-none shadow-xl shadow-indigo-900/50">Contact
+                    Us Now</a>
+                <a href="scholarship.html"
+                    class="btn btn-outline border-white text-white hover:bg-white hover:text-indigo-900">Apply for
+                    Scholarship</a>
             </div>
         </div>
-    </div>
+    </section>
 
+    <!-- Scripts -->
+    <script src="assets/js/site-components.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // SIMPLE SWIPER INITIALIZATION
-        document.addEventListener('DOMContentLoaded', function () {
-            const swiper = new Swiper('.swiper', {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                loop: true,
-                autoplay: {
-                    delay: 4000,
-                    disableOnInteraction: false,
+        var swiper = new Swiper(".courseSwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
                 },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
+                1024: {
+                    slidesPerView: 3,
                 },
-                breakpoints: {
-                    640: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    },
-                }
-            });
-        });
-
-        // Dark mode toggle - Fixed
-        document.addEventListener('DOMContentLoaded', function () {
-            const themeToggle = document.getElementById('theme-toggle');
-            const htmlElement = document.documentElement;
-
-            // Load saved theme
-            if (localStorage.getItem('theme') === 'dark') {
-                htmlElement.classList.add('dark');
-            }
-
-            // Toggle functionality
-            if (themeToggle) {
-                themeToggle.addEventListener('click', () => {
-                    htmlElement.classList.toggle('dark');
-                    const isDark = htmlElement.classList.contains('dark');
-                    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-
-                    // Update button icons
-                    const moonIcon = themeToggle.querySelector('.fa-moon');
-                    const sunIcon = themeToggle.querySelector('.fa-sun');
-
-                    if (isDark) {
-                        moonIcon.classList.add('hidden');
-                        sunIcon.classList.remove('hidden');
-                    } else {
-                        moonIcon.classList.remove('hidden');
-                        sunIcon.classList.add('hidden');
-                    }
-                });
-            }
-        });
-
-        // Registration form with Telegram integration
-        document.addEventListener('DOMContentLoaded', function () {
-            const registrationForm = document.getElementById('registration-form');
-            if (registrationForm) {
-                registrationForm.addEventListener('submit', async function (e) {
-                    e.preventDefault();
-
-                    // Get form data
-                    const formData = new FormData(this);
-                    const name = formData.get('name');
-                    const email = formData.get('email');
-                    const phone = formData.get('phone');
-                    const course = formData.get('course');
-
-                    // Validate required fields
-                    if (!name || !email || !phone || !course) {
-                        alert('Please fill in all required fields.');
-                        return;
-                    }
-
-                    // Show loading state
-                    const submitBtn = this.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.textContent;
-                    submitBtn.textContent = 'Registering...';
-                    submitBtn.disabled = true;
-
-                    try {
-                        // Send to Telegram
-                        await sendRegistrationToTelegram(name, email, phone, course);
-
-                        // Show success message
-                        alert('Registration successful! We will contact you within 24 hours.');
-                        this.reset();
-
-                    } catch (error) {
-                        console.error('Registration error:', error);
-                        alert('Registration submitted! We will contact you soon.');
-                        this.reset();
-                    } finally {
-                        // Reset button
-                        submitBtn.textContent = originalText;
-                        submitBtn.disabled = false;
-                    }
-                });
-            }
-        });
-
-        // Send registration data to Telegram
-        async function sendRegistrationToTelegram(name, email, phone, course) {
-            const telegramToken = '8231458651:AAGE9xiTBI5gfD9ninO_ysfL-PGUYv4PxJs';
-            const chatId = '8037442083';
-
-            const message = `
-🎓 *New Course Registration* 🎓
-
-*Name:* ${name}
-*Email:* ${email}
-*Phone:* ${phone}
-*Course:* ${course}
-*Date:* ${new Date().toLocaleString()}
-*Source:* Homepage Registration
-
-*Bytecore Computer Centre*
-            `;
-
-            const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
-
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    chat_id: chatId,
-                    text: message,
-                    parse_mode: 'Markdown'
-                })
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to send to Telegram');
-            }
-
-            return response.json();
-        }
-
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const closeMobileMenu = document.getElementById('close-mobile-menu');
-
-            if (mobileMenuToggle && mobileMenu && closeMobileMenu) {
-                mobileMenuToggle.addEventListener('click', () => {
-                    mobileMenu.classList.remove('-translate-x-full');
-                });
-
-                closeMobileMenu.addEventListener('click', () => {
-                    mobileMenu.classList.add('-translate-x-full');
-                });
-
-                // Close menu when clicking on a link
-                document.querySelectorAll('#mobile-menu a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('-translate-x-full');
-                    });
-                });
-
-                // Close menu when clicking outside
-                mobileMenu.addEventListener('click', (e) => {
-                    if (e.target === mobileMenu) {
-                        mobileMenu.classList.add('-translate-x-full');
-                    }
-                });
-            }
-        });
-
-        // Smooth scrolling - Fixed
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
-        });
-
-        // Course Details Modal
-        const courseData = {
-            'ADCA': {
-                title: 'Advanced Diploma in Computer Applications (ADCA)',
-                price: '₹7,999',
-                duration: '6 Months',
-                description: 'Comprehensive computer applications course covering all essential software and programming basics.',
-                whatYoullLearn: [
-                    'MS Office Suite (Word, Excel, PowerPoint, Outlook)',
-                    'Computer Fundamentals & Internet',
-                    'HTML & CSS basics',
-                    'JavaScript Programming',
-                    'Database Management',
-                    'Digital Marketing basics',
-                    'Project Work & Assignments'
-                ],
-                career: 'Office Automation Specialist, Data Entry Operator, Computer Operator, Office Assistant'
             },
-            'MDCA': {
-                title: 'Master Diploma in Computer Applications (MDCA)',
-                price: '₹10,999',
-                duration: '7 Months',
-                description: 'Advanced programming course covering web development, database, and modern technologies.',
-                whatYoullLearn: [
-                    'Advanced Java Programming',
-                    'Python Programming',
-                    'HTML, CSS, JavaScript',
-                    'MySQL Database',
-                    'Node.js & Express',
-                    'React.js',
-                    'Project Development',
-                    'Interview Preparation'
-                ],
-                career: 'Junior Developer, Web Developer, Software Developer, Application Developer'
-            },
-            'FULL STACK WEB DEV': {
-                title: 'Full Stack Web Development',
-                price: '₹25,999',
-                duration: '10 Months',
-                description: 'Complete web development bootcamp covering frontend, backend, and deployment.',
-                whatYoullLearn: [
-                    'HTML5, CSS3, JavaScript (ES6+)',
-                    'React.js & Next.js',
-                    'Node.js, Express.js',
-                    'MongoDB & PostgreSQL',
-                    'RESTful APIs & GraphQL',
-                    'Git, GitHub & Deployment',
-                    'AWS/DigitalOcean Basics',
-                    '12+ Live Projects',
-                    'Industry Mentorship'
-                ],
-                career: 'Full Stack Developer, Frontend Developer, Backend Developer, Software Engineer'
-            },
-            'O Level': {
-                title: 'NIELIT O Level Certification',
-                price: '₹20,999',
-                duration: '1 Year',
-                description: 'Government-recognized O Level certification covering IT fundamentals and programming.',
-                whatYoullLearn: [
-                    'IT Tools & Business Systems',
-                    'Internet Technology & Web Design',
-                    'Programming with C & C++',
-                    'Introduction to Data Structures',
-                    'Linux Operating System',
-                    'Practical Training',
-                    'Government Exam Preparation'
-                ],
-                career: 'Software Developer, Systems Analyst, Network Administrator, IT Support'
-            },
-            'Graphic Designing': {
-                title: 'Professional Graphic Design',
-                price: '₹10,000',
-                duration: '6 Months',
-                description: 'Complete graphic design course covering Adobe Creative Suite and modern design principles.',
-                whatYoullLearn: [
-                    'Adobe Photoshop (Advanced)',
-                    'Adobe Illustrator (Vector Graphics)',
-                    'Adobe InDesign (Page Layout)',
-                    'Brand Identity Design',
-                    'Logo & Icon Design',
-                    'Poster & Banner Design',
-                    'Social Media Graphics',
-                    'Portfolio Development'
-                ],
-                career: 'Graphic Designer, UI/UX Designer, Creative Designer, Brand Designer'
-            }
-        };
-
-        // Modal functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const modal = document.getElementById('course-modal');
-            const closeBtn = document.getElementById('close-modal');
-            const viewDetailsBtns = document.querySelectorAll('.course-card button');
-
-            function openModal(courseName) {
-                const course = courseData[courseName];
-                if (!course) return;
-
-                document.getElementById('modal-course-title').textContent = course.title;
-                document.getElementById('modal-course-price').textContent = course.price;
-                document.getElementById('modal-course-duration').textContent = course.duration;
-
-                const content = document.getElementById('modal-course-content');
-                content.innerHTML = `
-                    <p class="text-lg text-slate-600 dark:text-slate-300">${course.description}</p>
-                    <div>
-                        <h3 class="text-xl font-bold mb-3">What You'll Learn</h3>
-                        <ul class="space-y-2">
-                            ${course.whatYoullLearn.map(item => `
-                                <li class="flex items-start">
-                                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
-                                    <span class="text-slate-700 dark:text-slate-300">${item}</span>
-                                </li>
-                            `).join('')}
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold mb-3">Career Opportunities</h3>
-                        <p class="text-slate-700 dark:text-slate-300">${course.career}</p>
-                    </div>
-                `;
-
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeModal() {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.style.overflow = '';
-            }
-
-            viewDetailsBtns.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    const courseCard = this.closest('.course-card');
-                    const courseTitle = courseCard.querySelector('h3').textContent.trim();
-                    openModal(courseTitle);
-                });
-            });
-
-            closeBtn.addEventListener('click', closeModal);
-            modal.addEventListener('click', function (e) {
-                if (e.target === modal) closeModal();
-            });
-        });
-
-        // Scholarship Popup Functions
-        function showScholarshipPopup() {
-            const popup = document.getElementById('scholarshipPopup');
-            popup.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-
-        function closeScholarshipPopup() {
-            const popup = document.getElementById('scholarshipPopup');
-            popup.classList.remove('show');
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        }
-
-        // Show popup immediately when page loads
-        window.addEventListener('DOMContentLoaded', function () {
-            // Show popup immediately - no delay, no cookie check
-            showScholarshipPopup();
-        });
-
-        // Close popup when clicking outside
-        document.addEventListener('click', function (e) {
-            const popup = document.getElementById('scholarshipPopup');
-            if (e.target === popup) {
-                closeScholarshipPopup();
-            }
-        });
-
-        // Close popup with Escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                closeScholarshipPopup();
-            }
-        });
-
-        // Smart Navigation Functions
-        function navigateTo(page) {
-            // Update active state
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelector(`[data-page="${page}"]`).classList.add('active');
-
-            // Handle page navigation
-            if (page === 'home') {
-                // Already on home page, just scroll to top
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        }
-
-        function openInSameTab(url) {
-            // Replace current page instead of opening new tab
-            window.location.href = url;
-        }
-
-        // Prevent multiple tabs - intercept all external links
-        document.addEventListener('DOMContentLoaded', function () {
-            // Override all external links to open in same tab
-            const links = document.querySelectorAll('a[href$=".html"]');
-            links.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const href = this.getAttribute('href');
-                    if (href && href !== '#') {
-                        window.location.href = href;
-                    }
-                });
-            });
-        });
-
-        // Smart back button handling
-        window.addEventListener('popstate', function (e) {
-            // Handle browser back/forward buttons intelligently
-            if (document.referrer.includes(window.location.hostname)) {
-                // If coming from same site, stay in same tab
-                return;
-            }
-        });
-
-        // ========== SMOOTH ANIMATIONS & INTERACTIONS ==========
-
-        // Intersection Observer for fade-in animations
-        document.addEventListener('DOMContentLoaded', function () {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all sections and cards
-            document.querySelectorAll('.course-card, .feature-card').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-                observer.observe(el);
-            });
-
-            // Smooth scroll for all anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-
-            // Add ripple effect to buttons
-            document.querySelectorAll('button, .nav-btn, .cta-button').forEach(button => {
-                button.addEventListener('click', function (e) {
-                    const ripple = document.createElement('span');
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size / 2;
-                    const y = e.clientY - rect.top - size / 2;
-
-                    ripple.style.cssText = `
-                        position: absolute;
-                        width: ${size}px;
-                        height: ${size}px;
-                        border-radius: 50%;
-                        background: rgba(255, 255, 255, 0.5);
-                        left: ${x}px;
-                        top: ${y}px;
-                        pointer-events: none;
-                        transform: scale(0);
-                        animation: ripple 0.6s ease-out;
-                    `;
-
-                    this.style.position = 'relative';
-                    this.style.overflow = 'hidden';
-                    this.appendChild(ripple);
-
-                    setTimeout(() => ripple.remove(), 600);
-                });
-            });
-
-            // Add CSS for ripple animation
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes ripple {
-                    to {
-                        transform: scale(4);
-                        opacity: 0;
-                    }
-                }
-            `;
-            document.head.appendChild(style);
-
-            // Page is ready - no fade needed
-            document.body.style.opacity = '1';
-
-            // Parallax effect for hero section
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const parallaxElements = document.querySelectorAll('.gradient-bg');
-                parallaxElements.forEach(el => {
-                    el.style.transform = `translateY(${scrolled * 0.5}px)`;
-                });
-            });
-
-            // Smooth hover effects for cards
-            document.querySelectorAll('.course-card').forEach(card => {
-                card.addEventListener('mouseenter', function () {
-                    this.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-                });
-            });
-
-            console.log('✨ Smooth animations initialized!');
         });
     </script>
-
-    <!-- Footer Component -->
-    <script src="site-components.js"></script>
 </body>
 
 </html>

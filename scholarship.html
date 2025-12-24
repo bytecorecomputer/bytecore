@@ -30,55 +30,72 @@
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Bytecore Scholarship 2025 | Free Computer Education" />
-    <meta name="twitter:description" content="Win scholarships up to 150% + cash rewards! Exam on 23rd November 2025." />
+    <meta name="twitter:description"
+        content="Win scholarships up to 150% + cash rewards! Exam on 23rd November 2025." />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
     <link rel="canonical" href="https://bytecore-flax.vercel.app/scholarship.html" />
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="config.js"></script>
-    
+    <script src="assets/js/config.js"></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-        
+
         body {
             font-family: 'Poppins', sans-serif;
         }
-        
+
         .gradient-bg {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
-        
+
         .gradient-text {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .floating-animation {
             animation: floating 3s ease-in-out infinite;
         }
-        
+
         @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
         }
-        
+
         .pulse-animation {
             animation: pulse 2s infinite;
         }
-        
+
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(102, 126, 234, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(102, 126, 234, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+            }
         }
-        
+
         /* Modern Scholarship Notification */
         .scholarship-popup {
             position: fixed;
@@ -90,13 +107,13 @@
             transform: translateX(100%);
             transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
-        
+
         .scholarship-popup.show {
             opacity: 1;
             visibility: visible;
             transform: translateX(0);
         }
-        
+
         .modern-notification {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
@@ -108,7 +125,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .close-btn {
             position: absolute;
             top: 12px;
@@ -125,12 +142,12 @@
             transition: all 0.2s ease;
             color: #64748b;
         }
-        
+
         .close-btn:hover {
             background: rgba(0, 0, 0, 0.1);
             color: #334155;
         }
-        
+
         .notification-badge {
             display: flex;
             align-items: center;
@@ -138,7 +155,7 @@
             padding: 16px 16px 12px 16px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
-        
+
         .badge-icon {
             width: 24px;
             height: 24px;
@@ -147,7 +164,7 @@
             justify-content: center;
             font-size: 16px;
         }
-        
+
         .badge-text {
             font-size: 12px;
             font-weight: 600;
@@ -155,18 +172,18 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
+
         .notification-content {
             padding: 16px;
             display: flex;
             gap: 12px;
             align-items: flex-start;
         }
-        
+
         .scholarship-image {
             flex-shrink: 0;
         }
-        
+
         .image-modern {
             width: 60px;
             height: 60px;
@@ -174,12 +191,12 @@
             object-fit: cover;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        
+
         .content-text {
             flex: 1;
             min-width: 0;
         }
-        
+
         .title {
             font-size: 16px;
             font-weight: 700;
@@ -187,20 +204,20 @@
             margin: 0 0 4px 0;
             line-height: 1.3;
         }
-        
+
         .subtitle {
             font-size: 13px;
             color: #64748b;
             margin: 0 0 12px 0;
             line-height: 1.4;
         }
-        
+
         .exam-info {
             display: flex;
             flex-direction: column;
             gap: 4px;
         }
-        
+
         .info-item {
             display: flex;
             align-items: center;
@@ -208,17 +225,17 @@
             font-size: 12px;
             color: #475569;
         }
-        
+
         .info-icon {
             font-size: 12px;
             width: 16px;
             text-align: center;
         }
-        
+
         .notification-action {
             padding: 12px 16px 16px 16px;
         }
-        
+
         .register-btn {
             display: flex;
             align-items: center;
@@ -236,40 +253,40 @@
             transition: all 0.2s ease;
             cursor: pointer;
         }
-        
+
         .register-btn:hover {
             transform: translateY(-1px);
             box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
         }
-        
+
         /* Dark mode support */
         .dark .modern-notification {
             background: rgba(15, 23, 42, 0.95);
             border-color: rgba(255, 255, 255, 0.1);
         }
-        
+
         .dark .title {
             color: #f1f5f9;
         }
-        
+
         .dark .subtitle {
             color: #94a3b8;
         }
-        
+
         .dark .info-item {
             color: #cbd5e1;
         }
-        
+
         .dark .close-btn {
             background: rgba(255, 255, 255, 0.05);
             color: #94a3b8;
         }
-        
+
         .dark .close-btn:hover {
             background: rgba(255, 255, 255, 0.1);
             color: #e2e8f0;
         }
-        
+
         /* Mobile responsive */
         @media (max-width: 480px) {
             .scholarship-popup {
@@ -277,37 +294,51 @@
                 right: 10px;
                 left: 10px;
             }
-            
+
             .modern-notification {
                 width: 100%;
             }
-            
+
             .notification-content {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .exam-info {
                 flex-direction: row;
                 justify-content: space-around;
                 flex-wrap: wrap;
             }
         }
-        
+
         @keyframes bounceIn {
-            0% { transform: scale(0.3); opacity: 0; }
-            50% { transform: scale(1.05); }
-            70% { transform: scale(0.9); }
-            100% { transform: scale(1); opacity: 1; }
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            70% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
     </style>
-    
+
     <!-- Minimalist Header System -->
     <script src="minimalist-header.js"></script>
 </head>
 
-<body class="bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-100 transition-colors duration-300" style="min-height: 100vh; display: flex; flex-direction: column;">
-    
+<body class="bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-100 transition-colors duration-300"
+    style="min-height: 100vh; display: flex; flex-direction: column;">
+
     <!-- Modern Scholarship Notification -->
     <div id="scholarshipPopup" class="scholarship-popup">
         <div class="modern-notification">
@@ -317,23 +348,23 @@
                     <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
             </button>
-            
+
             <!-- Notification Badge -->
             <div class="notification-badge">
                 <div class="badge-icon">🎓</div>
                 <div class="badge-text">Scholarship Alert</div>
             </div>
-            
+
             <!-- Content -->
             <div class="notification-content">
                 <div class="scholarship-image">
                     <img src="images/courseimg/scolership.png" alt="Scholarship" class="image-modern">
                 </div>
-                
+
                 <div class="content-text">
                     <h3 class="title">Bytecore Scholarship 2025</h3>
                     <p class="subtitle">Win up to 150% Fee Waiver + ₹500 Cash</p>
-                    
+
                     <div class="exam-info">
                         <div class="info-item">
                             <span class="info-icon">📅</span>
@@ -350,20 +381,20 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Action -->
             <div class="notification-action">
                 <a href="#register-now" onclick="closeScholarshipPopup()" class="register-btn">
                     <span>Register Now</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="m9 18 6-6-6-6"/>
+                        <path d="m9 18 6-6-6-6" />
                     </svg>
                 </a>
             </div>
         </div>
     </div>
-    <!-- Universal Header will be loaded here automatically --> 
-   <!-- Hero Section -->
+    <!-- Universal Header will be loaded here automatically -->
+    <!-- Hero Section -->
     <section class="gradient-bg text-white py-20">
         <div class="container mx-auto px-4 text-center">
             <div class="max-w-4xl mx-auto">
@@ -377,9 +408,12 @@
                     🗓️ Exam Date: 23rd November 2025 | 📍 Nariyawal, Bareilly
                 </div>
                 <p class="text-lg mb-10 opacity-80 max-w-3xl mx-auto">
-                    At Bytecore Computer Centre, we are offering students an exciting opportunity to earn scholarships up to <span class="bg-yellow-400 text-black px-2 py-1 rounded font-bold">150% fee waiver + cash rewards</span>. Join our scholarship examination and secure your future in technology!
+                    At Bytecore Computer Centre, we are offering students an exciting opportunity to earn scholarships
+                    up to <span class="bg-yellow-400 text-black px-2 py-1 rounded font-bold">150% fee waiver + cash
+                        rewards</span>. Join our scholarship examination and secure your future in technology!
                 </p>
-                <a href="#register-now" class="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors pulse-animation">
+                <a href="#register-now"
+                    class="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors pulse-animation">
                     Register for ₹50 Only <i class="fas fa-arrow-down ml-2"></i>
                 </a>
             </div>
@@ -397,10 +431,12 @@
             </div>
 
             <div class="max-w-6xl mx-auto">
-                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-600 p-8 md:p-12 rounded-2xl shadow-xl">
+                <div
+                    class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-600 p-8 md:p-12 rounded-2xl shadow-xl">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <div class="text-center">
-                            <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <div
+                                class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <i class="fas fa-calendar text-white text-2xl"></i>
                             </div>
                             <h3 class="font-bold text-lg mb-2 dark:text-white">Exam Date</h3>
@@ -408,7 +444,8 @@
                         </div>
 
                         <div class="text-center">
-                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <div
+                                class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <i class="fas fa-map-marker-alt text-white text-2xl"></i>
                             </div>
                             <h3 class="font-bold text-lg mb-2 dark:text-white">Venue</h3>
@@ -417,7 +454,8 @@
                         </div>
 
                         <div class="text-center">
-                            <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <div
+                                class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <i class="fas fa-users text-white text-2xl"></i>
                             </div>
                             <h3 class="font-bold text-lg mb-2 dark:text-white">Eligibility</h3>
@@ -426,7 +464,8 @@
                         </div>
 
                         <div class="text-center">
-                            <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <div
+                                class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <i class="fas fa-rupee-sign text-white text-2xl"></i>
                             </div>
                             <h3 class="font-bold text-lg mb-2 dark:text-white">Registration Fee</h3>
@@ -434,7 +473,8 @@
                         </div>
 
                         <div class="text-center">
-                            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <div
+                                class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <i class="fas fa-clock text-white text-2xl"></i>
                             </div>
                             <h3 class="font-bold text-lg mb-2 dark:text-white">Timing & Duration</h3>
@@ -442,7 +482,8 @@
                         </div>
 
                         <div class="text-center">
-                            <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <div
+                                class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <i class="fas fa-question-circle text-white text-2xl"></i>
                             </div>
                             <h3 class="font-bold text-lg mb-2 dark:text-white">Questions</h3>
@@ -454,27 +495,33 @@
                     <div class="mt-12 p-6 bg-white dark:bg-gray-700 rounded-xl">
                         <h3 class="font-bold text-xl mb-6 text-center dark:text-white">📚 Exam Subjects</h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            <div class="bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-800 dark:to-blue-700 p-6 rounded-lg text-center">
+                            <div
+                                class="bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-800 dark:to-blue-700 p-6 rounded-lg text-center">
                                 <i class="fas fa-calculator text-blue-600 dark:text-blue-300 text-3xl mb-3"></i>
                                 <h4 class="font-bold text-lg mb-2 dark:text-white">Mathematics</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-300">Basic arithmetic, algebra, geometry</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Basic arithmetic, algebra, geometry
+                                </p>
                             </div>
-                            <div class="bg-gradient-to-br from-green-100 to-green-200 dark:from-green-800 dark:to-green-700 p-6 rounded-lg text-center">
+                            <div
+                                class="bg-gradient-to-br from-green-100 to-green-200 dark:from-green-800 dark:to-green-700 p-6 rounded-lg text-center">
                                 <i class="fas fa-landmark text-green-600 dark:text-green-300 text-3xl mb-3"></i>
                                 <h4 class="font-bold text-lg mb-2 dark:text-white">History</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-300">Indian history, world history, current affairs</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Indian history, world history,
+                                    current affairs</p>
                             </div>
-                            <div class="bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-800 dark:to-purple-700 p-6 rounded-lg text-center">
+                            <div
+                                class="bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-800 dark:to-purple-700 p-6 rounded-lg text-center">
                                 <i class="fas fa-brain text-purple-600 dark:text-purple-300 text-3xl mb-3"></i>
                                 <h4 class="font-bold text-lg mb-2 dark:text-white">Reasoning</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-300">Logical reasoning, analytical thinking</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">Logical reasoning, analytical
+                                    thinking</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>  
+    </section>
     <!-- Scholarship Rewards -->
     <section class="py-12 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
         <div class="container mx-auto px-4">
@@ -544,7 +591,8 @@
                 </div>
 
                 <!-- Special Top Scorer Reward -->
-                <div class="bg-gradient-to-r from-yellow-400 to-orange-500 p-6 rounded-2xl text-white text-center shadow-2xl">
+                <div
+                    class="bg-gradient-to-r from-yellow-400 to-orange-500 p-6 rounded-2xl text-white text-center shadow-2xl">
                     <div class="text-2xl font-bold mb-2">🎯 91 - 100 अंक</div>
                     <div class="text-3xl font-bold mb-2">150% छूट + ₹500 नकद</div>
                     <div class="text-lg opacity-90">मुफ्त कोर्स + ₹500 स्कॉलरशिप राशि</div>
@@ -576,17 +624,21 @@
             </div>
 
             <div class="max-w-2xl mx-auto">
-                <div class="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-slate-700 dark:to-slate-600 p-4 md:p-6 rounded-2xl shadow-xl">
+                <div
+                    class="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-slate-700 dark:to-slate-600 p-4 md:p-6 rounded-2xl shadow-xl">
                     <form id="scholarship-form" class="space-y-4 bg-white dark:bg-slate-800 p-4 md:p-6 rounded-xl">
                         <!-- Photo Upload -->
                         <div class="text-center mb-6">
-                            <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">Upload Your Photo *</label>
+                            <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">Upload Your
+                                Photo *</label>
                             <div class="flex flex-col items-center">
-                                <div id="photo-preview" class="w-24 h-24 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center mb-3 overflow-hidden">
+                                <div id="photo-preview"
+                                    class="w-24 h-24 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center mb-3 overflow-hidden">
                                     <i class="fas fa-camera text-gray-400 text-2xl"></i>
                                 </div>
                                 <input type="file" id="photo-upload" accept="image/*" required class="hidden">
-                                <button type="button" onclick="document.getElementById('photo-upload').click()" class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600 transition-colors">
+                                <button type="button" onclick="document.getElementById('photo-upload').click()"
+                                    class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600 transition-colors">
                                     <i class="fas fa-upload mr-2"></i>Choose Photo
                                 </button>
                                 <p class="text-xs text-gray-500 mt-2">JPG, PNG (Max 2MB)</p>
@@ -596,30 +648,44 @@
                         <!-- Personal Details -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Full Name *</label>
-                                <input type="text" name="fullName" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm" placeholder="Enter full name">
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Full Name
+                                    *</label>
+                                <input type="text" name="fullName" required
+                                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm"
+                                    placeholder="Enter full name">
                             </div>
                             <div>
-                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Mobile Number *</label>
-                                <input type="tel" name="mobile" required pattern="[0-9]{10}" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm" placeholder="10-digit mobile">
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Father's Name *</label>
-                                <input type="text" name="fatherName" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm" placeholder="Father's name">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Mother's Name *</label>
-                                <input type="text" name="motherName" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm" placeholder="Mother's name">
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Mobile
+                                    Number *</label>
+                                <input type="tel" name="mobile" required pattern="[0-9]{10}"
+                                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm"
+                                    placeholder="10-digit mobile">
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Current Class *</label>
-                                <select name="currentClass" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm">
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Father's
+                                    Name *</label>
+                                <input type="text" name="fatherName" required
+                                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm"
+                                    placeholder="Father's name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Mother's
+                                    Name *</label>
+                                <input type="text" name="motherName" required
+                                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm"
+                                    placeholder="Mother's name">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Current
+                                    Class *</label>
+                                <select name="currentClass" required
+                                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm">
                                     <option value="">Select Class</option>
                                     <option value="8th">Class 8th</option>
                                     <option value="9th">Class 9th</option>
@@ -631,8 +697,10 @@
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Preferred Course *</label>
-                                <select name="course" required class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm">
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Preferred
+                                    Course *</label>
+                                <select name="course" required
+                                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm">
                                     <option value="">Select Course</option>
                                     <option value="Python Programming">Python Programming</option>
                                     <option value="Java Programming">Java Programming</option>
@@ -646,24 +714,32 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Address *</label>
-                                <textarea name="address" required rows="2" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm" placeholder="Complete address"></textarea>
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Address
+                                    *</label>
+                                <textarea name="address" required rows="2"
+                                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm"
+                                    placeholder="Complete address"></textarea>
                             </div>
                             <div>
-                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Pincode *</label>
-                                <input type="text" name="pincode" required pattern="[0-9]{6}" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm" placeholder="6-digit pincode">
+                                <label class="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Pincode
+                                    *</label>
+                                <input type="text" name="pincode" required pattern="[0-9]{6}"
+                                    class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white text-sm"
+                                    placeholder="6-digit pincode">
                             </div>
                         </div>
 
                         <div class="flex items-start">
-                            <input type="checkbox" required class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-1">
+                            <input type="checkbox" required
+                                class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-1">
                             <label class="ml-2 text-xs text-gray-700 dark:text-gray-300">
                                 I agree that all information is correct. Registration fee ₹50 is non-refundable.
                             </label>
                         </div>
 
                         <div class="text-center pt-4">
-                            <button type="submit" class="w-full md:w-auto gradient-bg text-white px-8 py-3 rounded-full font-bold text-base hover:opacity-90 transition-opacity">
+                            <button type="submit"
+                                class="w-full md:w-auto gradient-bg text-white px-8 py-3 rounded-full font-bold text-base hover:opacity-90 transition-opacity">
                                 Register Now - ₹50 <i class="fas fa-paper-plane ml-2"></i>
                             </button>
                             <p class="text-xs text-gray-600 dark:text-gray-400 mt-3">
@@ -674,36 +750,39 @@
                 </div>
             </div>
         </div>
-    </section>  
-  <!-- Contact Section -->
+    </section>
+    <!-- Contact Section -->
     <section class="py-16 gradient-bg text-white">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">📞 Need Help? Contact Us</h2>
             <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
                 Our scholarship team is ready to help you with registration and exam queries
             </p>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
                 <div class="text-center">
-                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div
+                        class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-phone text-2xl"></i>
                     </div>
                     <h3 class="font-bold mb-2">Call Us</h3>
                     <p class="text-lg">+91-6396835709</p>
                     <p class="text-sm opacity-80">Mon-Sat: 8AM-7PM</p>
                 </div>
-                
+
                 <div class="text-center">
-                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div
+                        class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-envelope text-2xl"></i>
                     </div>
                     <h3 class="font-bold mb-2">Email Us</h3>
                     <p class="text-lg">bytecore.info@gmail.com</p>
                     <p class="text-sm opacity-80">Quick response guaranteed</p>
                 </div>
-                
+
                 <div class="text-center">
-                    <div class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div
+                        class="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-map-marker-alt text-2xl"></i>
                     </div>
                     <h3 class="font-bold mb-2">Visit Us</h3>
@@ -713,10 +792,12 @@
             </div>
 
             <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="contact.html" class="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors">
+                <a href="contact.html"
+                    class="bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors">
                     <i class="fas fa-comments mr-2"></i> Contact Scholarship Team
                 </a>
-                <a href="https://goo.gl/maps/your-location" target="_blank" class="bg-white bg-opacity-20 border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-blue-600 transition-colors">
+                <a href="https://goo.gl/maps/your-location" target="_blank"
+                    class="bg-white bg-opacity-20 border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-blue-600 transition-colors">
                     <i class="fas fa-directions mr-2"></i> Get Directions
                 </a>
             </div>
@@ -732,18 +813,23 @@
                         <img src="logo.png" alt="Bytecore Logo" class="w-8 h-8 mr-3">
                         <span class="text-xl font-bold">Bytecore</span>
                     </div>
-                    <p class="text-gray-400 mb-4">Empowering students through quality education and scholarship opportunities since 2010.</p>
+                    <p class="text-gray-400 mb-4">Empowering students through quality education and scholarship
+                        opportunities since 2010.</p>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/bytecorecomputercentre/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="https://www.facebook.com/bytecorecomputercentre/" target="_blank"
+                            class="text-gray-400 hover:text-white transition-colors">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://x.com/bytecores" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="https://x.com/bytecores" target="_blank"
+                            class="text-gray-400 hover:text-white transition-colors">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="https://www.instagram.com/bytecore_computer_centre/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="https://www.instagram.com/bytecore_computer_centre/" target="_blank"
+                            class="text-gray-400 hover:text-white transition-colors">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.linkedin.com/in/bytecore-computer-centre-69ba7a344/" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="https://www.linkedin.com/in/bytecore-computer-centre-69ba7a344/" target="_blank"
+                            class="text-gray-400 hover:text-white transition-colors">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
@@ -753,9 +839,11 @@
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
                         <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="Courses.html" class="text-gray-400 hover:text-white transition-colors">Courses</a></li>
+                        <li><a href="Courses.html" class="text-gray-400 hover:text-white transition-colors">Courses</a>
+                        </li>
                         <li><a href="About.html" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                        </li>
                         <li><a href="Fee.html" class="text-gray-400 hover:text-white transition-colors">Fees</a></li>
                     </ul>
                 </div>
@@ -833,16 +921,16 @@
         let studentPhoto = null;
 
         // Photo upload handling
-        document.getElementById('photo-upload').addEventListener('change', function(e) {
+        document.getElementById('photo-upload').addEventListener('change', function (e) {
             const file = e.target.files[0];
             if (file) {
                 if (file.size > 2 * 1024 * 1024) {
                     alert('Photo size should be less than 2MB');
                     return;
                 }
-                
+
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     const preview = document.getElementById('photo-preview');
                     preview.innerHTML = `<img src="${e.target.result}" class="w-full h-full object-cover rounded-full">`;
                     studentPhoto = e.target.result;
@@ -852,9 +940,9 @@
         });
 
         // Form submission with Telegram integration
-        document.getElementById('scholarship-form').addEventListener('submit', function(e) {
+        document.getElementById('scholarship-form').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Get form data
             const formData = new FormData(this);
             const fullName = formData.get('fullName');
@@ -868,7 +956,7 @@
 
             // Send to Telegram
             sendToTelegram(fullName, mobile, fatherName, motherName, currentClass, course, address, pincode);
-            
+
             alert('🎉 Registration successful! You will receive admit card via SMS. Please pay ₹50 registration fee to confirm your seat.');
             this.reset();
             document.getElementById('photo-preview').innerHTML = '<i class="fas fa-camera text-gray-400 text-2xl"></i>';
@@ -919,21 +1007,21 @@
                     parse_mode: 'Markdown'
                 })
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    console.log('✅ Scholarship registration sent to Telegram successfully');
-                    // Send photo if available
-                    if (studentPhoto) {
-                        sendPhotoToTelegram(name, studentPhoto);
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        console.log('✅ Scholarship registration sent to Telegram successfully');
+                        // Send photo if available
+                        if (studentPhoto) {
+                            sendPhotoToTelegram(name, studentPhoto);
+                        }
+                    } else {
+                        console.error('❌ Failed to send to Telegram:', data);
                     }
-                } else {
-                    console.error('❌ Failed to send to Telegram:', data);
-                }
-            })
-            .catch(error => {
-                console.error('❌ Error sending to Telegram:', error);
-            });
+                })
+                .catch(error => {
+                    console.error('❌ Error sending to Telegram:', error);
+                });
         }
 
         // Send photo to Telegram
@@ -945,7 +1033,7 @@
                 byteNumbers[i] = byteCharacters.charCodeAt(i);
             }
             const byteArray = new Uint8Array(byteNumbers);
-            const blob = new Blob([byteArray], {type: 'image/jpeg'});
+            const blob = new Blob([byteArray], { type: 'image/jpeg' });
 
             const formData = new FormData();
             formData.append('chat_id', telegramChatId);
@@ -958,17 +1046,17 @@
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.ok) {
-                    console.log('✅ Photo sent to Telegram successfully');
-                } else {
-                    console.error('❌ Failed to send photo to Telegram:', data);
-                }
-            })
-            .catch(error => {
-                console.error('❌ Error sending photo to Telegram:', error);
-            });
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        console.log('✅ Photo sent to Telegram successfully');
+                    } else {
+                        console.error('❌ Failed to send photo to Telegram:', data);
+                    }
+                })
+                .catch(error => {
+                    console.error('❌ Error sending photo to Telegram:', error);
+                });
         }
 
         // Scholarship Popup Functions
@@ -985,13 +1073,13 @@
         }
 
         // Show popup immediately when page loads
-        window.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('DOMContentLoaded', function () {
             // Show popup immediately - no delay, no cookie check
             showScholarshipPopup();
         });
 
         // Close popup when clicking outside
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             const popup = document.getElementById('scholarshipPopup');
             if (e.target === popup) {
                 closeScholarshipPopup();
@@ -999,139 +1087,171 @@
         });
 
         // Close popup with Escape key
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeScholarshipPopup();
             }
         });
     </script>
-<!-- Footer Component -->
-<footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Main Footer Content -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-            <!-- About Section -->
-            <div>
-                <div class="flex items-center mb-6">
-                    <img src="logo.png" alt="ByteCore Logo" class="w-10 h-10 mr-3">
-                    <h3 class="text-2xl font-bold text-white">ByteCore</h3>
+    <!-- Footer Component -->
+    <footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- About Section -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="logo.png" alt="ByteCore Logo" class="w-10 h-10 mr-3">
+                        <h3 class="text-2xl font-bold text-white">ByteCore</h3>
+                    </div>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Leading IT training institute offering comprehensive computer courses since 2010. Transform your
+                        career with industry-relevant skills.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/bytecorecomputercentre/" target="_blank" rel="noopener"
+                            class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/bytecores" target="_blank" rel="noopener"
+                            class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/bytecore_computer_centre/" target="_blank" rel="noopener"
+                            class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/bytecore-computer-centre-69ba7a344/" target="_blank"
+                            rel="noopener"
+                            class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
                 </div>
-                <p class="text-slate-400 mb-6 leading-relaxed">
-                    Leading IT training institute offering comprehensive computer courses since 2010. Transform your career with industry-relevant skills.
-                </p>
-                <div class="flex space-x-4">
-                    <a href="https://www.facebook.com/bytecorecomputercentre/" target="_blank" rel="noopener" 
-                       class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://x.com/bytecores" target="_blank" rel="noopener"
-                       class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://www.instagram.com/bytecore_computer_centre/" target="_blank" rel="noopener"
-                       class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/bytecore-computer-centre-69ba7a344/" target="_blank" rel="noopener"
-                       class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html"
+                                class="hover:text-primary transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Home
+                            </a></li>
+                        <li><a href="About.html"
+                                class="hover:text-primary transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>About
+                                Us
+                            </a></li>
+                        <li><a href="Courses.html"
+                                class="hover:text-primary transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Courses
+                            </a></li>
+                        <li><a href="scholarship.html"
+                                class="hover:text-primary transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Scholarship
+                            </a></li>
+                        <li><a href="diploma.html"
+                                class="hover:text-primary transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Certificates
+                            </a></li>
+                        <li><a href="contact.html"
+                                class="hover:text-primary transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Contact
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- Popular Courses -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6">Popular Courses</h4>
+                    <ul class="space-y-3">
+                        <li><a href="Courses.html#python"
+                                class="hover:text-primary transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Python
+                                Programming
+                            </a></li>
+                        <li><a href="Courses.html#fullstack"
+                                class="hover:text-primary transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Full
+                                Stack Development
+                            </a></li>
+                        <li><a href="Courses.html#olevel"
+                                class="hover:text-primary transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>O
+                                Level
+                            </a></li>
+                        <li><a href="Courses.html#adca"
+                                class="hover:text-primary transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>ADCA
+                            </a></li>
+                        <li><a href="Courses.html#graphic"
+                                class="hover:text-primary transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Graphic
+                                Design
+                            </a></li>
+                        <li><a href="quiz.html"
+                                class="hover:text-primary transition-colors duration-300 flex items-center group">
+                                <i
+                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Practice
+                                Quiz
+                            </a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                            <span class="text-sm">Bithri Road, Opposite Sheetala Mata Mandir, Nariyawal BLY,
+                                243123</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-primary mr-3"></i>
+                            <a href="tel:+916396835709" class="hover:text-primary transition-colors">+91-6396835709</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-3"></i>
+                            <a href="mailto:bytecore.info@gmail.com"
+                                class="hover:text-primary transition-colors">bytecore.info@gmail.com</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock text-primary mt-1 mr-3"></i>
+                            <span class="text-sm">Mon - Sat: 9:00 AM - 6:00 PM<br>Sunday: Closed</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Quick Links -->
-            <div>
-                <h4 class="text-white font-bold text-lg mb-6">Quick Links</h4>
-                <ul class="space-y-3">
-                    <li><a href="index.html" class="hover:text-primary transition-colors duration-300 flex items-center group">
-                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Home
-                    </a></li>
-                    <li><a href="About.html" class="hover:text-primary transition-colors duration-300 flex items-center group">
-                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>About Us
-                    </a></li>
-                    <li><a href="Courses.html" class="hover:text-primary transition-colors duration-300 flex items-center group">
-                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Courses
-                    </a></li>
-                    <li><a href="scholarship.html" class="hover:text-primary transition-colors duration-300 flex items-center group">
-                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Scholarship
-                    </a></li>
-                    <li><a href="diploma.html" class="hover:text-primary transition-colors duration-300 flex items-center group">
-                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Certificates
-                    </a></li>
-                    <li><a href="contact.html" class="hover:text-primary transition-colors duration-300 flex items-center group">
-                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Contact
-                    </a></li>
-                </ul>
-            </div>
-
-            <!-- Popular Courses -->
-            <div>
-                <h4 class="text-white font-bold text-lg mb-6">Popular Courses</h4>
-                <ul class="space-y-3">
-                    <li><a href="Courses.html#python" class="hover:text-primary transition-colors duration-300 flex items-center group">
-                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Python Programming
-                    </a></li>
-                    <li><a href="Courses.html#fullstack" class="hover:text-primary transition-colors duration-300 flex items-center group">
-                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Full Stack Development
-                    </a></li>
-                    <li><a href="Courses.html#olevel" class="hover:text-primary transition-colors duration-300 flex items-center group">
-                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>O Level
-                    </a></li>
-                    <li><a href="Courses.html#adca" class="hover:text-primary transition-colors duration-300 flex items-center group">
-                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>ADCA
-                    </a></li>
-                    <li><a href="Courses.html#graphic" class="hover:text-primary transition-colors duration-300 flex items-center group">
-                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Graphic Design
-                    </a></li>
-                    <li><a href="quiz.html" class="hover:text-primary transition-colors duration-300 flex items-center group">
-                        <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Practice Quiz
-                    </a></li>
-                </ul>
-            </div>
-
-            <!-- Contact Info -->
-            <div>
-                <h4 class="text-white font-bold text-lg mb-6">Contact Us</h4>
-                <ul class="space-y-4">
-                    <li class="flex items-start">
-                        <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
-                        <span class="text-sm">Bithri Road, Opposite Sheetala Mata Mandir, Nariyawal BLY, 243123</span>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-phone text-primary mr-3"></i>
-                        <a href="tel:+916396835709" class="hover:text-primary transition-colors">+91-6396835709</a>
-                    </li>
-                    <li class="flex items-center">
-                        <i class="fas fa-envelope text-primary mr-3"></i>
-                        <a href="mailto:bytecore.info@gmail.com" class="hover:text-primary transition-colors">bytecore.info@gmail.com</a>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-clock text-primary mt-1 mr-3"></i>
-                        <span class="text-sm">Mon - Sat: 9:00 AM - 6:00 PM<br>Sunday: Closed</span>
-                    </li>
-                </ul>
+            <!-- Bottom Bar -->
+            <div class="border-t border-slate-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p class="text-slate-400 text-sm text-center md:text-left">
+                        &copy; 2010-2025 ByteCore Computer Centre. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
+                        <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
+                        <a href="Fee.html" class="hover:text-primary transition-colors">Fee Structure</a>
+                    </div>
+                </div>
             </div>
         </div>
+    </footer>
 
-        <!-- Bottom Bar -->
-        <div class="border-t border-slate-800 pt-8">
-            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                <p class="text-slate-400 text-sm text-center md:text-left">
-                    &copy; 2010-2025 ByteCore Computer Centre. All rights reserved.
-                </p>
-                <div class="flex space-x-6 text-sm">
-                    <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
-                    <a href="Fee.html" class="hover:text-primary transition-colors">Fee Structure</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<script src="components/page-wrapper-fix.js"></script>
+    <script src="assets/js/site-components.js"></script>
 </body>
 
 </html>
-
-

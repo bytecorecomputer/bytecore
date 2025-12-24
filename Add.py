@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 from ttkthemes import ThemedTk
 
 FILENAME = "Fee.json"
+JS_FILENAME = "assets/js/fee-data.js"
 
 class FeeManager:
     def __init__(self, filename=FILENAME):
@@ -23,8 +24,17 @@ class FeeManager:
             self.data = {}
 
     def save_data(self):
+        # Save as JSON for Python app
         with open(self.filename, "w") as f:
             json.dump(self.data, f, indent=4)
+        
+        # Save as JS for Website (Bypass CORS)
+        try:
+            os.makedirs(os.path.dirname(JS_FILENAME), exist_ok=True)
+            with open(JS_FILENAME, "w") as f:
+                f.write(f"const feeData = {json.dumps(self.data, indent=4)};")
+        except Exception as e:
+            print(f"Error saving JS file: {e}")
 
     def add_or_update_student(self, roll, name, course, total, remaining):
         self.data[roll] = {

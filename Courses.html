@@ -1,752 +1,278 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Courses - ByteCore</title>
 
-    <!-- SEO Meta Tags -->
-    <title>Bytecore Courses | Python, O Level, CCC, Full Stack & More</title>
-    <meta name="description"
-        content="Explore all computer courses at Bytecore including Python, O Level, CCC, Full Stack Development, Data Science, UI/UX Design and more." />
-    <meta name="keywords"
-        content="Bytecore courses, computer courses, Python programming, O Level, CCC, Full Stack Development, Data Science course, UI/UX Design" />
-    <meta name="author" content="Bytecore Team" />
-    <meta name="robots" content="index, follow" />
-
-    <!-- Social Media Meta Tags -->
-    <meta property="og:title" content="Bytecore Courses | Comprehensive Computer Training Programs" />
-    <meta property="og:description"
-        content="Discover all computer courses offered by Bytecore Computer Centre - from beginner to advanced level certifications." />
-    <meta property="og:image" content="https://bytecore-flax.vercel.app/logo.png" />
-    <meta property="og:url" content="https://bytecore-flax.vercel.app/courses.html" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="logo.png" />
-
+    <!-- Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="global-styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
                     colors: {
-                        primary: '#6366f1',
-                        dark: '#0f172a',
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'reveal': 'reveal 0.8s cubic-bezier(0, 0, 0.2, 1) forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-15px)' },
-                        },
-                        reveal: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
+                        primary: '#7464eb',
+                        secondary: '#a78bfa',
                     }
                 }
             }
         }
     </script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-        }
-
-        .dark body {
-            background-color: #0f172a;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .course-card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .course-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 50px -12px rgba(99, 102, 241, 0.25);
-        }
-    </style>
-
 </head>
 
-<body class="bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-100 transition-colors duration-300">
-    <!-- Minimalist Header is injected via JS -->
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300 font-sans">
 
-    <!-- Courses Hero Section -->
-    <section class="relative py-24 overflow-hidden">
-        <!-- Background Shapes -->
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-16 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl -z-10 animate-blob"></div>
         <div
-            class="absolute top-0 left-0 w-full h-full -z-10 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-            <div
-                class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px] animate-pulse">
-            </div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-500/5 rounded-full blur-[120px] animate-pulse"
-                style="animation-delay: 2s"></div>
+            class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl -z-10 animate-blob animation-delay-2000">
         </div>
 
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-4xl mx-auto">
-                <span
-                    class="inline-block px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-primary text-sm font-bold tracking-wider uppercase mb-6 animate-reveal">Our
-                    Catalog</span>
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8 animate-reveal"
-                    style="animation-delay: 0.1s">
-                    Explore Our <br>
-                    <span
-                        class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-indigo-600 italic">Premium</span>
-                    Courses
-                </h1>
-                <p class="text-xl text-slate-600 dark:text-slate-400 mb-10 animate-reveal"
-                    style="animation-delay: 0.2s">
-                    Discover the perfect program to launch or advance your tech career. Filter by category, level, or
-                    duration to find your ideal match.
-                </p>
-                <div class="max-w-2xl mx-auto relative animate-reveal" style="animation-delay: 0.3s">
-                    <input type="text" placeholder="Search courses (Python, O Level, CCC, etc.)"
-                        class="w-full px-6 py-4 rounded-2xl bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary shadow-xl border border-slate-100 dark:border-slate-700 transition-all">
-                    <button
-                        class="absolute right-2 top-2 bg-primary text-white p-3 rounded-xl hover:bg-indigo-600 transition-all shadow-lg hover:shadow-indigo-500/25">
-                        <i class="fas fa-search"></i>
-                    </button>
+        <div class="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-heading text-5xl md:text-7xl font-bold mb-6 animate-reveal">
+                Explore Our <span class="text-gradient">Premium</span> Courses
+            </h1>
+            <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 animate-reveal"
+                style="animation-delay: 0.1s">
+                Unlock your potential with our industry-leading courses designed to help you master the future of
+                technology.
+            </p>
+
+            <!-- Search Bar -->
+            <div class="max-w-xl mx-auto relative group animate-reveal" style="animation-delay: 0.2s">
+                <div
+                    class="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300">
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Courses Filter Section -->
-    <section class="py-12 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                <div>
-                    <h2 class="text-3xl font-bold mb-2">Our <span class="text-primary italic">Catalog</span></h2>
-                    <p class="text-slate-600 dark:text-slate-400">Showing <span id="course-count"
-                            class="font-bold text-primary">15</span> premium programs</p>
-                </div>
-
-                <div class="flex flex-wrap items-center gap-4">
-                    <div class="relative min-w-[200px]">
-                        <select id="sort-select"
-                            class="w-full appearance-none bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-2.5 pr-10 focus:outline-none focus:ring-2 focus:ring-primary shadow-sm transition-all text-sm font-medium">
-                            <option value="popularity">Sort by: Popularity</option>
-                            <option value="newest">Sort by: Newest</option>
-                            <option value="price-low">Price: Low to High</option>
-                            <option value="price-high">Price: High to Low</option>
-                            <option value="duration">Sort by: Duration</option>
-                        </select>
-                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                            <i class="fas fa-chevron-down text-slate-400 text-xs"></i>
-                        </div>
-                    </div>
-
-                    <button id="filter-toggle"
-                        class="flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-5 py-2.5 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all shadow-sm text-sm font-medium">
-                        <i class="fas fa-sliders-h text-primary"></i>
-                        <span>Filters</span>
-                    </button>
+                <div
+                    class="relative flex items-center bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 p-2 shadow-lg component-transition hover:border-primary/50">
+                    <i class="fas fa-search text-slate-400 ml-4 mr-2"></i>
+                    <input type="text" id="course-search" placeholder="Search for a course..."
+                        class="bg-transparent border-none outline-none flex-1 text-slate-700 dark:text-slate-200 placeholder-slate-400">
+                    <button class="btn btn-primary rounded-full px-6 py-2">Search</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Main Content -->
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="flex flex-col lg:flex-row gap-8">
-            <!-- Filters Sidebar -->
-            <aside id="filters-sidebar"
-                class="lg:w-1/4 filter-sidebar-glass rounded-2xl shadow-xl p-8 h-fit lg:sticky lg:top-32 transition-all duration-300 transform -translate-x-full lg:translate-x-0 fixed lg:relative z-40 w-4/5 lg:w-auto h-screen lg:h-auto overflow-y-auto">
-                <div class="flex justify-between items-center mb-8 lg:hidden">
-                    <h3 class="text-2xl font-bold">Filters</h3>
-                    <button id="close-filters"
-                        class="p-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-
-                <div class="mb-10">
-                    <h4 class="font-bold mb-5 text-lg text-slate-800 dark:text-white flex items-center gap-2">
-                        <i class="fas fa-th-large text-primary text-sm"></i>
-                        Categories
-                    </h4>
-                    <div class="space-y-3">
-                        <label class="group flex items-center cursor-pointer">
-                            <input type="checkbox" checked="checked" class="hidden" id="all-categories">
-                            <div
-                                class="w-5 h-5 border-2 border-slate-200 dark:border-slate-700 rounded-md mr-3 flex items-center justify-center transition-all group-hover:border-primary peer-checked:bg-primary peer-checked:border-primary">
-                                <i class="fas fa-check text-white text-[10px] hidden peer-checked:block"></i>
-                            </div>
-                            <span
-                                class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors font-medium">All
-                                Categories</span>
-                            <span
-                                class="ml-auto bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] font-bold px-2 py-1 rounded-md">15</span>
-                        </label>
-
-                        <label class="group flex items-center cursor-pointer">
-                            <input type="checkbox" class="hidden category-filter" value="programming">
-                            <div
-                                class="w-5 h-5 border-2 border-slate-200 dark:border-slate-700 rounded-md mr-3 flex items-center justify-center transition-all group-hover:border-primary peer-checked:bg-primary peer-checked:border-primary">
-                                <i class="fas fa-check text-white text-[10px] hidden peer-checked:block"></i>
-                            </div>
-                            <span
-                                class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors font-medium">Programming</span>
-                            <span
-                                class="ml-auto bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] font-bold px-2 py-1 rounded-md">6</span>
-                        </label>
-
-                        <label class="group flex items-center cursor-pointer">
-                            <input type="checkbox" class="hidden category-filter" value="certification">
-                            <div
-                                class="w-5 h-5 border-2 border-slate-200 dark:border-slate-700 rounded-md mr-3 flex items-center justify-center transition-all group-hover:border-primary peer-checked:bg-primary peer-checked:border-primary">
-                                <i class="fas fa-check text-white text-[10px] hidden peer-checked:block"></i>
-                            </div>
-                            <span
-                                class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors font-medium">Certification</span>
-                            <span
-                                class="ml-auto bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] font-bold px-2 py-1 rounded-md">4</span>
-                        </label>
-
-                        <label class="group flex items-center cursor-pointer">
-                            <input type="checkbox" class="hidden category-filter" value="web-development">
-                            <div
-                                class="w-5 h-5 border-2 border-slate-200 dark:border-slate-700 rounded-md mr-3 flex items-center justify-center transition-all group-hover:border-primary peer-checked:bg-primary peer-checked:border-primary">
-                                <i class="fas fa-check text-white text-[10px] hidden peer-checked:block"></i>
-                            </div>
-                            <span
-                                class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors font-medium">Web
-                                Development</span>
-                            <span
-                                class="ml-auto bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] font-bold px-2 py-1 rounded-md">3</span>
-                        </label>
-
-                        <label class="group flex items-center cursor-pointer">
-                            <input type="checkbox" class="hidden category-filter" value="data-science">
-                            <div
-                                class="w-5 h-5 border-2 border-slate-200 dark:border-slate-700 rounded-md mr-3 flex items-center justify-center transition-all group-hover:border-primary peer-checked:bg-primary peer-checked:border-primary">
-                                <i class="fas fa-check text-white text-[10px] hidden peer-checked:block"></i>
-                            </div>
-                            <span
-                                class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors font-medium">Data
-                                Science</span>
-                            <span
-                                class="ml-auto bg-slate-100 dark:bg-slate-800 text-slate-500 text-[10px] font-bold px-2 py-1 rounded-md">2</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="mb-10">
-                    <h4 class="font-bold mb-5 text-lg text-slate-800 dark:text-white flex items-center gap-2">
-                        <i class="fas fa-layer-group text-primary text-sm"></i>
-                        Course Level
-                    </h4>
-                    <div class="space-y-3">
-                        <label class="group flex items-center cursor-pointer">
-                            <input type="checkbox" checked="checked" class="hidden" id="all-levels">
-                            <div
-                                class="w-5 h-5 border-2 border-slate-200 dark:border-slate-700 rounded-md mr-3 flex items-center justify-center transition-all group-hover:border-primary peer-checked:bg-primary peer-checked:border-primary">
-                                <i class="fas fa-check text-white text-[10px] hidden peer-checked:block"></i>
-                            </div>
-                            <span
-                                class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors font-medium">All
-                                Levels</span>
-                        </label>
-
-                        <label class="group flex items-center cursor-pointer">
-                            <input type="checkbox" class="hidden level-filter" value="beginner">
-                            <div
-                                class="w-5 h-5 border-2 border-slate-200 dark:border-slate-700 rounded-md mr-3 flex items-center justify-center transition-all group-hover:border-primary peer-checked:bg-primary peer-checked:border-primary">
-                                <i class="fas fa-check text-white text-[10px] hidden peer-checked:block"></i>
-                            </div>
-                            <span
-                                class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors font-medium">Beginner</span>
-                        </label>
-
-                        <label class="group flex items-center cursor-pointer">
-                            <input type="checkbox" class="hidden level-filter" value="intermediate">
-                            <div
-                                class="w-5 h-5 border-2 border-slate-200 dark:border-slate-700 rounded-md mr-3 flex items-center justify-center transition-all group-hover:border-primary peer-checked:bg-primary peer-checked:border-primary">
-                                <i class="fas fa-check text-white text-[10px] hidden peer-checked:block"></i>
-                            </div>
-                            <span
-                                class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors font-medium">Intermediate</span>
-                        </label>
-
-                        <label class="group flex items-center cursor-pointer">
-                            <input type="checkbox" class="hidden level-filter" value="advanced">
-                            <div
-                                class="w-5 h-5 border-2 border-slate-200 dark:border-slate-700 rounded-md mr-3 flex items-center justify-center transition-all group-hover:border-primary peer-checked:bg-primary peer-checked:border-primary">
-                                <i class="fas fa-check text-white text-[10px] hidden peer-checked:block"></i>
-                            </div>
-                            <span
-                                class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors font-medium">Advanced</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="mb-10 text-slate-800 dark:text-white">
-                    <h4 class="font-bold mb-6 text-lg flex items-center gap-2">
-                        <i class="fas fa-tag text-primary text-sm"></i>
-                        Price Range
-                    </h4>
-                    <div class="px-2">
-                        <input type="range" id="price-range" min="5000" max="50000" value="50000"
-                            class="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-primary mb-6">
-                        <div class="flex items-center justify-between gap-4">
-                            <div class="flex-1">
-                                <span class="text-[10px] text-slate-400 uppercase font-bold mb-1 block">Min</span>
-                                <div
-                                    class="flex items-center bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5">
-                                    <span class="text-xs text-slate-400 mr-1">₹</span>
-                                    <input type="number" id="min-price" value="5000"
-                                        class="w-full bg-transparent text-sm focus:outline-none font-semibold">
-                                </div>
-                            </div>
-                            <div class="flex-1">
-                                <span class="text-[10px] text-slate-400 uppercase font-bold mb-1 block">Max</span>
-                                <div
-                                    class="flex items-center bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg px-2 py-1.5">
-                                    <span class="text-xs text-slate-400 mr-1">₹</span>
-                                    <input type="number" id="max-price" value="50000"
-                                        class="w-full bg-transparent text-sm focus:outline-none font-semibold">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <button id="apply-filters" class="btn-premium w-full py-3.5 shadow-lg shadow-primary/20">
-                    Apply Filters
+    <section class="section-padding">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Mobile Controls -->
+            <div class="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
+                <button id="filter-toggle"
+                    class="lg:hidden w-full sm:w-auto btn btn-outline flex items-center justify-center gap-2">
+                    <i class="fas fa-filter"></i> Filters
                 </button>
-            </aside>
 
-            <!-- Courses Grid -->
-            <div class="lg:w-3/4">
-                <div class="flex flex-wrap gap-3 mb-10 overflow-x-auto pb-2 no-scrollbar">
-                    <button
-                        class="filter-btn active px-5 py-2 rounded-full bg-primary text-white text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-primary/25"
-                        data-filter="all">
-                        All Courses
-                    </button>
-                    <button
-                        class="filter-btn px-5 py-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider transition-all shadow-sm"
-                        data-filter="popular">
-                        Most Popular
-                    </button>
-                    <button
-                        class="filter-btn px-5 py-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider transition-all shadow-sm"
-                        data-filter="new">
-                        New Releases
-                    </button>
-                    <button
-                        class="filter-btn px-5 py-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider transition-all shadow-sm"
-                        data-filter="certification">
-                        Certifications
-                    </button>
-                    <button
-                        class="filter-btn px-5 py-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-primary text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider transition-all shadow-sm"
-                        data-filter="beginner">
-                        Beginner Level
-                    </button>
-                </div>
+                <p class="text-slate-500 font-medium order-3 sm:order-2"><span id="course-count"
+                        class="font-bold text-primary">0</span> Courses Found</p>
 
-                <!-- Courses will be dynamically inserted here -->
-                <div id="courses-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                    <!-- Courses will be loaded here by JavaScript -->
-                </div>
-
-                <!-- Pagination -->
-                <div class="mt-12 flex justify-center">
-                    <nav class="flex items-center space-x-2" id="pagination-container">
-                        <!-- Pagination will be dynamically inserted here -->
-                    </nav>
+                <div class="flex items-center gap-2 w-full sm:w-auto order-2 sm:order-3">
+                    <span class="text-sm text-slate-500 hidden sm:inline">Sort by:</span>
+                    <select id="sort-select"
+                        class="w-full sm:w-auto bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm focus:border-primary outline-none transition-colors cursor-pointer">
+                        <option value="popularity">Popularity</option>
+                        <option value="newest">Newest</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="duration">Duration</option>
+                    </select>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Testimonials Section -->
-    <section class="py-16 bg-slate-50 dark:bg-slate-900">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Students Say</h2>
-                <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">Hear from our successful alumni
-                    who transformed their careers with Bytecore courses</p>
-            </div>
-
-            <div class="swiper testimonials-swiper">
-                <div class="swiper-wrapper">
-                    <!-- Testimonial 1 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg h-full">
-                            <div class="flex items-center mb-6">
-                                <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
-                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Student"
-                                        class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <h4 class="font-bold">Priya Sharma</h4>
-                                    <p class="text-slate-600 dark:text-slate-300 text-sm">Full Stack Development</p>
-                                </div>
-                            </div>
-                            <div class="flex mb-4 text-amber-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-slate-700 dark:text-slate-300 mb-6">
-                                "Bytecore's Full Stack course gave me the skills and confidence to land my dream job at
-                                a top tech company. The hands-on projects were especially valuable for building my
-                                portfolio."
-                            </p>
-                            <div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
-                                <i class="fas fa-briefcase mr-2"></i>
-                                <span>Now working as Frontend Developer at TechSolutions</span>
-                            </div>
-                        </div>
+            <div class="flex flex-col lg:flex-row gap-8 relative">
+                <!-- Filters Sidebar -->
+                <aside id="filters-sidebar"
+                    class="fixed inset-y-0 left-0 w-80 bg-white dark:bg-slate-900 z-50 transform -translate-x-full lg:translate-x-0 lg:static lg:w-1/4 lg:bg-transparent transition-transform duration-300 lg:z-auto p-6 lg:p-0 overflow-y-auto lg:overflow-visible border-r lg:border-none border-slate-200 dark:border-slate-800 shadow-2xl lg:shadow-none">
+                    <!-- Mobile Header -->
+                    <div class="flex justify-between items-center lg:hidden mb-6">
+                        <h3 class="font-bold text-xl font-heading">Filters</h3>
+                        <button id="close-filters"
+                            class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
 
-                    <!-- Testimonial 2 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg h-full">
-                            <div class="flex items-center mb-6">
-                                <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
-                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Student"
-                                        class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <h4 class="font-bold">Rahul Verma</h4>
-                                    <p class="text-slate-600 dark:text-slate-300 text-sm">Data Science & AI</p>
-                                </div>
-                            </div>
-                            <div class="flex mb-4 text-amber-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-slate-700 dark:text-slate-300 mb-6">
-                                "The Data Science course exceeded my expectations. The instructors were industry experts
-                                who provided practical insights you won't find in textbooks. Got placed before course
-                                completion!"
-                            </p>
-                            <div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
-                                <i class="fas fa-briefcase mr-2"></i>
-                                <span>Now working as Data Analyst at AnalyticsPro</span>
+                    <div
+                        class="glass p-6 rounded-2xl space-y-8 sticky top-24 border border-slate-100 dark:border-slate-700/50">
+                        <!-- Categories -->
+                        <div>
+                            <h4 class="font-heading font-bold text-lg mb-4 flex items-center gap-2">
+                                <i class="fas fa-th-large text-primary text-sm"></i> Categories
+                            </h4>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 cursor-pointer group select-none">
+                                    <div class="relative flex items-center">
+                                        <input type="checkbox" class="category-filter peer sr-only" value="programming">
+                                        <div
+                                            class="w-5 h-5 rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
+                                            <i
+                                                class="fas fa-check text-[10px] text-white opacity-0 peer-checked:opacity-100"></i>
+                                        </div>
+                                    </div>
+                                    <span
+                                        class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors text-sm">Programming</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group select-none">
+                                    <div class="relative flex items-center">
+                                        <input type="checkbox" class="category-filter peer sr-only"
+                                            value="web-development">
+                                        <div
+                                            class="w-5 h-5 rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
+                                            <i
+                                                class="fas fa-check text-[10px] text-white opacity-0 peer-checked:opacity-100"></i>
+                                        </div>
+                                    </div>
+                                    <span
+                                        class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors text-sm">Web
+                                        Development</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group select-none">
+                                    <div class="relative flex items-center">
+                                        <input type="checkbox" class="category-filter peer sr-only"
+                                            value="data-science">
+                                        <div
+                                            class="w-5 h-5 rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
+                                            <i
+                                                class="fas fa-check text-[10px] text-white opacity-0 peer-checked:opacity-100"></i>
+                                        </div>
+                                    </div>
+                                    <span
+                                        class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors text-sm">Data
+                                        Science</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group select-none">
+                                    <div class="relative flex items-center">
+                                        <input type="checkbox" class="category-filter peer sr-only"
+                                            value="certification">
+                                        <div
+                                            class="w-5 h-5 rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
+                                            <i
+                                                class="fas fa-check text-[10px] text-white opacity-0 peer-checked:opacity-100"></i>
+                                        </div>
+                                    </div>
+                                    <span
+                                        class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors text-sm">Certifications</span>
+                                </label>
                             </div>
                         </div>
+
+                        <!-- Level -->
+                        <div>
+                            <h4 class="font-heading font-bold text-lg mb-4 flex items-center gap-2">
+                                <i class="fas fa-layer-group text-primary text-sm"></i> Level
+                            </h4>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 cursor-pointer group select-none">
+                                    <div class="relative flex items-center">
+                                        <input type="checkbox" class="level-filter peer sr-only" value="beginner">
+                                        <div
+                                            class="w-5 h-5 rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
+                                            <i
+                                                class="fas fa-check text-[10px] text-white opacity-0 peer-checked:opacity-100"></i>
+                                        </div>
+                                    </div>
+                                    <span
+                                        class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors text-sm">Beginner</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group select-none">
+                                    <div class="relative flex items-center">
+                                        <input type="checkbox" class="level-filter peer sr-only" value="intermediate">
+                                        <div
+                                            class="w-5 h-5 rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
+                                            <i
+                                                class="fas fa-check text-[10px] text-white opacity-0 peer-checked:opacity-100"></i>
+                                        </div>
+                                    </div>
+                                    <span
+                                        class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors text-sm">Intermediate</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group select-none">
+                                    <div class="relative flex items-center">
+                                        <input type="checkbox" class="level-filter peer sr-only" value="advanced">
+                                        <div
+                                            class="w-5 h-5 rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
+                                            <i
+                                                class="fas fa-check text-[10px] text-white opacity-0 peer-checked:opacity-100"></i>
+                                        </div>
+                                    </div>
+                                    <span
+                                        class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors text-sm">Advanced</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Price Range -->
+                        <div>
+                            <h4 class="font-heading font-bold text-lg mb-4 flex items-center gap-2">
+                                <i class="fas fa-tag text-primary text-sm"></i> Price Range
+                            </h4>
+                            <div class="space-y-4">
+                                <input type="range" id="price-range" min="0" max="50000" step="1000"
+                                    class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-primary">
+                                <div
+                                    class="flex justify-between items-center bg-slate-50 dark:bg-slate-800 p-2 rounded-lg border border-slate-200 dark:border-slate-700">
+                                    <div class="relative">
+                                        <span
+                                            class="absolute left-2 top-1/2 -translate-y-1/2 text-slate-400 text-xs">₹</span>
+                                        <input type="number" id="min-price" value="0"
+                                            class="w-16 bg-transparent text-center outline-none text-sm font-medium pl-3">
+                                    </div>
+                                    <span class="text-slate-400">-</span>
+                                    <div class="relative">
+                                        <span
+                                            class="absolute left-2 top-1/2 -translate-y-1/2 text-slate-400 text-xs">₹</span>
+                                        <input type="number" id="max-price" value="50000"
+                                            class="w-16 bg-transparent text-center outline-none text-sm font-medium pl-3">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="apply-filters" class="btn btn-primary w-full shadow-lg shadow-primary/20">Apply
+                            Filters</button>
+                        <button onclick="resetFilters()"
+                            class="w-full text-center text-sm text-slate-500 hover:text-primary transition-colors mt-2">Reset
+                            All</button>
+                    </div>
+                </aside>
+                <div class="lg:hidden fixed inset-0 bg-black/50 z-40 hidden" id="filters-backdrop"></div>
+
+                <!-- Courses Grid -->
+                <main class="lg:w-3/4">
+                    <div id="courses-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Populated by JS -->
                     </div>
 
-                    <!-- Testimonial 3 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg h-full">
-                            <div class="flex items-center mb-6">
-                                <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
-                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Student"
-                                        class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <h4 class="font-bold">Neha Patel</h4>
-                                    <p class="text-slate-600 dark:text-slate-300 text-sm">O Level Certification</p>
-                                </div>
-                            </div>
-                            <div class="flex mb-4 text-amber-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <p class="text-slate-700 dark:text-slate-300 mb-6">
-                                "The O Level course provided a solid foundation in IT concepts. The study material was
-                                excellent and the faculty was very supportive. Cleared the exam in first attempt!"
-                            </p>
-                            <div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
-                                <i class="fas fa-briefcase mr-2"></i>
-                                <span>Now working as IT Assistant at Government Office</span>
-                            </div>
-                        </div>
+                    <!-- Pagination -->
+                    <div id="pagination-container" class="flex justify-center items-center gap-3 mt-16">
+                        <!-- Populated by JS -->
                     </div>
-
-                    <!-- Testimonial 4 -->
-                    <div class="swiper-slide">
-                        <div class="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-lg h-full">
-                            <div class="flex items-center mb-6">
-                                <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
-                                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Student"
-                                        class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <h4 class="font-bold">Amit Singh</h4>
-                                    <p class="text-slate-600 dark:text-slate-300 text-sm">Python Programming</p>
-                                </div>
-                            </div>
-                            <div class="flex mb-4 text-amber-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-slate-700 dark:text-slate-300 mb-6">
-                                "Best decision I made was joining Bytecore's Python course. Went from zero coding
-                                knowledge to building my own applications. The project-based approach made learning fun
-                                and effective."
-                            </p>
-                            <div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
-                                <i class="fas fa-briefcase mr-2"></i>
-                                <span>Now working as Python Developer at Startup</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
+                </main>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="py-24 bg-white dark:bg-slate-900 overflow-hidden relative">
-        <!-- Decoration -->
-        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl -ml-32 -mb-32"></div>
-
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-20">
-                <span
-                    class="inline-block px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-primary text-sm font-bold tracking-wider uppercase mb-6">Support</span>
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">Frequently Asked <span
-                        class="italic text-primary">Questions</span></h2>
-                <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Find answers to common questions
-                    about our courses and enrollment process</p>
-            </div>
-
-            <div class="max-w-4xl mx-auto">
-                <div class="grid gap-4">
-                    <!-- FAQ Item 1 -->
-                    <div
-                        class="group border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden bg-slate-50/50 dark:bg-slate-800/30 hover:border-primary/30 transition-all duration-300">
-                        <button
-                            class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-white dark:hover:bg-slate-800 transition-all">
-                            <h3 class="text-lg font-bold">What are the eligibility criteria for your courses?</h3>
-                            <div
-                                class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-primary transition-all group-hover:bg-primary group-hover:text-white">
-                                <i class="fas fa-plus text-xs"></i>
-                            </div>
-                        </button>
-                        <div class="faq-content px-6 pb-6 hidden animate-reveal">
-                            <p
-                                class="text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-700 pt-4">
-                                Eligibility varies by course. For beginner courses like CCC and Basic Programming, no
-                                prior experience is required. For advanced courses like Full Stack Development or Data
-                                Science, we recommend basic computer knowledge. O Level requires 10+2 qualification.
-                                Please check individual course pages for specific requirements.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 2 -->
-                    <div
-                        class="group border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden bg-slate-50/50 dark:bg-slate-800/30 hover:border-primary/30 transition-all duration-300">
-                        <button
-                            class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-white dark:hover:bg-slate-800 transition-all">
-                            <h3 class="text-lg font-bold">Do you provide placement assistance after course completion?
-                            </h3>
-                            <div
-                                class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-primary transition-all group-hover:bg-primary group-hover:text-white">
-                                <i class="fas fa-plus text-xs"></i>
-                            </div>
-                        </button>
-                        <div class="faq-content px-6 pb-6 hidden animate-reveal">
-                            <p
-                                class="text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-700 pt-4">
-                                Yes, we have a dedicated placement cell that works with 500+ hiring partners across
-                                India. We provide resume building, interview preparation, and direct placement
-                                opportunities. Many of our courses have 100% placement records.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 3 -->
-                    <div
-                        class="group border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden bg-slate-50/50 dark:bg-slate-800/30 hover:border-primary/30 transition-all duration-300">
-                        <button
-                            class="faq-toggle w-full flex justify-between items-center p-6 text-left hover:bg-white dark:hover:bg-slate-800 transition-all">
-                            <h3 class="text-lg font-bold">What is the difference between ADCA and MDCA courses?</h3>
-                            <div
-                                class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-primary transition-all group-hover:bg-primary group-hover:text-white">
-                                <i class="fas fa-plus text-xs"></i>
-                            </div>
-                        </button>
-                        <div class="faq-content px-6 pb-6 hidden animate-reveal">
-                            <p
-                                class="text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-700 pt-4">
-                                ADCA (Advanced Diploma in Computer Applications) is a 1-year comprehensive course
-                                covering programming, accounting, DTP and office applications. MDCA (Master Diploma in
-                                Computer Applications) is a more advanced 15-month program that includes additional
-                                modules like advanced programming, database management, and web technologies.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Additional items simplified for brevity in this block, keeping the main 5 structure from original -->
-                </div>
-
-                <div class="mt-16 text-center">
-                    <p class="text-slate-600 dark:text-slate-400 mb-8 font-medium">Still have questions? We're happy to
-                        help!</p>
-                    <a href="contact.html"
-                        class="btn-premium inline-flex items-center gap-3 py-4 px-10 shadow-xl shadow-primary/20">
-                        <span>Get in Touch</span>
-                        <i class="fas fa-arrow-right text-sm"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Registration CTA -->
-    <section id="registration" class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 bg-primary/90 dark:bg-primary/80 z-0"></div>
-        <div
-            class="absolute inset-0 opacity-10 mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
-        </div>
-
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h2 class="text-4xl md:text-6xl font-bold text-white mb-8">Ready to Transform Your career?</h2>
-            <p class="text-xl text-white/80 max-w-2xl mx-auto mb-12">
-                Join thousands of successful students who launched their tech careers with Bytecore. Your professional
-                journey starts here.
-            </p>
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="scholarship.html"
-                    class="px-10 py-4 rounded-xl bg-white text-primary font-bold hover:shadow-2xl hover:scale-105 transition-all shadow-xl">
-                    Get Started Today
-                </a>
-                <a href="tel:+916396835709"
-                    class="px-10 py-4 rounded-xl border border-white/30 bg-white/10 text-white font-bold hover:bg-white/20 transition-all backdrop-blur-md">
-                    <i class="fas fa-phone-alt mr-3"></i> Call for Inquiry
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-slate-800 text-white pt-16 pb-8">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Bytecore</h3>
-                    <p class="text-slate-400 mb-6">Transforming careers through quality IT education since 2010.</p>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/bytecorecomputercentre/" target="_blank"
-                            rel="noopener noreferrer"
-                            class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://x.com/bytecores" target="_blank" rel="noopener noreferrer"
-                            class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.instagram.com/bytecore_computer_centre/?hl=en" target="_blank"
-                            rel="noopener noreferrer"
-                            class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/bytecore-computer-centre-69ba7a344/" target="_blank"
-                            rel="noopener noreferrer"
-                            class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
-                    <ul class="space-y-3">
-                        <li><a href="/" class="text-slate-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="About.html" class="text-slate-400 hover:text-white transition-colors">About Us</a>
-                        </li>
-                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Courses</a>
-                        </li>
-                        <li><a href="Fee.html" class="text-slate-400 hover:text-white transition-colors">Fees
-                                Structure</a></li>
-                        <li><a href="Placements"
-                                class="text-slate-400 hover:text-white transition-colors">Placements</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-lg font-semibold mb-6">Courses</h3>
-                    <ul class="space-y-3">
-                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Full Stack
-                                Development</a></li>
-                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Data
-                                Science & AI</a></li>
-                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">UI/UX
-                                Design</a></li>
-                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Cyber
-                                Security</a></li>
-                        <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors">Cloud
-                                Computing</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-lg font-semibold mb-6">Contact Us</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
-                            <span class="text-slate-400">Bithri Road , Opposite Sheetala Mata Mandir, Nariyawal BLY,
-                                India - 243123</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-phone-alt mt-1 mr-3 text-primary"></i>
-                            <span class="text-slate-400">+91 98765 43210</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-envelope mt-1 mr-3 text-primary"></i>
-                            <span class="text-slate-400">bytecore.info@gmail.com</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-clock mt-1 mr-3 text-primary"></i>
-                            <span class="text-slate-400">Mon-Sat: 8:00 AM - 7:00 PM</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="pt-8 border-t border-slate-700 text-center text-slate-500">
-                <p>Â© 2025 Bytecore Computer Centre. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Course data
+        // Combine course data
         const courses = [
             {
                 id: 1,
@@ -798,7 +324,7 @@
                 tags: ["advanced"],
                 category: "programming",
                 level: "advanced",
-                color: "from-green-500 to-teal-600"
+                color: "from-rose-500 to-red-600"
             },
             {
                 id: 5,
@@ -947,7 +473,7 @@
 
         // Initialize variables
         let currentPage = 1;
-        const coursesPerPage = 5;
+        const coursesPerPage = 6; // Increased to 6 for better grid layout (2x3)
         let filteredCourses = [...courses];
         let currentFilter = "all";
         let currentSort = "popularity";
@@ -957,62 +483,44 @@
         const paginationContainer = document.getElementById('pagination-container');
         const courseCountElement = document.getElementById('course-count');
         const sortSelect = document.getElementById('sort-select');
-        const filterButtons = document.querySelectorAll('.filter-btn');
         const applyFiltersBtn = document.getElementById('apply-filters');
         const priceRange = document.getElementById('price-range');
         const minPriceInput = document.getElementById('min-price');
         const maxPriceInput = document.getElementById('max-price');
+        const searchInput = document.getElementById('course-search');
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
             renderCourses();
             renderPagination();
             updateCourseCount();
-
-            // Initialize Swiper for testimonials
-            const testimonialSwiper = new Swiper('.testimonials-swiper', {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                loop: true,
-                grabCursor: true,
-                autoplay: {
-                    delay: 5000,
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-                breakpoints: {
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    },
-                },
-            });
-
-            // Set up event listeners
             setupEventListeners();
         });
 
-        // Set up all event listeners
         function setupEventListeners() {
-            // Filter buttons
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-                    currentFilter = button.dataset.filter;
-                    filterCourses();
-                });
-            });
-
             // Sort select
             sortSelect.addEventListener('change', () => {
                 currentSort = sortSelect.value;
                 sortCourses();
                 renderCourses();
+            });
+
+            // Search input
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                if (searchTerm.length > 0) {
+                    filteredCourses = courses.filter(course =>
+                        course.title.toLowerCase().includes(searchTerm) ||
+                        course.category.toLowerCase().includes(searchTerm) ||
+                        course.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+                    );
+                } else {
+                    filterCourses(); // Re-apply current active filters if search cleared
+                }
+                currentPage = 1;
+                renderCourses();
+                renderPagination();
+                updateCourseCount();
             });
 
             // Price range inputs
@@ -1024,7 +532,6 @@
                 if (parseInt(minPriceInput.value) > parseInt(maxPriceInput.value)) {
                     minPriceInput.value = maxPriceInput.value;
                 }
-                priceRange.value = maxPriceInput.value;
             });
 
             maxPriceInput.addEventListener('input', () => {
@@ -1037,226 +544,72 @@
             // Apply filters button
             applyFiltersBtn.addEventListener('click', () => {
                 filterCourses();
-                document.getElementById('filters-sidebar').classList.add('-translate-x-full');
+                closeMobileFilters();
             });
 
-            // Mobile menu toggle
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuToggle = document.getElementById('mobile-menu-toggle');
-            const closeMenu = document.getElementById('close-menu');
-
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.remove('-translate-x-full');
-            });
-
-            closeMenu.addEventListener('click', () => {
-                mobileMenu.classList.add('-translate-x-full');
-            });
-
-            // Filters toggle for mobile
+            // Mobile menu toggles
             const filtersSidebar = document.getElementById('filters-sidebar');
+            const filtersBackdrop = document.getElementById('filters-backdrop');
             const filterToggle = document.getElementById('filter-toggle');
             const closeFilters = document.getElementById('close-filters');
 
-            filterToggle.addEventListener('click', () => {
+            function openMobileFilters() {
                 filtersSidebar.classList.remove('-translate-x-full');
-            });
-
-            closeFilters.addEventListener('click', () => {
-                filtersSidebar.classList.add('-translate-x-full');
-            });
-
-            // FAQ accordion
-            const faqToggles = document.querySelectorAll('.faq-toggle');
-            faqToggles.forEach(toggle => {
-                toggle.addEventListener('click', () => {
-                    const content = toggle.nextElementSibling;
-                    const icon = toggle.querySelector('i');
-                    const iconContainer = toggle.querySelector('.w-8.h-8');
-
-                    // Toggle content
-                    const isOpening = content.classList.contains('hidden');
-
-                    // Close all
-                    faqToggles.forEach(otherToggle => {
-                        otherToggle.nextElementSibling.classList.add('hidden');
-                        const otherIcon = otherToggle.querySelector('i');
-                        otherIcon.classList.remove('fa-minus');
-                        otherIcon.classList.add('fa-plus');
-                        otherToggle.querySelector('.w-8.h-8').classList.remove('bg-primary', 'text-white');
-                        otherToggle.querySelector('.w-8.h-8').classList.add('bg-slate-100', 'dark:bg-slate-700', 'text-primary');
-                    });
-
-                    if (isOpening) {
-                        content.classList.remove('hidden');
-                        icon.classList.remove('fa-plus');
-                        icon.classList.add('fa-minus');
-                        iconContainer.classList.remove('bg-slate-100', 'dark:bg-slate-700', 'text-primary');
-                        iconContainer.classList.add('bg-primary', 'text-white');
-                    }
-                });
-            });
-
-            // Dark mode toggle
-            const themeToggle = document.getElementById('theme-toggle');
-            const htmlElement = document.documentElement;
-
-            // Check for saved theme preference
-            if (localStorage.getItem('theme') === 'dark') {
-                htmlElement.classList.add('dark');
-            } else if (localStorage.getItem('theme') === 'light') {
-                htmlElement.classList.remove('dark');
+                filtersBackdrop.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
             }
 
-            themeToggle.addEventListener('click', () => {
-                htmlElement.classList.toggle('dark');
+            function closeMobileFilters() {
+                filtersSidebar.classList.add('-translate-x-full');
+                filtersBackdrop.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
 
-                // Save preference
-                if (htmlElement.classList.contains('dark')) {
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    localStorage.setItem('theme', 'light');
-                }
-            });
-
-            // Smooth scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    if (this.getAttribute('href') !== '#') {
-                        e.preventDefault();
-                        document.querySelector(this.getAttribute('href')).scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // Checkbox styling
-            const checkboxes = document.querySelectorAll('.checkbox-container input[type="checkbox"]');
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function () {
-                    const checkmark = this.nextElementSibling;
-                    if (this.checked) {
-                        checkmark.classList.add('bg-primary', 'border-primary');
-                    } else {
-                        checkmark.classList.remove('bg-primary', 'border-primary');
-                    }
-                });
-            });
+            filterToggle.addEventListener('click', openMobileFilters);
+            closeFilters.addEventListener('click', closeMobileFilters);
+            filtersBackdrop.addEventListener('click', closeMobileFilters);
         }
 
-        // Filter courses based on selected filters
         function filterCourses() {
-            // Get filter values
-            const minPrice = parseInt(minPriceInput.value);
-            const maxPrice = parseInt(maxPriceInput.value);
+            const minPrice = parseInt(minPriceInput.value) || 0;
+            const maxPrice = parseInt(maxPriceInput.value) || 50000;
 
-            // Get selected categories
-            const selectedCategories = [];
-            document.querySelectorAll('.category-filter:checked').forEach(checkbox => {
-                selectedCategories.push(checkbox.value);
-            });
+            const selectedCategories = Array.from(document.querySelectorAll('.category-filter:checked')).map(cb => cb.value);
+            const selectedLevels = Array.from(document.querySelectorAll('.level-filter:checked')).map(cb => cb.value);
 
-            // Get selected levels
-            const selectedLevels = [];
-            document.querySelectorAll('.level-filter:checked').forEach(checkbox => {
-                selectedLevels.push(checkbox.value);
-            });
-
-            // Get selected durations
-            const selectedDurations = [];
-            document.querySelectorAll('.duration-filter:checked').forEach(checkbox => {
-                selectedDurations.push(checkbox.value);
-            });
-
-            // Apply filters
             filteredCourses = courses.filter(course => {
                 // Price filter
-                if (course.price < minPrice || course.price > maxPrice) {
-                    return false;
-                }
+                if (course.price < minPrice || course.price > maxPrice) return false;
 
                 // Category filter
-                if (selectedCategories.length > 0 && !selectedCategories.includes(course.category)) {
-                    return false;
-                }
+                if (selectedCategories.length > 0 && !selectedCategories.includes(course.category)) return false;
 
                 // Level filter
-                if (selectedLevels.length > 0 && !selectedLevels.includes(course.level)) {
-                    return false;
-                }
-
-                // Duration filter
-                if (selectedDurations.length > 0) {
-                    const courseDuration = parseInt(course.duration);
-                    let durationMatch = false;
-
-                    selectedDurations.forEach(duration => {
-                        if (duration === '1-3' && courseDuration >= 1 && courseDuration <= 3) {
-                            durationMatch = true;
-                        } else if (duration === '3-6' && courseDuration > 3 && courseDuration <= 6) {
-                            durationMatch = true;
-                        } else if (duration === '6+' && courseDuration > 6) {
-                            durationMatch = true;
-                        }
-                    });
-
-                    if (!durationMatch) return false;
-                }
-
-                // Tag filter
-                if (currentFilter !== "all") {
-                    if (currentFilter === "popular" && !course.tags.includes("popular")) {
-                        return false;
-                    } else if (currentFilter === "new" && !course.tags.includes("new")) {
-                        return false;
-                    } else if (currentFilter === "certification" && course.category !== "certification") {
-                        return false;
-                    } else if (currentFilter === "beginner" && course.level !== "beginner") {
-                        return false;
-                    }
-                }
+                if (selectedLevels.length > 0 && !selectedLevels.includes(course.level)) return false;
 
                 return true;
             });
 
-            // Sort courses after filtering
             sortCourses();
-
-            // Reset to first page
             currentPage = 1;
-
-            // Update UI
             renderCourses();
             renderPagination();
             updateCourseCount();
         }
 
-        // Sort courses based on selected sort option
         function sortCourses() {
             filteredCourses.sort((a, b) => {
                 switch (currentSort) {
-                    case "popularity":
-                        return parseFloat(b.rating) - parseFloat(a.rating);
-                    case "newest":
-                        // Assuming newer courses have higher IDs (for demo)
-                        return b.id - a.id;
-                    case "price-low":
-                        return a.price - b.price;
-                    case "price-high":
-                        return b.price - a.price;
-                    case "duration":
-                        // Extract numeric duration from string (e.g., "6 Months" -> 6)
-                        const aDuration = parseInt(a.duration);
-                        const bDuration = parseInt(b.duration);
-                        return aDuration - bDuration;
-                    default:
-                        return 0;
+                    case "popularity": return parseFloat(b.rating) - parseFloat(a.rating);
+                    case "newest": return b.id - a.id;
+                    case "price-low": return a.price - b.price;
+                    case "price-high": return b.price - a.price;
+                    case "duration": return parseInt(a.duration) - parseInt(b.duration);
+                    default: return 0;
                 }
             });
         }
 
-        // Render courses for current page
         function renderCourses() {
             const startIndex = (currentPage - 1) * coursesPerPage;
             const endIndex = startIndex + coursesPerPage;
@@ -1271,8 +624,8 @@
                             <i class="fas fa-search-minus text-3xl text-slate-400"></i>
                         </div>
                         <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-2">No premium courses found</h3>
-                        <p class="text-slate-500 dark:text-slate-400 max-w-md mx-auto">We couldn't find any courses matching your current filters. Try adjusting your search criteria.</p>
-                        <button onclick="resetFilters()" class="mt-8 text-primary font-bold hover:underline">Clear all filters</button>
+                        <p class="text-slate-500 dark:text-slate-400 max-w-md mx-auto">Try adjusting your search criteria or clear filters.</p>
+                        <button onclick="resetFilters()" class="mt-8 btn btn-outline">Clear all filters</button>
                     </div>
                 `;
                 return;
@@ -1280,57 +633,71 @@
 
             coursesToShow.forEach(course => {
                 const courseElement = document.createElement('div');
-                courseElement.className = 'course-card group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-700/50 hover:border-primary/30 transition-all duration-500 animate-reveal';
+                courseElement.className = 'premium-card group animate-reveal';
 
-                // Build tags
+                // Colors for gradient fallback
+                const colorMap = {
+                    'programming': 'from-blue-500 to-indigo-600',
+                    'web-development': 'from-purple-500 to-pink-600',
+                    'data-science': 'from-emerald-500 to-teal-600',
+                    'certification': 'from-orange-500 to-red-600'
+                };
+                const gradientClass = course.color || colorMap[course.category] || 'from-slate-500 to-slate-700';
+
+                // Render tags
                 let tagsHTML = '';
                 course.tags.forEach(tag => {
-                    const tagLabel = tag === 'popular' ? 'Most Popular' :
-                        tag === 'new' ? 'New Release' :
-                            tag === 'advanced' ? 'Advanced' :
-                                tag === 'govt' ? 'Govt. Certified' : tag;
-
-                    tagsHTML += `<span class="bg-white/90 backdrop-blur-md text-slate-800 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">${tagLabel}</span>`;
+                    const tagLabel = tag === 'popular' ? 'Best Seller' : tag === 'new' ? 'New' : tag === 'govt' ? 'Govt.' : tag;
+                    const tagClass = tag === 'popular' ? 'bg-amber-100 text-amber-700' : 'bg-white/90 text-slate-800';
+                    tagsHTML += `<span class="${tagClass} text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wide shadow-sm backdrop-blur-sm">${tagLabel}</span>`;
                 });
 
                 courseElement.innerHTML = `
-                    <div class="relative h-64 overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br ${course.color} opacity-90 group-hover:scale-110 transition-transform duration-700"></div>
+                    <div class="relative h-48 -mx-8 -mt-8 mb-6 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br ${gradientClass} opacity-90 group-hover:scale-110 transition-transform duration-700"></div>
+                        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay"></div>
+                        
                         <div class="absolute top-4 left-4 flex flex-wrap gap-2 z-10">${tagsHTML}</div>
-                        <div class="absolute inset-0 flex items-center justify-center p-8 opacity-20 group-hover:opacity-30 transition-opacity">
-                             <i class="fas fa-graduation-cap text-8xl text-white transform -rotate-12"></i>
+                        
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-graduation-cap text-6xl text-white/30 transform -rotate-12 group-hover:scale-110 transition-transform duration-500"></i>
                         </div>
                     </div>
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-4">
-                            <h3 class="text-2xl font-bold group-hover:text-primary transition-colors">${course.title}</h3>
-                            <div class="flex items-center bg-amber-50 dark:bg-amber-900/20 px-2 py-1 rounded-lg">
-                                <i class="fas fa-star text-amber-400 text-xs mr-1"></i>
-                                <span class="text-sm font-bold text-amber-700 dark:text-amber-400">${course.rating}</span>
-                            </div>
+
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="text-xs font-bold uppercase tracking-wider text-primary bg-primary/5 px-2 py-1 rounded-lg">${course.category.replace('-', ' ')}</span>
+                        <div class="flex items-center gap-1 text-amber-400">
+                            <span class="text-slate-700 dark:text-slate-300 font-bold text-sm mr-1">${course.rating}</span>
+                            <i class="fas fa-star text-xs"></i>
                         </div>
-                        <p class="text-slate-600 dark:text-slate-400 mb-6 line-clamp-2 leading-relaxed">${course.description}</p>
-                        
-                        <div class="grid grid-cols-2 gap-4 mb-8">
-                            <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
-                                <i class="far fa-clock text-primary"></i>
-                                <span class="text-xs font-medium">${course.duration}</span>
-                            </div>
-                            <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
-                                <i class="far fa-user text-primary"></i>
-                                <span class="text-xs font-medium">${course.enrolled} Enrolled</span>
-                            </div>
+                    </div>
+
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors line-clamp-1" title="${course.title}">${course.title}</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2 h-10">${course.description}</p>
+
+                    <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-6 py-3 border-y border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center gap-1.5">
+                            <i class="far fa-clock text-primary"></i>
+                            <span>${course.duration}</span>
                         </div>
-                        
-                        <div class="flex justify-between items-center pt-6 border-t border-slate-100 dark:border-slate-700/50">
-                            <div>
-                                <span class="text-[10px] text-slate-400 uppercase font-bold block mb-1">Starting from</span>
-                                <span class="text-2xl font-black text-primary">₹${course.price.toLocaleString()}</span>
-                            </div>
-                            <a href="scholarship.html" class="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-700 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white transition-all duration-300">
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
+                        <div class="flex items-center gap-1.5">
+                            <i class="far fa-user text-primary"></i>
+                            <span>${course.enrolled} Enrolled</span>
                         </div>
+                        <div class="flex items-center gap-1.5">
+                            <i class="fas fa-signal text-primary"></i>
+                            <span class="capitalize">${course.level}</span>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="block text-xs text-slate-400 mb-0.5">Course Fee</span>
+                            <span class="text-2xl font-black text-slate-800 dark:text-white">₹${course.price.toLocaleString()}</span>
+                        </div>
+                        <a href="scholarship.html" class="btn btn-primary rounded-xl w-10 h-10 flex items-center justify-center p-0">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 `;
 
@@ -1338,117 +705,60 @@
             });
         }
 
-        // Render pagination buttons
         function renderPagination() {
             const totalPages = Math.ceil(filteredCourses.length / coursesPerPage);
+            paginationContainer.innerHTML = '';
 
-            if (totalPages <= 1) {
-                paginationContainer.innerHTML = '';
-                return;
+            if (totalPages <= 1) return;
+
+            // Prev Button
+            const prevBtn = document.createElement('button');
+            prevBtn.className = `w-10 h-10 rounded-full flex items-center justify-center transition-all ${currentPage === 1 ? 'bg-slate-100 dark:bg-slate-800 text-slate-300 cursor-not-allowed' : 'bg-white dark:bg-slate-800 hover:bg-primary hover:text-white shadow-md text-slate-600'}`;
+            prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            prevBtn.onclick = () => currentPage > 1 && changePage(currentPage - 1);
+            paginationContainer.appendChild(prevBtn);
+
+            // Page numbers (Simple version)
+            for (let i = 1; i <= totalPages; i++) {
+                const btn = document.createElement('button');
+                btn.className = `w-10 h-10 rounded-full font-bold transition-all ${i === currentPage ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400'}`;
+                btn.innerText = i;
+                btn.onclick = () => changePage(i);
+                paginationContainer.appendChild(btn);
             }
 
-            let paginationHTML = '';
-
-            // Previous button
-            paginationHTML += `
-                <button class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 flex items-center justify-center" 
-                        onclick="changePage(${currentPage > 1 ? currentPage - 1 : 1})">
-                    <i class="fas fa-chevron-left text-slate-600 dark:text-slate-300"></i>
-                </button>
-            `;
-
-            // Page numbers
-            const maxVisiblePages = 5;
-            let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-
-            if (endPage - startPage + 1 < maxVisiblePages) {
-                startPage = Math.max(1, endPage - maxVisiblePages + 1);
-            }
-
-            if (startPage > 1) {
-                paginationHTML += `
-                    <button class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-medium page-btn" 
-                            onclick="changePage(1)">
-                        1
-                    </button>
-                `;
-                if (startPage > 2) {
-                    paginationHTML += `<span class="px-2 text-slate-600 dark:text-slate-300">...</span>`;
-                }
-            }
-
-            for (let i = startPage; i <= endPage; i++) {
-                paginationHTML += `
-                    <button class="w-10 h-10 rounded-full ${i === currentPage ? 'bg-primary text-white' : 'bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200'} font-medium page-btn" 
-                            onclick="changePage(${i})">
-                        ${i}
-                    </button>
-                `;
-            }
-
-            if (endPage < totalPages) {
-                if (endPage < totalPages - 1) {
-                    paginationHTML += `<span class="px-2 text-slate-600 dark:text-slate-300">...</span>`;
-                }
-                paginationHTML += `
-                    <button class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 font-medium page-btn" 
-                            onclick="changePage(${totalPages})">
-                        ${totalPages}
-                    </button>
-                `;
-            }
-
-            // Next button
-            paginationHTML += `
-                <button class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 flex items-center justify-center" 
-                        onclick="changePage(${currentPage < totalPages ? currentPage + 1 : totalPages})">
-                    <i class="fas fa-chevron-right text-slate-600 dark:text-slate-300"></i>
-                </button>
-            `;
-
-            paginationContainer.innerHTML = paginationHTML;
+            // Next Button
+            const nextBtn = document.createElement('button');
+            nextBtn.className = `w-10 h-10 rounded-full flex items-center justify-center transition-all ${currentPage === totalPages ? 'bg-slate-100 dark:bg-slate-800 text-slate-300 cursor-not-allowed' : 'bg-white dark:bg-slate-800 hover:bg-primary hover:text-white shadow-md text-slate-600'}`;
+            nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            nextBtn.onclick = () => currentPage < totalPages && changePage(currentPage + 1);
+            paginationContainer.appendChild(nextBtn);
         }
 
-        // Change page
         function changePage(pageNum) {
             currentPage = pageNum;
             renderCourses();
             renderPagination();
-
-            // Scroll to top of courses section
-            document.getElementById('courses-container').scrollIntoView({
-                behavior: 'smooth'
-            });
+            document.getElementById('courses-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        // Update course count
         function updateCourseCount() {
             courseCountElement.textContent = filteredCourses.length;
         }
 
-        // Make changePage function available globally
-        window.changePage = changePage;
-    </script>
-    <script src="site-components.js"></script>
-
-    <script>
         function resetFilters() {
-            minPriceInput.value = 5000;
+            minPriceInput.value = 0;
             maxPriceInput.value = 50000;
             priceRange.value = 50000;
-            document.querySelectorAll('.category-filter, .level-filter, .duration-filter').forEach(cb => cb.checked = false);
-            document.getElementById('all-categories').checked = true;
-            document.getElementById('all-levels').checked = true;
-            document.getElementById('all-durations').checked = true;
-            currentFilter = "all";
-            filterButtons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.dataset.filter === 'all') btn.classList.add('active');
-            });
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
             filterCourses();
         }
+
+        // Expose functions globally
+        window.changePage = changePage;
+        window.resetFilters = resetFilters;
     </script>
+    <script src="assets/js/site-components.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -10,36 +10,45 @@
     <meta name="keywords"
         content="Bytecore, computer training, IT courses, programming institute, web development course, data science training, cybersecurity certification, best computer institute">
     <meta name="author" content="Bytecore Computer Centre">
-    <meta property="og:title" content="About Bytecore - Premier IT Education & Computer Training Institute">
-    <meta property="og:description"
-        content="Leading IT training institute offering industry-relevant courses since 2010">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bytecore-flax.vercel.app/about">
-    <link rel="canonical" href="https://bytecore-flax.vercel.app/about">
 
+    <!-- Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="global-styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
                     colors: {
-                        primary: '#6366f1',
+                        primary: '#7464eb',
+                        secondary: '#a78bfa',
                         dark: '#0f172a',
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                        'blob': 'blob 7s infinite',
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-15px)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
                         }
                     }
                 }
@@ -47,132 +56,112 @@
         }
     </script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-        }
-
-        .dark body {
-            background-color: #0f172a;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Outfit', sans-serif;
-        }
-
-        .timeline-item:not(:last-child):after {
-            content: '';
+        .timeline-line {
             position: absolute;
-            left: 7px;
-            top: 24px;
-            height: 100%;
+            left: 2rem;
+            top: 0;
+            bottom: 0;
             width: 2px;
-            background: #c7d2fe;
-        }
-
-        .dark .timeline-item:not(:last-child):after {
-            background: #334155;
+            background: linear-gradient(to bottom, transparent, var(--primary-color, #7464eb), transparent);
         }
     </style>
-
 </head>
 
-<body class="bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-100 transition-colors duration-300">
-    <!-- Minimalist Header is injected via JS -->
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300 font-sans">
 
     <!-- Hero Section -->
     <section class="relative py-24 overflow-hidden">
-        <!-- Background Shapes -->
-        <div class="absolute top-0 left-0 w-full h-full -z-10 bg-slate-50 dark:bg-slate-900">
-            <div
-                class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px] animate-pulse">
-            </div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-500/5 rounded-full blur-[120px] animate-pulse"
-                style="animation-delay: 2s"></div>
+        <!-- Background Elements -->
+        <div
+            class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] -mr-32 -mt-32 animate-blob">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[100px] -ml-32 -mb-32 animate-blob animation-delay-2000">
         </div>
 
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-4xl mx-auto">
-                <span
-                    class="inline-block px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-primary text-sm font-bold tracking-wider uppercase mb-6 animate-reveal">Our
-                    Legacy</span>
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8 animate-reveal"
-                    style="animation-delay: 0.1s">
-                    Empowering the Next <br>
-                    <span
-                        class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-indigo-600 italic">Generation</span>
-                    of Tech
-                </h1>
-                <p class="text-xl text-slate-600 dark:text-slate-400 mb-10 animate-reveal"
-                    style="animation-delay: 0.2s">
-                    Bytecore Computer Centre has been the bridge between ambition and achievement since 2024.
-                </p>
-                <div class="flex justify-center gap-4 animate-reveal" style="animation-delay: 0.3s">
-                    <a href="#registration" class="btn-premium">Join Our Community</a>
-                    <a href="Courses.html"
-                        class="px-8 py-3 rounded-xl border border-slate-200 dark:border-slate-700 font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">Explore
-                        Courses</a>
-                </div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span
+                class="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold tracking-wider uppercase mb-6 border border-primary/20 animate-reveal">Our
+                Legacy</span>
+            <h1 class="font-heading text-5xl md:text-7xl font-bold leading-tight mb-8 animate-reveal"
+                style="animation-delay: 0.1s">
+                Empowering the Next <br>
+                <span class="text-gradient">Generation</span> of Tech
+            </h1>
+            <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 animate-reveal"
+                style="animation-delay: 0.2s">
+                Bytecore Computer Centre has been the bridge between ambition and achievement since 2024. We don't just
+                teach code; we build careers.
+            </p>
+            <div class="flex justify-center gap-4 animate-reveal" style="animation-delay: 0.3s">
+                <a href="#registration" class="btn btn-primary shadow-lg shadow-primary/30">Join Our Community</a>
+                <a href="Courses.html" class="btn btn-outline">Explore Courses</a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="py-24">
+    <!-- Story Section -->
+    <section class="py-20 relative">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center gap-16">
-                <div class="lg:w-1/2">
-                    <div class="relative">
+                <div class="lg:w-1/2 animate-reveal">
+                    <div class="relative group">
                         <div
-                            class="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-indigo-500/20 blur-2xl -z-10 rounded-[2rem]">
+                            class="absolute -inset-4 bg-gradient-to-tr from-primary to-secondary opacity-30 blur-2xl rounded-[2rem] group-hover:opacity-50 transition-opacity duration-700">
                         </div>
-                        <div class="glass p-2 rounded-[2rem] shadow-2xl overflow-hidden">
+                        <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border border-white/20">
                             <img src="images/courseimg/BANNER.jpg" alt="Bytecore team working together"
-                                class="rounded-[1.8rem] w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700">
+                                class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700">
+                        </div>
+
+                        <!-- Floating Badge -->
+                        <div
+                            class="absolute -bottom-6 -right-6 glass p-6 rounded-2xl shadow-xl animate-float hidden md:block border border-white/30">
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                    <i class="fas fa-users text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-500 font-bold uppercase tracking-wider">Community</p>
+                                    <p class="text-2xl font-bold">100+ Alumni</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="lg:w-1/2">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-8">Our <span class="text-primary italic">Story</span>
-                    </h2>
-                    <div class="space-y-6 text-lg text-slate-600 dark:text-slate-400">
+
+                <div class="lg:w-1/2 animate-reveal" style="animation-delay: 0.2s">
+                    <h2 class="font-heading text-3xl md:text-5xl font-bold mb-8">Our <span
+                            class="text-gradient">Story</span></h2>
+                    <div class="space-y-6 text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
                         <p>
-                            Our journey began with extensive research across various areas to identify the best location
-                            for quality IT education. After careful evaluation, we chose Nariyawal as our base to serve
-                            the community with accessible tech training.
+                            Our journey began with extensive research to identify the ideal location for quality IT
+                            education. We chose <span class="text-primary font-semibold">Nariyawal</span> to serve the
+                            community with accessible, high-standard tech training.
                         </p>
                         <p>
-                            On <strong>May 13, 2024</strong>, three passionate partners came together with a shared
-                            vision. Each contributing ₹20,000, we established Bytecore Computer Centre with a total
-                            investment of ₹60,000.
+                            On <strong>May 13, 2024</strong>, three passionate partners united with a shared vision.
+                            With a bootstrap investment of ₹60,000, we established Bytecore Computer Centre.
                         </p>
                         <p>
-                            Today, we're proud to provide quality computer education to students in our community,
-                            helping them build successful careers in technology. Our focus remains on practical,
-                            hands-on training that prepares students for real-world opportunities.
+                            Today, we are proud to be a catalyst for digital literacy and professional growth, offering
+                            hands-on training that prepares students for real-world challenges.
                         </p>
                     </div>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12">
-                        <div class="glass p-6 rounded-2xl text-center shadow-sm">
+
+                    <div class="grid grid-cols-2 gap-6 mt-12">
+                        <div
+                            class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
                             <div class="text-3xl font-bold text-primary mb-1">2024</div>
-                            <div class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Est.</div>
+                            <div class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Established
+                            </div>
                         </div>
-                        <div class="glass p-6 rounded-2xl text-center shadow-sm">
-                            <div class="text-3xl font-bold text-primary mb-1">3</div>
-                            <div class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Founders</div>
-                        </div>
-                        <div class="glass p-6 rounded-2xl text-center shadow-sm">
-                            <div class="text-3xl font-bold text-primary mb-1">100+</div>
-                            <div class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Alumni</div>
-                        </div>
-                        <div class="glass p-6 rounded-2xl text-center shadow-sm">
+                        <div
+                            class="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
                             <div class="text-3xl font-bold text-primary mb-1">10+</div>
-                            <div class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Courses</div>
+                            <div class="text-xs font-semibold text-slate-500 uppercase tracking-widest">Premium Courses
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -181,34 +170,36 @@
     </section>
 
     <!-- Mission & Vision -->
-    <section class="py-24 bg-slate-50 dark:bg-slate-900/40">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section class="py-24 bg-slate-50 dark:bg-slate-900/40 relative overflow-hidden">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Our Core <span
-                        class="text-primary italic">Values</span></h2>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold mb-4">Our Core <span
+                        class="text-gradient">Values</span></h2>
                 <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">The principles that guide
                     everything we do at Bytecore.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <div class="premium-card p-10 shadow-xl group">
+                <!-- Mission -->
+                <div class="premium-card p-10 group hover:-translate-y-2">
                     <div
-                        class="w-16 h-16 rounded-2xl bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
-                        <i class="fas fa-bullseye text-primary text-2xl group-hover:text-white transition-colors"></i>
+                        class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary transition-colors duration-300">
+                        <i class="fas fa-bullseye text-primary text-3xl group-hover:text-white transition-colors"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Our Mission</h3>
                     <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
                         To empower individuals with practical, industry-relevant tech skills that transform careers and
                         drive innovation. We're committed to making quality IT education accessible to everyone.
                     </p>
                 </div>
 
-                <div class="premium-card p-10 shadow-xl group">
+                <!-- Vision -->
+                <div class="premium-card p-10 group hover:-translate-y-2">
                     <div
-                        class="w-16 h-16 rounded-2xl bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center mb-8 group-hover:bg-primary transition-colors">
-                        <i class="fas fa-eye text-primary text-2xl group-hover:text-white transition-colors"></i>
+                        class="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-8 group-hover:bg-secondary transition-colors duration-300">
+                        <i class="fas fa-eye text-secondary text-3xl group-hover:text-white transition-colors"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-secondary transition-colors">Our Vision</h3>
                     <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
                         To become the most trusted partner for tech education in India, recognized for producing highly
                         skilled professionals who lead the digital transformation across industries.
@@ -219,56 +210,56 @@
     </section>
 
     <!-- Timeline -->
-    <section class="py-24 overflow-hidden">
+    <section class="py-24 relative">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Our <span
-                        class="text-primary italic">Journey</span></h2>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold mb-4">Our <span
+                        class="text-gradient">Journey</span></h2>
                 <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Milestones in our growth and
                     success.</p>
             </div>
 
-            <div class="max-w-4xl mx-auto">
-                <div class="space-y-12 relative">
-                    <!-- Timeline Line -->
-                    <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-200 dark:bg-slate-800"></div>
+            <div class="max-w-3xl mx-auto relative">
+                <!-- Line -->
+                <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-slate-200 dark:bg-slate-700"></div>
 
-                    <!-- Timeline Item 1 -->
-                    <div class="relative pl-24 group">
-                        <div
-                            class="absolute left-6 top-6 w-5 h-5 rounded-full bg-primary border-4 border-white dark:border-slate-900 shadow-lg group-hover:scale-125 transition-transform z-10">
-                        </div>
-                        <div class="premium-card p-8 shadow-sm group-hover:shadow-md transition-shadow">
-                            <div class="flex justify-between items-start mb-4">
-                                <h3 class="text-2xl font-bold">Research & Planning</h3>
-                                <span
-                                    class="bg-indigo-50 dark:bg-indigo-900/30 text-primary px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase">Early
-                                    2024</span>
-                            </div>
-                            <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
-                                Conducted extensive research across various areas to identify the best location for
-                                establishing a quality computer training center.
-                            </p>
-                        </div>
+                <!-- Item 1 -->
+                <div class="relative pl-24 pb-12 group animate-reveal">
+                    <div
+                        class="absolute left-[30px] top-6 w-4 h-4 rounded-full bg-primary border-4 border-white dark:border-slate-900 shadow-[0_0_0_4px_rgba(116,100,235,0.2)] z-10">
                     </div>
+                    <div
+                        class="glass p-8 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:border-primary/30 transition-colors">
+                        <div class="flex flex-wrap justify-between items-start mb-4 gap-4">
+                            <h3 class="text-xl font-bold">Research & Planning</h3>
+                            <span
+                                class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">Early
+                                2024</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400">
+                            Conducted extensive research to identify the best location for establishing a quality
+                            computer training center.
+                        </p>
+                    </div>
+                </div>
 
-                    <!-- Timeline Item 2 -->
-                    <div class="relative pl-24 group">
-                        <div
-                            class="absolute left-6 top-6 w-5 h-5 rounded-full bg-primary border-4 border-white dark:border-slate-900 shadow-lg group-hover:scale-125 transition-transform z-10">
+                <!-- Item 2 -->
+                <div class="relative pl-24 pb-12 group animate-reveal" style="animation-delay: 0.2s">
+                    <div
+                        class="absolute left-[30px] top-6 w-4 h-4 rounded-full bg-secondary border-4 border-white dark:border-slate-900 shadow-[0_0_0_4px_rgba(167,139,250,0.2)] z-10">
+                    </div>
+                    <div
+                        class="glass p-8 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:border-secondary/30 transition-colors">
+                        <div class="flex flex-wrap justify-between items-start mb-4 gap-4">
+                            <h3 class="text-xl font-bold">Founded Bytecore</h3>
+                            <span
+                                class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">May
+                                2024</span>
                         </div>
-                        <div class="premium-card p-8 shadow-sm group-hover:shadow-md transition-shadow">
-                            <div class="flex justify-between items-start mb-4">
-                                <h3 class="text-2xl font-bold">Founded Bytecore</h3>
-                                <span
-                                    class="bg-indigo-50 dark:bg-indigo-900/30 text-primary px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase">May
-                                    2024</span>
-                            </div>
-                            <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
-                                Three partners established Bytecore in Nariyawal with a vision to provide accessible and
-                                quality IT training.
-                            </p>
-                        </div>
+                        <p class="text-slate-600 dark:text-slate-400">
+                            Three partners established Bytecore in Nariyawal with a vision to provide accessible and
+                            quality IT training.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -279,127 +270,112 @@
     <section class="py-24 bg-slate-50 dark:bg-slate-900/50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Meet Our <span
-                        class="text-primary italic">Leadership</span></h2>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold mb-4">Meet Our <span
+                        class="text-gradient">Leadership</span></h2>
                 <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">The passionate team driving
                     Bytecore's vision.</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Team Member 1 -->
-                <div class="premium-card group shadow-lg">
-                    <div class="aspect-[3/4] overflow-hidden relative">
-                        <img src="images/cd/rahul.jpg" alt="Rahul bytecore"
-                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100"
-                            style="object-position: center 10%;">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Member 1 -->
+                <div class="premium-card group p-0 overflow-hidden">
+                    <div class="aspect-[4/5] overflow-hidden relative">
+                        <img src="images/cd/rahul.jpg" alt="Rahul"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <div class="flex gap-3">
+                                <a href="#"
+                                    class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-primary transition-colors"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                                <a href="#"
+                                    class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-primary transition-colors"><i
+                                        class="fab fa-whatsapp"></i></a>
+                            </div>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold group-hover:text-primary transition-colors">RAHUL</h3>
-                        <p
-                            class="text-indigo-600 dark:text-indigo-400 font-semibold mb-3 text-sm uppercase tracking-wider">
-                            Founder & CEO</p>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-2">
-                            Former ITI at COPA with 3+ years in software development and education.
-                        </p>
-                        <div class="flex mt-6 space-x-4">
-                            <a href="#"
-                                class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary transition-all">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#"
-                                class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary transition-all">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                        </div>
+                        <h3 class="text-xl font-bold mb-1 group-hover:text-primary transition-colors">RAHUL</h3>
+                        <p class="text-xs font-bold text-primary uppercase tracking-widest mb-3">Founder & CEO</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Former ITI at COPA with 3+
+                            years in software development.</p>
                     </div>
                 </div>
 
-                <!-- Team Member 2 -->
-                <div class="premium-card group shadow-lg">
-                    <div class="aspect-[3/4] overflow-hidden relative">
-                        <img src="images/cd/firoj.jpg" alt="Firoj bytecore"
-                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100"
-                            style="object-position: center 10%;">
+                <!-- Member 2 -->
+                <div class="premium-card group p-0 overflow-hidden">
+                    <div class="aspect-[4/5] overflow-hidden relative">
+                        <img src="images/cd/firoj.jpg" alt="Firoj"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <div class="flex gap-3">
+                                <a href="#"
+                                    class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-primary transition-colors"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                                <a href="#"
+                                    class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-primary transition-colors"><i
+                                        class="fab fa-whatsapp"></i></a>
+                            </div>
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold group-hover:text-primary transition-colors">FIROJ</h3>
-                        <p
-                            class="text-indigo-600 dark:text-indigo-400 font-semibold mb-3 text-sm uppercase tracking-wider">
-                            Director of Education</p>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-2">
-                            MBA in BUSINESS with 5 years experience in curriculum development.
+                        <h3 class="text-xl font-bold mb-1 group-hover:text-primary transition-colors">FIROJ</h3>
+                        <p class="text-xs font-bold text-primary uppercase tracking-widest mb-3">Director of Education
                         </p>
-                        <div class="flex mt-6 space-x-4">
-                            <a href="#"
-                                class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary transition-all">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="#"
-                                class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary transition-all">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                        </div>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">MBA in BUSINESS with 5 years
+                            experience in curriculum.</p>
                     </div>
                 </div>
 
-                <!-- Team Member 3 -->
-                <div class="premium-card group shadow-lg">
-                    <div class="aspect-[3/4] overflow-hidden relative">
-                        <img src="images/cd/coderafroj.jpg" alt="coderafroj"
-                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100"
-                            style="object-position: center 10%;">
+                <!-- Member 3 -->
+                <div class="premium-card group p-0 overflow-hidden">
+                    <div class="aspect-[4/5] overflow-hidden relative">
+                        <img src="images/cd/coderafroj.jpg" alt="Afroj"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <div class="flex gap-3">
+                                <a href="#"
+                                    class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-primary transition-colors"><i
+                                        class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold group-hover:text-primary transition-colors">AFROJ</h3>
-                        <p
-                            class="text-indigo-600 dark:text-indigo-400 font-semibold mb-3 text-sm uppercase tracking-wider">
-                            Web Lead</p>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-2">
-                            BCA Graduate & Web Developer passionate about student growth.
-                        </p>
-                        <div class="flex mt-6 space-x-4">
-                            <a href="#"
-                                class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary transition-all">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </div>
+                        <h3 class="text-xl font-bold mb-1 group-hover:text-primary transition-colors">AFROJ</h3>
+                        <p class="text-xs font-bold text-primary uppercase tracking-widest mb-3">Web Lead</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">BCA Graduate & Web Developer
+                            passionate about student growth.</p>
                     </div>
                 </div>
 
-                <!-- Team Member 4 -->
-                <div class="premium-card group shadow-lg">
-                    <div class="aspect-[3/4] overflow-hidden relative">
-                        <img src="images/cd/maisar.jpg" alt="Maisar Hussain"
-                            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-105 group-hover:scale-100"
-                            style="object-position: center 10%;">
+                <!-- Member 4 -->
+                <div class="premium-card group p-0 overflow-hidden">
+                    <div class="aspect-[4/5] overflow-hidden relative">
+                        <img src="images/cd/maisar.jpg" alt="Maisar"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <div class="flex gap-3">
+                                <a href="#"
+                                    class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-primary transition-colors"><i
+                                        class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold group-hover:text-primary transition-colors uppercase">Maisar
+                        <h3 class="text-xl font-bold mb-1 group-hover:text-primary transition-colors uppercase">Maisar
                             Hussain</h3>
-                        <p
-                            class="text-indigo-600 dark:text-indigo-400 font-semibold mb-3 text-sm uppercase tracking-wider">
-                            Centre Director</p>
-                        <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-2">
-                            Expert in training and mentoring future tech leaders.
-                        </p>
-                        <div class="flex mt-6 space-x-4">
-                            <a href="#"
-                                class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary transition-all">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                        </div>
+                        <p class="text-xs font-bold text-primary uppercase tracking-widest mb-3">Centre Director</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">Expert in training and
+                            mentoring future tech leaders.</p>
                     </div>
                 </div>
             </div>
 
             <div class="text-center mt-12">
-                <a href="#" class="btn-premium">View All Team Members</a>
+                <a href="#" class="btn btn-outline px-8 rounded-full">View All Team Members</a>
             </div>
         </div>
     </section>
@@ -408,96 +384,77 @@
     <section class="py-24">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Success <span
-                        class="text-primary italic">Stories</span></h2>
-                <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">What our students say about
-                    their Bytecore experience.</p>
+                <h2 class="font-heading text-3xl md:text-5xl font-bold mb-4">Success <span
+                        class="text-gradient">Stories</span></h2>
+                <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Hear from our students who have
+                    transformed their careers.</p>
             </div>
 
-            <div class="swiper testimonial-swiper pb-12">
+            <div class="swiper testimonial-swiper pb-16">
                 <div class="swiper-wrapper">
-                    <!-- Testimonial 1 -->
-                    <div class="swiper-slide">
-                        <div class="premium-card p-10 shadow-lg h-full flex flex-col">
-                            <div class="flex items-center mb-8">
-                                <div
-                                    class="w-16 h-16 rounded-full overflow-hidden mr-5 border-2 border-primary/20 shadow-md">
-                                    <img src="images/aditya.jpg" alt="Aditya Singh" class="w-full h-full object-cover">
-                                </div>
+                    <!-- Item 1 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="premium-card p-10 h-full flex flex-col">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="images/aditya.jpg" alt="Student"
+                                    class="w-14 h-14 rounded-full object-cover border-2 border-primary/20">
                                 <div>
-                                    <h4 class="font-bold text-lg">Aditya Singh</h4>
-                                    <p class="text-primary text-sm font-semibold uppercase tracking-wider">ADCA Student
-                                    </p>
+                                    <h4 class="font-bold">Aditya Singh</h4>
+                                    <p class="text-xs text-primary font-bold uppercase tracking-wider">ADCA Student</p>
                                 </div>
                             </div>
-                            <p class="text-slate-600 dark:text-slate-400 italic mb-8 flex-grow leading-relaxed">
+                            <div class="flex text-amber-400 gap-1 mb-4 text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 italic leading-relaxed flex-grow">
                                 "Maine Bytecore se ADCA course kiya. Teachers bahut achhe se padhate hain aur practical
                                 knowledge milti hai. Computer skills improve ho gayi."
                             </p>
-                            <div class="flex text-amber-400 gap-1">
-                                <i class="fas fa-star text-sm"></i>
-                                <i class="fas fa-star text-sm"></i>
-                                <i class="fas fa-star text-sm"></i>
-                                <i class="fas fa-star text-sm"></i>
-                                <i class="fas fa-star text-sm"></i>
-                            </div>
                         </div>
                     </div>
 
-                    <!-- Testimonial 2 -->
-                    <div class="swiper-slide">
-                        <div class="premium-card p-10 shadow-lg h-full flex flex-col">
-                            <div class="flex items-center mb-8">
-                                <div
-                                    class="w-16 h-16 rounded-full overflow-hidden mr-5 border-2 border-primary/20 shadow-md">
-                                    <img src="images/manjeet.jpg" alt="Manjeet Singh"
-                                        class="w-full h-full object-cover">
-                                </div>
+                    <!-- Item 2 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="premium-card p-10 h-full flex flex-col">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="images/manjeet.jpg" alt="Student"
+                                    class="w-14 h-14 rounded-full object-cover border-2 border-primary/20">
                                 <div>
-                                    <h4 class="font-bold text-lg">Manjeet Singh</h4>
-                                    <p class="text-primary text-sm font-semibold uppercase tracking-wider">ADCA Student
-                                    </p>
+                                    <h4 class="font-bold">Manjeet Singh</h4>
+                                    <p class="text-xs text-primary font-bold uppercase tracking-wider">ADCA Student</p>
                                 </div>
                             </div>
-                            <p class="text-slate-600 dark:text-slate-400 italic mb-8 flex-grow leading-relaxed">
+                            <div class="flex text-amber-400 gap-1 mb-4 text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 italic leading-relaxed flex-grow">
                                 "ADCA course complete kiya Bytecore se. Multimedia aur animation bahut achhe se sikhaya.
-                                Projects bhi karwaye. Ab designing mein expert ban gaya."
+                                Projects bhi karwaye."
                             </p>
-                            <div class="flex text-amber-400 gap-1">
-                                <i class="fas fa-star text-sm"></i>
-                                <i class="fas fa-star text-sm"></i>
-                                <i class="fas fa-star text-sm"></i>
-                                <i class="fas fa-star text-sm"></i>
-                                <i class="fas fa-star text-sm"></i>
-                            </div>
                         </div>
                     </div>
 
-                    <!-- Testimonial 3 -->
-                    <div class="swiper-slide">
-                        <div class="premium-card p-10 shadow-lg h-full flex flex-col">
-                            <div class="flex items-center mb-8">
-                                <div
-                                    class="w-16 h-16 rounded-full overflow-hidden mr-5 border-2 border-primary/20 shadow-md">
-                                    <img src="images/manoj.jpg" alt="Manoj" class="w-full h-full object-cover">
-                                </div>
+                    <!-- Item 3 -->
+                    <div class="swiper-slide h-auto">
+                        <div class="premium-card p-10 h-full flex flex-col">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="images/manoj.jpg" alt="Student"
+                                    class="w-14 h-14 rounded-full object-cover border-2 border-primary/20">
                                 <div>
-                                    <h4 class="font-bold text-lg">Manoj</h4>
-                                    <p class="text-primary text-sm font-semibold uppercase tracking-wider">MDCA Student
-                                    </p>
+                                    <h4 class="font-bold">Manoj</h4>
+                                    <p class="text-xs text-primary font-bold uppercase tracking-wider">MDCA Student</p>
                                 </div>
                             </div>
-                            <p class="text-slate-600 dark:text-slate-400 italic mb-8 flex-grow leading-relaxed">
+                            <div class="flex text-amber-400 gap-1 mb-4 text-xs">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-slate-600 dark:text-slate-400 italic leading-relaxed flex-grow">
                                 "ADCA course kiya yahan se. MS Office, Tally, Internet sab sikha diya. Ab office work
                                 easily kar leta hun."
                             </p>
-                            <div class="flex text-amber-400 gap-1">
-                                <i class="fas fa-star text-sm"></i>
-                                <i class="fas fa-star text-sm"></i>
-                                <i class="fas fa-star text-sm"></i>
-                                <i class="fas fa-star text-sm"></i>
-                                <i class="fas fa-star text-sm"></i>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -506,78 +463,83 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="registration" class="py-24 bg-gradient-to-br from-primary/10 to-indigo-600/10">
-        <div class="container mx-auto px-4">
-            <div class="premium-card overflow-hidden shadow-2xl border-none">
-                <div class="md:flex">
-                    <div
-                        class="md:w-2/5 p-12 bg-gradient-to-br from-primary to-indigo-700 text-white flex flex-col justify-center">
-                        <h2 class="text-4xl font-bold mb-6">Ready to Transform Your Career?</h2>
-                        <p class="text-lg opacity-90 mb-8 leading-relaxed">Join 100+ successful Bytecore alumni who've
-                            launched rewarding tech careers.</p>
-                        <div class="space-y-6">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                                    <i class="fas fa-calendar-check text-xl"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold uppercase tracking-wider text-xs opacity-75">Next Batch</h4>
-                                    <p class="text-lg">Starts February 15, 2025</p>
-                                </div>
+    <!-- Call to Action -->
+    <section id="registration" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-primary/90 dark:bg-primary/80"></div>
+        <div
+            class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay">
+        </div>
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-[100px] -mr-32 -mt-32">
+        </div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+                <div
+                    class="md:w-2/5 p-12 bg-slate-900 bg-[url('images/courseimg/BANNER.jpg')] bg-cover bg-center relative text-white flex flex-col justify-end">
+                    <div class="absolute inset-0 bg-black/60"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-bold mb-4">Start Your Journey</h3>
+                        <p class="text-white/80 mb-8">Join the next batch of future tech leaders.</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center">
+                                <i class="fas fa-calendar text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs uppercase tracking-wider text-white/50 font-bold">Next Batch</p>
+                                <p class="font-bold text-lg">Feb 15, 2025</p>
                             </div>
                         </div>
                     </div>
-                    <div class="md:w-3/5 p-12 bg-white dark:bg-slate-800">
-                        <h2 class="text-3xl font-bold mb-8">Get Started Today</h2>
-                        <form class="space-y-6">
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div>
-                                    <label
-                                        class="block text-sm font-bold text-slate-500 uppercase tracking-widest mb-2">Full
-                                        Name</label>
-                                    <input type="text" placeholder="John Doe"
-                                        class="w-full px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-primary outline-none transition-all">
-                                </div>
-                                <div>
-                                    <label
-                                        class="block text-sm font-bold text-slate-500 uppercase tracking-widest mb-2">Phone
-                                        Number</label>
-                                    <input type="tel" placeholder="+91 00000 00000"
-                                        class="w-full px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-primary outline-none transition-all">
-                                </div>
+                </div>
+
+                <div class="md:w-3/5 p-8 md:p-12">
+                    <h2 class="text-3xl font-bold mb-8">Registration Open</h2>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label
+                                    class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Full
+                                    Name</label>
+                                <input type="text" placeholder="John Doe"
+                                    class="w-full px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-primary outline-none transition-all">
                             </div>
                             <div>
                                 <label
-                                    class="block text-sm font-bold text-slate-500 uppercase tracking-widest mb-2">Select
-                                    Course</label>
-                                <select
+                                    class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Phone</label>
+                                <input type="tel" placeholder="+91..."
                                     class="w-full px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-primary outline-none transition-all">
-                                    <option>ADCA (Advanced Diploma)</option>
-                                    <option>MDCA (Master Diploma)</option>
-                                    <option>Python Programming</option>
-                                    <option>Web Development</option>
-                                    <option>O Level</option>
-                                </select>
                             </div>
-                            <button type="submit" class="btn-premium w-full py-4 text-lg">Apply for
-                                Registration</button>
-                        </form>
-                    </div>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Interested
+                                Course</label>
+                            <select
+                                class="w-full px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-primary outline-none transition-all">
+                                <option>ADCA (Advanced Diploma)</option>
+                                <option>MDCA (Master Diploma)</option>
+                                <option>Python Programming</option>
+                                <option>Web Development</option>
+                                <option>O Level</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary w-full py-4 text-lg shadow-lg shadow-primary/20">Apply
+                            Now</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <script src="site-components.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/js/site-components.js"></script>
     <script>
-        // Initialize Swiper
         new Swiper('.testimonial-swiper', {
             slidesPerView: 1,
             spaceBetween: 30,
             loop: true,
-            autoplay: { delay: 4000 },
+            grabCursor: true,
+            autoplay: { delay: 4000, disableOnInteraction: false },
             pagination: { el: '.swiper-pagination', clickable: true },
             breakpoints: {
                 768: { slidesPerView: 2 },
