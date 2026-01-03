@@ -17,10 +17,8 @@
                 </div>
                 
                 <nav class="desktop-nav">
-                    <a href="index.html" data-page="home">Home</a>
                     <a href="Courses.html" data-page="courses">Courses</a>
                     <a href="quiz.html" data-page="quiz">Quiz</a>
-                    <a href="scholarship.html" data-page="scholarship">Scholarship</a>
                     <a href="diploma.html" data-page="diploma">Certificates</a>
                     <a href="About.html" data-page="about">About</a>
                     <a href="contact.html" data-page="contact">Contact</a>
@@ -42,19 +40,28 @@
             </div>
 
             <div class="mobile-menu-overlay" id="nav-overlay">
-                <nav class="mobile-nav">
-                    <a href="index.html" data-page="home"><span class="num">01</span>Home</a>
-                    <a href="Courses.html" data-page="courses"><span class="num">02</span>Courses</a>
-                    <a href="quiz.html" data-page="quiz"><span class="num">03</span>Quiz</a>
-                    <a href="scholarship.html" data-page="scholarship"><span class="num">04</span>Scholarship</a>
-                    <a href="diploma.html" data-page="diploma"><span class="num">05</span>Certificates</a>
-                    <a href="Fee.html" data-page="fees"><span class="num">06</span>Fees</a>
-                    <a href="About.html" data-page="about"><span class="num">07</span>About</a>
-                    <a href="contact.html" data-page="contact"><span class="num">08</span>Contact</a>
-                    <div class="mobile-actions">
-                         <a href="scholarship.html" class="btn btn-primary full-width">Register Now</a>
+                <div class="mobile-nav-drawer">
+                    <div class="drawer-header">
+                        <div class="drawer-logo">
+                            <img src="assets/img/logo.png" alt="Bytecore">
+                            <span>ByteCore</span>
+                        </div>
+                        <button class="close-drawer" id="close-drawer"><i class="fas fa-times"></i></button>
                     </div>
-                </nav>
+                    
+                    <nav class="mobile-nav-links">
+                        <a href="Courses.html" data-page="courses"><i class="fas fa-book"></i> Courses</a>
+                        <a href="quiz.html" data-page="quiz"><i class="fas fa-lightbulb"></i> Quiz</a>
+                        <a href="diploma.html" data-page="diploma"><i class="fas fa-certificate"></i> Certificates</a>
+                        <a href="Fee.html" data-page="fees"><i class="fas fa-wallet"></i> Fees</a>
+                        <a href="About.html" data-page="about"><i class="fas fa-user"></i> About</a>
+                        <a href="contact.html" data-page="contact"><i class="fas fa-envelope"></i> Contact</a>
+                    </nav>
+
+                    <div class="drawer-footer">
+                        <a href="scholarship.html" class="btn btn-primary w-full">Register Now</a>
+                    </div>
+                </div>
             </div>
         </header>
     `;
@@ -276,57 +283,143 @@
         .menu-btn.active span:nth-child(2) { opacity: 0; }
         .menu-btn.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-        /* Mobile Overlay */
+        /* Mobile Menu Side Drawer */
         .mobile-menu-overlay {
             position: fixed;
             inset: 0;
-            top: 79px; /* Below header */
-            background: hsl(var(--background));
-            transform: translateX(100%);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 999;
-            display: flex;
-            justify-content: center;
-            padding-top: 2rem;
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 9999; /* Increased z-index */
         }
 
         .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav-drawer {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            height: 100vh; /* Explicit height */
+            width: 80%;
+            max-width: 300px;
+            background: #0f172a !important; /* Solid Slate 900 - No Transparency */
+            box-shadow: -10px 0 50px rgba(0,0,0,0.5);
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu-overlay.active .mobile-nav-drawer {
             transform: translateX(0);
         }
 
-        .mobile-nav {
+        .drawer-header {
             display: flex;
-            flex-direction: column;
-            gap: 24px;
-            text-align: center;
-            width: 100%;
-            max-width: 400px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .mobile-nav a {
-            font-size: 1.5rem;
-            font-weight: 700;
-            font-family: 'Outfit', sans-serif;
-            color: hsl(var(--foreground));
+        .drawer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .drawer-logo img { width: 36px; height: 36px; object-fit: contain; }
+        .drawer-logo span { 
+            font-size: 1.4rem; 
+            font-weight: 700; 
+            color: #fff; 
+            letter-spacing: -0.02em;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .close-drawer {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.25rem;
+            width: 36px;
+            height: 36px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .close-drawer:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transform: rotate(90deg);
         }
 
-        .mobile-nav a .num {
-            font-size: 0.8em;
-            color: hsl(var(--primary));
-            opacity: 0.7;
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem 0;
+            margin-bottom: auto; /* Push footer down naturally */
+            width: 100%;
+        }
+
+        .mobile-nav-links a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #ffffff !important; /* Pure white for maximum contrast */
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .mobile-nav-links a:hover,
+        .mobile-nav-links a.active {
+            color: white;
+            background: rgba(116, 100, 235, 0.15);
+            border-color: rgba(116, 100, 235, 0.2);
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(116, 100, 235, 0.1);
+        }
+
+        .mobile-nav-links a i {
+            width: 24px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #94a3b8;
+            transition: color 0.3s ease;
         }
         
-        .mobile-nav .mobile-actions {
-            margin-top: 2rem;
-            padding: 0 24px;
+        .mobile-nav-links a:hover i,
+        .mobile-nav-links a.active i {
+            color: #818cf8;
         }
-        
-        .full-width { width: 100%; }
+
+        .drawer-footer {
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
         /* Footer */
         .site-footer {
@@ -473,12 +566,29 @@
         const themeBtn = document.getElementById('theme-toggle-btn');
         const themeIcon = document.getElementById('theme-icon-svg');
 
+        const closeDrawer = document.getElementById('close-drawer');
+
         // Menu Toggle
+        function toggleMenu(force = null) {
+            const isActive = force !== null ? force : overlay.classList.toggle('active');
+            if (force === true) overlay.classList.add('active');
+            if (force === false) overlay.classList.remove('active');
+
+            menuBtn.classList.toggle('active', overlay.classList.contains('active'));
+            document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
+        }
+
         if (menuBtn && overlay) {
-            menuBtn.addEventListener('click', () => {
-                const isActive = overlay.classList.toggle('active');
-                menuBtn.classList.toggle('active');
-                document.body.style.overflow = isActive ? 'hidden' : '';
+            menuBtn.addEventListener('click', () => toggleMenu());
+        }
+
+        if (closeDrawer) {
+            closeDrawer.addEventListener('click', () => toggleMenu(false));
+        }
+
+        if (overlay) {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) toggleMenu(false);
             });
         }
 

@@ -9,181 +9,193 @@ from ttkthemes import ThemedTk
 
 FILENAME = "Fee.json"
 JS_FILENAME = "assets/js/fee-data.js"
+DIPLOMA_FILENAME = "Diploma.json"
+DIPLOMA_JS_FILENAME = "assets/js/diploma-data.js"
 
-class FeeManager:
-    def __init__(self, filename=FILENAME):
-        self.filename = filename
-        self.data = {}
+class DataManager:
+    def __init__(self, fee_file=FILENAME, diploma_file=DIPLOMA_FILENAME):
+        self.fee_file = fee_file
+        self.diploma_file = diploma_file
+        self.fee_data = {}
+        self.diploma_data = {"certificates": []}
         self.load_data()
 
     def load_data(self):
-        if os.path.exists(self.filename):
-            with open(self.filename, "r") as f:
-                self.data = json.load(f)
-        else:
-            self.data = {}
-
-    def save_data(self):
-        # Save as JSON for Python app
-        with open(self.filename, "w") as f:
-            json.dump(self.data, f, indent=4)
+        # Load Fee Data
+        if os.path.exists(self.fee_file):
+            with open(self.fee_file, "r") as f:
+                self.fee_data = json.load(f)
         
-        # Save as JS for Website (Bypass CORS)
+        # Load Diploma Data
+        if os.path.exists(self.diploma_file):
+            with open(self.diploma_file, "r") as f:
+                self.diploma_data = json.load(f)
+
+    def save_fee_data(self):
+        with open(self.fee_file, "w") as f:
+            json.dump(self.fee_data, f, indent=4)
         try:
             os.makedirs(os.path.dirname(JS_FILENAME), exist_ok=True)
             with open(JS_FILENAME, "w") as f:
-                f.write(f"const feeData = {json.dumps(self.data, indent=4)};")
-        except Exception as e:
-            print(f"Error saving JS file: {e}")
+                f.write(f"const feeData = {json.dumps(self.fee_data, indent=4)};")
+        except Exception as e: print(f"Error saving Fee JS: {e}")
 
-    def add_or_update_student(self, roll, name, course, total, remaining):
-        self.data[roll] = {
-            "name": name,
-            "course": course,
-            "total": int(total),
-            "remaining": int(remaining),
+    def save_diploma_data(self):
+        with open(self.diploma_file, "w") as f:
+            json.dump(self.diploma_data, f, indent=4)
+        try:
+            os.makedirs(os.path.dirname(DIPLOMA_JS_FILENAME), exist_ok=True)
+            with open(DIPLOMA_JS_FILENAME, "w") as f:
+                f.write(f"const diplomaData = {json.dumps(self.diploma_data, indent=4)};")
+        except Exception as e: print(f"Error saving Diploma JS: {e}")
+
+    def add_fee(self, roll, name, course, total, remaining):
+        self.fee_data[roll] = {
+            "name": name, "course": course,
+            "total": int(total), "remaining": int(remaining),
             "date": datetime.now().strftime("%Y-%m-%d")
         }
-        self.save_data()
+        self.save_fee_data()
 
-    def get_all_students(self):
-        return self.data.items()
+    def add_diploma(self, roll, dob, link):
+        # Update if exists, else append
+        found = False
+        for cert in self.diploma_data["certificates"]:
+            if cert["roll"] == roll:
+                cert["dob"] = dob
+                cert["link"] = link
+                found = True
+                break
+        if not found:
+            self.diploma_data["certificates"].append({"roll": roll, "dob": dob, "link": link})
+        self.save_diploma_data()
 
-    def export_to_excel(self, filename="FeeData.xlsx"):
-        df = pd.DataFrame(self.data).T
-        df.index.name = "Roll No"
-        df.to_excel(filename)
-
-class FeeManagerApp:
+class BytecoreManagerApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("📘 Bytecore Fee Manager - Advanced")
-        self.root.geometry("1000x600")
-        self.root.configure(bg="#1e1e2f")
+        self.root.title("🚀 Bytecore Advanced Manager")
+        self.root.geometry("1100x700")
+        self.root.configure(bg="#0f172a")
 
-        self.manager = FeeManager()
-        self.create_ui()
-        self.load_table()
+        self.manager = DataManager()
+        
+        # Style
+        self.style = ttk.Style()
+        self.style.theme_use('clam')
+        self.style.configure("TNotebook", background="#0f172a", borderwidth=0)
+        self.style.configure("TNotebook.Tab", background="#1e293b", foreground="white", padding=[20, 10], font=("Segoe UI", 10, "bold"))
+        self.style.map("TNotebook.Tab", background=[("selected", "#7464eb")])
+        self.style.configure("Treeview", background="#1e293b", foreground="white", fieldbackground="#1e293b", borderwidth=0)
+        self.style.map("Treeview", background=[("selected", "#7464eb")])
 
-    def create_ui(self):
-        style = ttk.Style()
-        style.configure("TLabel", foreground="white", background="#1e1e2f", font=("Segoe UI", 10))
-        style.configure("TButton", font=("Segoe UI", 10, "bold"))
+        self.notebook = ttk.Notebook(self.root)
+        self.notebook.pack(fill="both", expand=True, padx=10, pady=10)
+
+        # Tabs
+        self.fee_tab = tk.Frame(self.notebook, bg="#0f172a")
+        self.diploma_tab = tk.Frame(self.notebook, bg="#0f172a")
+
+        self.notebook.add(self.fee_tab, text=" 💰 Fee Management ")
+        self.notebook.add(self.diploma_tab, text=" 🎓 Diploma Management ")
+
+        self.create_fee_ui()
+        self.create_diploma_ui()
+        self.load_fee_table()
+        self.load_diploma_table()
+
+    def create_fee_ui(self):
+        top_frame = tk.Frame(self.fee_tab, bg="#0f172a")
+        top_frame.pack(pady=20)
 
         labels = ["Roll No", "Name", "Course", "Total Fee", "Remaining Fee"]
-        self.entries = {}
+        self.fee_entries = {}
 
         for i, label in enumerate(labels):
-            ttk.Label(self.root, text=label + ":").grid(row=i, column=0, padx=10, pady=5, sticky="e")
-            entry = ttk.Entry(self.root, width=30)
-            entry.grid(row=i, column=1, padx=10, pady=5, sticky="w")
-            self.entries[label.lower().replace(" ", "_")] = entry
+            tk.Label(top_frame, text=label+":", fg="white", bg="#0f172a", font=("Segoe UI", 10)).grid(row=i, column=0, padx=10, pady=5, sticky="e")
+            entry = ttk.Entry(top_frame, width=30)
+            entry.grid(row=i, column=1, padx=10, pady=5)
+            self.fee_entries[label.lower().replace(" ", "_")] = entry
 
-        ttk.Button(self.root, text="📂 Add / Update", command=self.add).grid(row=0, column=2, padx=20)
-        ttk.Button(self.root, text="📤 Export to Excel", command=self.export).grid(row=1, column=2, padx=20)
-        ttk.Button(self.root, text="📊 Show Graph", command=self.show_graph).grid(row=2, column=2, padx=20)
+        btn_frame = tk.Frame(top_frame, bg="#0f172a")
+        btn_frame.grid(row=0, column=2, rowspan=5, padx=30)
+        
+        ttk.Button(btn_frame, text="✅ Save / Update", command=self.save_fee).pack(fill="x", pady=5)
+        ttk.Button(btn_frame, text="📊 Show Data Graph", command=self.show_fee_graph).pack(fill="x", pady=5)
+        ttk.Button(btn_frame, text="🔍 Search", command=self.load_fee_table).pack(fill="x", pady=5)
 
-        ttk.Label(self.root, text="🔍 Search:").grid(row=5, column=0, padx=10, pady=5, sticky="e")
-        self.search_var = tk.StringVar()
-        self.search_var.trace_add("write", self.search_student)
-        search_entry = ttk.Entry(self.root, textvariable=self.search_var, width=30)
-        search_entry.grid(row=5, column=1, padx=10, pady=5, sticky="w")
+        cols = ("Roll", "Name", "Course", "Total", "Remaining", "Date")
+        self.fee_tree = ttk.Treeview(self.fee_tab, columns=cols, show="headings")
+        for c in cols: self.fee_tree.heading(c, text=c); self.fee_tree.column(c, width=150, anchor="center")
+        self.fee_tree.pack(fill="both", expand=True, padx=20, pady=20)
+        self.fee_tree.bind("<<TreeviewSelect>>", self.on_fee_select)
 
-        columns = ("Roll No", "Name", "Course", "Total", "Remaining", "Date")
-        self.tree = ttk.Treeview(self.root, columns=columns, show="headings", height=15)
-        for col in columns:
-            self.tree.heading(col, text=col)
-            self.tree.column(col, anchor="center")
+    def create_diploma_ui(self):
+        top_frame = tk.Frame(self.diploma_tab, bg="#0f172a")
+        top_frame.pack(pady=20)
 
-        self.tree.grid(row=6, column=0, columnspan=3, padx=20, pady=20, sticky="nsew")
-        self.tree.bind("<<TreeviewSelect>>", self.on_tree_select)
+        labels = ["Roll No", "Date of Birth", "Certificate Link (URL)"]
+        self.dip_entries = {}
 
-        self.root.grid_rowconfigure(6, weight=1)
-        self.root.grid_columnconfigure(2, weight=1)
+        for i, label in enumerate(labels):
+            tk.Label(top_frame, text=label+":", fg="white", bg="#0f172a", font=("Segoe UI", 10)).grid(row=i, column=0, padx=10, pady=5, sticky="e")
+            entry = ttk.Entry(top_frame, width=40)
+            entry.grid(row=i, column=1, padx=10, pady=5)
+            self.dip_entries[label.lower().replace(" ", "_")] = entry
 
-    def add(self):
-        roll = self.entries["roll_no"].get().strip()
-        name = self.entries["name"].get().strip()
-        course = self.entries["course"].get().strip()
-        total = self.entries["total_fee"].get().strip()
-        remaining = self.entries["remaining_fee"].get().strip()
+        ttk.Button(top_frame, text="🚀 Add Certificate", command=self.save_diploma).grid(row=0, column=2, rowspan=3, padx=30)
 
-        if not all([roll, name, course, total, remaining]):
-            messagebox.showwarning("Missing Info", "Please fill all fields.")
-            return
+        cols = ("Roll", "DOB", "Link")
+        self.dip_tree = ttk.Treeview(self.diploma_tab, columns=cols, show="headings")
+        for c in cols: self.dip_tree.heading(c, text=c); self.dip_tree.column(c, width=200, anchor="center")
+        self.dip_tree.pack(fill="both", expand=True, padx=20, pady=20)
+        self.dip_tree.bind("<<TreeviewSelect>>", self.on_dip_select)
 
-        self.manager.add_or_update_student(roll, name, course, total, remaining)
-        self.load_table()
-        messagebox.showinfo("Success", f"Student '{name}' saved successfully.")
-        self.clear_fields()
+    def save_fee(self):
+        rolls = [self.fee_entries[k].get().strip() for k in ["roll_no", "name", "course", "total_fee", "remaining_fee"]]
+        if not all(rolls): messagebox.showwarning("Error", "All fields required"); return
+        self.manager.add_fee(*rolls)
+        self.load_fee_table()
+        messagebox.showinfo("Success", "Fee data updated!")
 
-    def clear_fields(self):
-        for entry in self.entries.values():
-            entry.delete(0, tk.END)
+    def save_diploma(self):
+        vals = [self.dip_entries[k].get().strip() for k in ["roll_no", "date_of_birth", "certificate_link_(url)"]]
+        if not all(vals): messagebox.showwarning("Error", "All fields required"); return
+        self.manager.add_diploma(*vals)
+        self.load_diploma_table()
+        messagebox.showinfo("Success", "Diploma record updated!")
 
-    def load_table(self):
-        for item in self.tree.get_children():
-            self.tree.delete(item)
-        for roll, info in self.manager.get_all_students():
-            self.tree.insert("", "end", values=(roll, info["name"], info["course"], info["total"], info["remaining"], info.get("date", "")))
+    def load_fee_table(self):
+        for i in self.fee_tree.get_children(): self.fee_tree.delete(i)
+        for r, info in self.manager.fee_data.items():
+            self.fee_tree.insert("", "end", values=(r, info["name"], info["course"], info["total"], info["remaining"], info.get("date","")))
 
-    def export(self):
-        self.manager.export_to_excel()
-        messagebox.showinfo("Exported", "Data exported to FeeData.xlsx")
+    def load_diploma_table(self):
+        for i in self.dip_tree.get_children(): self.dip_tree.delete(i)
+        for c in self.manager.diploma_data["certificates"]:
+            self.dip_tree.insert("", "end", values=(c["roll"], c["dob"], c["link"]))
 
-    def show_graph(self):
-        total = []
-        remaining = []
-        names = []
+    def on_fee_select(self, e):
+        sel = self.fee_tree.focus()
+        if not sel: return
+        v = self.fee_tree.item(sel)["values"]
+        for i, k in enumerate(["roll_no", "name", "course", "total_fee", "remaining_fee"]):
+            self.fee_entries[k].delete(0, tk.END); self.fee_entries[k].insert(0, v[i])
 
-        for roll, info in self.manager.get_all_students():
-            names.append(info["name"])
-            total.append(info["total"])
-            remaining.append(info["remaining"])
+    def on_dip_select(self, e):
+        sel = self.dip_tree.focus()
+        if not sel: return
+        v = self.dip_tree.item(sel)["values"]
+        for i, k in enumerate(["roll_no", "date_of_birth", "certificate_link_(url)"]):
+            self.dip_entries[k].delete(0, tk.END); self.dip_entries[k].insert(0, v[i])
 
-        plt.figure(figsize=(10, 5))
-        plt.bar(names, total, label="Total", color="skyblue")
-        plt.bar(names, remaining, label="Remaining", color="orange", bottom=[t - r for t, r in zip(total, remaining)])
-        plt.title("Total vs Remaining Fee")
-        plt.ylabel("Amount")
-        plt.xlabel("Students")
-        plt.xticks(rotation=45)
-        plt.legend()
-        plt.tight_layout()
-        plt.show()
-
-    def on_tree_select(self, event):
-        selected_item = self.tree.focus()
-        if not selected_item:
-            return
-        values = self.tree.item(selected_item)["values"]
-        if len(values) >= 6:
-            self.entries["roll_no"].delete(0, tk.END)
-            self.entries["roll_no"].insert(0, values[0])
-            self.entries["name"].delete(0, tk.END)
-            self.entries["name"].insert(0, values[1])
-            self.entries["course"].delete(0, tk.END)
-            self.entries["course"].insert(0, values[2])
-            self.entries["total_fee"].delete(0, tk.END)
-            self.entries["total_fee"].insert(0, values[3])
-            self.entries["remaining_fee"].delete(0, tk.END)
-            self.entries["remaining_fee"].insert(0, values[4])
-
-    def search_student(self, *args):
-        keyword = self.search_var.get().lower()
-        for item in self.tree.get_children():
-            self.tree.delete(item)
-
-        for roll, info in self.manager.get_all_students():
-            name = info["name"].lower()
-            if keyword in roll.lower() or keyword in name:
-                self.tree.insert("", "end", values=(roll, info["name"], info["course"], info["total"], info["remaining"], info.get("date", "")))
-
-
-def open_main_app():
-    root = ThemedTk(theme="arc")
-    FeeManagerApp(root)
-    root.mainloop()
+    def show_fee_graph(self):
+        data = self.manager.fee_data
+        names = [i["name"] for i in data.values()]
+        remaining = [i["remaining"] for i in data.values()]
+        plt.bar(names, remaining, color="coral")
+        plt.title("Student Remaining Fees"); plt.xticks(rotation=45); plt.tight_layout(); plt.show()
 
 if __name__ == "__main__":
-    open_main_app()
+    root = tk.Tk()
+    BytecoreManagerApp(root)
+    root.mainloop()

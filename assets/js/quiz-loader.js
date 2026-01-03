@@ -119,50 +119,407 @@ class QuizLoader {
   }
 
   /**
-   * Get fallback data if main quiz file fails to load
+   * Get fallback data (Embedded Comprehensive Quiz Database)
+   * This ensures the quiz works 100% without external dependencies/backend
    * @param {string} language - The programming language
-   * @returns {Object} Fallback quiz data
+   * @returns {Object} Comprehensive quiz data
    */
   getFallbackData(language) {
-    const fallbackQuestions = {
+    const quizDatabase = {
       python: {
-        title: "Python Programming Quiz",
-        description: "Basic Python programming questions",
+        title: "Python Mastery Quiz",
+        description: "Test your Python skills from basics to advanced data structures.",
         questions: [
           {
-            question: "What is Python?",
-            options: ["A snake", "A programming language", "A game", "A book"],
+            question: "What is the correct file extension for Python files?",
+            options: [".pyth", ".pt", ".py", ".pe"],
+            correct: 2,
+            explanation: "Python source files use the .py extension."
+          },
+          {
+            question: "Which of these is NOT a core data type in Python?",
+            options: ["List", "Dictionary", "Tuple", "Class"],
+            correct: 3,
+            explanation: "Class is a user-defined blueprint, not a built-in primitive data type like List, Dict, or Tuple."
+          },
+          {
+            question: "How do you create a variable with the floating number 2.8?",
+            options: ["x = 2.8", "int x = 2.8", "float x = 2.8", "x : 2.8"],
+            correct: 0,
+            explanation: "Python is dynamically typed, so you just assign the value."
+          },
+          {
+            question: "Which method is used to remove whitespace from the beginning and end of a string?",
+            options: ["strip()", "trim()", "len()", "ptrim()"],
+            correct: 0,
+            explanation: "The strip() method removes whitespace from the beginning and end of result."
+          },
+          {
+            question: "What is the output of: print(10 > 9)?",
+            options: ["False", "True", "10", "Error"],
             correct: 1,
-            explanation: "Python is a high-level programming language."
+            explanation: "The comparison 10 > 9 returns the Boolean value True."
+          },
+          {
+            question: "Which collection is ordered, changeable, and allows duplicate members?",
+            options: ["Set", "Dictionary", "Tuple", "List"],
+            correct: 3,
+            explanation: "Lists in Python are ordered, mutable (changeable), and allow duplicates."
+          },
+          {
+            question: "How do you start a for loop in Python?",
+            options: ["for x in y:", "for each x in y:", "for x > y:", "for x in y"],
+            correct: 0,
+            explanation: "The correct syntax is 'for variable in iterable:'."
+          },
+          {
+            question: "Which keyword is used to create a function in Python?",
+            options: ["function", "def", "fun", "define"],
+            correct: 1,
+            explanation: "The 'def' keyword is used to define functions in Python."
+          },
+          {
+            question: "What is the correct syntax to import a module named 'mymodule'?",
+            options: ["import mymodule", "import(mymodule)", "include mymodule", "using mymodule"],
+            correct: 0,
+            explanation: "Use the 'import' keyword to import modules."
+          },
+          {
+            question: "What does the range(5) function return?",
+            options: ["0, 1, 2, 3, 4, 5", "1, 2, 3, 4, 5", "0, 1, 2, 3, 4", "1, 2, 3, 4"],
+            correct: 2,
+            explanation: "range(5) generates numbers from 0 up to (but not including) 5."
           }
         ]
       },
       javascript: {
-        title: "JavaScript Quiz",
-        description: "Basic JavaScript questions",
+        title: "JavaScript Professional Quiz",
+        description: "Verify your expertise in modern JavaScript and ES6+ features.",
         questions: [
           {
-            question: "What is JavaScript used for?",
-            options: ["Web development", "Coffee making", "Snake charming", "Book writing"],
+            question: "Inside which HTML element do we put the JavaScript?",
+            options: ["<js>", "<scripting>", "<script>", "<javascript>"],
+            correct: 2,
+            explanation: "JavaScript code is placed inside the <script> tag."
+          },
+          {
+            question: "How do you write 'Hello World' in an alert box?",
+            options: ["msg('Hello World');", "alertBox('Hello World');", "msgBox('Hello World');", "alert('Hello World');"],
+            correct: 3,
+            explanation: "The alert() function displays a message in a modal box."
+          },
+          {
+            question: "Which operator is used to check both value and type?",
+            options: ["==", "===", "=", "!="],
+            correct: 1,
+            explanation: "The strict equality operator (===) checks both value and data type."
+          },
+          {
+            question: "How do you declare a JavaScript variable?",
+            options: ["v carName;", "variable carName;", "var carName;", "dim carName;"],
+            correct: 2,
+            explanation: "var, let, or const are used to declare variables."
+          },
+          {
+            question: "What is the correct way to write a JavaScript array?",
+            options: ["var colors = (1:'red', 2:'green')", "var colors = 1 = ('red'), 2 = ('green')", "var colors = ['red', 'green', 'blue']", "var colors = 'red', 'green', 'blue'"],
+            correct: 2,
+            explanation: "Arrays are written with square brackets []."
+          },
+          {
+            question: "Which event occurs when the user clicks on an HTML element?",
+            options: ["onchange", "onclick", "onmouseclick", "onmouseover"],
+            correct: 1,
+            explanation: "The onclick event occurs when the user clicks on an element."
+          },
+          {
+            question: "How do you find the number with the highest value of x and y?",
+            options: ["Math.ceil(x, y)", "Math.max(x, y)", "top(x, y)", "ceil(x, y)"],
+            correct: 1,
+            explanation: "Math.max() returns the number with the highest value."
+          },
+          {
+            question: "Which keyword is used to define a constant variable?",
+            options: ["let", "var", "const", "fix"],
+            correct: 2,
+            explanation: "The 'const' keyword defines a variable that cannot be reassigned."
+          },
+          {
+            question: "What is the use of 'this' keyword in JavaScript?",
+            options: ["Refers to the current object", "Refers to the previous object", "Refers to the variable", "None of these"],
             correct: 0,
-            explanation: "JavaScript is primarily used for web development."
+            explanation: "'this' refers to the object it belongs to."
+          },
+          {
+            question: "Which is not a JavaScript Framework?",
+            options: ["Python Script", "JQuery", "Django", "NodeJS"],
+            correct: 2,
+            explanation: "Django is a Python framework, not JavaScript."
+          }
+        ]
+      },
+      html: {
+        title: "HTML5 & CSS3 Designer Quiz",
+        description: "Validate your frontend structural and styling skills.",
+        questions: [
+          {
+            question: "What does HTML stand for?",
+            options: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language", "Hyper Tool Multi Language"],
+            correct: 0,
+            explanation: "HTML stands for Hyper Text Markup Language."
+          },
+          {
+            question: "Which HTML element is the largest heading?",
+            options: ["<heading>", "<h6>", "<h1>", "<head>"],
+            correct: 2,
+            explanation: "<h1> defines the most important (largest) heading."
+          },
+          {
+            question: "What is the correct HTML element for inserting a line break?",
+            options: ["<break>", "<lb>", "<br>", "<newline>"],
+            correct: 2,
+            explanation: "<br> inserts a single line break."
+          },
+          {
+            question: "Which character is used to indicate an end tag?",
+            options: ["/", "<", "*", "^"],
+            correct: 0,
+            explanation: "End tags start with a forward slash, e.g., </p>."
+          },
+          {
+            question: "What does CSS stand for?",
+            options: ["Creative Style Sheets", "Cascading Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"],
+            correct: 1,
+            explanation: "CSS stands for Cascading Style Sheets."
+          },
+          {
+            question: "Which property is used to change the background color?",
+            options: ["color", "bgcolor", "background-color", "bg-color"],
+            correct: 2,
+            explanation: "background-color is the correct property."
+          },
+          {
+            question: "How do you select an element with id 'demo'?",
+            options: ["#demo", ".demo", "demo", "*demo"],
+            correct: 0,
+            explanation: "IDs are selected using the hash (#) symbol."
+          },
+          {
+            question: "Which property controls the text size?",
+            options: ["font-style", "text-size", "font-size", "text-style"],
+            correct: 2,
+            explanation: "font-size controls the size of the text."
+          }
+        ]
+      },
+      java: {
+        title: "Java Architect Quiz",
+        description: "Test your object-oriented programming skills in Java.",
+        questions: [
+          {
+            question: "Which data type is used to create a variable that should store text?",
+            options: ["String", "txt", "string", "Text"],
+            correct: 0,
+            explanation: "String (capital S) is the class used for text in Java."
+          },
+          {
+            question: "How do you create a variable with the numeric value 5?",
+            options: ["num x = 5", "x = 5", "float x = 5", "int x = 5"],
+            correct: 3,
+            explanation: "int is the primitive type for whole numbers."
+          },
+          {
+            question: "Which method is used to find the length of a string?",
+            options: ["length()", "getSize()", "len()", "size()"],
+            correct: 0,
+            explanation: "The length() method returns the length of a string."
+          },
+          {
+            question: "Which keyword is used to create a class?",
+            options: ["class", "MyClass", "class()", "className"],
+            correct: 0,
+            explanation: "The 'class' keyword is used to define a class."
+          },
+          {
+            question: "What is the correct way to main method?",
+            options: ["public static void main(String[] args)", "void main(String[] args)", "public void main()", "static void main()"],
+            correct: 0,
+            explanation: "The entry point is always public static void main(String[] args)."
+          },
+          {
+            question: "Which statement is used to stop a loop?",
+            options: ["break", "stop", "return", "exit"],
+            correct: 0,
+            explanation: "The break statement jumps out of a loop."
+          }
+        ]
+      },
+      c: {
+        title: "C Programming Classic Quiz",
+        description: "Evaluate your understanding of C fundamentals and memory management.",
+        questions: [
+          {
+            question: "How do you insert COMMENTS in C code?",
+            options: ["/* this is a comment */", "// this is a comment", "# this is a comment", "-- this is a comment"],
+            correct: 1,
+            explanation: "// is used for single line comments in modern C."
+          },
+          {
+            question: "What is the correct format specifier for integer?",
+            options: ["%d", "%i", "%f", "%c"],
+            correct: 0,
+            explanation: "%d (or %i) is used for integers."
+          },
+          {
+            question: "Which function is used to print text to the screen?",
+            options: ["print()", "printf()", "cout", "echo"],
+            correct: 1,
+            explanation: "printf() is the standard output function in C."
+          },
+          {
+            question: "How do you declare a pointer?",
+            options: ["int *ptr;", "int ptr;", "int &ptr;", "pointer ptr;"],
+            correct: 0,
+            explanation: "Asterisk (*) is used to declare a pointer variable."
+          },
+          {
+            question: "What is the size of 'char' in C usually?",
+            options: ["1 byte", "2 bytes", "4 bytes", "8 bytes"],
+            correct: 0,
+            explanation: "A char is typically 1 byte in size."
+          },
+          {
+            question: "Which operator is used to get the address of a variable?",
+            options: ["*", "&", "@", "->"],
+            correct: 1,
+            explanation: "& is the address-of operator."
+          }
+        ]
+      },
+      cpp: {
+        title: "C++ Advanced Quiz",
+        description: "Test your knowledge of Modern C++, OOP, and STL.",
+        questions: [
+          {
+            question: "What is the correct way to create an object of a class named MyClass?",
+            options: ["MyClass obj;", "new MyClass obj;", "object MyClass;", "class MyClass obj;"],
+            correct: 0,
+            explanation: "MyClass obj; creates an instance on the stack."
+          },
+          {
+            question: "Which header file is required for input and output?",
+            options: ["<iostream>", "<stdio.h>", "<conio.h>", "<stdlib.h>"],
+            correct: 0,
+            explanation: "<iostream> is the standard header for C++ I/O."
+          },
+          {
+            question: "How do you create a reference variable of an existing variable?",
+            options: ["int &ref = var;", "int ref = &var;", "int *ref = var;", "ref = var;"],
+            correct: 0,
+            explanation: "& creates a reference (alias) to a variable."
+          },
+          {
+            question: "Which keyword is used for inheritance?",
+            options: ["extends", ":", "inherits", "implements"],
+            correct: 1,
+            explanation: "Colon (:) is used to inherit from a base class."
+          },
+          {
+            question: "Which is NOT a C++ access specifier?",
+            options: ["public", "protected", "private", "internal"],
+            correct: 3,
+            explanation: "Internal is not a standard access specifier in C++."
+          }
+        ]
+      },
+      excel: {
+        title: "Microsoft Excel Expert Quiz",
+        description: "Prove your mastery of spreadsheets, formulas, and functions.",
+        questions: [
+          {
+            question: "Which symbol must all formulas begin with?",
+            options: ["=", "+", "(", "@"],
+            correct: 0,
+            explanation: "All Excel formulas must start with an equals sign (=)."
+          },
+          {
+            question: "Which function adds all the numbers in a range of cells?",
+            options: ["ADD", "SUM", "TOTAL", "PLUS"],
+            correct: 1,
+            explanation: "SUM() adds values."
+          },
+          {
+            question: "What is the intersection of a column and a row called?",
+            options: ["Cell", "Block", "Box", "Grid"],
+            correct: 0,
+            explanation: "It is called a Cell (e.g., A1)."
+          },
+          {
+            question: "Which function finds the highest value in a range?",
+            options: ["MAX", "HIGH", "TOP", "UPPER"],
+            correct: 0,
+            explanation: "MAX() returns the largest value."
+          },
+          {
+            question: "What does VLOOKUP stand for?",
+            options: ["Vertical Lookup", "Variable Lookup", "Value Lookup", "View Lookup"],
+            correct: 0,
+            explanation: "VLOOKUP stands for Vertical Lookup."
+          },
+          {
+            question: "Which key is used to lock a cell reference (absolute reference)?",
+            options: ["F2", "F4", "F5", "F9"],
+            correct: 1,
+            explanation: "F4 toggles absolute references ($A$1)."
+          }
+        ]
+      },
+      ccc: {
+        title: "CCC Computer Concepts Quiz",
+        description: "Essential computer fundamentals and digital literacy test.",
+        questions: [
+          {
+            question: "Who is known as the father of the computer?",
+            options: ["Alan Turing", "Charles Babbage", "Bill Gates", "Steve Jobs"],
+            correct: 1,
+            explanation: "Charles Babbage is considered the father of the computer."
+          },
+          {
+            question: "Which one is an input device?",
+            options: ["Monitor", "Printer", "Keyboard", "Speaker"],
+            correct: 2,
+            explanation: "Keyboard is used to input data."
+          },
+          {
+            question: "What is the full form of RAM?",
+            options: ["Read Access Memory", "Random Access Memory", "Run Access Memory", "Real Access Memory"],
+            correct: 1,
+            explanation: "RAM stands for Random Access Memory."
+          },
+          {
+            question: "1 Byte is equal to?",
+            options: ["4 bits", "8 bits", "16 bits", "32 bits"],
+            correct: 1,
+            explanation: "1 Byte = 8 Bits."
+          },
+          {
+            question: "Which is not an Operating System?",
+            options: ["Windows", "Linux", "Oracle", "DOS"],
+            correct: 2,
+            explanation: "Oracle is a database management system, not an OS."
+          },
+          {
+            question: "What is the shortcut key for Copy?",
+            options: ["Ctrl + C", "Ctrl + V", "Ctrl + X", "Ctrl + Z"],
+            correct: 0,
+            explanation: "Ctrl + C is used to copy."
           }
         ]
       }
     };
 
-    return fallbackQuestions[language] || {
-      title: `${language.charAt(0).toUpperCase() + language.slice(1)} Quiz`,
-      description: `Test your ${language} knowledge`,
-      questions: [
-        {
-          question: `What is ${language}?`,
-          options: ["A programming language", "A food", "A place", "A person"],
-          correct: 0,
-          explanation: `${language} is a programming language.`
-        }
-      ]
-    };
+    // Return the specific language data or a generic fallback if not found
+    return quizDatabase[language] || quizDatabase['python'];
   }
 
   /**

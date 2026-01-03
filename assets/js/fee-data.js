@@ -1,4 +1,4 @@
-﻿const feeData = {
+const feeData = {
     "123": {
         "name": "Rohit",
         "course": "DCA",
@@ -9,7 +9,8 @@
         "name": "Himanshu",
         "course": "DCA",
         "total": 300,
-        "remaining": 0
+        "remaining": 0,
+        "date": "2025-12-24"
     },
     "125": {
         "name": "Gaurav",

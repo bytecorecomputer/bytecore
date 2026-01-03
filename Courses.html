@@ -74,190 +74,18 @@
     <!-- Main Content -->
     <section class="section-padding">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Mobile Controls -->
-            <div class="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
-                <button id="filter-toggle"
-                    class="lg:hidden w-full sm:w-auto btn btn-outline flex items-center justify-center gap-2">
-                    <i class="fas fa-filter"></i> Filters
-                </button>
-
-                <p class="text-slate-500 font-medium order-3 sm:order-2"><span id="course-count"
-                        class="font-bold text-primary">0</span> Courses Found</p>
-
-                <div class="flex items-center gap-2 w-full sm:w-auto order-2 sm:order-3">
-                    <span class="text-sm text-slate-500 hidden sm:inline">Sort by:</span>
-                    <select id="sort-select"
-                        class="w-full sm:w-auto bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-4 py-2 text-sm focus:border-primary outline-none transition-colors cursor-pointer">
-                        <option value="popularity">Popularity</option>
-                        <option value="newest">Newest</option>
-                        <option value="price-low">Price: Low to High</option>
-                        <option value="price-high">Price: High to Low</option>
-                        <option value="duration">Duration</option>
-                    </select>
-                </div>
+            <!-- Course Header Info -->
+            <div
+                class="flex flex-col sm:flex-row justify-between items-center mb-12 gap-4 border-b border-slate-100 dark:border-slate-800 pb-6">
+                <h2 class="font-heading text-3xl font-bold">Featured <span class="text-primary">Programs</span></h2>
+                <p class="text-slate-500 font-medium"><span id="course-count" class="font-bold text-primary">0</span>
+                    Courses Available</p>
             </div>
 
-            <div class="flex flex-col lg:flex-row gap-8 relative">
-                <!-- Filters Sidebar -->
-                <aside id="filters-sidebar"
-                    class="fixed inset-y-0 left-0 w-80 bg-white dark:bg-slate-900 z-50 transform -translate-x-full lg:translate-x-0 lg:static lg:w-1/4 lg:bg-transparent transition-transform duration-300 lg:z-auto p-6 lg:p-0 overflow-y-auto lg:overflow-visible border-r lg:border-none border-slate-200 dark:border-slate-800 shadow-2xl lg:shadow-none">
-                    <!-- Mobile Header -->
-                    <div class="flex justify-between items-center lg:hidden mb-6">
-                        <h3 class="font-bold text-xl font-heading">Filters</h3>
-                        <button id="close-filters"
-                            class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-
-                    <div
-                        class="glass p-6 rounded-2xl space-y-8 sticky top-24 border border-slate-100 dark:border-slate-700/50">
-                        <!-- Categories -->
-                        <div>
-                            <h4 class="font-heading font-bold text-lg mb-4 flex items-center gap-2">
-                                <i class="fas fa-th-large text-primary text-sm"></i> Categories
-                            </h4>
-                            <div class="space-y-3">
-                                <label class="flex items-center gap-3 cursor-pointer group select-none">
-                                    <div class="relative flex items-center">
-                                        <input type="checkbox" class="category-filter peer sr-only" value="programming">
-                                        <div
-                                            class="w-5 h-5 rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
-                                            <i
-                                                class="fas fa-check text-[10px] text-white opacity-0 peer-checked:opacity-100"></i>
-                                        </div>
-                                    </div>
-                                    <span
-                                        class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors text-sm">Programming</span>
-                                </label>
-                                <label class="flex items-center gap-3 cursor-pointer group select-none">
-                                    <div class="relative flex items-center">
-                                        <input type="checkbox" class="category-filter peer sr-only"
-                                            value="web-development">
-                                        <div
-                                            class="w-5 h-5 rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
-                                            <i
-                                                class="fas fa-check text-[10px] text-white opacity-0 peer-checked:opacity-100"></i>
-                                        </div>
-                                    </div>
-                                    <span
-                                        class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors text-sm">Web
-                                        Development</span>
-                                </label>
-                                <label class="flex items-center gap-3 cursor-pointer group select-none">
-                                    <div class="relative flex items-center">
-                                        <input type="checkbox" class="category-filter peer sr-only"
-                                            value="data-science">
-                                        <div
-                                            class="w-5 h-5 rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
-                                            <i
-                                                class="fas fa-check text-[10px] text-white opacity-0 peer-checked:opacity-100"></i>
-                                        </div>
-                                    </div>
-                                    <span
-                                        class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors text-sm">Data
-                                        Science</span>
-                                </label>
-                                <label class="flex items-center gap-3 cursor-pointer group select-none">
-                                    <div class="relative flex items-center">
-                                        <input type="checkbox" class="category-filter peer sr-only"
-                                            value="certification">
-                                        <div
-                                            class="w-5 h-5 rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
-                                            <i
-                                                class="fas fa-check text-[10px] text-white opacity-0 peer-checked:opacity-100"></i>
-                                        </div>
-                                    </div>
-                                    <span
-                                        class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors text-sm">Certifications</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Level -->
-                        <div>
-                            <h4 class="font-heading font-bold text-lg mb-4 flex items-center gap-2">
-                                <i class="fas fa-layer-group text-primary text-sm"></i> Level
-                            </h4>
-                            <div class="space-y-3">
-                                <label class="flex items-center gap-3 cursor-pointer group select-none">
-                                    <div class="relative flex items-center">
-                                        <input type="checkbox" class="level-filter peer sr-only" value="beginner">
-                                        <div
-                                            class="w-5 h-5 rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
-                                            <i
-                                                class="fas fa-check text-[10px] text-white opacity-0 peer-checked:opacity-100"></i>
-                                        </div>
-                                    </div>
-                                    <span
-                                        class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors text-sm">Beginner</span>
-                                </label>
-                                <label class="flex items-center gap-3 cursor-pointer group select-none">
-                                    <div class="relative flex items-center">
-                                        <input type="checkbox" class="level-filter peer sr-only" value="intermediate">
-                                        <div
-                                            class="w-5 h-5 rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
-                                            <i
-                                                class="fas fa-check text-[10px] text-white opacity-0 peer-checked:opacity-100"></i>
-                                        </div>
-                                    </div>
-                                    <span
-                                        class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors text-sm">Intermediate</span>
-                                </label>
-                                <label class="flex items-center gap-3 cursor-pointer group select-none">
-                                    <div class="relative flex items-center">
-                                        <input type="checkbox" class="level-filter peer sr-only" value="advanced">
-                                        <div
-                                            class="w-5 h-5 rounded border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 peer-checked:bg-primary peer-checked:border-primary transition-all flex items-center justify-center">
-                                            <i
-                                                class="fas fa-check text-[10px] text-white opacity-0 peer-checked:opacity-100"></i>
-                                        </div>
-                                    </div>
-                                    <span
-                                        class="text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors text-sm">Advanced</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Price Range -->
-                        <div>
-                            <h4 class="font-heading font-bold text-lg mb-4 flex items-center gap-2">
-                                <i class="fas fa-tag text-primary text-sm"></i> Price Range
-                            </h4>
-                            <div class="space-y-4">
-                                <input type="range" id="price-range" min="0" max="50000" step="1000"
-                                    class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-primary">
-                                <div
-                                    class="flex justify-between items-center bg-slate-50 dark:bg-slate-800 p-2 rounded-lg border border-slate-200 dark:border-slate-700">
-                                    <div class="relative">
-                                        <span
-                                            class="absolute left-2 top-1/2 -translate-y-1/2 text-slate-400 text-xs">₹</span>
-                                        <input type="number" id="min-price" value="0"
-                                            class="w-16 bg-transparent text-center outline-none text-sm font-medium pl-3">
-                                    </div>
-                                    <span class="text-slate-400">-</span>
-                                    <div class="relative">
-                                        <span
-                                            class="absolute left-2 top-1/2 -translate-y-1/2 text-slate-400 text-xs">₹</span>
-                                        <input type="number" id="max-price" value="50000"
-                                            class="w-16 bg-transparent text-center outline-none text-sm font-medium pl-3">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button id="apply-filters" class="btn btn-primary w-full shadow-lg shadow-primary/20">Apply
-                            Filters</button>
-                        <button onclick="resetFilters()"
-                            class="w-full text-center text-sm text-slate-500 hover:text-primary transition-colors mt-2">Reset
-                            All</button>
-                    </div>
-                </aside>
-                <div class="lg:hidden fixed inset-0 bg-black/50 z-40 hidden" id="filters-backdrop"></div>
-
+            <div class="flex flex-col gap-8 relative">
                 <!-- Courses Grid -->
-                <main class="lg:w-3/4">
-                    <div id="courses-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <main class="w-full">
+                    <div id="courses-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Populated by JS -->
                     </div>
 
@@ -282,9 +110,9 @@
                 enrolled: "120+",
                 price: 25999,
                 rating: "4.9",
-                tags: ["popular"],
-                category: "web-development",
-                level: "intermediate",
+                tags: ["popular", "web"],
+                category: "Web Development",
+                level: "Intermediate",
                 color: "from-blue-500 to-indigo-600"
             },
             {
@@ -295,9 +123,9 @@
                 enrolled: "85+",
                 price: 32999,
                 rating: "4.8",
-                tags: ["new"],
-                category: "data-science",
-                level: "advanced",
+                tags: ["new", "ai"],
+                category: "Data Science",
+                level: "Advanced",
                 color: "from-purple-500 to-pink-600"
             },
             {
@@ -308,9 +136,9 @@
                 enrolled: "64+",
                 price: 18999,
                 rating: "4.7",
-                tags: [],
-                category: "web-development",
-                level: "intermediate",
+                tags: ["design"],
+                category: "Design",
+                level: "Intermediate",
                 color: "from-amber-500 to-orange-600"
             },
             {
@@ -321,9 +149,9 @@
                 enrolled: "92+",
                 price: 28999,
                 rating: "4.9",
-                tags: ["advanced"],
-                category: "programming",
-                level: "advanced",
+                tags: ["advanced", "security"],
+                category: "Programming",
+                level: "Advanced",
                 color: "from-rose-500 to-red-600"
             },
             {
@@ -334,10 +162,10 @@
                 enrolled: "78+",
                 price: 22999,
                 rating: "4.6",
-                tags: [],
-                category: "programming",
-                level: "intermediate",
-                color: "from-rose-500 to-red-600"
+                tags: ["cloud"],
+                category: "Programming",
+                level: "Intermediate",
+                color: "from-blue-600 to-cyan-600"
             },
             {
                 id: 6,
@@ -348,8 +176,8 @@
                 price: 19999,
                 rating: "4.8",
                 tags: ["popular", "govt"],
-                category: "certification",
-                level: "beginner",
+                category: "Certification",
+                level: "Beginner",
                 color: "from-violet-500 to-fuchsia-600"
             },
             {
@@ -361,8 +189,8 @@
                 price: 8999,
                 rating: "4.7",
                 tags: ["popular", "govt"],
-                category: "certification",
-                level: "beginner",
+                category: "Certification",
+                level: "Beginner",
                 color: "from-emerald-500 to-teal-600"
             },
             {
@@ -373,9 +201,9 @@
                 enrolled: "120+",
                 price: 35999,
                 rating: "4.6",
-                tags: [],
-                category: "certification",
-                level: "intermediate",
+                tags: ["diploma"],
+                category: "Certification",
+                level: "Intermediate",
                 color: "from-sky-500 to-blue-600"
             },
             {
@@ -386,9 +214,9 @@
                 enrolled: "85+",
                 price: 42999,
                 rating: "4.7",
-                tags: ["new"],
-                category: "certification",
-                level: "advanced",
+                tags: ["new", "diploma"],
+                category: "Certification",
+                level: "Advanced",
                 color: "from-cyan-500 to-blue-600"
             },
             {
@@ -399,9 +227,9 @@
                 enrolled: "180+",
                 price: 15999,
                 rating: "4.9",
-                tags: ["popular"],
-                category: "programming",
-                level: "beginner",
+                tags: ["popular", "python"],
+                category: "Programming",
+                level: "Beginner",
                 color: "from-blue-500 to-indigo-600"
             },
             {
@@ -412,9 +240,9 @@
                 enrolled: "95+",
                 price: 17999,
                 rating: "4.7",
-                tags: [],
-                category: "programming",
-                level: "intermediate",
+                tags: ["java"],
+                category: "Programming",
+                level: "Intermediate",
                 color: "from-red-500 to-orange-600"
             },
             {
@@ -425,9 +253,9 @@
                 enrolled: "135+",
                 price: 12999,
                 rating: "4.5",
-                tags: [],
-                category: "web-development",
-                level: "beginner",
+                tags: ["basic", "web"],
+                category: "Web Development",
+                level: "Beginner",
                 color: "from-yellow-500 to-amber-600"
             },
             {
@@ -438,9 +266,9 @@
                 enrolled: "110+",
                 price: 21999,
                 rating: "4.8",
-                tags: ["new"],
-                category: "web-development",
-                level: "intermediate",
+                tags: ["new", "react"],
+                category: "Web Development",
+                level: "Intermediate",
                 color: "from-blue-400 to-cyan-600"
             },
             {
@@ -451,9 +279,9 @@
                 enrolled: "75+",
                 price: 27999,
                 rating: "4.6",
-                tags: [],
-                category: "data-science",
-                level: "intermediate",
+                tags: ["ml"],
+                category: "Data Science",
+                level: "Intermediate",
                 color: "from-purple-400 to-pink-600"
             },
             {
@@ -464,29 +292,22 @@
                 enrolled: "145+",
                 price: 14999,
                 rating: "4.4",
-                tags: [],
-                category: "programming",
-                level: "beginner",
+                tags: ["marketing"],
+                category: "Business",
+                level: "Beginner",
                 color: "from-green-400 to-teal-600"
             }
         ];
 
         // Initialize variables
         let currentPage = 1;
-        const coursesPerPage = 6; // Increased to 6 for better grid layout (2x3)
+        const coursesPerPage = 9;
         let filteredCourses = [...courses];
-        let currentFilter = "all";
-        let currentSort = "popularity";
 
         // DOM Elements
         const coursesContainer = document.getElementById('courses-container');
         const paginationContainer = document.getElementById('pagination-container');
         const courseCountElement = document.getElementById('course-count');
-        const sortSelect = document.getElementById('sort-select');
-        const applyFiltersBtn = document.getElementById('apply-filters');
-        const priceRange = document.getElementById('price-range');
-        const minPriceInput = document.getElementById('min-price');
-        const maxPriceInput = document.getElementById('max-price');
         const searchInput = document.getElementById('course-search');
 
         // Initialize the page
@@ -498,115 +319,23 @@
         });
 
         function setupEventListeners() {
-            // Sort select
-            sortSelect.addEventListener('change', () => {
-                currentSort = sortSelect.value;
-                sortCourses();
-                renderCourses();
-            });
-
             // Search input
             searchInput.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                if (searchTerm.length > 0) {
+                const term = e.target.value.toLowerCase().trim();
+                if (term.length > 0) {
                     filteredCourses = courses.filter(course =>
-                        course.title.toLowerCase().includes(searchTerm) ||
-                        course.category.toLowerCase().includes(searchTerm) ||
-                        course.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+                        course.title.toLowerCase().includes(term) ||
+                        course.description.toLowerCase().includes(term) ||
+                        course.category.toLowerCase().includes(term) ||
+                        course.tags.some(tag => tag.toLowerCase().includes(term))
                     );
                 } else {
-                    filterCourses(); // Re-apply current active filters if search cleared
+                    filteredCourses = [...courses];
                 }
                 currentPage = 1;
                 renderCourses();
                 renderPagination();
                 updateCourseCount();
-            });
-
-            // Price range inputs
-            priceRange.addEventListener('input', () => {
-                maxPriceInput.value = priceRange.value;
-            });
-
-            minPriceInput.addEventListener('input', () => {
-                if (parseInt(minPriceInput.value) > parseInt(maxPriceInput.value)) {
-                    minPriceInput.value = maxPriceInput.value;
-                }
-            });
-
-            maxPriceInput.addEventListener('input', () => {
-                if (parseInt(maxPriceInput.value) < parseInt(minPriceInput.value)) {
-                    maxPriceInput.value = minPriceInput.value;
-                }
-                priceRange.value = maxPriceInput.value;
-            });
-
-            // Apply filters button
-            applyFiltersBtn.addEventListener('click', () => {
-                filterCourses();
-                closeMobileFilters();
-            });
-
-            // Mobile menu toggles
-            const filtersSidebar = document.getElementById('filters-sidebar');
-            const filtersBackdrop = document.getElementById('filters-backdrop');
-            const filterToggle = document.getElementById('filter-toggle');
-            const closeFilters = document.getElementById('close-filters');
-
-            function openMobileFilters() {
-                filtersSidebar.classList.remove('-translate-x-full');
-                filtersBackdrop.classList.remove('hidden');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeMobileFilters() {
-                filtersSidebar.classList.add('-translate-x-full');
-                filtersBackdrop.classList.add('hidden');
-                document.body.style.overflow = '';
-            }
-
-            filterToggle.addEventListener('click', openMobileFilters);
-            closeFilters.addEventListener('click', closeMobileFilters);
-            filtersBackdrop.addEventListener('click', closeMobileFilters);
-        }
-
-        function filterCourses() {
-            const minPrice = parseInt(minPriceInput.value) || 0;
-            const maxPrice = parseInt(maxPriceInput.value) || 50000;
-
-            const selectedCategories = Array.from(document.querySelectorAll('.category-filter:checked')).map(cb => cb.value);
-            const selectedLevels = Array.from(document.querySelectorAll('.level-filter:checked')).map(cb => cb.value);
-
-            filteredCourses = courses.filter(course => {
-                // Price filter
-                if (course.price < minPrice || course.price > maxPrice) return false;
-
-                // Category filter
-                if (selectedCategories.length > 0 && !selectedCategories.includes(course.category)) return false;
-
-                // Level filter
-                if (selectedLevels.length > 0 && !selectedLevels.includes(course.level)) return false;
-
-                return true;
-            });
-
-            sortCourses();
-            currentPage = 1;
-            renderCourses();
-            renderPagination();
-            updateCourseCount();
-        }
-
-        function sortCourses() {
-            filteredCourses.sort((a, b) => {
-                switch (currentSort) {
-                    case "popularity": return parseFloat(b.rating) - parseFloat(a.rating);
-                    case "newest": return b.id - a.id;
-                    case "price-low": return a.price - b.price;
-                    case "price-high": return b.price - a.price;
-                    case "duration": return parseInt(a.duration) - parseInt(b.duration);
-                    default: return 0;
-                }
             });
         }
 
@@ -619,13 +348,13 @@
 
             if (coursesToShow.length === 0) {
                 coursesContainer.innerHTML = `
-                    <div class="col-span-full text-center py-24 bg-white dark:bg-slate-800/50 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700">
-                        <div class="w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-6">
-                            <i class="fas fa-search-minus text-3xl text-slate-400"></i>
+                    <div class="col-span-full text-center py-24 bg-white dark:bg-slate-800/50 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-700">
+                        <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-search text-3xl text-primary"></i>
                         </div>
-                        <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-2">No premium courses found</h3>
-                        <p class="text-slate-500 dark:text-slate-400 max-w-md mx-auto">Try adjusting your search criteria or clear filters.</p>
-                        <button onclick="resetFilters()" class="mt-8 btn btn-outline">Clear all filters</button>
+                        <h3 class="text-2xl font-bold text-slate-800 dark:text-white mb-2">No courses found</h3>
+                        <p class="text-slate-500 dark:text-slate-400 max-w-md mx-auto">We couldn't find any courses matching your search. Please try a different keyword.</p>
+                        <button onclick="clearSearch()" class="mt-8 btn btn-primary px-8">View All Courses</button>
                     </div>
                 `;
                 return;
@@ -635,14 +364,7 @@
                 const courseElement = document.createElement('div');
                 courseElement.className = 'premium-card group animate-reveal';
 
-                // Colors for gradient fallback
-                const colorMap = {
-                    'programming': 'from-blue-500 to-indigo-600',
-                    'web-development': 'from-purple-500 to-pink-600',
-                    'data-science': 'from-emerald-500 to-teal-600',
-                    'certification': 'from-orange-500 to-red-600'
-                };
-                const gradientClass = course.color || colorMap[course.category] || 'from-slate-500 to-slate-700';
+                const gradientClass = course.color || 'from-slate-500 to-slate-700';
 
                 // Render tags
                 let tagsHTML = '';
@@ -660,19 +382,19 @@
                         <div class="absolute top-4 left-4 flex flex-wrap gap-2 z-10">${tagsHTML}</div>
                         
                         <div class="absolute inset-0 flex items-center justify-center">
-                            <i class="fas fa-graduation-cap text-6xl text-white/30 transform -rotate-12 group-hover:scale-110 transition-transform duration-500"></i>
+                            <i class="fas fa-graduation-cap text-6xl text-white/30 transform -rotate-12 group-hover:rotate-0 transition-all duration-500"></i>
                         </div>
                     </div>
 
                     <div class="flex justify-between items-start mb-3">
-                        <span class="text-xs font-bold uppercase tracking-wider text-primary bg-primary/5 px-2 py-1 rounded-lg">${course.category.replace('-', ' ')}</span>
+                        <span class="text-xs font-bold uppercase tracking-wider text-primary bg-primary/5 px-2 py-1 rounded-lg">${course.category}</span>
                         <div class="flex items-center gap-1 text-amber-400">
                             <span class="text-slate-700 dark:text-slate-300 font-bold text-sm mr-1">${course.rating}</span>
                             <i class="fas fa-star text-xs"></i>
                         </div>
                     </div>
 
-                    <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors line-clamp-1" title="${course.title}">${course.title}</h3>
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors line-clamp-1">${course.title}</h3>
                     <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2 h-10">${course.description}</p>
 
                     <div class="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-6 py-3 border-y border-slate-100 dark:border-slate-800">
@@ -682,11 +404,11 @@
                         </div>
                         <div class="flex items-center gap-1.5">
                             <i class="far fa-user text-primary"></i>
-                            <span>${course.enrolled} Enrolled</span>
+                            <span>${course.enrolled}</span>
                         </div>
                         <div class="flex items-center gap-1.5">
                             <i class="fas fa-signal text-primary"></i>
-                            <span class="capitalize">${course.level}</span>
+                            <span>${course.level}</span>
                         </div>
                     </div>
 
@@ -708,55 +430,36 @@
         function renderPagination() {
             const totalPages = Math.ceil(filteredCourses.length / coursesPerPage);
             paginationContainer.innerHTML = '';
-
             if (totalPages <= 1) return;
 
-            // Prev Button
-            const prevBtn = document.createElement('button');
-            prevBtn.className = `w-10 h-10 rounded-full flex items-center justify-center transition-all ${currentPage === 1 ? 'bg-slate-100 dark:bg-slate-800 text-slate-300 cursor-not-allowed' : 'bg-white dark:bg-slate-800 hover:bg-primary hover:text-white shadow-md text-slate-600'}`;
-            prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
-            prevBtn.onclick = () => currentPage > 1 && changePage(currentPage - 1);
-            paginationContainer.appendChild(prevBtn);
-
-            // Page numbers (Simple version)
             for (let i = 1; i <= totalPages; i++) {
                 const btn = document.createElement('button');
-                btn.className = `w-10 h-10 rounded-full font-bold transition-all ${i === currentPage ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400'}`;
+                btn.className = `w-10 h-10 rounded-full font-bold transition-all \${i === currentPage ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400'}`;
                 btn.innerText = i;
-                btn.onclick = () => changePage(i);
+                btn.onclick = () => {
+                    currentPage = i;
+                    renderCourses();
+                    renderPagination();
+                    document.getElementById('courses-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                };
                 paginationContainer.appendChild(btn);
             }
-
-            // Next Button
-            const nextBtn = document.createElement('button');
-            nextBtn.className = `w-10 h-10 rounded-full flex items-center justify-center transition-all ${currentPage === totalPages ? 'bg-slate-100 dark:bg-slate-800 text-slate-300 cursor-not-allowed' : 'bg-white dark:bg-slate-800 hover:bg-primary hover:text-white shadow-md text-slate-600'}`;
-            nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
-            nextBtn.onclick = () => currentPage < totalPages && changePage(currentPage + 1);
-            paginationContainer.appendChild(nextBtn);
-        }
-
-        function changePage(pageNum) {
-            currentPage = pageNum;
-            renderCourses();
-            renderPagination();
-            document.getElementById('courses-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function updateCourseCount() {
             courseCountElement.textContent = filteredCourses.length;
         }
 
-        function resetFilters() {
-            minPriceInput.value = 0;
-            maxPriceInput.value = 50000;
-            priceRange.value = 50000;
-            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-            filterCourses();
+        function clearSearch() {
+            searchInput.value = '';
+            filteredCourses = [...courses];
+            currentPage = 1;
+            renderCourses();
+            renderPagination();
+            updateCourseCount();
         }
 
-        // Expose functions globally
-        window.changePage = changePage;
-        window.resetFilters = resetFilters;
+        window.clearSearch = clearSearch;
     </script>
     <script src="assets/js/site-components.js"></script>
 </body>
