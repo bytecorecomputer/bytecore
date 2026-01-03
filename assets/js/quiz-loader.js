@@ -52,6 +52,11 @@ class QuizLoader {
    */
   async fetchQuizData(language, difficulty = 'basic', topic = null) {
     try {
+      // Handle file protocol (CORS restriction)
+      if (window.location.protocol === 'file:') {
+        return this.getFallbackData(language);
+      }
+
       let response;
 
       // Try different file patterns in order
@@ -74,7 +79,18 @@ class QuizLoader {
         throw new Error(`Failed to load ${language} quiz: ${response.status}`);
       }
 
-      const quizData = await response.json();
+      // Read response as text first to avoid "Unexpected end of JSON input" crashes
+      const text = await response.text();
+      if (!text || text.trim() === '') {
+        throw new Error(`Empty response received for ${language} quiz`);
+      }
+
+      let quizData;
+      try {
+        quizData = JSON.parse(text);
+      } catch (e) {
+        throw new Error(`Invalid JSON format in ${language} quiz file`);
+      }
 
       // Validate quiz data structure
       this.validateQuizData(quizData, language);

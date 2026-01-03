@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Connection Test</title>
+    <script src="assets/js/config.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+    <div class="bg-gray-800 p-8 rounded-xl shadow-lg max-w-md w-full">
+        <h1 class="text-2xl font-bold mb-6 text-center text-blue-400">Telegram Connection Test</h1>
+
+        <div class="space-y-4">
+            <div id="status" class="p-4 rounded-lg bg-gray-700 text-sm font-mono overflow-auto h-32 hidden"></div>
+
+            <button id="testBtn"
+                class="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 rounded-lg font-bold transition-all transform active:scale-95">
+                Send Test Message
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const statusDiv = document.getElementById('status');
+        const testBtn = document.getElementById('testBtn');
+
+        function log(message, type = 'info') {
+            statusDiv.classList.remove('hidden');
+            const entry = document.createElement('div');
+            entry.className = `mb-1 ${type === 'error' ? 'text-red-400' : type === 'success' ? 'text-green-400' : 'text-gray-300'}`;
+            entry.textContent = `> ${message}`;
+            statusDiv.appendChild(entry);
+            statusDiv.scrollTop = statusDiv.scrollHeight;
+            console.log(message);
+        }
+
+        testBtn.addEventListener('click', async () => {
+            testBtn.disabled = true;
+            testBtn.classList.add('opacity-50');
+            statusDiv.innerHTML = '';
+
+            log('Initializing test...');
+
+            try {
+                const config = new Config();
+                const token = config.getTelegramBotToken();
+                const chatId = config.getTelegramChatId();
+
+                if (!token || !chatId) {
+                    throw new Error('Configuration missing! Token or Chat ID not found.');
+                }
+
+                log('Configuration loaded.');
+                log(`Token: ${token.substring(0, 5)}...`);
+                log(`Chat ID: ${chatId}`);
+
+                const message = `🔔 *Test Message*\nThis is a test from the Bytecore Quiz App debugger.\nTime: ${new Date().toLocaleTimeString()}`;
+
+                log('Sending request to Telegram API...');
+
+                const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.ok) {
+                    log('✅ Success! Message sent.', 'success');
+                } else {
+                    log(`❌ API Error: ${data.description}`, 'error');
+                }
+
+            } catch (error) {
+                log(`❌ Error: ${error.message}`, 'error');
+            } finally {
+                testBtn.disabled = false;
+                testBtn.classList.remove('opacity-50');
+            }
+        });
+    </script>
+</body>
+
+</html>

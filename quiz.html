@@ -175,660 +175,1106 @@
   }
   </script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <script src="assets/js/config.js"></script>
   <script src="assets/js/quiz-loader.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            primary: '#6366f1',
+            secondary: '#a855f7',
+            dark: '#0f172a',
+          }
+        }
+      }
+    }
+  </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
     :root {
       --primary: #6366f1;
-      --primary-dark: #4f46e5;
-      --secondary: #8b5cf6;
-      --accent: #f472b6;
-      --surface-light: rgba(255, 255, 255, 0.85);
-      --surface-dark: rgba(15, 23, 42, 0.7);
+      --secondary: #a855f7;
+      --accent: #06b6d4;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.1);
     }
 
-    body {
-      font-family: 'Outfit', sans-serif;
-      background-color: #f0f4f8;
+    .hero-bg {
+      background-color: #030712;
       background-image:
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
+        radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.15) 0%, transparent 25%);
+      position: relative;
     }
 
-    .dark body {
-      background-color: #020617;
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
       background-image:
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%);
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      mask-image: radial-gradient(circle at center, black, transparent 80%);
+      -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
+      pointer-events: none;
     }
 
-    .gradient-bg {
-      background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
-      background-size: 200% 200%;
-      animation: gradient-shift 6s ease infinite;
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    @keyframes gradient-shift {
-      0% {
-        background-position: 0% 50%;
-      }
+    .language-card,
+    .difficulty-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
 
-      50% {
-        background-position: 100% 50%;
-      }
+    .language-card:hover,
+    .difficulty-card:hover:not(.opacity-60) {
+      transform: translateY(-8px) scale(1.02);
+      border-color: rgba(99, 102, 241, 0.4);
+      background: rgba(255, 255, 255, 0.06);
+    }
 
-      100% {
-        background-position: 0% 50%;
-      }
+    .language-card.selected {
+      border-color: var(--primary);
+      background: rgba(99, 102, 241, 0.1);
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
     }
 
     .gradient-text {
-      background: linear-gradient(135deg, #6366f1, #ec4899);
+      background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .card-glass {
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
-    }
-
-    .dark .card-glass {
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Option Cards */
     .answer-option {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 2px solid transparent;
-      /* Prepare for border change */
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
     }
 
-    .answer-option::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(90deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
-      opacity: 0;
-      z-index: -1;
-      transition: opacity 0.3s ease;
-    }
-
-    .answer-option:hover {
-      transform: translateY(-3px);
-      border-color: rgba(99, 102, 241, 0.4);
-      box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.15);
-    }
-
-    .answer-option:hover::before {
-      opacity: 1;
-    }
-
-    .answer-option.selected {
-      border-color: #6366f1;
-      background-color: rgba(99, 102, 241, 0.05);
-      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    .answer-option:hover:not(.locked) {
+      transform: translateX(12px);
+      background: rgba(99, 102, 241, 0.1);
+      border-color: rgba(99, 102, 241, 0.3);
     }
 
     .answer-option.correct {
-      border-color: #10b981 !important;
-      background-color: rgba(16, 185, 129, 0.1) !important;
-      color: #065f46;
-    }
-
-    .dark .answer-option.correct {
-      color: #34d399;
+      background: rgba(34, 197, 94, 0.2) !important;
+      border-color: #22c55e !important;
     }
 
     .answer-option.incorrect {
+      background: rgba(239, 68, 68, 0.2) !important;
       border-color: #ef4444 !important;
-      background-color: rgba(239, 68, 68, 0.1) !important;
-      color: #991b1b;
     }
 
-    .dark .answer-option.incorrect {
-      color: #f87171;
+    .animate-reveal {
+      animation: reveal 0.8s ease-out forwards;
+      opacity: 0;
     }
 
-    .answer-option.locked {
-      pointer-events: none;
-      opacity: 0.7;
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    /* Certificate Style */
-    .certificate-border {
-      border: 20px solid transparent;
-      padding: 10px;
-      border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0
- 100 100'%3E%3Cpath d=' M20, 20 L80, 20 L80, 80 L20, 80 Z' fill=' none' stroke=' %236366f1' stroke-width=' 3'
- stroke-opacity='0.5' /%3E%3Crect x='10' y='10' width='80' height='80' stroke='%23a855f7' stroke-width='1'
-          fill='none' /%3E%3C/svg%3E") 30 stretch;
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
 
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
       }
 
-      .quiz-progress {
-        height: 10px;
-        border-radius: 9999px;
-        /* Pill shape */
-        overflow: hidden;
-        background: rgba(203, 213, 225, 0.3);
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    .pulse-glow {
+      animation: pulse-glow 3s infinite;
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 5px rgba(99, 102, 241, 0.2);
       }
 
-      .dark .quiz-progress {
-        background: rgba(51, 65, 85, 0.5);
+      50% {
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
       }
+    }
 
-      .quiz-progress-bar {
-        height: 100%;
-        border-radius: 9999px;
-        transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
-      }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
 
-      /* Language and Difficulty Cards */
-      .language-card, .difficulty-card {
-        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-        /* Bouncy spring effect */
-        cursor: pointer;
-        position: relative;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
 
-      .language-card:hover, .difficulty-card:hover:not(.opacity-60) {
-        transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15);
-        border-color: rgba(99, 102, 241, 0.3);
-      }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
 
-      .dark .language-card:hover {
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
-      }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6366f1;
+    }
 
-      /* Animations */
-      .floating-animation {
-        animation: floating 4s ease-in-out infinite;
-      }
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-      @keyframes floating {
-        0%, 100% {
-          transform: translateY(0px);
-        }
+    .toast {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 16px 24px;
+      border-radius: 12px;
+      color: white;
+      font-weight: 500;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transform: translateX(100%);
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 300px;
+    }
 
-        50% {
-          transform: translateY(-12px);
-        }
-      }
+    .toast.show {
+      transform: translateX(0);
+    }
 
-      .typewriter {
-        overflow: hidden;
-        border-right: .15em solid #6366f1;
-        white-space: nowrap;
-        margin: 0 auto;
-        letter-spacing: 0.05em;
-        animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
-      }
+    .toast.success {
+      border-left: 4px solid #10b981;
+      background: linear-gradient(to right, rgba(16, 185, 129, 0.1), rgba(255, 255, 255, 0.05));
+    }
 
-      @keyframes typing {
-        from {
-          width: 0
-        }
+    .toast.error {
+      border-left: 4px solid #ef4444;
+      background: linear-gradient(to right, rgba(239, 68, 68, 0.1), rgba(255, 255, 255, 0.05));
+    }
 
-        to {
-          width: 100%
-        }
-      }
+    .toast i {
+      font-size: 1.25rem;
+    }
 
-      @keyframes blink-caret {
-        from, to {
-          border-color: transparent
-        }
+    .toast.success i {
+      color: #10b981;
+    }
 
-        50% {
-          border-color: #6366f1;
-        }
-      }
+    .toast.error i {
+      color: #ef4444;
+    }
+  </style>
+  <script src="assets/js/site-components.js"></script>
+</head>
 
-      /* Code Font for Questions */
-      #question-text {
-        line-height: 1.6;
-      }
+<body class="hero-bg text-slate-100 min-h-screen selection:bg-primary/30">
+  <div class="grid-overlay"></div>
+  <div id="toast-container" class="toast-container"></div>
+  <!-- Header -->
+  <header
+    class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-3"><img src="assets/img/logo.png"
+              alt="bytecore logo" class="h-10"></div>
+          <h1 class="text-2xl font-bold bg-clip-text text-transparent gradient-bg">ByteCore</h1>
+        </div>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-8"><a href="#"
+            class="font-medium hover:text-primary transition-colors">Home</a><a href="Courses.html"
+            class="font-medium hover:text-primary transition-colors">Courses</a><a href="diploma.html"
+            class="font-medium hover:text-primary transition-colors">Certificates</a><a href="About.html"
+            class="font-medium hover:text-primary transition-colors">About</a><a href="contact.html"
+            class="font-medium hover:text-primary transition-colors">Contact</a><a href="Fee.html"
+            class="font-medium hover:text-primary transition-colors">Fees</a></nav>
+        <!-- Buttons -->
+        <div class="flex items-center space-x-4"><button id="theme-toggle"
+            class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700"><i
+              class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:block"></i></button><a
+            href="#registration"
+            class="hidden md:block px-6 py-2 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity">Register
+            Now</a><button id="mobile-menu-toggle"
+            class="md:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700"><i
+              class="fas fa-bars"></i></button></div>
+      </div>
+    </div>
+  </header>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu"
+    class="md:hidden fixed inset-0 z-50 bg-white dark:bg-slate-900 transform -translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="flex justify-between items-center p-4 border-b border-slate-200 dark:border-slate-700">
+      <h2 class="text-xl font-bold">Menu</h2><button id="close-mobile-menu"
+        class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700"><i
+          class="fas fa-times"></i></button>
+    </div>
+    <nav class="flex flex-col p-6 space-y-4"><a href="#"
+        class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Home</a><a
+        href="Courses.html"
+        class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Courses</a><a
+        href="Fee.html"
+        class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Fees</a><a
+        href="diploma.html"
+        class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Certificates</a><a
+        href="About.html"
+        class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">About</a><a
+        href="contact.html"
+        class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700">Contact</a><a
+        href="#registration"
+        class="mt-4 px-6 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity text-center">Register
+        Now</a></nav>
+  </div>
+  <!-- Quiz App Container -->
+  <div class="container mx-auto px-4 py-12">
+    <!-- Hero Section -->
+    <div class="text-center mb-20 animate-reveal">
+      <h1 class="text-5xl md:text-7xl font-heading font-bold mb-8 typewriter">
+        <span class="gradient-text">Bytecore</span> Professional Quiz
+      </h1>
+      <p class="text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed font-sans">
+        Elevate your tech expertise. Test your mastery in industry-leading technologies and earn your
+        <span class="text-white font-semibold">Professional Certification</span> instantly.
+      </p>
+      <div
+        class="w-32 h-1.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 mx-auto rounded-full blur-[1px]">
+      </div>
+    </div>
+    <!-- Language Selection Section -->
+    <div id="language-selection" class="max-w-6xl mx-auto animate-reveal" style="animation-delay: 0.2s;">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4">Select Your <span
+            class="text-primary">Domain</span></h2>
+        <p class="text-slate-400 font-sans">Choose your specialty to begin the assessment</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div class="language-card glass-card rounded-3xl p-8 group relative overflow-hidden" data-language="python">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-16 h-16 rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-500 flex items-center justify-center mr-4 shadow-md">
+              <i class="fab fa-python text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">Python</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mb-4">Master Python programming with our comprehensive
+            quiz covering fundamentals to advanced concepts.</p>
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">10
+              Questions</span><span
+              class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium">Beginner to
+              Advanced</span></div>
+        </div>
+        <div class="language-card glass-card rounded-3xl p-8 group relative overflow-hidden"
+          style="animation-delay: 0.2s;" data-language="javascript">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-16 h-16 rounded-xl bg-gradient-to-r from-yellow-300 to-yellow-400 flex items-center justify-center mr-4 shadow-md">
+              <i class="fab fa-js-square text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">JavaScript</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mb-4">Test your JavaScript knowledge with questions on
+            ES6+,
+            DOM manipulation,
+            and modern frameworks.</p>
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">12
+              Questions</span><span
+              class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium">Intermediate</span>
+          </div>
+        </div>
+        <div class="language-card glass-card rounded-3xl p-8 group relative overflow-hidden"
+          style="animation-delay: 0.4s;" data-language="html">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-16 h-16 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center mr-4 shadow-md">
+              <i class="fab fa-html5 text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">HTML/CSS</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mb-4">Challenge your web development skills with HTML5,
+            CSS3,
+            and responsive design questions.</p>
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">8
+              Questions</span><span
+              class="text-sm bg-purple-100 text-purple-800 px-3 py-1 rounded-full font-medium">Beginner</span>
+          </div>
+        </div>
+        <div class="language-card glass-card rounded-3xl p-8 group relative overflow-hidden"
+          style="animation-delay: 0.6s;" data-language="java">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-16 h-16 rounded-xl bg-gradient-to-r from-red-500 to-red-600 flex items-center justify-center mr-4 shadow-md">
+              <i class="fab fa-java text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">Java</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mb-4">Test your object-oriented programming knowledge
+            with Java fundamentals and advanced concepts.</p>
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">15
+              Questions</span><span
+              class="text-sm bg-red-100 text-red-800 px-3 py-1 rounded-full font-medium">Advanced</span></div>
+        </div>
+        <div class="language-card glass-card rounded-3xl p-8 group relative overflow-hidden"
+          style="animation-delay: 0.8s;" data-language="c">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-16 h-16 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mr-4 shadow-md">
+              <i class="fas fa-code text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">C Programming</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mb-4">Master C programming fundamentals including
+            variables,
+            functions,
+            pointers,
+            and memory management.</p>
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">20
+              Questions</span><span
+              class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium">Advanced</span>
+          </div>
+        </div>
+        <div class="language-card glass-card rounded-3xl p-8 group relative overflow-hidden"
+          style="animation-delay: 1s;" data-language="cpp">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-16 h-16 rounded-xl bg-gradient-to-r from-blue-700 to-blue-800 flex items-center justify-center mr-4 shadow-md">
+              <i class="fas fa-code text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">C++</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mb-4">Challenge yourself with C++programming concepts,
+            memory management,
+            and advanced syntax.</p>
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">12
+              Questions</span><span
+              class="text-sm bg-gray-100 text-gray-800 px-3 py-1 rounded-full font-medium">Advanced</span>
+          </div>
+        </div>
+        <div class="language-card glass-card rounded-3xl p-8 group relative overflow-hidden"
+          style="animation-delay: 1.2s;" data-language="excel">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-16 h-16 rounded-xl bg-gradient-to-r from-green-600 to-green-700 flex items-center justify-center mr-4 shadow-md">
+              <i class="fas fa-file-excel text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">Excel</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mb-4">Master Microsoft Excel with formulas,
+            functions,
+            data analysis,
+            and advanced spreadsheet techniques.</p>
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">60
+              Questions</span><span
+              class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium">Beginner to
+              Advanced</span></div>
+        </div>
+        <div class="language-card glass-card rounded-3xl p-8 group relative overflow-hidden"
+          style="animation-delay: 1.4s;" data-language="ccc">
+          <div class="flex items-center mb-4">
+            <div
+              class="w-16 h-16 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center mr-4 shadow-md">
+              <i class="fas fa-desktop text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold">CCC</h3>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mb-4">Course on Computer Concepts - LibreOffice,
+            Internet,
+            Digital Literacy,
+            and Computer Fundamentals.</p>
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">150
+              Questions</span><span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium">Basic
+              to
+              Expert</span></div>
+        </div>
+      </div>
+      <div class="text-center"><button id="select-language-btn"
+          class="px-10 py-4 rounded-xl gradient-bg text-white font-bold text-lg hover:opacity-90 transition-all transform hover:scale-105 shadow-lg pulse-animation opacity-50 cursor-not-allowed"
+          disabled>Select Language to Continue </button></div>
+    </div>
+    <!-- Difficulty Selection Section -->
+    <div id="difficulty-selection" class="max-w-3xl mx-auto hidden">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Choose Difficulty Level</h2>
+        <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto" id="difficulty-description">
+          Complete levels in order to unlock advanced challenges</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div id="difficulty-basic"
+          class="difficulty-card glass-card rounded-3xl p-8 cursor-pointer border-2 transition-all relative overflow-hidden animate-reveal">
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-seedling text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Basic</h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">Perfect for beginners. Fundamentals
+              and core concepts.</p><span
+              class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium">Available
+              Now</span>
+          </div>
+        </div>
+        <div id="difficulty-intermediate"
+          class="difficulty-card glass-card rounded-3xl p-8 border-2 transition-all relative opacity-60 overflow-hidden animate-reveal shadow-none">
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-slate-400 flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-lock text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Intermediate</h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">Complete Basic level first to unlock.
+            </p><span class="text-sm bg-slate-100 text-slate-800 px-3 py-1 rounded-full font-medium"
+              id="intermediate-status">Locked</span>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none"><span
+              class="text-xs text-slate-500 font-medium">🔒 Complete Basic First</span></div>
+        </div>
+        <div id="difficulty-advanced"
+          class="difficulty-card bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-6 border-2 border-slate-300 dark:border-slate-600 transition-all relative opacity-60">
+          <div class="text-center">
+            <div class="w-16 h-16 rounded-full bg-slate-400 flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-lock text-white text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Advanced</h3>
+            <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">Complete Intermediate level first to
+              unlock.</p><span class="text-sm bg-slate-100 text-slate-800 px-3 py-1 rounded-full font-medium"
+              id="advanced-status">Locked</span>
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center pointer-events-none"><span
+              class="text-xs text-slate-500 font-medium">🔒 Complete Intermediate First</span></div>
+        </div>
+      </div>
+      <div class="flex justify-center gap-4"><button id="back-to-language-from-difficulty"
+          class="px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-all transform hover:scale-105"><i
+            class="fas fa-arrow-left mr-2"></i>Back </button></div>
+    </div>
+    <!-- User Details Section -->
+    <div id="user-details" class="max-w-2xl mx-auto hidden animate-reveal">
+      <div class="glass-card rounded-3xl overflow-hidden">
+        <div class="p-10">
+          <h2 class="text-4xl font-heading font-bold mb-8 text-center">Your <span class="text-primary">Profile</span>
+          </h2>
+          <form id="user-form" class="space-y-8">
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-slate-400 ml-1">Full Name</label>
+              <input type="text" id="user-name" required placeholder="Enter your name"
+                class="w-full px-6 py-4 rounded-xl bg-white/5 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-sans text-white">
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="block text-sm font-medium text-slate-400 ml-1">Email <span
+                    class="text-xs text-slate-500">(Optional)</span></label>
+                <input type="email" id="user-email" placeholder="email@example.com"
+                  class="w-full px-6 py-4 rounded-xl bg-white/5 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-sans text-white">
+              </div>
+              <div class="space-y-2">
+                <label class="block text-sm font-medium text-slate-400 ml-1">Phone <span
+                    class="text-xs text-slate-500">(Optional)</span></label>
+                <input type="tel" id="user-phone" placeholder="+91 ..."
+                  class="w-full px-6 py-4 rounded-xl bg-white/5 border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-sans text-white">
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-medium text-slate-400 ml-1">Selected Program</label>
+              <div id="selected-quiz-display"
+                class="px-6 py-4 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 font-bold text-center font-sans">
+              </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 pt-6">
+              <button type="button" id="back-to-language"
+                class="flex-1 px-8 py-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all font-bold">
+                <i class="fas fa-arrow-left mr-2"></i> Back
+              </button>
+              <button type="submit"
+                class="flex-1 px-8 py-4 rounded-xl bg-white text-dark hover:scale-105 transition-all font-bold shadow-xl shadow-white/5">
+                Initiate Assessment <i class="fas fa-rocket ml-2"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Quiz Section -->
+    <div id="quiz-section" class="max-w-4xl mx-auto hidden animate-reveal">
+      <div class="glass-card rounded-3xl overflow-hidden">
+        <!-- Quiz Header -->
+        <div class="p-8 border-b border-white/10 bg-white/5">
+          <div class="flex justify-between items-center mb-6">
+            <div>
+              <h2 id="quiz-title" class="text-3xl font-heading font-bold gradient-text"></h2>
+              <p id="quiz-description" class="text-slate-400 font-sans mt-1"></p>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-slate-500 uppercase tracking-widest font-bold">Question</div>
+              <div id="question-counter" class="text-2xl font-heading font-bold text-white"></div>
+            </div>
+          </div>
+          <!-- Progress Bar -->
+          <div class="space-y-3">
+            <div class="flex justify-between text-xs font-bold text-slate-500 uppercase tracking-widest">
+              <span>Progress</span><span id="progress-percent" class="text-primary">0%</span>
+            </div>
+            <div class="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+              <div id="progress-bar"
+                class="h-full bg-gradient-to-r from-indigo-500 to-purple-600 shadow-[0_0_15px_rgba(99,102,241,0.5)] transition-all duration-700"
+                style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Question Area -->
+        <div class="p-10">
+          <div id="question-container" class="mb-10">
+            <h3 id="question-text" class="text-2xl font-heading font-bold leading-relaxed mb-8"></h3>
+            <div id="answers-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+          </div>
+          <!-- Quiz Controls -->
+          <div class="flex flex-col sm:flex-row justify-between items-center gap-6 pt-8 border-t border-white/10">
+            <div id="timer"
+              class="px-6 py-3 rounded-xl bg-white/5 border border-white/10 flex items-center font-heading font-bold text-xl">
+              <i class="fas fa-clock mr-3 text-primary animate-pulse"></i>
+              <span id="time-display" class="tabular-nums">00:00</span>
+            </div>
+            <div class="w-full sm:w-auto flex gap-4">
+              <button id="next-question"
+                class="flex-1 sm:flex-none px-8 py-4 rounded-xl bg-primary text-white font-bold hover:scale-105 transition-all shadow-lg shadow-primary/20">
+                Next <i class="fas fa-arrow-right ml-2"></i>
+              </button>
+              <button id="finish-quiz"
+                class="flex-1 sm:flex-none px-8 py-4 rounded-xl bg-green-500 text-white font-bold hover:scale-105 transition-all shadow-lg shadow-green-500/20 hidden">
+                Complete <i class="fas fa-flag-checkered ml-2"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Results Section -->
+    <div id="results-section" class="max-w-5xl mx-auto hidden animate-reveal">
+      <div class="glass-card rounded-3xl overflow-hidden p-10">
+        <div class="text-center mb-12">
+          <div
+            class="w-32 h-32 rounded-full bg-gradient-to-tr from-yellow-400 via-orange-500 to-red-500 flex items-center justify-center mx-auto mb-6 shadow-2xl shadow-orange-500/20 animate-float">
+            <i class="fas fa-award text-white text-6xl"></i>
+          </div>
+          <h2 class="text-5xl font-heading font-bold mb-4">Assessment <span class="gradient-text">Complete</span></h2>
+          <p id="user-greeting" class="text-xl text-slate-400 font-sans"></p>
+        </div>
 
-      /* Responsive Adjustments */
-      @media (max-width: 768px) {
-        .certificate-container {
-          transform: scale(0.65); transform-origin: top center; margin-bottom: -150px;
-        }
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div class="glass-card rounded-2xl p-8 text-center border-white/5 hover:border-indigo-500/30">
+            <div class="text-5xl font-heading font-bold text-white mb-3" id="score-display"></div>
+            <div class="text-slate-500 uppercase tracking-widest text-xs font-bold">Total Points</div>
+          </div>
+          <div class="glass-card rounded-2xl p-8 text-center border-white/5 hover:border-emerald-500/30">
+            <div class="text-5xl font-heading font-bold text-white mb-3" id="percentage-display"></div>
+            <div class="text-slate-500 uppercase tracking-widest text-xs font-bold">Mastery Level</div>
+          </div>
+          <div class="glass-card rounded-2xl p-8 text-center border-white/5 hover:border-amber-500/30">
+            <div class="text-5xl font-heading font-bold text-white mb-3" id="time-taken-display"></div>
+            <div class="text-slate-500 uppercase tracking-widest text-xs font-bold">Duration</div>
+          </div>
+        </div>
 
-        .typewriter {
-          font-size: 1.5rem; white-space: normal; border: none; animation: none; text-align: center;
-        }
-      }
+        <div class="flex flex-wrap justify-center gap-6 mb-12">
+          <button id="download-certificate"
+            class="px-10 py-5 rounded-2xl bg-white text-dark font-bold text-lg hover:scale-105 transition-all shadow-xl shadow-white/5">
+            <i class="fas fa-certificate mr-3"></i> Get Certification
+          </button>
+          <button id="retake-quiz"
+            class="px-10 py-5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 font-bold text-lg transition-all">
+            <i class="fas fa-redo mr-3"></i> Try Again
+          </button>
+          <button id="try-another"
+            class="px-10 py-5 rounded-2xl bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 font-bold text-lg hover:bg-indigo-500/30 transition-all">
+            <i class="fas fa-compass mr-3"></i> Explore Domains
+          </button>
+        </div>
 
-      /* Custom Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
+        <!-- Certificate Preview -->
+        <div id="certificate-preview" class="mt-12 hidden animate-reveal">
+          <div class="text-center mb-8">
+            <div class="w-16 h-1 w-32 bg-indigo-500 mx-auto rounded-full mb-8"></div>
+            <h3 class="text-2xl font-heading font-bold">Certification <span class="text-primary">Preview</span></h3>
+          </div>
+          <div class="certificate-container flex justify-center p-8 bg-black/40 rounded-3xl border border-white/5">
+            <div class="bg-white p-2 rounded-lg shadow-2xl">
+              <canvas id="certificate-canvas" width="800" height="600" class="max-w-full h-auto"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="bg-[#030712] border-t border-white/5 pt-20 pb-10 mt-20 relative overflow-hidden font-sans">
+    <div class="grid-overlay opacity-50"></div>
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div>
+          <h3 class="text-3xl font-heading font-bold mb-8 gradient-text">Bytecore</h3>
+          <p class="text-slate-400 mb-8 leading-relaxed">Pioneering the next generation of tech talent through
+            immersive, industry-aligned IT education since 2010.</p>
+          <div class="flex space-x-5">
+            <a href="#"
+              class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group"><i
+                class="fab fa-facebook-f text-slate-400 group-hover:text-white"></i></a>
+            <a href="#"
+              class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group"><i
+                class="fab fa-twitter text-slate-400 group-hover:text-white"></i></a>
+            <a href="#"
+              class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group"><i
+                class="fab fa-instagram text-slate-400 group-hover:text-white"></i></a>
+            <a href="#"
+              class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:border-primary transition-all duration-300 group"><i
+                class="fab fa-linkedin-in text-slate-400 group-hover:text-white"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white mb-8 uppercase tracking-widest">Global Navigation</h3>
+          <ul class="space-y-4">
+            <li><a href="/" class="text-slate-400 hover:text-white hover:translate-x-2 transition-all inline-block">Home
+                Repository</a></li>
+            <li><a href="About.html"
+                class="text-slate-400 hover:text-white hover:translate-x-2 transition-all inline-block">The Bytecore
+                Story</a></li>
+            <li><a href="Courses.html"
+                class="text-slate-400 hover:text-white hover:translate-x-2 transition-all inline-block">Academic
+                Catalog</a></li>
+            <li><a href="Fee.html"
+                class="text-slate-400 hover:text-white hover:translate-x-2 transition-all inline-block">Financial
+                Portal</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white mb-8 uppercase tracking-widest">Specializations</h3>
+          <ul class="space-y-4">
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors">Cognitive Python Systems</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors">Full-Stack Architecture</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors">Neural Web Interfaces</a></li>
+            <li><a href="#" class="text-slate-400 hover:text-white transition-colors">Cloud Infrastructure</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white mb-8 uppercase tracking-widest">Connect</h3>
+          <ul class="space-y-5">
+            <li class="flex items-start gap-4">
+              <div
+                class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center shrink-0 border border-indigo-500/20">
+                <i class="fas fa-map-marker-alt text-indigo-400"></i>
+              </div>
+              <span class="text-slate-400 text-sm leading-relaxed">Bithri Road, Opposite Sheetala Mata Mandir, Nariyawal
+                BLY, 243123</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-500/20">
+                <i class="fas fa-phone-alt text-emerald-400"></i>
+              </div>
+              <span class="text-slate-400 text-sm italic">+91 6396835709</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center shrink-0 border border-cyan-500/20">
+                <i class="fas fa-envelope text-cyan-400"></i>
+              </div>
+              <span class="text-slate-400 text-sm">bytecore.info@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p class="text-slate-500 text-sm">© 2025 Bytecore Technologies Group. All Rights Reserved.</p>
+        <div class="flex gap-8">
+          <a href="#"
+            class="text-xs text-slate-500 hover:text-slate-300 transition-colors uppercase tracking-widest font-bold">Privacy
+            Policy</a>
+          <a href="#"
+            class="text-xs text-slate-500 hover:text-slate-300 transition-colors uppercase tracking-widest font-bold">Terms
+            of Conduct</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script> // Dynamic Quiz Data Loading System
 
-      ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: #cbd5e1; border-radius: 10px;
-      }
-
-      .dark ::-webkit-scrollbar-thumb {
-        background: #475569;
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: #6366f1;
-      }
-
-      < !-- Unified Header System --> <script src="assets/js/site-components.js" ></script> </head> <body class="bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-100 transition-colors duration-300"
-      style="min-height: 100vh; display: flex; flex-direction: column;" > < !-- Header --> <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800" > <div class="container mx-auto px-4 sm:px-6 lg:px-8" > <div class="flex items-center justify-between h-20" > < !-- Logo --> <div class="flex items-center" > <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-3" > <img src="assets/img/logo.png" alt="bytecore logo" class="h-10" > </div> <h1 class="text-2xl font-bold bg-clip-text text-transparent gradient-bg" >ByteCore</h1> </div> < !-- Desktop Navigation --> <nav class="hidden md:flex items-center space-x-8" > <a href="#" class="font-medium hover:text-primary transition-colors" >Home</a> <a href="Courses.html" class="font-medium hover:text-primary transition-colors" >Courses</a> <a href="diploma.html" class="font-medium hover:text-primary transition-colors" >Certificates</a> <a href="About.html" class="font-medium hover:text-primary transition-colors" >About</a> <a href="contact.html" class="font-medium hover:text-primary transition-colors" >Contact</a> <a href="Fee.html" class="font-medium hover:text-primary transition-colors" >Fees</a> </nav> < !-- Buttons --> <div class="flex items-center space-x-4" > <button id="theme-toggle"
-      class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700" > <i class="fas fa-moon dark:hidden" ></i> <i class="fas fa-sun hidden dark:block" ></i> </button> <a href="#registration"
-      class="hidden md:block px-6 py-2 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity" >Register Now</a> <button id="mobile-menu-toggle"
-      class="md:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700" > <i class="fas fa-bars" ></i> </button> </div> </div> </div> </header> < !-- Mobile Menu --> <div id="mobile-menu"
-      class="md:hidden fixed inset-0 z-50 bg-white dark:bg-slate-900 transform -translate-x-full transition-transform duration-300 ease-in-out" > <div class="flex justify-between items-center p-4 border-b border-slate-200 dark:border-slate-700" > <h2 class="text-xl font-bold" >Menu</h2> <button id="close-mobile-menu"
-      class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700" > <i class="fas fa-times" ></i> </button> </div> <nav class="flex flex-col p-6 space-y-4" > <a href="#"
-      class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700" >Home</a> <a href="Courses.html"
-      class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700" >Courses</a> <a href="Fee.html"
-      class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700" >Fees</a> <a href="diploma.html"
-      class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700" >Certificates</a> <a href="About.html"
-      class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700" >About</a> <a href="contact.html"
-      class="font-medium hover:text-primary transition-colors py-2 border-b border-slate-200 dark:border-slate-700" >Contact</a> <a href="#registration"
-      class="mt-4 px-6 py-3 rounded-lg gradient-bg text-white font-medium hover:opacity-90 transition-opacity text-center" >Register Now</a> </nav> </div> < !-- Quiz App Container --> <div class="container mx-auto px-4 py-12" > < !-- Hero Section --> <div class="text-center mb-16" > <h1 class="text-4xl md:text-6xl font-bold mb-6 typewriter" >Bytecore Professional Quiz</h1> <p class="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto mb-8" >Check how much you know about programming ! Take our quiz, get a certificate, and show off your skills. Ready to test yourself?</p> <div class="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto rounded-full" ></div> </div> < !-- Language Selection Section --> <div id="language-selection" class="max-w-6xl mx-auto" > <div class="text-center mb-12" > <h2 class="text-3xl md:text-4xl font-bold mb-4" >Pick Your Language</h2> <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto" >Which programming language do you want to test? Choose one and let's see how you do!</p>
- </div> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" > <div class="language-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 floating-animation"
-      data-language="python" > <div class="flex items-center mb-4" > <div class="w-16 h-16 rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-500 flex items-center justify-center mr-4 shadow-md" > <i class="fab fa-python text-white text-2xl" ></i> </div> <h3 class="text-xl font-bold" >Python</h3> </div> <p class="text-slate-600 dark:text-slate-300 mb-4" >Master Python programming with our comprehensive quiz covering fundamentals to advanced concepts.</p> <div class="flex justify-between items-center" > <span class="text-sm text-slate-500" >10 Questions</span> <span class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium" >Beginner to Advanced</span> </div> </div> <div class="language-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 floating-animation"
-      style="animation-delay: 0.2s;" data-language="javascript" > <div class="flex items-center mb-4" > <div class="w-16 h-16 rounded-xl bg-gradient-to-r from-yellow-300 to-yellow-400 flex items-center justify-center mr-4 shadow-md" > <i class="fab fa-js-square text-white text-2xl" ></i> </div> <h3 class="text-xl font-bold" >JavaScript</h3> </div> <p class="text-slate-600 dark:text-slate-300 mb-4" >Test your JavaScript knowledge with questions on ES6+, DOM manipulation, and modern frameworks.</p> <div class="flex justify-between items-center" > <span class="text-sm text-slate-500" >12 Questions</span> <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium" >Intermediate</span> </div> </div> <div class="language-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 floating-animation"
-      style="animation-delay: 0.4s;" data-language="html" > <div class="flex items-center mb-4" > <div class="w-16 h-16 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center mr-4 shadow-md" > <i class="fab fa-html5 text-white text-2xl" ></i> </div> <h3 class="text-xl font-bold" >HTML/CSS</h3> </div> <p class="text-slate-600 dark:text-slate-300 mb-4" >Challenge your web development skills with HTML5, CSS3, and responsive design questions.</p> <div class="flex justify-between items-center" > <span class="text-sm text-slate-500" >8 Questions</span> <span class="text-sm bg-purple-100 text-purple-800 px-3 py-1 rounded-full font-medium" >Beginner</span> </div> </div> <div class="language-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 floating-animation"
-      style="animation-delay: 0.6s;" data-language="java" > <div class="flex items-center mb-4" > <div class="w-16 h-16 rounded-xl bg-gradient-to-r from-red-500 to-red-600 flex items-center justify-center mr-4 shadow-md" > <i class="fab fa-java text-white text-2xl" ></i> </div> <h3 class="text-xl font-bold" >Java</h3> </div> <p class="text-slate-600 dark:text-slate-300 mb-4" >Test your object-oriented programming knowledge with Java fundamentals and advanced concepts.</p> <div class="flex justify-between items-center" > <span class="text-sm text-slate-500" >15 Questions</span> <span class="text-sm bg-red-100 text-red-800 px-3 py-1 rounded-full font-medium" >Advanced</span> </div> </div> <div class="language-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 floating-animation"
-      style="animation-delay: 0.8s;" data-language="c" > <div class="flex items-center mb-4" > <div class="w-16 h-16 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mr-4 shadow-md" > <i class="fas fa-code text-white text-2xl" ></i> </div> <h3 class="text-xl font-bold" >C Programming</h3> </div> <p class="text-slate-600 dark:text-slate-300 mb-4" >Master C programming fundamentals including variables,
-      functions, pointers, and memory management.</p> <div class="flex justify-between items-center" > <span class="text-sm text-slate-500" >20 Questions</span> <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium" >Advanced</span> </div> </div> <div class="language-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 floating-animation"
-      style="animation-delay: 1s;" data-language="cpp" > <div class="flex items-center mb-4" > <div class="w-16 h-16 rounded-xl bg-gradient-to-r from-blue-700 to-blue-800 flex items-center justify-center mr-4 shadow-md" > <i class="fas fa-code text-white text-2xl" ></i> </div> <h3 class="text-xl font-bold" >C++</h3> </div> <p class="text-slate-600 dark:text-slate-300 mb-4" >Challenge yourself with C++ programming concepts, memory management, and advanced syntax.</p> <div class="flex justify-between items-center" > <span class="text-sm text-slate-500" >12 Questions</span> <span class="text-sm bg-gray-100 text-gray-800 px-3 py-1 rounded-full font-medium" >Advanced</span> </div> </div> <div class="language-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 floating-animation"
-      style="animation-delay: 1.2s;" data-language="excel" > <div class="flex items-center mb-4" > <div class="w-16 h-16 rounded-xl bg-gradient-to-r from-green-600 to-green-700 flex items-center justify-center mr-4 shadow-md" > <i class="fas fa-file-excel text-white text-2xl" ></i> </div> <h3 class="text-xl font-bold" >Excel</h3> </div> <p class="text-slate-600 dark:text-slate-300 mb-4" >Master Microsoft Excel with formulas, functions, data analysis, and advanced spreadsheet techniques.</p> <div class="flex justify-between items-center" > <span class="text-sm text-slate-500" >60 Questions</span> <span class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium" >Beginner to Advanced</span> </div> </div> <div class="language-card bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 floating-animation"
-      style="animation-delay: 1.4s;" data-language="ccc" > <div class="flex items-center mb-4" > <div class="w-16 h-16 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center mr-4 shadow-md" > <i class="fas fa-desktop text-white text-2xl" ></i> </div> <h3 class="text-xl font-bold" >CCC</h3> </div> <p class="text-slate-600 dark:text-slate-300 mb-4" >Course on Computer Concepts - LibreOffice, Internet,
-      Digital Literacy, and Computer Fundamentals.</p> <div class="flex justify-between items-center" > <span class="text-sm text-slate-500" >150 Questions</span> <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium" >Basic to Expert</span> </div> </div> </div> <div class="text-center" > <button id="select-language-btn"
-      class="px-10 py-4 rounded-xl gradient-bg text-white font-bold text-lg hover:opacity-90 transition-all transform hover:scale-105 shadow-lg pulse-animation opacity-50 cursor-not-allowed"
-      disabled> Select Language to Continue </button> </div> </div> < !-- Difficulty Selection Section --> <div id="difficulty-selection" class="max-w-3xl mx-auto hidden" > <div class="text-center mb-12" > <h2 class="text-3xl md:text-4xl font-bold mb-4" >Choose Difficulty Level</h2> <p class="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto" id="difficulty-description" >Complete levels in order to unlock advanced challenges</p> </div> <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8" > <div id="difficulty-basic"
-      class="difficulty-card bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl p-6 cursor-pointer border-2 border-green-500 hover:border-green-600 transition-all relative" > <div class="text-center" > <div class="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center mx-auto mb-4" > <i class="fas fa-seedling text-white text-2xl" ></i> </div> <h3 class="text-xl font-bold mb-2" >Basic</h3> <p class="text-slate-600 dark:text-slate-300 text-sm mb-4" >Perfect for beginners. Fundamentals and core concepts.</p> <span class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium" >Available Now</span> </div> </div> <div id="difficulty-intermediate"
-      class="difficulty-card bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl p-6 border-2 border-slate-300 dark:border-slate-600 transition-all relative opacity-60" > <div class="text-center" > <div class="w-16 h-16 rounded-full bg-slate-400 flex items-center justify-center mx-auto mb-4" > <i class="fas fa-lock text-white text-2xl" ></i> </div> <h3 class="text-xl font-bold mb-2" >Intermediate</h3> <p class="text-slate-600 dark:text-slate-300 text-sm mb-4" >Complete Basic level first to unlock.</p> <span class="text-sm bg-slate-100 text-slate-800 px-3 py-1 rounded-full font-medium"
-      id="intermediate-status" >Locked</span> </div> <div class="absolute inset-0 flex items-center justify-center pointer-events-none" > <span class="text-xs text-slate-500 font-medium" >🔒 Complete Basic First</span> </div> </div> <div id="difficulty-advanced"
-      class="difficulty-card bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-6 border-2 border-slate-300 dark:border-slate-600 transition-all relative opacity-60" > <div class="text-center" > <div class="w-16 h-16 rounded-full bg-slate-400 flex items-center justify-center mx-auto mb-4" > <i class="fas fa-lock text-white text-2xl" ></i> </div> <h3 class="text-xl font-bold mb-2" >Advanced</h3> <p class="text-slate-600 dark:text-slate-300 text-sm mb-4" >Complete Intermediate level first to unlock.</p> <span class="text-sm bg-slate-100 text-slate-800 px-3 py-1 rounded-full font-medium"
-      id="advanced-status" >Locked</span> </div> <div class="absolute inset-0 flex items-center justify-center pointer-events-none" > <span class="text-xs text-slate-500 font-medium" >🔒 Complete Intermediate First</span> </div> </div> </div> <div class="flex justify-center gap-4" > <button id="back-to-language-from-difficulty"
-      class="px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-all transform hover:scale-105" > <i class="fas fa-arrow-left mr-2" ></i> Back </button> </div> </div> < !-- User Details Section --> <div id="user-details" class="max-w-2xl mx-auto hidden" > <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700" > <div class="p-8" > <h2 class="text-3xl font-bold mb-6 text-center" >Enter Your Details</h2> <form id="user-form" class="space-y-6" > <div> <label class="block text-sm font-medium mb-2" >Full Name <span class="text-red-500" >*</span></label> <input type="text" id="user-name" required class="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary transition-all" > </div> <div> <label class="block text-sm font-medium mb-2" >Email Address (Optional)</label> <input type="email" id="user-email"
-      class="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary transition-all" > </div> <div> <label class="block text-sm font-medium mb-2" >Phone Number (Optional)</label> <input type="tel" id="user-phone"
-      class="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl bg-slate-50 dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-primary transition-all" > </div> <div> <label class="block text-sm font-medium mb-2" >Selected Quiz</label> <div id="selected-quiz-display"
-      class="px-4 py-3 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl text-center font-medium text-indigo-700 dark:text-indigo-300" > </div> </div> < !-- Telegram integration is now automatic and hidden from users --> <div class="flex justify-between pt-4" > <button type="button" id="back-to-language"
-      class="px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-all transform hover:scale-105" > <i class="fas fa-arrow-left mr-2" ></i> Back </button> <button type="submit"
-      class="px-8 py-3 rounded-xl gradient-bg text-white font-bold hover:opacity-90 transition-all transform hover:scale-105 shadow-lg" > Start Quiz <i class="fas fa-play ml-2" ></i> </button> </div> </form> </div> </div> </div> < !-- Quiz Section --> <div id="quiz-section" class="max-w-4xl mx-auto hidden" > <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700" > < !-- Quiz Header --> <div class="p-6 border-b border-slate-200 dark:border-slate-700 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20" > <div class="flex justify-between items-center" > <div> <h2 id="quiz-title" class="text-2xl font-bold" ></h2> <p id="quiz-description" class="text-slate-600 dark:text-slate-300" ></p> </div> <div class="text-right" > <div class="text-sm text-slate-500" >Question</div> <div id="question-counter" class="text-xl font-bold" ></div> </div> </div> < !-- Progress Bar --> <div class="mt-4" > <div class="flex justify-between text-sm text-slate-600 dark:text-slate-300 mb-2" > <span>Progress</span> <span id="progress-percent" >0%</span> </div> <div class="quiz-progress bg-slate-200 dark:bg-slate-700" > <div id="progress-bar" class="quiz-progress-bar gradient-bg" style="width: 0%" ></div> </div> </div> </div> < !-- Question Area --> <div class="p-8" > <div id="question-container" > <h3 id="question-text" class="text-xl font-semibold mb-6" ></h3> <div id="answers-container" class="grid grid-cols-1 md:grid-cols-2 gap-4" ></div> </div> < !-- Quiz Controls --> <div class="flex justify-between items-center mt-8 pt-6 border-t border-slate-200 dark:border-slate-700" > <div id="timer" class="text-lg font-medium flex items-center" > <i class="fas fa-clock mr-2 text-indigo-500" ></i> <span id="time-display" >00:00</span> </div> <div> <button id="next-question"
-      class="px-6 py-3 rounded-xl gradient-bg text-white font-medium hover:opacity-90 transition-all transform hover:scale-105 shadow-lg" > Next Question <i class="fas fa-arrow-right ml-2" ></i> </button> <button id="finish-quiz"
-      class="px-6 py-3 rounded-xl bg-green-600 text-white font-medium hover:bg-green-700 transition-all transform hover:scale-105 shadow-lg hidden" > Finish Quiz <i class="fas fa-flag-checkered ml-2" ></i> </button> </div> </div> </div> </div> </div> < !-- Results Section --> <div id="results-section" class="max-w-4xl mx-auto hidden" > <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700" > <div class="p-8" > <div class="text-center mb-8" > <div class="w-24 h-24 rounded-full bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center mx-auto mb-4 shadow-lg" > <i class="fas fa-trophy text-white text-4xl" ></i> </div> <h2 class="text-3xl font-bold mb-2" >Quiz Completed !</h2> <p id="user-greeting" class="text-lg text-slate-600 dark:text-slate-300" ></p> </div> <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8" > <div class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-6 text-center shadow-md" > <div class="text-4xl font-bold text-indigo-600 dark:text-indigo-400 mb-2" id="score-display" ></div> <div class="text-slate-600 dark:text-slate-300 font-medium" >Your Score</div> </div> <div class="bg-gradient-to-br from-green-50 to-teal-50 dark:from-green-900/20 dark:to-teal-900/20 rounded-2xl p-6 text-center shadow-md" > <div class="text-4xl font-bold text-green-600 dark:text-green-400 mb-2" id="percentage-display" ></div> <div class="text-slate-600 dark:text-slate-300 font-medium" >Percentage</div> </div> <div class="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl p-6 text-center shadow-md" > <div class="text-4xl font-bold text-amber-600 dark:text-amber-400 mb-2" id="time-taken-display" ></div> <div class="text-slate-600 dark:text-slate-300 font-medium" >Time Taken</div> </div> </div> <div class="flex flex-wrap justify-center gap-4 mb-8" > <button id="download-certificate"
-      class="px-6 py-3 rounded-xl gradient-bg text-white font-bold hover:opacity-90 transition-all transform hover:scale-105 shadow-lg" > <i class="fas fa-download mr-2" ></i> Download Certificate </button> <button id="retake-quiz"
-      class="px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-all transform hover:scale-105" > <i class="fas fa-redo mr-2" ></i> Retake Quiz </button> <button id="try-another"
-      class="px-6 py-3 rounded-xl bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-all transform hover:scale-105" > <i class="fas fa-code mr-2" ></i> Try Another Language </button> </div> < !-- Certificate Preview --> <div id="certificate-preview" class="mt-8 p-6 bg-slate-50 dark:bg-slate-700 rounded-2xl hidden" > <h3 class="text-xl font-bold mb-4 text-center" >Certificate Preview</h3> <div class="certificate-container flex justify-center" > <div class="certificate-border bg-white p-8 max-w-2xl w-full" > <canvas id="certificate-canvas" width="800" height="600" ></canvas> </div> </div> <div class="text-center mt-4" > <p class="text-slate-600 dark:text-slate-300 text-sm" >Your certificate is ready ! Click the download button above to save it.</p> </div> </div> </div> </div> </div> </div> < !-- Footer --> <footer class="bg-slate-800 text-white pt-16 pb-8 mt-12" > <div class="container mx-auto px-4 sm:px-6 lg:px-8" > <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12" > <div> <h3 class="text-xl font-bold mb-6" >Bytecore</h3> <p class="text-slate-400 mb-6" >Transforming careers through quality IT education since 2010.</p> <div class="flex space-x-4" > <a href="https://www.facebook.com/bytecorecomputercentre/" target="_blank" rel="noopener noreferrer"
-      class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors" > <i class="fab fa-facebook-f" ></i> </a> <a href="https://x.com/bytecores" target="_blank" rel="noopener noreferrer"
-      class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors" > <i class="fab fa-twitter" ></i> </a> <a href="https://www.instagram.com/bytecore_computer_centre/?hl=en" target="_blank"
-      rel="noopener noreferrer"
-      class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors" > <i class="fab fa-instagram" ></i> </a> <a href="https://www.linkedin.com/in/bytecore-computer-centre-69ba7a344/" target="_blank"
-      rel="noopener noreferrer"
-      class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-primary transition-colors" > <i class="fab fa-linkedin-in" ></i> </a> </div> </div> <div> <h3 class="text-lg font-semibold mb-6" >Quick Links</h3> <ul class="space-y-3" > <li><a href="/" class="text-slate-400 hover:text-white transition-colors" >Home</a></li> <li><a href="About.html" class="text-slate-400 hover:text-white transition-colors" >About Us</a></li> <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors" >Courses</a></li> <li><a href="Fee.html" class="text-slate-400 hover:text-white transition-colors" >Fees Structure</a></li> </ul> </div> <div> <h3 class="text-lg font-semibold mb-6" >Courses</h3> <ul class="space-y-3" > <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors" >Full Stack Development</a></li> <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors" >Python Programming</a> </li> <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors" >O Level</a></li> <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors" >ADCA</a></li> <li><a href="Courses.html" class="text-slate-400 hover:text-white transition-colors" >Graphic Design</a></li> </ul> </div> <div> <h3 class="text-lg font-semibold mb-6" >Contact Us</h3> <ul class="space-y-4" > <li class="flex items-start" > <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary" ></i> <span class="text-slate-400" >Bithri Road, Opposite Sheetala Mata Mandir, Nariyawal BLY, India - 243123</span> </li> <li class="flex items-start" > <i class="fas fa-phone-alt mt-1 mr-3 text-primary" ></i> <span class="text-slate-400" >+91 6396835709</span> </li> <li class="flex items-start" > <i class="fas fa-envelope mt-1 mr-3 text-primary" ></i> <span class="text-slate-400" >bytecore.info@gmail.com</span> </li> <li class="flex items-start" > <i class="fas fa-clock mt-1 mr-3 text-primary" ></i> <span class="text-slate-400" >Mon-Sat: 8:00 AM - 7:00 PM</span> </li> </ul> </div> </div> <div class="pt-8 border-t border-slate-700 text-center text-slate-500" > <p>© 2025 Bytecore Computer Centre. All Rights Reserved.</p> </div> </div> </footer> <script> // Dynamic Quiz Data Loading System
-
-      let quizData= {}
+    let quizData = {}
 
       ; // Will be populated dynamically
-      let currentQuizData=null; // Currently loaded quiz data
+    let currentQuizData = null; // Currently loaded quiz data
 
-      // Legacy quizData for fallback (will be removed after testing)
-      const legacyQuizData= {
-        python: {
+    // Legacy quizData for fallback (will be removed after testing)
+    const legacyQuizData = {
+      python: {
 
-          title: "Python Programming Quiz",
-          description: "Test your Python knowledge with these challenging questions",
-          questions: [ {
-            question: "What is the output of print(2 ** 3 ** 2) in Python?",
-            options: ["64", "512", "256", "Syntax Error"],
-            correct: 1,
-            explanation: "Exponentiation is right-associative in Python, so 2 ** 3 ** 2 is evaluated as 2 ** (3 ** 2) = 2 ** 9 = 512."
-          }
+        title: "Python Programming Quiz",
+        description: "Test your Python knowledge with these challenging questions",
+        questions: [{
+          question: "What is the output of print(2 ** 3 ** 2) in Python?",
+          options: ["64", "512", "256", "Syntax Error"],
+          correct: 1,
+          explanation: "Exponentiation is right-associative in Python, so 2 ** 3 ** 2 is evaluated as 2 ** (3 ** 2) = 2 ** 9 = 512."
+        }
 
           ,
-          {
+        {
           question: "Which of these is NOT a valid variable name in Python?",
           options: ["_my_var", "my_var_2", "2my_var", "myVar"],
           correct: 2,
           explanation: "Variable names cannot start with a number in Python."
         }
 
-        ,
+          ,
         {
-        question: "What does the 'pass' statement do in Python?",
-        options: [ "Terminates the program",
-        "Skips the current iteration in a loop",
-        "Is a null operation - nothing happens",
-        "Continues to the next statement"
-        ],
-        correct: 2,
-        explanation: "The pass statement is a null operation; it does nothing when executed."
+          question: "What does the 'pass' statement do in Python?",
+          options: ["Terminates the program",
+            "Skips the current iteration in a loop",
+            "Is a null operation - nothing happens",
+            "Continues to the next statement"
+          ],
+          correct: 2,
+          explanation: "The pass statement is a null operation; it does nothing when executed."
+        }
+
+          ,
+        {
+          question: "Which method would you use to convert a string to lowercase in Python?",
+          options: ["lowercase()", "tolower()", "lower()", "casefold()"],
+          correct: 2,
+          explanation: "The lower() method returns a string where all characters are lowercase."
+        }
+
+          ,
+        {
+          question: "What is the output of 'Hello'[1:4] in Python?",
+          options: ["Hell", "ello", "ell", "Hel"],
+          correct: 2,
+          explanation: "String slicing in Python: 'Hello'[1:4] returns characters from index 1 to 3 (4 is exclusive)."
+        }
+
+          ,
+        {
+          question: "Which of these data types is mutable in Python?",
+          options: ["Tuple", "String", "List", "Integer"],
+          correct: 2,
+          explanation: "Lists are mutable in Python, meaning their elements can be changed after creation."
+        }
+
+          ,
+        {
+          question: "What does the 'zip()' function do in Python?",
+          options: ["Compresses files",
+            "Creates an iterator that aggregates elements from each of the iterables",
+            "Combines two strings",
+            "Creates a backup of data"
+          ],
+          correct: 1,
+          explanation: "The zip() function returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables."
+        }
+
+          ,
+        {
+          question: "Which keyword is used to define a function in Python?",
+          options: ["def", "function", "define", "func"],
+          correct: 0,
+          explanation: "The 'def' keyword is used to define a function in Python."
+        }
+
+          ,
+        {
+          question: "What is the output of bool('False') in Python?",
+          options: ["False", "True", "Error", "None"],
+          correct: 1,
+          explanation: "Any non-empty string evaluates to True in Python, including the string 'False'."
+        }
+
+          ,
+        {
+          question: "Which module would you import to work with regular expressions in Python?",
+          options: ["regex", "re", "regexp", "pattern"],
+          correct: 1,
+          explanation: "The 're' module provides regular expression matching operations in Python."
+        }
+
+        ]
       }
 
       ,
-      {
-      question: "Which method would you use to convert a string to lowercase in Python?",
-      options: ["lowercase()", "tolower()", "lower()", "casefold()"],
-      correct: 2,
-      explanation: "The lower() method returns a string where all characters are lowercase."
-    }
+      javascript: {
 
-    ,
-    {
-    question: "What is the output of 'Hello'[1:4] in Python?",
-    options: ["Hell", "ello", "ell", "Hel"],
-    correct: 2,
-    explanation: "String slicing in Python: 'Hello'[1:4] returns characters from index 1 to 3 (4 is exclusive)."
-    }
+        title: "JavaScript Quiz",
+        description: "Test your JavaScript knowledge with these questions",
+        questions: [{
+          question: "What will be the output of console.log(typeof null) in JavaScript?",
+          options: ["null", "undefined", "object", "string"],
+          correct: 2,
+          explanation: "In JavaScript, typeof null returns 'object', which is a known language quirk."
+        }
 
-    ,
-    {
-    question: "Which of these data types is mutable in Python?",
-    options: ["Tuple", "String", "List", "Integer"],
-    correct: 2,
-    explanation: "Lists are mutable in Python, meaning their elements can be changed after creation."
-    }
+          ,
+        {
+          question: "Which method is used to add one or more elements to the end of an array?",
+          options: ["push()", "append()", "add()", "insert()"],
+          correct: 0,
+          explanation: "The push() method adds one or more elements to the end of an array and returns the new length."
+        }
 
-    ,
-    {
-    question: "What does the 'zip()' function do in Python?",
-    options: [ "Compresses files",
-    "Creates an iterator that aggregates elements from each of the iterables",
-    "Combines two strings",
-    "Creates a backup of data"
-    ],
-    correct: 1,
-    explanation: "The zip() function returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables."
-    }
+          ,
+        {
+          question: "What does the '===' operator do in JavaScript?",
+          options: ["Compares values only",
+            "Compares values and types",
+            "Assigns a value",
+            "Checks for inequality"
+          ],
+          correct: 1,
+          explanation: "The '===' operator is the strict equality operator that compares both value and type."
+        }
 
-    ,
-    {
-    question: "Which keyword is used to define a function in Python?",
-    options: ["def", "function", "define", "func"],
-    correct: 0,
-    explanation: "The 'def' keyword is used to define a function in Python."
-    }
+          ,
+        {
+          question: "Which keyword is used to declare a variable with block scope in JavaScript?",
+          options: ["var", "let", "const", "both let and const"],
+          correct: 3,
+          explanation: "Both let and const declare block-scoped variables in JavaScript."
+        }
 
-    ,
-    {
-    question: "What is the output of bool('False') in Python?",
-    options: ["False", "True", "Error", "None"],
-    correct: 1,
-    explanation: "Any non-empty string evaluates to True in Python, including the string 'False'."
-    }
+          ,
+        {
+          question: "What will be the result of 3 + 4 + '5' in JavaScript?",
+          options: ["12", "75", "'345'", "'75'"],
+          correct: 3,
+          explanation: "JavaScript evaluates from left to right: 3+4=7, then 7+'5'='75' (string concatenation)."
+        }
 
-    ,
-    {
-    question: "Which module would you import to work with regular expressions in Python?",
-    options: ["regex", "re", "regexp", "pattern"],
-    correct: 1,
-    explanation: "The 're' module provides regular expression matching operations in Python."
-    }
-
-    ]
-    }
-
-    ,
-    javascript: {
-
-      title: "JavaScript Quiz",
-      description: "Test your JavaScript knowledge with these questions",
-      questions: [ {
-        question: "What will be the output of console.log(typeof null) in JavaScript?",
-        options: ["null", "undefined", "object", "string"],
-        correct: 2,
-        explanation: "In JavaScript, typeof null returns 'object', which is a known language quirk."
+        ]
       }
 
       ,
-      {
-      question: "Which method is used to add one or more elements to the end of an array?",
-      options: ["push()", "append()", "add()", "insert()"],
-      correct: 0,
-      explanation: "The push() method adds one or more elements to the end of an array and returns the new length."
-    }
+      html: {
 
-    ,
-    {
-    question: "What does the '===' operator do in JavaScript?",
-    options: [ "Compares values only",
-    "Compares values and types",
-    "Assigns a value",
-    "Checks for inequality"
-    ],
-    correct: 1,
-    explanation: "The '===' operator is the strict equality operator that compares both value and type."
-    }
+        title: "HTML/CSS Quiz",
+        description: "Test your HTML and CSS knowledge",
+        questions: [{
+          question: "Which HTML tag is used to define an internal style sheet?",
+          options: ["<css>", "<style>", "<script>", "<link>"],
+          correct: 1,
+          explanation: "The <style> tag is used to define internal CSS styles within an HTML document."
+        }
 
-    ,
-    {
-    question: "Which keyword is used to declare a variable with block scope in JavaScript?",
-    options: ["var", "let", "const", "both let and const"],
-    correct: 3,
-    explanation: "Both let and const declare block-scoped variables in JavaScript."
-    }
+          ,
+        {
+          question: "Which property is used to change the background color in CSS?",
+          options: ["bgcolor", "color", "background-color", "bg-color"],
+          correct: 2,
+          explanation: "The background-color property sets the background color of an element."
+        }
 
-    ,
-    {
-    question: "What will be the result of 3 + 4 + '5' in JavaScript?",
-    options: ["12", "75", "'345'", "'75'"],
-    correct: 3,
-    explanation: "JavaScript evaluates from left to right: 3+4=7, then 7+'5'='75' (string concatenation)."
-    }
+          ,
+        {
+          question: "Which HTML attribute is used to define inline styles?",
+          options: ["styles", "style", "class", "font"],
+          correct: 1,
+          explanation: "The style attribute is used to add inline styles to an HTML element."
+        }
 
-    ]
-    }
+          ,
+        {
+          question: "How do you select an element with id 'demo' in CSS?",
+          options: ["#demo", ".demo", "demo", "*demo"],
+          correct: 0,
+          explanation: "The # symbol is used to select an element by its id in CSS."
+        }
 
-    ,
-    html: {
-
-      title: "HTML/CSS Quiz",
-      description: "Test your HTML and CSS knowledge",
-      questions: [ {
-        question: "Which HTML tag is used to define an internal style sheet?",
-        options: ["<css>", "<style>", "<script>", "<link>"],
-        correct: 1,
-        explanation: "The <style> tag is used to define internal CSS styles within an HTML document."
+        ]
       }
 
       ,
-      {
-      question: "Which property is used to change the background color in CSS?",
-      options: ["bgcolor", "color", "background-color", "bg-color"],
-      correct: 2,
-      explanation: "The background-color property sets the background color of an element."
-    }
+      java: {
 
-    ,
-    {
-    question: "Which HTML attribute is used to define inline styles?",
-    options: ["styles", "style", "class", "font"],
-    correct: 1,
-    explanation: "The style attribute is used to add inline styles to an HTML element."
-    }
+        title: "Java Programming Quiz",
+        description: "Test your Java knowledge",
+        questions: [{
+          question: "Which of these is not a primitive data type in Java?",
+          options: ["int", "String", "boolean", "double"],
+          correct: 1,
+          explanation: "String is a class in Java, not a primitive data type."
+        }
 
-    ,
-    {
-    question: "How do you select an element with id 'demo' in CSS?",
-    options: ["#demo", ".demo", "demo", "*demo"],
-    correct: 0,
-    explanation: "The # symbol is used to select an element by its id in CSS."
-    }
+          ,
+        {
+          question: "What is the default value of a boolean variable in Java?",
+          options: ["true", "false", "null", "0"],
+          correct: 1,
+          explanation: "The default value of a boolean variable in Java is false."
+        }
 
-    ]
-    }
+          ,
+        {
+          question: "Which keyword is used to inherit a class in Java?",
+          options: ["implements", "extends", "inherits", "super"],
+          correct: 1,
+          explanation: "The extends keyword is used to indicate that a class is inheriting from another class."
+        }
 
-    ,
-    java: {
-
-      title: "Java Programming Quiz",
-      description: "Test your Java knowledge",
-      questions: [ {
-        question: "Which of these is not a primitive data type in Java?",
-        options: ["int", "String", "boolean", "double"],
-        correct: 1,
-        explanation: "String is a class in Java, not a primitive data type."
+        ]
       }
 
       ,
-      {
-      question: "What is the default value of a boolean variable in Java?",
-      options: ["true", "false", "null", "0"],
-      correct: 1,
-      explanation: "The default value of a boolean variable in Java is false."
-    }
+      sql: {
 
-    ,
-    {
-    question: "Which keyword is used to inherit a class in Java?",
-    options: ["implements", "extends", "inherits", "super"],
-    correct: 1,
-    explanation: "The extends keyword is used to indicate that a class is inheriting from another class."
-    }
+        title: "SQL Quiz",
+        description: "Test your SQL knowledge",
+        questions: [{
+          question: "Which SQL statement is used to extract data from a database?",
+          options: ["GET", "EXTRACT", "SELECT", "OPEN"],
+          correct: 2,
+          explanation: "The SELECT statement is used to select data from a database."
+        }
 
-    ]
-    }
+          ,
+        {
+          question: "Which SQL clause is used to filter records?",
+          options: ["FILTER", "WHERE", "QUERY", "CONDITION"],
+          correct: 1,
+          explanation: "The WHERE clause is used to filter records in SQL."
+        }
 
-    ,
-    sql: {
-
-      title: "SQL Quiz",
-      description: "Test your SQL knowledge",
-      questions: [ {
-        question: "Which SQL statement is used to extract data from a database?",
-        options: ["GET", "EXTRACT", "SELECT", "OPEN"],
-        correct: 2,
-        explanation: "The SELECT statement is used to select data from a database."
+        ]
       }
 
       ,
-      {
-      question: "Which SQL clause is used to filter records?",
-      options: ["FILTER", "WHERE", "QUERY", "CONDITION"],
-      correct: 1,
-      explanation: "The WHERE clause is used to filter records in SQL."
-    }
+      cpp: {
 
-    ]
-    }
+        title: "C++ Programming Quiz",
+        description: "Test your C++ knowledge",
+        questions: [{
+          question: "Which operator is used to allocate memory in C++?",
+          options: ["new", "malloc", "create", "allocate"],
+          correct: 0,
+          explanation: "The new operator is used to allocate memory in C++."
+        }
 
-    ,
-    cpp: {
+          ,
+        {
+          question: "What does OOP stand for?",
+          options: ["Object-Oriented Programming",
+            "Object-Option Programming",
+            "Objective-Oriented Programming",
+            "Object-Organized Programming"
+          ],
+          correct: 0,
+          explanation: "OOP stands for Object-Oriented Programming."
+        }
 
-      title: "C++ Programming Quiz",
-      description: "Test your C++ knowledge",
-      questions: [ {
-        question: "Which operator is used to allocate memory in C++?",
-        options: ["new", "malloc", "create", "allocate"],
-        correct: 0,
-        explanation: "The new operator is used to allocate memory in C++."
+        ]
       }
-
-      ,
-      {
-      question: "What does OOP stand for?",
-      options: [ "Object-Oriented Programming",
-      "Object-Option Programming",
-      "Objective-Oriented Programming",
-      "Object-Organized Programming"
-      ],
-      correct: 0,
-      explanation: "OOP stands for Object-Oriented Programming."
     }
 
-    ]
-    }
-    }
-
-    ;
+      ;
 
     // App State
-    let currentState='language-selection';
-    let selectedLanguage=null;
-    let selectedDifficulty='basic';
-    let currentQuestionIndex=0;
-    let score=0;
-    let userAnswers=[];
-    let quizStartTime=null;
-    let quizEndTime=null;
-    let userName='';
-    let userEmail='';
-    let userPhone='';
+    let currentState = 'language-selection';
+    let selectedLanguage = null;
+    let selectedDifficulty = 'basic';
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let userAnswers = [];
+    let quizStartTime = null;
+    let quizEndTime = null;
+    let userName = '';
+    let userEmail = '';
+    let userPhone = '';
 
     // Progress tracking - localStorage keys
-    const getProgressKey=(language)=> `quiz_progress_$ {
-      language
-    }
-
-    `;
+    const getProgressKey = (language) => `quiz_progress_${language}`;
 
     // Initialize configuration
-    const config=new Config();
-    let telegramToken=config.getTelegramBotToken();
-    let telegramChatId=config.getTelegramChatId();
+    const config = new Config();
+    let telegramToken = config.getTelegramBotToken();
+    let telegramChatId = config.getTelegramChatId();
 
     // Progress Management Functions
     function getProgress(language) {
-      const key=getProgressKey(language);
-      const progress=localStorage.getItem(key);
+      const key = getProgressKey(language);
+      const progress = localStorage.getItem(key);
 
       return progress ? JSON.parse(progress) : {
         basic: false, intermediate: false, advanced: false
       }
 
-      ;
+        ;
     }
 
-    function setProgress(language, level, passed=true) {
-      const key=getProgressKey(language);
-      const progress=getProgress(language);
-      progress[level]=passed;
+    function setProgress(language, level, passed = true) {
+      const key = getProgressKey(language);
+      const progress = getProgress(language);
+      progress[level] = passed;
       localStorage.setItem(key, JSON.stringify(progress));
     }
 
     function updateDifficultyCards(language) {
-      const progress=getProgress(language);
-      const intermediateCard=document.getElementById('difficulty-intermediate');
-      const advancedCard=document.getElementById('difficulty-advanced');
+      const progress = getProgress(language);
+      const intermediateCard = document.getElementById('difficulty-intermediate');
+      const advancedCard = document.getElementById('difficulty-advanced');
 
       // Check if basic is completed
       if (progress.basic) {
         // Unlock intermediate
         intermediateCard.classList.remove('opacity-60');
-        intermediateCard.style.pointerEvents='auto';
-        intermediateCard.style.cursor='pointer';
+        intermediateCard.style.pointerEvents = 'auto';
+        intermediateCard.style.cursor = 'pointer';
         intermediateCard.querySelector('.fa-lock').parentElement.classList.remove('bg-slate-400');
         intermediateCard.querySelector('.fa-lock').parentElement.classList.add('bg-blue-500');
         intermediateCard.querySelector('.fa-lock').classList.replace('fa-lock', 'fa-chart-line');
-        intermediateCard.style.borderColor='';
-        intermediateCard.style.borderColor='rgb(59, 130, 246)';
-        document.getElementById('intermediate-status').textContent='Available';
+        intermediateCard.style.borderColor = '';
+        intermediateCard.style.borderColor = 'rgb(59, 130, 246)';
+        document.getElementById('intermediate-status').textContent = 'Available';
         document.getElementById('intermediate-status').classList.remove('bg-slate-100', 'text-slate-800');
         document.getElementById('intermediate-status').classList.add('bg-blue-100', 'text-blue-800');
         intermediateCard.querySelector('.absolute').classList.add('hidden');
@@ -838,8 +1284,8 @@
       if (progress.intermediate) {
         // Unlock advanced
         advancedCard.classList.remove('opacity-60');
-        advancedCard.style.pointerEvents='auto';
-        advancedCard.style.cursor='pointer';
+        advancedCard.style.pointerEvents = 'auto';
+        advancedCard.style.cursor = 'pointer';
         advancedCard.querySelector('.fa-chart-line, .fa-lock').parentElement.classList.remove('bg-slate-400');
         advancedCard.querySelector('.fa-chart-line, .fa-lock').parentElement.classList.add('bg-purple-500');
 
@@ -847,9 +1293,9 @@
           advancedCard.querySelector('.fa-lock').classList.replace('fa-lock', 'fa-crown');
         }
 
-        advancedCard.style.borderColor='';
-        advancedCard.style.borderColor='rgb(168, 85, 247)';
-        document.getElementById('advanced-status').textContent='Available';
+        advancedCard.style.borderColor = '';
+        advancedCard.style.borderColor = 'rgb(168, 85, 247)';
+        document.getElementById('advanced-status').textContent = 'Available';
         document.getElementById('advanced-status').classList.remove('bg-slate-100', 'text-slate-800');
         document.getElementById('advanced-status').classList.add('bg-purple-100', 'text-purple-800');
         advancedCard.querySelector('.absolute').classList.add('hidden');
@@ -857,185 +1303,181 @@
     }
 
     // DOM Elements
-    const languageSelectionSection=document.getElementById('language-selection');
-    const difficultySelectionSection=document.getElementById('difficulty-selection');
-    const userDetailsSection=document.getElementById('user-details');
-    const quizSection=document.getElementById('quiz-section');
-    const resultsSection=document.getElementById('results-section');
-    const languageCards=document.querySelectorAll('.language-card');
-    const selectLanguageBtn=document.getElementById('select-language-btn');
-    const selectedQuizDisplay=document.getElementById('selected-quiz-display');
-    const backToLanguageBtn=document.getElementById('back-to-language');
-    const userForm=document.getElementById('user-form');
-    const quizTitle=document.getElementById('quiz-title');
-    const quizDescription=document.getElementById('quiz-description');
-    const questionCounter=document.getElementById('question-counter');
-    const progressBar=document.getElementById('progress-bar');
-    const progressPercent=document.getElementById('progress-percent');
-    const questionText=document.getElementById('question-text');
-    const answersContainer=document.getElementById('answers-container');
-    const nextQuestionBtn=document.getElementById('next-question');
-    const finishQuizBtn=document.getElementById('finish-quiz');
-    const timerDisplay=document.getElementById('time-display');
-    const userGreeting=document.getElementById('user-greeting');
-    const scoreDisplay=document.getElementById('score-display');
-    const percentageDisplay=document.getElementById('percentage-display');
-    const timeTakenDisplay=document.getElementById('time-taken-display');
-    const downloadCertificateBtn=document.getElementById('download-certificate');
-    const retakeQuizBtn=document.getElementById('retake-quiz');
-    const tryAnotherBtn=document.getElementById('try-another');
-    const certificatePreview=document.getElementById('certificate-preview');
-    const certificateCanvas=document.getElementById('certificate-canvas');
-    const telegramSettings=document.getElementById('telegram-settings');
-    const tgTokenInput=document.getElementById('tg-token');
-    const tgChatInput=document.getElementById('tg-chat');
-    const themeToggle=document.getElementById('theme-toggle');
-    const mobileMenuToggle=document.getElementById('mobile-menu-toggle');
-    const mobileMenu=document.getElementById('mobile-menu');
-    const closeMobileMenu=document.getElementById('close-mobile-menu');
+    const languageSelectionSection = document.getElementById('language-selection');
+    const difficultySelectionSection = document.getElementById('difficulty-selection');
+    const userDetailsSection = document.getElementById('user-details');
+    const quizSection = document.getElementById('quiz-section');
+    const resultsSection = document.getElementById('results-section');
+    const languageCards = document.querySelectorAll('.language-card');
+    const selectLanguageBtn = document.getElementById('select-language-btn');
+    const selectedQuizDisplay = document.getElementById('selected-quiz-display');
+    const backToLanguageBtn = document.getElementById('back-to-language');
+    const userForm = document.getElementById('user-form');
+    const quizTitle = document.getElementById('quiz-title');
+    const quizDescription = document.getElementById('quiz-description');
+    const questionCounter = document.getElementById('question-counter');
+    const progressBar = document.getElementById('progress-bar');
+    const progressPercent = document.getElementById('progress-percent');
+    const questionText = document.getElementById('question-text');
+    const answersContainer = document.getElementById('answers-container');
+    const nextQuestionBtn = document.getElementById('next-question');
+    const finishQuizBtn = document.getElementById('finish-quiz');
+    const timerDisplay = document.getElementById('time-display');
+    const userGreeting = document.getElementById('user-greeting');
+    const scoreDisplay = document.getElementById('score-display');
+    const percentageDisplay = document.getElementById('percentage-display');
+    const timeTakenDisplay = document.getElementById('time-taken-display');
+    const downloadCertificateBtn = document.getElementById('download-certificate');
+    const retakeQuizBtn = document.getElementById('retake-quiz');
+    const tryAnotherBtn = document.getElementById('try-another');
+    const certificatePreview = document.getElementById('certificate-preview');
+    const certificateCanvas = document.getElementById('certificate-canvas');
+    const telegramSettings = document.getElementById('telegram-settings');
+    const tgTokenInput = document.getElementById('tg-token');
+    const tgChatInput = document.getElementById('tg-chat');
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMobileMenu = document.getElementById('close-mobile-menu');
 
     // Language Selection
-    languageCards.forEach(card=> {
-        card.addEventListener('click', ()=> {
-            // Remove selected class from all cards
-            languageCards.forEach(c=> c.classList.remove('selected'));
+    languageCards.forEach(card => {
+      card.addEventListener('click', () => {
+        // Remove selected class from all cards
+        languageCards.forEach(c => c.classList.remove('selected'));
 
-            // Add selected class to clicked card
-            card.classList.add('selected');
+        // Add selected class to clicked card
+        card.classList.add('selected');
 
-            // Enable the select button
-            selectLanguageBtn.disabled=false;
-            selectLanguageBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        // Enable the select button
+        selectLanguageBtn.disabled = false;
+        selectLanguageBtn.classList.remove('opacity-50', 'cursor-not-allowed');
 
-            selectLanguageBtn.textContent=`Continue with $ {
-              card.querySelector('h3').textContent
-            }
+        selectLanguageBtn.textContent = `Continue with ${card.querySelector('h3').textContent}`;
 
-            `;
-
-            // Store the selected language
-            selectedLanguage=card.getAttribute('data-language');
-          });
-
-        // Show progress indicator on language cards
-        const language=card.getAttribute('data-language');
-        const progress=getProgress(language);
-        let progressText='';
-
-        if (progress.advanced) {
-          progressText='🏆 3/3 Complete';
-        }
-
-        else if (progress.intermediate) {
-          progressText='✅ 2/3 Complete';
-        }
-
-        else if (progress.basic) {
-          progressText='✨ 1/3 Complete';
-        }
-
-        if (progressText) {
-          const badge=document.createElement('div');
-          badge.className='absolute top-2 right-2 text-xs bg-green-500 text-white px-2 py-1 rounded-full font-bold';
-          badge.textContent=progressText;
-          card.style.position='relative';
-          card.appendChild(badge);
-        }
+        // Store the selected language
+        selectedLanguage = card.getAttribute('data-language');
       });
+
+      // Show progress indicator on language cards
+      const language = card.getAttribute('data-language');
+      const progress = getProgress(language);
+      let progressText = '';
+
+      if (progress.advanced) {
+        progressText = '🏆 3/3 Complete';
+      }
+
+      else if (progress.intermediate) {
+        progressText = '✅ 2/3 Complete';
+      }
+
+      else if (progress.basic) {
+        progressText = '✨ 1/3 Complete';
+      }
+
+      if (progressText) {
+        const badge = document.createElement('div');
+        badge.className = 'absolute top-2 right-2 text-xs bg-green-500 text-white px-2 py-1 rounded-full font-bold';
+        badge.textContent = progressText;
+        card.style.position = 'relative';
+        card.appendChild(badge);
+      }
+    });
 
     // Select Language Button
-    selectLanguageBtn.addEventListener('click', ()=> {
-        if (selectedLanguage) {
-          // Update difficulty cards based on progress
-          updateDifficultyCards(selectedLanguage);
-          showSection('difficulty-selection');
-        }
-      });
+    selectLanguageBtn.addEventListener('click', () => {
+      if (selectedLanguage) {
+        // Update difficulty cards based on progress
+        updateDifficultyCards(selectedLanguage);
+        showSection('difficulty-selection');
+      }
+    });
 
     // Back to Language Selection
-    backToLanguageBtn.addEventListener('click', ()=> {
-        showSection('language-selection');
-      });
+    backToLanguageBtn.addEventListener('click', () => {
+      showSection('language-selection');
+    });
 
     // Difficulty Selection with locking
-    const difficultyCards=document.querySelectorAll('.difficulty-card');
+    const difficultyCards = document.querySelectorAll('.difficulty-card');
 
-    difficultyCards.forEach(card=> {
-        card.addEventListener('click', async ()=> {
-            const difficulty=card.id.split('-')[1]; // basic, intermediate, advanced
+    difficultyCards.forEach(card => {
+      card.addEventListener('click', async () => {
+        const difficulty = card.id.split('-')[1]; // basic, intermediate, advanced
 
-            // Check if level is locked
-            const progress=getProgress(selectedLanguage);
+        // Check if level is locked
+        const progress = getProgress(selectedLanguage);
 
-            if (difficulty==='intermediate' && !progress.basic) {
-              alert('Please complete Basic level first!');
-              return;
-            }
-
-            if (difficulty==='advanced' && !progress.intermediate) {
-              alert('Please complete Intermediate level first!');
-              return;
-            }
-
-            selectedDifficulty=difficulty;
-
-            try {
-              // Show loading state
-              const originalContent=card.innerHTML;
-              card.innerHTML='<div class="text-center"><i class="fas fa-spinner fa-spin text-2xl mb-2"></i><p>Loading...</p></div>';
-              card.style.pointerEvents='none';
-
-              // Load quiz data dynamically
-              currentQuizData=await window.quizLoader.loadQuiz(selectedLanguage, selectedDifficulty);
-
-              // Update UI
-              showSection('user-details');
-              selectedQuizDisplay.textContent=currentQuizData.title;
-
-              // Restore card
-              card.innerHTML=originalContent;
-              card.style.pointerEvents='auto';
-            }
-
-            catch (error) {
-              console.error('Failed to load quiz:', error);
-              alert('Failed to load quiz. Please try again.');
-              card.style.pointerEvents='auto';
-            }
-          });
-      });
-
-    // Back from difficulty to language
-    const backToLanguageFromDifficultyBtn=document.getElementById('back-to-language-from-difficulty');
-
-    if (backToLanguageFromDifficultyBtn) {
-      backToLanguageFromDifficultyBtn.addEventListener('click', ()=> {
-          showSection('language-selection');
-        });
-    }
-
-    // User Form Submission
-    userForm.addEventListener('submit', (e)=> {
-        e.preventDefault();
-        userName=document.getElementById('user-name').value.trim();
-        userEmail=document.getElementById('user-email').value.trim();
-        userPhone=document.getElementById('user-phone').value.trim();
-        // Telegram credentials are now hardcoded
-
-        if ( !userName) {
-          alert('Please enter your name');
+        if (difficulty === 'intermediate' && !progress.basic) {
+          alert('Please complete Basic level first!');
           return;
         }
 
-        startQuiz();
+        if (difficulty === 'advanced' && !progress.intermediate) {
+          alert('Please complete Intermediate level first!');
+          return;
+        }
+
+        selectedDifficulty = difficulty;
+
+        try {
+          // Show loading state
+          const originalContent = card.innerHTML;
+          card.innerHTML = '<div class="text-center"><i class="fas fa-spinner fa-spin text-2xl mb-2"></i><p>Loading...</p></div>';
+          card.style.pointerEvents = 'none';
+
+          // Load quiz data dynamically
+          currentQuizData = await window.quizLoader.loadQuiz(selectedLanguage, selectedDifficulty);
+
+          // Update UI
+          showSection('user-details');
+          selectedQuizDisplay.textContent = currentQuizData.title;
+
+          // Restore card
+          card.innerHTML = originalContent;
+          card.style.pointerEvents = 'auto';
+        }
+
+        catch (error) {
+          console.error('Failed to load quiz:', error);
+          alert('Failed to load quiz. Please try again.');
+          card.style.pointerEvents = 'auto';
+        }
       });
+    });
+
+    // Back from difficulty to language
+    const backToLanguageFromDifficultyBtn = document.getElementById('back-to-language-from-difficulty');
+
+    if (backToLanguageFromDifficultyBtn) {
+      backToLanguageFromDifficultyBtn.addEventListener('click', () => {
+        showSection('language-selection');
+      });
+    }
+
+    // User Form Submission
+    userForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      userName = document.getElementById('user-name').value.trim();
+      userEmail = document.getElementById('user-email').value.trim();
+      userPhone = document.getElementById('user-phone').value.trim();
+      // Telegram credentials are now hardcoded
+
+      if (!userName) {
+        alert('Please enter your name');
+        return;
+      }
+
+      startQuiz();
+    });
 
     // Start Quiz
     function startQuiz() {
-      currentQuestionIndex=0;
-      score=0;
-      userAnswers=[];
-      quizStartTime=new Date();
+      currentQuestionIndex = 0;
+      score = 0;
+      userAnswers = [];
+      quizStartTime = new Date();
 
       showSection('quiz-section');
       loadQuestion();
@@ -1044,65 +1486,48 @@
 
     // Load Question
     function loadQuestion() {
-      const quiz=currentQuizData;
-      const question=quiz.questions[currentQuestionIndex];
+      const quiz = currentQuizData;
+      const question = quiz.questions[currentQuestionIndex];
 
       // Update quiz info
-      quizTitle.textContent=quiz.title;
-      quizDescription.textContent=quiz.description;
+      quizTitle.textContent = quiz.title;
+      quizDescription.textContent = quiz.description;
 
-      questionCounter.textContent=`$ {
-        currentQuestionIndex + 1
-      }
-
-      / $ {
-        quiz.questions.length
-      }
-
-      `;
+      questionCounter.textContent = `${currentQuestionIndex + 1} / ${quiz.questions.length}`;
 
       // Update progress bar
-      const progress=((currentQuestionIndex) / quiz.questions.length) * 100;
+      const progress = ((currentQuestionIndex) / quiz.questions.length) * 100;
 
-      progressBar.style.width=`$ {
-        progress
-      }
+      progressBar.style.width = `${progress}%`;
 
-      %`;
-
-      progressPercent.textContent=`$ {
-        Math.round(progress)
-      }
-
-      %`;
+      progressPercent.textContent = `${Math.round(progress)}%`;
 
       // Set question text
-      questionText.textContent=question.question;
+      questionText.textContent = question.question;
 
       // Clear previous answers
-      answersContainer.innerHTML='';
+      answersContainer.innerHTML = '';
 
       // Create answer options
-      question.options.forEach((option, index)=> {
-          const answerElement=document.createElement('div');
-          answerElement.className='answer-option bg-slate-50 dark:bg-slate-700 rounded-xl p-4 cursor-pointer';
+      question.options.forEach((option, index) => {
+        const answerElement = document.createElement('div');
+        answerElement.className = 'answer-option glass-card rounded-2xl p-6 cursor-pointer group hover:scale-[1.02] transition-all duration-300';
 
-          answerElement.innerHTML=` <div class="flex items-center" > <div class="w-10 h-10 rounded-full border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center mr-4 font-bold text-slate-700 dark:text-slate-300" > $ {
-            String.fromCharCode(65 + index)
-          }
+        answerElement.innerHTML = `
+                  <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center font-heading font-bold text-xl text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                      ${String.fromCharCode(65 + index)}
+                    </div>
+                    <span class="font-sans text-lg text-slate-200 group-hover:text-white transition-colors">${option}</span>
+                  </div>
+                `;
 
-          </div> <span class="font-medium" >$ {
-            option
-          }
-
-          </span> </div> `;
-
-          answerElement.addEventListener('click', ()=> selectAnswer(index, answerElement));
-          answersContainer.appendChild(answerElement);
-        });
+        answerElement.addEventListener('click', () => selectAnswer(index, answerElement));
+        answersContainer.appendChild(answerElement);
+      });
 
       // Update button visibility
-      if (currentQuestionIndex===quiz.questions.length - 1) {
+      if (currentQuestionIndex === quiz.questions.length - 1) {
         nextQuestionBtn.classList.add('hidden');
         finishQuizBtn.classList.remove('hidden');
       }
@@ -1115,19 +1540,19 @@
 
     // Select Answer
     function selectAnswer(selectedIndex, element) {
-      const quiz=currentQuizData;
-      const question=quiz.questions[currentQuestionIndex];
+      const quiz = currentQuizData;
+      const question = quiz.questions[currentQuestionIndex];
 
       // Disable all answers
-      const allAnswers=answersContainer.querySelectorAll('.answer-option');
+      const allAnswers = answersContainer.querySelectorAll('.answer-option');
 
-      allAnswers.forEach(answer=> {
-          answer.classList.add('locked');
-          answer.style.pointerEvents='none';
-        });
+      allAnswers.forEach(answer => {
+        answer.classList.add('locked');
+        answer.style.pointerEvents = 'none';
+      });
 
       // Check if answer is correct
-      const isCorrect=selectedIndex===question.correct;
+      const isCorrect = selectedIndex === question.correct;
 
       // Mark selected answer
       if (isCorrect) {
@@ -1139,7 +1564,7 @@
         element.classList.add('incorrect');
 
         // Highlight correct answer
-        const correctAnswer=allAnswers[question.correct];
+        const correctAnswer = allAnswers[question.correct];
         correctAnswer.classList.add('correct');
       }
 
@@ -1154,127 +1579,68 @@
     }
 
     // Next Question
-    nextQuestionBtn.addEventListener('click', ()=> {
-        currentQuestionIndex++;
-        loadQuestion();
-      });
+    nextQuestionBtn.addEventListener('click', () => {
+      currentQuestionIndex++;
+      loadQuestion();
+    });
 
     // Finish Quiz
-    finishQuizBtn.addEventListener('click', ()=> {
-        quizEndTime=new Date();
-        showResults();
-      });
+    finishQuizBtn.addEventListener('click', () => {
+      quizEndTime = new Date();
+      showResults();
+    });
 
     // Show Results
     function showResults() {
       showSection('results-section');
 
-      const quiz=currentQuizData;
-      const percentage=Math.round((score / quiz.questions.length) * 100);
-      const timeTaken=Math.round((quizEndTime - quizStartTime) / 1000);
-      const minutes=Math.floor(timeTaken / 60);
-      const seconds=timeTaken % 60;
+      const quiz = currentQuizData;
+      const percentage = Math.round((score / quiz.questions.length) * 100);
+      const timeTaken = Math.round((quizEndTime - quizStartTime) / 1000);
+      const minutes = Math.floor(timeTaken / 60);
+      const seconds = timeTaken % 60;
 
       // Check if user passed (minimum 60% required)
-      const passed=percentage >=60;
+      const passed = percentage >= 60;
 
       // Save progress if passed
       if (passed) {
         setProgress(selectedLanguage, selectedDifficulty, true);
 
         // Force refresh to update locked cards
-        setTimeout(()=> {
-            localStorage.setItem('refresh_quiz', 'true');
-          }
+        setTimeout(() => {
+          localStorage.setItem('refresh_quiz', 'true');
+        }
 
           , 1000);
       }
 
       // Update results display
       if (passed) {
-        userGreeting.textContent=`Congratulations, $ {
-          userName
+        userGreeting.textContent = `Congratulations, ${userName}! You passed!`;
+        if (selectedDifficulty === 'basic') {
+          userGreeting.textContent += ' 🌟 Intermediate level unlocked!';
+        } else if (selectedDifficulty === 'intermediate') {
+          userGreeting.textContent += ' 🏆 Advanced level unlocked!';
         }
-
-        ! You passed !`;
-
-        if (selectedDifficulty==='basic') {
-          userGreeting.textContent +=' 🌟 Intermediate level unlocked!';
-        }
-
-        else if (selectedDifficulty==='intermediate') {
-          userGreeting.textContent +=' 🏆 Advanced level unlocked!';
-        }
-
-        // Show certificate download button (only for 50%+)
         downloadCertificateBtn.classList.remove('hidden');
-      }
-
-      else {
-
-        // Encouraging message for failures
-        if (percentage >=50) {
-          userGreeting.textContent=`Great effort, $ {
-            userName
-          }
-
-          ! You scored $ {
-            percentage
-          }
-
-          %. So close ! Minimum 60% required to pass. Keep learning and try again ! 💪`;
+      } else {
+        if (percentage >= 50) {
+          userGreeting.textContent = `Great effort, ${userName}! You scored ${percentage}%. So close! Minimum 60% required to pass. Keep learning and try again! 💪`;
+        } else if (percentage >= 40) {
+          userGreeting.textContent = `Nice try, ${userName}! You scored ${percentage}%. Review the basics and try again! You're getting there! 📚`;
+        } else {
+          userGreeting.textContent = `Don't give up, ${userName}! You scored ${percentage}%. Every expert was once a beginner. Study more and try again! 🌟`;
         }
-
-        else if (percentage >=40) {
-          userGreeting.textContent=`Nice try, $ {
-            userName
-          }
-
-          ! You scored $ {
-            percentage
-          }
-
-          %. Review the basics and try again ! You're getting there! 📚`;
-
-        }
-
-        else {
-          userGreeting.textContent=`Don't give up, ${userName}! You scored ${percentage}%. Every expert was once a beginner. Study more and try again! 🌟`;
-
-        }
-
-        // Hide certificate download button
         downloadCertificateBtn.classList.add('hidden');
       }
 
-      scoreDisplay.textCocntent=`$ {
-        score
-      }
-
-      /$ {
-        quiz.questions.length
-      }
-
-      `;
-
-      percentageDisplay.textContent=`$ {
-        percentage
-      }
-
-      %`;
-
-      timeTakenDisplay.textContent=`$ {
-        minutes
-      }
-
-      m $ {
-        seconds
-      }
-
-      s`;
+      scoreDisplay.textContent = `${score} / ${quiz.questions.length}`;
+      percentageDisplay.textContent = `${percentage}%`;
+      timeTakenDisplay.textContent = `${minutes}m ${seconds}s`;
 
       // Show certificate preview only if 50% or above
-      if (percentage >=50) {
+      if (percentage >= 50) {
         certificatePreview.classList.remove('hidden');
         generateCertificatePreview();
       }
@@ -1292,58 +1658,58 @@
 
     // Generate Certificate Preview
     function generateCertificatePreview() {
-      const ctx=certificateCanvas.getContext('2d');
-      const width=certificateCanvas.width;
-      const height=certificateCanvas.height;
+      const ctx = certificateCanvas.getContext('2d');
+      const width = certificateCanvas.width;
+      const height = certificateCanvas.height;
 
       // Clear canvas
       ctx.clearRect(0, 0, width, height);
 
       // Load logo first with proper error handling
-      const logo=new Image();
-      logo.crossOrigin='anonymous'; // Handle CORS if needed
+      const logo = new Image();
+      logo.crossOrigin = 'anonymous'; // Handle CORS if needed
 
-      logo.onload=function () {
+      logo.onload = function () {
 
         // Wait a bit to ensure logo is fully loaded
-        setTimeout(()=> {
-            drawCertificateContent(ctx, width, height, logo);
-          }
+        setTimeout(() => {
+          drawCertificateContent(ctx, width, height, logo);
+        }
 
           , 100);
       }
 
-      ;
+        ;
 
-      logo.onerror=function () {
+      logo.onerror = function () {
         console.log('Logo failed to load, drawing without logo');
         drawCertificateContent(ctx, width, height, null);
       }
 
-      ;
+        ;
 
       // Try to load logo
-      logo.src='logo.png?' + new Date().getTime(); // Add cache buster
+      logo.src = 'logo.png?' + new Date().getTime(); // Add cache buster
     }
 
     // Draw certificate content
     function drawCertificateContent(ctx, width, height, logo) {
 
       // Background with gradient
-      const gradient=ctx.createLinearGradient(0, 0, width, height);
+      const gradient = ctx.createLinearGradient(0, 0, width, height);
       gradient.addColorStop(0, '#fefefe');
       gradient.addColorStop(1, '#f8fafc');
-      ctx.fillStyle=gradient;
+      ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
 
       // Ornamental border
-      ctx.strokeStyle='#6366f1';
-      ctx.lineWidth=15;
+      ctx.strokeStyle = '#6366f1';
+      ctx.lineWidth = 15;
       ctx.strokeRect(0, 0, width, height);
 
       // Decorative corner elements
-      ctx.strokeStyle='#8b5cf6';
-      ctx.lineWidth=3;
+      ctx.strokeStyle = '#8b5cf6';
+      ctx.lineWidth = 3;
 
       // Top-left corner
       ctx.beginPath();
@@ -1378,364 +1744,320 @@
       ctx.stroke();
 
       // Header with gradient
-      const headerGradient=ctx.createLinearGradient(0, 0, width, 0);
+      const headerGradient = ctx.createLinearGradient(0, 0, width, 0);
       headerGradient.addColorStop(0, '#6366f1');
       headerGradient.addColorStop(1, '#8b5cf6');
-      ctx.fillStyle=headerGradient;
+      ctx.fillStyle = headerGradient;
       ctx.fillRect(0, 0, width, 120);
 
       // Draw Bytecore Logo if available
       if (logo && logo.complete && logo.naturalWidth > 0) {
         try {
           // Draw logo with proper positioning
-          const logoSize=60;
-          const logoX=50;
-          const logoY=30;
+          const logoSize = 60;
+          const logoX = 50;
+          const logoY = 30;
 
           // Make sure logo fits within header bounds
           ctx.drawImage(logo, logoX, logoY, logoSize, logoSize);
 
           // Company name next to logo
-          ctx.fillStyle='#ffffff';
-          ctx.font='bold 30px Arial';
-          ctx.textAlign='left';
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 30px Arial';
+          ctx.textAlign = 'left';
           ctx.fillText('BYTECORE COMPUTER CENTRE', logoX + logoSize + 20, 70);
         }
 
         catch (error) {
           console.log('Error drawing logo:', error);
           // Draw fallback text if logo drawing fails
-          ctx.fillStyle='#ffffff';
-          ctx.font='bold 36px Arial';
-          ctx.textAlign='center';
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 36px Arial';
+          ctx.textAlign = 'center';
           ctx.fillText('BYTECORE COMPUTER CENTRE', width / 2, 70);
         }
       }
 
       else {
         // Fallback text if logo doesn't load or isn't ready
-        ctx.fillStyle='#ffffff';
-        ctx.font='bold 36px Arial';
-        ctx.textAlign='center';
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 36px Arial';
+        ctx.textAlign = 'center';
         ctx.fillText('BYTECORE COMPUTER CENTRE', width / 2, 70);
       }
 
       // Certificate Title - Reset text alignment to center
-      ctx.fillStyle='#2d3748';
-      ctx.font='bold 40px Georgia';
-      ctx.textAlign='center';
+      ctx.fillStyle = '#2d3748';
+      ctx.font = 'bold 40px Georgia';
+      ctx.textAlign = 'center';
       ctx.fillText('CERTIFICATE OF ACHIEVEMENT', width / 2, 200);
 
       // Decorative line
-      ctx.strokeStyle='#c7d2fe';
-      ctx.lineWidth=2;
+      ctx.strokeStyle = '#c7d2fe';
+      ctx.lineWidth = 2;
       ctx.beginPath();
       ctx.moveTo(width / 2 - 150, 220);
       ctx.lineTo(width / 2 + 150, 220);
       ctx.stroke();
 
       // Awarded to
-      ctx.fillStyle='#4a5568';
-      ctx.font='italic 24px Arial';
-      ctx.textAlign='center';
+      ctx.fillStyle = '#4a5568';
+      ctx.font = 'italic 24px Arial';
+      ctx.textAlign = 'center';
       ctx.fillText('This certificate is proudly presented to', width / 2, 270);
 
       // User Name
-      ctx.fillStyle='#6366f1';
-      ctx.font='bold 48px Arial';
-      ctx.textAlign='center';
+      ctx.fillStyle = '#6366f1';
+      ctx.font = 'bold 48px Arial';
+      ctx.textAlign = 'center';
       ctx.fillText(userName.toUpperCase(), width / 2, 330);
 
       // Completion Text
-      ctx.fillStyle='#4a5568';
-      ctx.font='20px Arial';
-      ctx.textAlign='center';
+      ctx.fillStyle = '#4a5568';
+      ctx.font = '20px Arial';
+      ctx.textAlign = 'center';
       ctx.fillText('for successfully completing the', width / 2, 380);
 
       // Quiz Name
-      ctx.fillStyle='#2d3748';
-      ctx.font='bold 32px Arial';
-      ctx.textAlign='center';
+      ctx.fillStyle = '#2d3748';
+      ctx.font = 'bold 32px Arial';
+      ctx.textAlign = 'center';
       ctx.fillText(currentQuizData.title, width / 2, 420);
 
       // Score
-      const percentage=Math.round((score / currentQuizData.questions.length) * 100);
-      ctx.fillStyle='#4a5568';
-      ctx.font='18px Arial';
-      ctx.textAlign='center';
+      const percentage = Math.round((score / currentQuizData.questions.length) * 100);
+      ctx.fillStyle = '#4a5568';
+      ctx.font = '18px Arial';
+      ctx.textAlign = 'center';
 
-      ctx.fillText(`with a score of $ {
-          score
-        }
-
-        /$ {
-          currentQuizData.questions.length
-        }
-
-        ($ {
-            percentage
-          }
-
-          %)`, width / 2, 460);
+      ctx.fillText(`with a score of ${score}/${currentQuizData.questions.length} (${percentage}%)`, width / 2, 460);
 
       // Date
-      const today=new Date();
+      const today = new Date();
 
-      const dateStr=today.toLocaleDateString('en-US', {
+      const dateStr = today.toLocaleDateString('en-US', {
         year: 'numeric', month: 'long', day: 'numeric'
       });
-    ctx.textAlign='center';
+      ctx.textAlign = 'center';
 
-    ctx.fillText(`on $ {
-        dateStr
+      ctx.fillText(`on ${dateStr}`, width / 2, 490);
+
+      // Signature Area
+      ctx.fillStyle = '#2d3748';
+      ctx.font = 'bold 18px Arial';
+      ctx.textAlign = 'left';
+      ctx.fillText('Director Signature', 100, 540);
+
+      ctx.textAlign = 'right';
+      ctx.fillText('Bytecore Computer Centre', width - 100, 540);
+
+      // Load and draw signature image
+      const signature = new Image();
+
+      signature.onload = function () {
+        try {
+          // Draw signature image above the text
+          const sigWidth = 120;
+          const sigHeight = 60;
+          const sigX = 100;
+          const sigY = 480; // Above "Director Signature" text
+
+          ctx.drawImage(signature, sigX, sigY, sigWidth, sigHeight);
+        }
+
+        catch (error) {
+          console.log('Error drawing signature:', error);
+          // Draw fallback line if signature fails
+          drawSignatureLine();
+        }
       }
 
-      `, width / 2, 490);
+        ;
 
-    // Signature Area
-    ctx.fillStyle='#2d3748';
-    ctx.font='bold 18px Arial';
-    ctx.textAlign='left';
-    ctx.fillText('Director Signature', 100, 540);
-
-    ctx.textAlign='right';
-    ctx.fillText('Bytecore Computer Centre', width - 100, 540);
-
-    // Load and draw signature image
-    const signature=new Image();
-
-    signature.onload=function () {
-      try {
-        // Draw signature image above the text
-        const sigWidth=120;
-        const sigHeight=60;
-        const sigX=100;
-        const sigY=480; // Above "Director Signature" text
-
-        ctx.drawImage(signature, sigX, sigY, sigWidth, sigHeight);
-      }
-
-      catch (error) {
-        console.log('Error drawing signature:', error);
-        // Draw fallback line if signature fails
+      signature.onerror = function () {
+        console.log('Signature image failed to load, drawing line');
         drawSignatureLine();
       }
-    }
 
-    ;
+        ;
+      signature.src = 'images/cd/sign.png';
 
-    signature.onerror=function () {
-      console.log('Signature image failed to load, drawing line');
-      drawSignatureLine();
-    }
+      // Fallback function to draw signature line
+      function drawSignatureLine() {
+        ctx.beginPath();
+        ctx.moveTo(100, 560);
+        ctx.lineTo(300, 560);
+        ctx.strokeStyle = '#2d3748';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+      }
 
-    ;
-    signature.src='images/cd/sign.png';
-
-    // Fallback function to draw signature line
-    function drawSignatureLine() {
       ctx.beginPath();
-      ctx.moveTo(100, 560);
-      ctx.lineTo(300, 560);
-      ctx.strokeStyle='#2d3748';
-      ctx.lineWidth=2;
+      ctx.moveTo(width - 300, 560);
+      ctx.lineTo(width - 100, 560);
       ctx.stroke();
-    }
 
-    ctx.beginPath();
-    ctx.moveTo(width - 300, 560);
-    ctx.lineTo(width - 100, 560);
-    ctx.stroke();
-
-    // Official seal removed as requested
+      // Official seal removed as requested
     }
 
     // Download Certificate
-    downloadCertificateBtn.addEventListener('click', ()=> {
-        const link=document.createElement('a');
+    downloadCertificateBtn.addEventListener('click', () => {
+      const link = document.createElement('a');
 
-        link.download=`Bytecore_Certificate_$ {
-          userName.replace(/\s+/g, '_')
-        }
-
-        .png`;
-        link.href=certificateCanvas.toDataURL('image/png');
-        link.click();
-      });
+      link.download = `Bytecore_Certificate_${userName.replace(/\s+/g, '_')}.png`;
+      link.href = certificateCanvas.toDataURL('image/png');
+      link.click();
+    });
 
     // Retake Quiz
-    retakeQuizBtn.addEventListener('click', ()=> {
-        startQuiz();
-      });
+    retakeQuizBtn.addEventListener('click', () => {
+      startQuiz();
+    });
 
     // Try Another Language
-    tryAnotherBtn.addEventListener('click', ()=> {
-        showSection('language-selection');
-      });
+    tryAnotherBtn.addEventListener('click', () => {
+      showSection('language-selection');
+    });
+
+    // Show Toast Notification
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+
+      const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+
+      toast.className = `toast ${type}`;
+      toast.innerHTML = `
+        <i class="fas ${icon}"></i>
+        <span>${message}</span>
+      `;
+
+      container.appendChild(toast);
+
+      // Trigger animation
+      setTimeout(() => {
+        toast.classList.add('show');
+      }, 10);
+
+      // Remove after 3 seconds
+      setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => {
+          toast.remove();
+        }, 400);
+      }, 4000);
+    }
 
     // Send Telegram Message
     function sendTelegramMessage(percentage, timeTaken) {
-      // Debug: Check if config is loaded
-      console.log('Telegram Token:', telegramToken ? 'Loaded' : 'Not loaded');
-      console.log('Telegram Chat ID:', telegramChatId ? 'Loaded' : 'Not loaded');
-
-      if ( !telegramToken || !telegramChatId) {
+      if (!telegramToken || !telegramChatId) {
         console.error('Telegram configuration not loaded properly');
-        return;
-      }
+        // Try to reload config
+        const config = new Config();
+        telegramToken = config.getTelegramBotToken();
+        telegramChatId = config.getTelegramChatId();
 
-      const quiz=currentQuizData;
-
-      const message=` 🆕 *New Quiz Result* 🆕 *Name:* $ {
-        userName
-      }
-
-      $ {
-        userEmail ? `*Email:* $ {
-          userEmail
+        if (!telegramToken || !telegramChatId) {
+          showToast('Unable to send results: Configuration missing', 'error');
+          return;
         }
-
-        \n` : ''
       }
 
-      $ {
-        userPhone ? `*Phone:* $ {
-          userPhone
-        }
+      const quiz = currentQuizData;
+      const minutes = Math.floor(timeTaken / 60);
+      const seconds = timeTaken % 60;
 
-        \n` : ''
-      }
+      const message = `🆕 *New Quiz Result* 🆕\n\n👤 *Candidate:* ${userName}\n📧 *Email:* ${userEmail || 'N/A'}\n📱 *Phone:* ${userPhone || 'N/A'}\n\n📚 *Quiz:* ${quiz.title}\n📊 *Score:* ${score}/${quiz.questions.length} (${percentage}%)\n⏱️ *Duration:* ${minutes}m ${seconds}s\n📅 *Date:* ${new Date().toLocaleString()}\n\n*Bytecore Computer Centre*`;
 
-      *Quiz:* $ {
-        quiz.title
-      }
+      const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
 
-      *Score:* $ {
-        score
-      }
+      console.log('Sending message to Telegram...');
 
-      /$ {
-        quiz.questions.length
-      }
-
-      ($ {
-          percentage
-        }
-
-        %) *Time Taken:* $ {
-        Math.floor(timeTaken / 60)
-      }
-
-      m $ {
-        timeTaken % 60
-      }
-
-      s *Date:* $ {
-        new Date().toLocaleString()
-      }
-
-      *Bytecore Computer Centre* `;
-
-      const url=`https: //api.telegram.org/bot${telegramToken}/sendMessage`;
-
-      console.log('Sending message to Telegram...', url);
+      // Show sending toast
+      showToast('Sending results to database...', 'success');
 
       fetch(url, {
-
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-        }
-
-        ,
+        },
         body: JSON.stringify({
           chat_id: telegramChatId,
           text: message,
           parse_mode: 'Markdown'
         })
-
-    }) .then(response=> {
-        console.log('Response status:', response.status);
+      }).then(response => {
         return response.json();
-
-      }) .then(data=> {
-        console.log('Telegram API response:', data);
-
+      }).then(data => {
         if (data.ok) {
           console.log('✅ Telegram message sent successfully');
-        }
-
-        else {
+          setTimeout(() => {
+            showToast('Results saved successfully!', 'success');
+          }, 1000);
+        } else {
           console.error('❌ Failed to send Telegram message:', data);
+          showToast('Failed to save results. Please try again.', 'error');
         }
-
-      }) .catch(error=> {
+      }).catch(error => {
         console.error('❌ Error sending Telegram message:', error);
+        showToast('Network error: Results not saved', 'error');
       });
     }
 
     // Timer
     function startTimer() {
-      let seconds=0;
+      let seconds = 0;
 
-      const timer=setInterval(()=> {
-          seconds++;
-          const minutes=Math.floor(seconds / 60);
-          const remainingSeconds=seconds % 60;
+      const timer = setInterval(() => {
+        seconds++;
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
 
-          timerDisplay.textContent=`$ {
-            minutes.toString().padStart(2, '0')
-          }
+        timerDisplay.textContent = `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
 
-          :$ {
-            remainingSeconds.toString().padStart(2, '0')
-          }
-
-          `;
-
-          // Stop timer when quiz ends
-          if (currentState !=='quiz-section') {
-            clearInterval(timer);
-          }
+        // Stop timer when quiz ends
+        if (currentState !== 'quiz-section') {
+          clearInterval(timer);
         }
+      }
 
         , 1000);
     }
 
     // Create Confetti Effect
     function createConfetti() {
-      const container=document.getElementById('results-section');
-      const colors=['#6366f1', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981'];
+      const container = document.getElementById('results-section');
+      const colors = ['#6366f1',
+        '#8b5cf6',
+        '#ec4899',
+        '#f59e0b',
+        '#10b981'];
 
-      for (let i=0; i < 50; i++) {
-        const confetti=document.createElement('div');
-        confetti.className='confetti';
-        confetti.style.left=Math.random() * 100 + 'vw';
-        confetti.style.top='-10px';
-        confetti.style.backgroundColor=colors[Math.floor(Math.random() * colors.length)];
-        confetti.style.width=Math.random() * 10 + 5 + 'px';
-        confetti.style.height=confetti.style.width;
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.top = '-10px';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.width = Math.random() * 10 + 5 + 'px';
+        confetti.style.height = confetti.style.width;
 
-        confetti.style.animation=`fall $ {
-          Math.random() * 3 + 2
-        }
-
-        s linear forwards`;
+        confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
 
         document.body.appendChild(confetti);
 
         // Remove confetti after animation
-        setTimeout(()=> {
-            confetti.remove();
-          }
+        setTimeout(() => {
+          confetti.remove();
+        }
 
           , 5000);
       }
 
       // Add fall animation
-      const style=document.createElement('style');
+      const style = document.createElement('style');
 
-      style.textContent=` @keyframes fall {
+      style.textContent = ` @keyframes fall {
         to {
           transform: translateY(100vh) rotate(360deg);
           opacity: 0;
@@ -1748,7 +2070,7 @@
 
     // Show Section
     function showSection(section) {
-      currentState=section;
+      currentState = section;
 
       // Hide all sections
       languageSelectionSection.classList.add('hidden');
@@ -1761,12 +2083,12 @@
       document.getElementById(section).classList.remove('hidden');
 
       // Update difficulty cards when showing difficulty selection
-      if (section==='difficulty-selection' && selectedLanguage) {
+      if (section === 'difficulty-selection' && selectedLanguage) {
 
         // Small delay to ensure DOM is ready
-        setTimeout(()=> {
-            updateDifficultyCards(selectedLanguage);
-          }
+        setTimeout(() => {
+          updateDifficultyCards(selectedLanguage);
+        }
 
           , 100);
       }
@@ -1778,82 +2100,72 @@
     }
 
     // Theme Toggle
-    themeToggle.addEventListener('click', ()=> {
-        const htmlElement=document.documentElement;
-        htmlElement.classList.toggle('dark');
-        const isDark=htmlElement.classList.contains('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    themeToggle.addEventListener('click', () => {
+      const htmlElement = document.documentElement;
+      htmlElement.classList.toggle('dark');
+      const isDark = htmlElement.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
 
-        // Update button icons
-        const moonIcon=themeToggle.querySelector('.fa-moon');
-        const sunIcon=themeToggle.querySelector('.fa-sun');
+      // Update button icons
+      const moonIcon = themeToggle.querySelector('.fa-moon');
+      const sunIcon = themeToggle.querySelector('.fa-sun');
 
-        if (isDark) {
-          moonIcon.classList.add('hidden');
-          sunIcon.classList.remove('hidden');
-        }
+      if (isDark) {
+        moonIcon.classList.add('hidden');
+        sunIcon.classList.remove('hidden');
+      }
 
-        else {
-          moonIcon.classList.remove('hidden');
-          sunIcon.classList.add('hidden');
-        }
-      });
+      else {
+        moonIcon.classList.remove('hidden');
+        sunIcon.classList.add('hidden');
+      }
+    });
 
     // Mobile Menu Toggle
-    mobileMenuToggle.addEventListener('click', ()=> {
-        mobileMenu.classList.remove('-translate-x-full');
-      });
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenu.classList.remove('-translate-x-full');
+    });
 
-    closeMobileMenu.addEventListener('click', ()=> {
-        mobileMenu.classList.add('-translate-x-full');
-      });
+    closeMobileMenu.addEventListener('click', () => {
+      mobileMenu.classList.add('-translate-x-full');
+    });
 
     // Close menu when clicking on a link
-    document.querySelectorAll('#mobile-menu a').forEach(link=> {
-        link.addEventListener('click', ()=> {
-            mobileMenu.classList.add('-translate-x-full');
-          });
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('-translate-x-full');
       });
+    });
 
     // Close menu when clicking outside
-    mobileMenu.addEventListener('click', (e)=> {
-        if (e.target===mobileMenu) {
-          mobileMenu.classList.add('-translate-x-full');
-        }
-      });
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        mobileMenu.classList.add('-translate-x-full');
+      }
+    });
 
     // Initialize theme and check for refresh
-    document.addEventListener('DOMContentLoaded', ()=> {
+    document.addEventListener('DOMContentLoaded', () => {
 
-        // Load saved theme
-        if (localStorage.getItem('theme')==='dark') {
-          document.documentElement.classList.add('dark');
-          themeToggle.querySelector('.fa-moon').classList.add('hidden');
-          themeToggle.querySelector('.fa-sun').classList.remove('hidden');
-        }
+      // Load saved theme
+      if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+        themeToggle.querySelector('.fa-moon').classList.add('hidden');
+        themeToggle.querySelector('.fa-sun').classList.remove('hidden');
+      }
 
-        // Add floating animation to hero section
-        const heroSection=document.querySelector('.text-center.mb-16');
-        heroSection.classList.add('floating-animation');
+      // Add floating animation to hero section
+      const heroSection = document.querySelector('.text-center.mb-16');
+      heroSection.classList.add('floating-animation');
 
-        // Check if refresh is needed (after completing quiz)
-        if (localStorage.getItem('refresh_quiz')==='true') {
-          localStorage.removeItem('refresh_quiz');
-          console.log('Quiz progress updated!');
-        }
-      });
-    </script> < !-- Footer Component --> <footer class="bg-slate-900 text-slate-300 pt-16 pb-8" > <div class="container mx-auto px-4 sm:px-6 lg:px-8" > < !-- Main Footer Content --> <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12" > < !-- About Section --> <div> <div class="flex items-center mb-6" > <img src="logo.png" alt="ByteCore Logo" class="w-10 h-10 mr-3" > <h3 class="text-2xl font-bold text-white" >ByteCore</h3> </div> <p class="text-slate-400 mb-6 leading-relaxed" > Leading IT training institute offering comprehensive computer courses since 2010. Transform your career with industry-relevant skills. </p> <div class="flex space-x-4" > <a href="https://www.facebook.com/bytecorecomputercentre/" target="_blank" rel="noopener"
-    class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110" > <i class="fab fa-facebook-f" ></i> </a> <a href="https://x.com/bytecores" target="_blank" rel="noopener"
-    class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110" > <i class="fab fa-twitter" ></i> </a> <a href="https://www.instagram.com/bytecore_computer_centre/" target="_blank" rel="noopener"
-    class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110" > <i class="fab fa-instagram" ></i> </a> <a href="https://www.linkedin.com/in/bytecore-computer-centre-69ba7a344/" target="_blank" rel="noopener"
-    class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110" > <i class="fab fa-linkedin-in" ></i> </a> </div> </div> < !-- Quick Links --> <div> <h4 class="text-white font-bold text-lg mb-6" >Quick Links</h4> <ul class="space-y-3" > <li><a href="index.html" class="hover:text-primary transition-colors duration-300 flex items-center group" > <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform" ></i>Home </a></li> <li><a href="About.html" class="hover:text-primary transition-colors duration-300 flex items-center group" > <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform" ></i>About Us </a></li> <li><a href="Courses.html"
-    class="hover:text-primary transition-colors duration-300 flex items-center group" > <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform" ></i>Courses </a></li> <li><a href="scholarship.html"
-    class="hover:text-primary transition-colors duration-300 flex items-center group" > <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform" ></i>Scholarship </a></li> <li><a href="diploma.html"
-    class="hover:text-primary transition-colors duration-300 flex items-center group" > <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform" ></i>Certificates </a></li> <li><a href="contact.html"
-    class="hover:text-primary transition-colors duration-300 flex items-center group" > <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform" ></i>Contact </a></li> </ul> </div> < !-- Popular Courses --> <div> <h4 class="text-white font-bold text-lg mb-6" >Popular Courses</h4> <ul class="space-y-3" > <li><a href="Courses.html#python"
-    class="hover:text-primary transition-colors duration-300 flex items-center group" > <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform" ></i>Python Programming </a></li> <li><a href="Courses.html#fullstack"
-    class="hover:text-primary transition-colors duration-300 flex items-center group" > <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform" ></i>Full Stack Development </a></li> <li><a href="Courses.html#olevel"
-    class="hover:text-primary transition-colors duration-300 flex items-center group" > <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform" ></i>O Level </a></li> <li><a href="Courses.html#adca"
-    class="hover:text-primary transition-colors duration-300 flex items-center group" > <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform" ></i>ADCA </a></li> <li><a href="Courses.html#graphic"
-    class="hover:text-primary transition-colors duration-300 flex items-center group" > <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform" ></i>Graphic Design </a></li> <li><a href="quiz.html" class="hover:text-primary transition-colors duration-300 flex items-center group" > <i class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform" ></i>Practice Quiz </a></li> </ul> </div> < !-- Contact Info --> <div> <h4 class="text-white font-bold text-lg mb-6" >Contact Us</h4> <ul class="space-y-4" > <li class="flex items-start" > <i class="fas fa-map-marker-alt text-primary mt-1 mr-3" ></i> <span class="text-sm" >Bithri Road, Opposite Sheetala Mata Mandir, Nariyawal BLY, 243123</span> </li> <li class="flex items-center" > <i class="fas fa-phone text-primary mr-3" ></i> <a href="tel:+916396835709" class="hover:text-primary transition-colors" >+91-6396835709</a> </li> <li class="flex items-center" > <i class="fas fa-envelope text-primary mr-3" ></i> <a href="mailto:bytecore.info@gmail.com"
-    class="hover:text-primary transition-colors" >bytecore.info@gmail.com</a> </li> <li class="flex items-start" > <i class="fas fa-clock text-primary mt-1 mr-3" ></i> <span class="text-sm" >Mon - Sat: 9:00 AM - 6:00 PM<br>Sunday: Closed</span> </li> </ul> </div> </div> < !-- Bottom Bar --> <div class="border-t border-slate-800 pt-8" > <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0" > <p class="text-slate-400 text-sm text-center md:text-left" > &copy; 2010-2025 ByteCore Computer Centre. All rights reserved. </p> <div class="flex space-x-6 text-sm" > <a href="#" class="hover:text-primary transition-colors" >Privacy Policy</a> <a href="#" class="hover:text-primary transition-colors" >Terms of Service</a> <a href="Fee.html" class="hover:text-primary transition-colors" >Fee Structure</a> </div> </div> </div> </div> </footer> <script src="components/page-wrapper-fix.js" ></script> </body> </html>
+      // Check if refresh is needed (after completing quiz)
+      if (localStorage.getItem('refresh_quiz') === 'true') {
+        localStorage.removeItem('refresh_quiz');
+        console.log('Quiz progress updated!');
+      }
+    });
+  </script>
+  <script src="components/page-wrapper-fix.js"></script>
+</body>
+
+</html>
