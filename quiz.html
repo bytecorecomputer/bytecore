@@ -508,7 +508,7 @@
           </div>
           <p class="text-slate-600 dark:text-slate-300 mb-4">Master Python programming with our comprehensive
             quiz covering fundamentals to advanced concepts.</p>
-          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">10
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">100+
               Questions</span><span
               class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium">Beginner to
               Advanced</span></div>
@@ -526,7 +526,7 @@
             ES6+,
             DOM manipulation,
             and modern frameworks.</p>
-          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">12
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">120+
               Questions</span><span
               class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium">Intermediate</span>
           </div>
@@ -543,7 +543,7 @@
           <p class="text-slate-600 dark:text-slate-300 mb-4">Challenge your web development skills with HTML5,
             CSS3,
             and responsive design questions.</p>
-          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">8
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">80+
               Questions</span><span
               class="text-sm bg-purple-100 text-purple-800 px-3 py-1 rounded-full font-medium">Beginner</span>
           </div>
@@ -559,7 +559,7 @@
           </div>
           <p class="text-slate-600 dark:text-slate-300 mb-4">Test your object-oriented programming knowledge
             with Java fundamentals and advanced concepts.</p>
-          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">15
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">150+
               Questions</span><span
               class="text-sm bg-red-100 text-red-800 px-3 py-1 rounded-full font-medium">Advanced</span></div>
         </div>
@@ -577,7 +577,7 @@
             functions,
             pointers,
             and memory management.</p>
-          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">20
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">200+
               Questions</span><span
               class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium">Advanced</span>
           </div>
@@ -594,7 +594,7 @@
           <p class="text-slate-600 dark:text-slate-300 mb-4">Challenge yourself with C++programming concepts,
             memory management,
             and advanced syntax.</p>
-          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">12
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">120+
               Questions</span><span
               class="text-sm bg-gray-100 text-gray-800 px-3 py-1 rounded-full font-medium">Advanced</span>
           </div>
@@ -612,7 +612,7 @@
             functions,
             data analysis,
             and advanced spreadsheet techniques.</p>
-          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">60
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">60+
               Questions</span><span
               class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full font-medium">Beginner to
               Advanced</span></div>
@@ -630,15 +630,13 @@
             Internet,
             Digital Literacy,
             and Computer Fundamentals.</p>
-          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">150
+          <div class="flex justify-between items-center"><span class="text-sm text-slate-500">300+
               Questions</span><span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-medium">Basic
               to
               Expert</span></div>
         </div>
       </div>
-      <div class="text-center"><button id="select-language-btn"
-          class="px-10 py-4 rounded-xl gradient-bg text-white font-bold text-lg hover:opacity-90 transition-all transform hover:scale-105 shadow-lg pulse-animation opacity-50 cursor-not-allowed"
-          disabled>Select Language to Continue </button></div>
+      <!-- Immediate Action: Clicking card will progress directly -->
     </div>
     <!-- Difficulty Selection Section -->
     <div id="difficulty-selection" class="max-w-3xl mx-auto hidden">
@@ -751,8 +749,10 @@
               <p id="quiz-description" class="text-slate-400 font-sans mt-1"></p>
             </div>
             <div class="text-right">
-              <div class="text-xs text-slate-500 uppercase tracking-widest font-bold">Question</div>
-              <div id="question-counter" class="text-2xl font-heading font-bold text-white"></div>
+              <div class="text-xs text-slate-500 uppercase tracking-widest font-bold mb-1">Challenge Status</div>
+              <div id="question-counter"
+                class="text-2xl font-heading font-bold text-white bg-white/5 px-4 py-1 rounded-lg border border-white/10">
+              </div>
             </div>
           </div>
           <!-- Progress Bar -->
@@ -776,8 +776,8 @@
           <!-- Quiz Controls -->
           <div class="flex flex-col sm:flex-row justify-between items-center gap-6 pt-8 border-t border-white/10">
             <div id="timer"
-              class="px-6 py-3 rounded-xl bg-white/5 border border-white/10 flex items-center font-heading font-bold text-xl">
-              <i class="fas fa-clock mr-3 text-primary animate-pulse"></i>
+              class="px-6 py-3 rounded-xl bg-white/5 border border-white/10 flex items-center font-heading font-bold text-xl shadow-inner">
+              <i class="fas fa-bolt mr-3 text-yellow-400 animate-pulse"></i>
               <span id="time-display" class="tabular-nums">00:00</span>
             </div>
             <div class="w-full sm:w-auto flex gap-4">
@@ -1346,52 +1346,13 @@
         // Remove selected class from all cards
         languageCards.forEach(c => c.classList.remove('selected'));
 
-        // Add selected class to clicked card
-        card.classList.add('selected');
-
-        // Enable the select button
-        selectLanguageBtn.disabled = false;
-        selectLanguageBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-
-        selectLanguageBtn.textContent = `Continue with ${card.querySelector('h3').textContent}`;
-
         // Store the selected language
         selectedLanguage = card.getAttribute('data-language');
-      });
 
-      // Show progress indicator on language cards
-      const language = card.getAttribute('data-language');
-      const progress = getProgress(language);
-      let progressText = '';
-
-      if (progress.advanced) {
-        progressText = '🏆 3/3 Complete';
-      }
-
-      else if (progress.intermediate) {
-        progressText = '✅ 2/3 Complete';
-      }
-
-      else if (progress.basic) {
-        progressText = '✨ 1/3 Complete';
-      }
-
-      if (progressText) {
-        const badge = document.createElement('div');
-        badge.className = 'absolute top-2 right-2 text-xs bg-green-500 text-white px-2 py-1 rounded-full font-bold';
-        badge.textContent = progressText;
-        card.style.position = 'relative';
-        card.appendChild(badge);
-      }
-    });
-
-    // Select Language Button
-    selectLanguageBtn.addEventListener('click', () => {
-      if (selectedLanguage) {
-        // Update difficulty cards based on progress
+        // IMMEDIATE PROGRESSION: Move to difficulty selection
         updateDifficultyCards(selectedLanguage);
         showSection('difficulty-selection');
-      }
+      });
     });
 
     // Back to Language Selection
@@ -1576,6 +1537,17 @@
         isCorrect: isCorrect,
         explanation: question.explanation
       });
+
+      // Automatic progression
+      setTimeout(() => {
+        if (currentQuestionIndex === quiz.questions.length - 1) {
+          quizEndTime = new Date();
+          showResults();
+        } else {
+          currentQuestionIndex++;
+          loadQuestion();
+        }
+      }, 1000); // 1-second delay to show feedback
     }
 
     // Next Question

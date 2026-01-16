@@ -1,0 +1,227 @@
+{
+    "title": "CCC Basic Quiz - Computer Fundamentals",
+    "description": "Essential computer concepts, hardware, software, and basic digital literacy",
+    "difficulty": "basic",
+    "questions": [
+        {
+            "question": "Who is known as the Father of Computer?",
+            "options": [
+                "Alan Turing",
+                "Charles Babbage",
+                "Bill Gates",
+                "Steve Jobs"
+            ],
+            "correct": 1,
+            "explanation": "Charles Babbage is considered the Father of Computer for his concept of the Analytical Engine."
+        },
+        {
+            "question": "What is the full form of RAM?",
+            "options": [
+                "Read Access Memory",
+                "Random Access Memory",
+                "Run Access Memory",
+                "Real Access Memory"
+            ],
+            "correct": 1,
+            "explanation": "RAM stands for Random Access Memory, which is the primary memory of a computer."
+        },
+        {
+            "question": "Which of the following is an input device?",
+            "options": [
+                "Monitor",
+                "Printer",
+                "Keyboard",
+                "Speaker"
+            ],
+            "correct": 2,
+            "explanation": "Keyboard is used to provide data and instructions to the computer."
+        },
+        {
+            "question": "1 Byte is equal to how many bits?",
+            "options": [
+                "4 bits",
+                "8 bits",
+                "16 bits",
+                "32 bits"
+            ],
+            "correct": 1,
+            "explanation": "1 Byte is a group of 8 bits."
+        },
+        {
+            "question": "What is the shortcut key for 'Paste'?",
+            "options": [
+                "Ctrl + P",
+                "Ctrl + C",
+                "Ctrl + V",
+                "Ctrl + X"
+            ],
+            "correct": 2,
+            "explanation": "Ctrl + V is used to paste the copied content."
+        },
+        {
+            "question": "Which is the brain of the computer?",
+            "options": [
+                "Monitor",
+                "CPU",
+                "Keyboard",
+                "Mouse"
+            ],
+            "correct": 1,
+            "explanation": "CPU (Central Processing Unit) performs all processing tasks."
+        },
+        {
+            "question": "What is the full form of ALU?",
+            "options": [
+                "Array Logic Unit",
+                "Arithmetic Logic Unit",
+                "Application Logic Unit",
+                "Area Logic Unit"
+            ],
+            "correct": 1,
+            "explanation": "ALU performs all arithmetic and logical operations in the CPU."
+        },
+        {
+            "question": "Which of the following is NOT an operating system?",
+            "options": [
+                "Windows",
+                "Linux",
+                "Oracle",
+                "DOS"
+            ],
+            "correct": 2,
+            "explanation": "Oracle is a database management system, not an operating system."
+        },
+        {
+            "question": "What is the temporary storage area for data in the CPU called?",
+            "options": [
+                "Registers",
+                "RAM",
+                "ROM",
+                "Hard Disk"
+            ],
+            "correct": 0,
+            "explanation": "Registers are small, fast storage areas used by the CPU during processing."
+        },
+        {
+            "question": "Which shortcut is used to close a window?",
+            "options": [
+                "Alt + F4",
+                "Ctrl + F4",
+                "Alt + C",
+                "Ctrl + W"
+            ],
+            "correct": 0,
+            "explanation": "Alt + F4 is the standard shortcut to close the active window in Windows."
+        },
+        {
+            "question": "What is the smallest unit of data in a computer?",
+            "options": [
+                "Byte",
+                "Nibble",
+                "Bit",
+                "Kilobyte"
+            ],
+            "correct": 2,
+            "explanation": "A Bit (Binary Digit) is the smallest unit of data (0 or 1)."
+        },
+        {
+            "question": "What is the shortcut key for 'Undo'?",
+            "options": [
+                "Ctrl + U",
+                "Ctrl + Z",
+                "Ctrl + Y",
+                "Ctrl + R"
+            ],
+            "correct": 1,
+            "explanation": "Ctrl + Z is the shortcut to undo the last action."
+        },
+        {
+            "question": "Which type of memory is volatile?",
+            "options": [
+                "ROM",
+                "RAM",
+                "Hard Disk",
+                "Pen Drive"
+            ],
+            "correct": 1,
+            "explanation": "RAM is volatile memory; its contents are lost when power is turned off."
+        },
+        {
+            "question": "What is the full form of WWW?",
+            "options": [
+                "World Wide Web",
+                "World Whole Web",
+                "Web World Wide",
+                "World Wide Word"
+            ],
+            "correct": 0,
+            "explanation": "WWW stands for World Wide Web."
+        },
+        {
+            "question": "Which of the following is a search engine?",
+            "options": [
+                "Google",
+                "Chrome",
+                "Firefox",
+                "WhatsApp"
+            ],
+            "correct": 0,
+            "explanation": "Google is a search engine, while Chrome and Firefox are web browsers."
+        },
+        {
+            "question": "What is the extension of a Notepad file?",
+            "options": [
+                ".docx",
+                ".xlsx",
+                ".txt",
+                ".pptx"
+            ],
+            "correct": 2,
+            "explanation": "Notepad files are saved with the .txt extension."
+        },
+        {
+            "question": "Which generation of computers used Microprocessors?",
+            "options": [
+                "First",
+                "Second",
+                "Third",
+                "Fourth"
+            ],
+            "correct": 3,
+            "explanation": "Fourth-generation computers introduced microprocessors."
+        },
+        {
+            "question": "What is the full form of HTTP?",
+            "options": [
+                "Hyper Text Transfer Protocol",
+                "Hyper Transfer Text Protocol",
+                "High Text Transfer Protocol",
+                "Hyper Text Total Protocol"
+            ],
+            "correct": 0,
+            "explanation": "HTTP stands for Hyper Text Transfer Protocol."
+        },
+        {
+            "question": "Which device is used for playing games on a computer?",
+            "options": [
+                "Joystick",
+                "Light Pen",
+                "Scanner",
+                "Printer"
+            ],
+            "correct": 0,
+            "explanation": "Joystick is a common input device for gaming."
+        },
+        {
+            "question": "What is the shortcut for 'Bold' text in MS Word?",
+            "options": [
+                "Ctrl + B",
+                "Ctrl + I",
+                "Ctrl + U",
+                "Ctrl + S"
+            ],
+            "correct": 0,
+            "explanation": "Ctrl + B is used to make text bold."
+        }
+    ]
+}
