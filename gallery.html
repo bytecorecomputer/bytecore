@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Gallery | ByteCore Computer Centre</title>
+    <meta name="description"
+        content="Explore our photo gallery showcasing events, celebrations, achievements, and classroom moments at ByteCore Computer Centre." />
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#a855f7',
+                        dark: '#0f172a',
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        /* Masonry Grid */
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 font-sans selection:bg-primary/30">
+
+    <!-- Page Header -->
+    <section
+        class="min-h-[40vh] flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-indigo-900 via-slate-900 to-black pt-20">
+        <div
+            class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <h1 class="text-4xl md:text-6xl font-heading font-bold text-white mb-6">
+                Photo <span
+                    class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">Gallery</span>
+            </h1>
+            <p class="text-xl text-indigo-200 max-w-2xl mx-auto">
+                Moments captured, memories treasured. Explore our journey through events, celebrations, and
+                achievements.
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="section-padding bg-white dark:bg-slate-950/50">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="filter-btn active px-6 py-3 rounded-xl font-bold transition-all" data-filter="all">
+                    <i class="fas fa-images mr-2"></i>All Photos
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-xl font-bold transition-all" data-filter="events">
+                    <i class="fas fa-calendar-alt mr-2"></i>Events
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-xl font-bold transition-all" data-filter="parties">
+                    <i class="fas fa-birthday-cake mr-2"></i>Celebrations
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-xl font-bold transition-all" data-filter="classes">
+                    <i class="fas fa-chalkboard-teacher mr-2"></i>Classes
+                </button>
+                <button class="filter-btn px-6 py-3 rounded-xl font-bold transition-all" data-filter="achievements">
+                    <i class="fas fa-trophy mr-2"></i>Achievements
+                </button>
+            </div>
+
+            <!-- Gallery Grid (Masonry) -->
+            <div class="masonry-grid" id="gallery-container">
+                <!-- Gallery items will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="absolute top-6 right-6 text-white text-4xl hover:text-indigo-400 transition-colors"
+            onclick="closeLightbox()">
+            <i class="fas fa-times"></i>
+        </button>
+        <button
+            class="absolute left-6 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-indigo-400 transition-colors"
+            onclick="previousImage()">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button
+            class="absolute right-6 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-indigo-400 transition-colors"
+            onclick="nextImage()">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="">
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-center">
+            <h3 class="text-2xl font-bold mb-2" id="lightbox-title"></h3>
+            <p class="text-indigo-300" id="lightbox-date"></p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/site-components.js"></script>
+    <script>
+        // Gallery Data (Replace with your actual images)
+        const galleryData = [
+            {
+                id: 1,
+                url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop',
+                title: 'Annual Tech Fest 2024',
+                category: 'events',
+                date: 'January 15, 2024'
+            },
+            {
+                id: 2,
+                url: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&auto=format&fit=crop',
+                title: 'Python Workshop',
+                category: 'classes',
+                date: 'December 10, 2023'
+            },
+            {
+                id: 3,
+                url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop',
+                title: 'New Year Celebration',
+                category: 'parties',
+                date: 'January 1, 2024'
+            },
+            {
+                id: 4,
+                url: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&auto=format&fit=crop',
+                title: 'Certificate Distribution',
+                category: 'achievements',
+                date: 'November 20, 2023'
+            },
+            {
+                id: 5,
+                url: 'https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=800&auto=format&fit=crop',
+                title: 'Coding Competition',
+                category: 'events',
+                date: 'October 5, 2023'
+            },
+            {
+                id: 6,
+                url: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&auto=format&fit=crop',
+                title: 'Web Development Class',
+                category: 'classes',
+                date: 'September 15, 2023'
+            },
+            {
+                id: 7,
+                url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop',
+                title: 'Teacher\'s Day Celebration',
+                category: 'parties',
+                date: 'September 5, 2023'
+            },
+            {
+                id: 8,
+                url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop',
+                title: 'Team Project Presentation',
+                category: 'achievements',
+                date: 'August 25, 2023'
+            }
+        ];
+
+        let currentImageIndex = 0;
+        let filteredGallery = [...galleryData];
+
+        // Render Gallery
+        function renderGallery(filter = 'all') {
+            filteredGallery = filter === 'all' ? [...galleryData] : galleryData.filter(item => item.category === filter);
+            const container = document.getElementById('gallery-container');
+            container.innerHTML = '';
+
+            filteredGallery.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'masonry-item';
+                div.innerHTML = `
+                    <div class="gallery-item" onclick="openLightbox(${index})">
+                        <img src="${item.url}" alt="${item.title}" class="w-full h-full object-cover">
+                        <div class="gallery-overlay">
+                            <h3 class="text-white font-bold text-lg mb-1">${item.title}</h3>
+                            <p class="text-indigo-300 text-sm"><i class="far fa-calendar mr-2"></i>${item.date}</p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Filter Functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.classList.remove('active', 'bg-gradient-to-r', 'from-indigo-500', 'to-purple-500', 'text-white', 'shadow-lg');
+                    b.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                });
+                this.classList.add('active', 'bg-gradient-to-r', 'from-indigo-500', 'to-purple-500', 'text-white', 'shadow-lg');
+                this.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                renderGallery(this.dataset.filter);
+            });
+        });
+
+        // Lightbox Functions
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const item = filteredGallery[index];
+            document.getElementById('lightbox-img').src = item.url;
+            document.getElementById('lightbox-title').textContent = item.title;
+            document.getElementById('lightbox-date').textContent = item.date;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % filteredGallery.length;
+            openLightbox(currentImageIndex);
+        }
+
+        function previousImage() {
+            currentImageIndex = (currentImageIndex - 1 + filteredGallery.length) % filteredGallery.length;
+            openLightbox(currentImageIndex);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('lightbox').classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') previousImage();
+            }
+        });
+
+        // Initialize with default filter button styles
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            if (!btn.classList.contains('active')) {
+                btn.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+            } else {
+                btn.classList.add('bg-gradient-to-r', 'from-indigo-500', 'to-purple-500', 'text-white', 'shadow-lg');
+            }
+        });
+
+        // Initial render
+        renderGallery();
+    </script>
+</body>
+
+</html>
