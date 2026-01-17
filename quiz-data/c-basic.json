@@ -5,124 +5,608 @@
   "questions": [
     {
       "question": "Which header file should be included for printf() and scanf() functions?",
-      "options": ["#include <stdio.h>", "#include <stdlib.h>", "#include <string.h>", "#include <math.h>"],
+      "options": [
+        "#include <stdio.h>",
+        "#include <stdlib.h>",
+        "#include <string.h>",
+        "#include <math.h>"
+      ],
       "correct": 0,
       "explanation": "stdio.h (Standard Input Output) contains printf() and scanf() functions."
     },
     {
       "question": "What is the size of 'int' data type in C?",
-      "options": ["2 bytes", "4 bytes", "It depends on the system", "8 bytes"],
+      "options": [
+        "2 bytes",
+        "4 bytes",
+        "It depends on the system",
+        "8 bytes"
+      ],
       "correct": 2,
       "explanation": "The size of int is implementation-dependent, typically 2 or 4 bytes depending on the system."
     },
     {
       "question": "Which symbol is used to print an address in C?",
-      "options": ["%p", "%x", "%d", "%a"],
+      "options": [
+        "%p",
+        "%x",
+        "%d",
+        "%a"
+      ],
       "correct": 0,
       "explanation": "%p is used to print pointers/addresses in C."
     },
     {
       "question": "What will be the output of: int x = 5; printf(\"%d\", x++);",
-      "options": ["5", "6", "4", "Error"],
+      "options": [
+        "5",
+        "6",
+        "4",
+        "Error"
+      ],
       "correct": 0,
       "explanation": "Post-increment operator returns the value first, then increments. So it prints 5."
     },
     {
       "question": "Which operator is used for modulo operation in C?",
-      "options": ["MOD", "%", "/", "&"],
+      "options": [
+        "MOD",
+        "%",
+        "/",
+        "&"
+      ],
       "correct": 1,
       "explanation": "% operator is used for modulo (remainder) operation in C."
     },
     {
       "question": "What is the correct syntax to declare a variable in C?",
-      "options": ["int x = 10;", "declare int x = 10;", "variable int x = 10;", "var x = 10;"],
+      "options": [
+        "int x = 10;",
+        "declare int x = 10;",
+        "variable int x = 10;",
+        "var x = 10;"
+      ],
       "correct": 0,
       "explanation": "In C, you declare variables using 'data_type variable_name = value;'"
     },
     {
       "question": "Which of these is NOT a valid identifier name?",
-      "options": ["myVar", "my_var123", "_value", "123variable"],
+      "options": [
+        "myVar",
+        "my_var123",
+        "_value",
+        "123variable"
+      ],
       "correct": 3,
       "explanation": "Variable names cannot start with a number in C."
     },
     {
+      "question": "Who is the father of C language?",
+      "options": [
+        "Steve Jobs",
+        "James Gosling",
+        "Dennis Ritchie",
+        "Rasmus Lerdorf"
+      ],
+      "correct": 2,
+      "explanation": "Dennis Ritchie developed the C programming language at AT&T Bell Laboratories in 1972."
+    },
+    {
+      "question": "Which operator is used to get the address of a variable?",
+      "options": [
+        "*",
+        "&",
+        "@",
+        "%"
+      ],
+      "correct": 1,
+      "explanation": "The & operator returns the memory address of its operand."
+    },
+    {
+      "question": "Which of these is the correct way to declare a pointer?",
+      "options": [
+        "int ptr;",
+        "int *ptr;",
+        "ptr int;",
+        "*int ptr;"
+      ],
+      "correct": 1,
+      "explanation": "The * symbol is used to declare a pointer variable."
+    },
+    {
+      "question": "What is the correct way to include a standard header file?",
+      "options": [
+        "#include <stdio.h>",
+        "#include \"stdio.h\"",
+        "include stdio.h",
+        "#include {stdio.h}"
+      ],
+      "correct": 0,
+      "explanation": "Standard library header files are included using angle brackets <>."
+    },
+    {
+      "question": "Which function is used to output a character to the screen?",
+      "options": [
+        "printf()",
+        "putchar()",
+        "scanf()",
+        "puts()"
+      ],
+      "correct": 1,
+      "explanation": "putchar() is a standard function that writes a single character to the standard output."
+    },
+    {
+      "question": "What is the escape sequence for a newline?",
+      "options": [
+        "\\n",
+        "\\t",
+        "\\r",
+        "\\v"
+      ],
+      "correct": 0,
+      "explanation": "\\n is the escape sequence for a newline character."
+    },
+    {
+      "question": "Which function is used to read formatted input from the keyboard?",
+      "options": [
+        "readf()",
+        "scanf()",
+        "input()",
+        "getf()"
+      ],
+      "correct": 1,
+      "explanation": "scanf() reads formatted data from the standard input."
+    },
+    {
+      "question": "What is the range of a signed char in C?",
+      "options": [
+        "0 to 255",
+        "-128 to 127",
+        "-2^15 to 2^15-1",
+        "0 to 65535"
+      ],
+      "correct": 1,
+      "explanation": "A signed char typically occupies 1 byte, representing values from -128 to 127."
+    },
+    {
+      "question": "Which of these is used to find the size of a data type?",
+      "options": [
+        "size()",
+        "sizeof()",
+        "len()",
+        "bits()"
+      ],
+      "correct": 1,
+      "explanation": "The sizeof operator returns the size in bytes of a data type or object."
+    },
+    {
+      "question": "Which keyword is used to return a value from a function?",
+      "options": [
+        "back",
+        "return",
+        "exit",
+        "yield"
+      ],
+      "correct": 1,
+      "explanation": "The 'return' statement terminates a function and returns a value to the caller."
+    },
+    {
+      "question": "What is the output of 5 / 2 in C?",
+      "options": [
+        "2.5",
+        "2",
+        "3",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "In C, integer division truncates the decimal part, so 5 / 2 is 2."
+    },
+    {
+      "question": "Which of these is the modulo operator?",
+      "options": [
+        "/",
+        "\\",
+        "%",
+        "mod"
+      ],
+      "correct": 2,
+      "explanation": "The % operator returns the remainder of a division."
+    },
+    {
+      "question": "How do you start a multi-line comment in C?",
+      "options": [
+        "//",
+        "/*",
+        "'''",
+        "<!--"
+      ],
+      "correct": 1,
+      "explanation": "/* begins a comment that ends with */."
+    },
+    {
+      "question": "Is C a case-sensitive language?",
+      "options": [
+        "Yes",
+        "No",
+        "Depends on the compiler",
+        "Only for strings"
+      ],
+      "correct": 0,
+      "explanation": "Yes, C is case-sensitive, meaning 'MyVar' and 'myvar' are different."
+    },
+    {
+      "question": "Which of these is a valid variable name in C?",
+      "options": [
+        "2var",
+        "my var",
+        "my_var",
+        "my-var"
+      ],
+      "correct": 2,
+      "explanation": "Variable names can contain letters, numbers, and underscores, but cannot start with a number or contain spaces/hyphens."
+    },
+    {
+      "question": "Which keyword is used for decision making?",
+      "options": [
+        "choose",
+        "pick",
+        "if",
+        "select"
+      ],
+      "correct": 2,
+      "explanation": "The 'if' statement is used for conditional branching."
+    },
+    {
+      "question": "What does 'break' do in a loop?",
+      "options": [
+        "Slows down the loop",
+        "Exits the loop",
+        "Starts the loop over",
+        "Crashes the program"
+      ],
+      "correct": 1,
+      "explanation": "The 'break' statement immediately terminates the loop."
+    },
+    {
+      "question": "What is the purpose of 'continue'?",
+      "options": [
+        "Exits the loop",
+        "Skips the current iteration",
+        "Pauses the loop",
+        "Ends the function"
+      ],
+      "correct": 1,
+      "explanation": "The 'continue' statement skips the remaining code in the current iteration and jumps to the next one."
+    },
+    {
+      "question": "Which data type is used for True/False values in C99?",
+      "options": [
+        "bool",
+        "_Bool",
+        "boolean",
+        "int"
+      ],
+      "correct": 1,
+      "explanation": "C99 introduced the _Bool type (usually mapped to 'bool' via stdbool.h)."
+    },
+    {
+      "question": "How do you declare an array of 5 integers?",
+      "options": [
+        "int arr(5);",
+        "int arr[5];",
+        "integer arr[5];",
+        "int[5] arr;"
+      ],
+      "correct": 1,
+      "explanation": "Square brackets [] are used for array declaration in C."
+    },
+    {
+      "question": "What is the index of the first element in an array?",
+      "options": [
+        "1",
+        "0",
+        "-1",
+        "Depends on the size"
+      ],
+      "correct": 1,
+      "explanation": "Arrays in C are zero-indexed."
+    },
+    {
+      "question": "Which function is used to free dynamically allocated memory?",
+      "options": [
+        "delete()",
+        "free()",
+        "remove()",
+        "clear()"
+      ],
+      "correct": 1,
+      "explanation": "The free() function deallocates memory that was previously allocated by malloc(), calloc(), or realloc()."
+    },
+    {
+      "question": "Which operator is used to access members of a structure using a pointer?",
+      "options": [
+        ".",
+        "->",
+        "&",
+        "*"
+      ],
+      "correct": 1,
+      "explanation": "The arrow operator (->) is used to access structure members through a pointer."
+    },
+    {
+      "question": "What does a 'float' data type occupy?",
+      "options": [
+        "1 byte",
+        "2 bytes",
+        "4 bytes",
+        "8 bytes"
+      ],
+      "correct": 2,
+      "explanation": "On most standard systems, a float occupies 4 bytes of memory."
+    },
+    {
+      "question": "Which keyword is used to define a constant in C?",
+      "options": [
+        "const",
+        "define",
+        "immutable",
+        "final"
+      ],
+      "correct": 0,
+      "explanation": "The 'const' keyword qualifies a variable as read-only."
+    },
+    {
+      "question": "What is the purpose of the 'default' case in a switch statement?",
+      "options": [
+        "It's always executed",
+        "It's executed if no other case matches",
+        "It's required to end the switch",
+        "None of the above"
+      ],
+      "correct": 1,
+      "explanation": "The default block is executed if none of the explicit case values match the switch expression."
+    },
+    {
+      "question": "What is the output of printf(\"%d\", 'A');?",
+      "options": [
+        "A",
+        "65",
+        "Error",
+        "None"
+      ],
+      "correct": 1,
+      "explanation": "Characters are represented by their ASCII values. 'A' is 65."
+    },
+    {
+      "question": "Which of these is NOT a bitwise operator?",
+      "options": [
+        "&",
+        "|",
+        "&&",
+        "^"
+      ],
+      "correct": 2,
+      "explanation": "&& is a logical AND operator, while &, |, and ^ are bitwise operators."
+    },
+    {
+      "question": "What does 'NULL' represent in pointers?",
+      "options": [
+        "Zero address",
+        "Last address",
+        "Negative address",
+        "A random address"
+      ],
+      "correct": 0,
+      "explanation": "A NULL pointer is a pointer that points to nothing (address 0)."
+    },
+    {
+      "question": "Which storage class has the fastest access time?",
+      "options": [
+        "auto",
+        "static",
+        "register",
+        "extern"
+      ],
+      "correct": 2,
+      "explanation": "The 'register' storage class suggests the compiler to store the variable in a CPU register instead of RAM."
+    },
+    {
+      "question": "How do you find the length of a string in C?",
+      "options": [
+        "len(str)",
+        "str.length",
+        "strlen(str)",
+        "sizeof(str)"
+      ],
+      "correct": 2,
+      "explanation": "The strlen() function from string.h returns the number of characters in a string (excluding the null terminator)."
+    },
+    {
+      "question": "What is the null character used to end strings in C?",
+      "options": [
+        "\\n",
+        "\\0",
+        "\\t",
+        "\\r"
+      ],
+      "correct": 1,
+      "explanation": "\\0 (null terminator) is used to mark the end of a string in C."
+    },
+    {
+      "question": "What is the result of 'true || false' in C?",
+      "options": [
+        "1",
+        "0",
+        "true",
+        "Error"
+      ],
+      "correct": 0,
+      "explanation": "In logical contexts, true is treated as 1 and false as 0. OR returns 1 if either is true."
+    },
+    {
+      "question": "Which keyword is used to define a union?",
+      "options": [
+        "struct",
+        "enum",
+        "union",
+        "typedef"
+      ],
+      "correct": 2,
+      "explanation": "The 'union' keyword declares a union type."
+    },
+    {
+      "question": "Which of these translates C code into machine language?",
+      "options": [
+        "Interpreter",
+        "Compiler",
+        "Linker",
+        "Loader"
+      ],
+      "correct": 1,
+      "explanation": "A compiler translates high-level code like C into low-level machine code."
+    },
+    {
       "question": "What is the return type of printf() function?",
-      "options": ["void", "int", "char", "float"],
+      "options": [
+        "void",
+        "int",
+        "char",
+        "float"
+      ],
       "correct": 1,
       "explanation": "printf() returns an integer representing the number of characters printed."
     },
     {
       "question": "Which operator is used to get the address of a variable?",
-      "options": ["*", "&", "@", "$"],
+      "options": [
+        "*",
+        "&",
+        "@",
+        "$"
+      ],
       "correct": 1,
       "explanation": "& (ampersand) operator is used to get the address of a variable."
     },
     {
       "question": "What will be the output: printf(\"%f\", 5/2);",
-      "options": ["2.5", "2.000000", "2", "Error"],
+      "options": [
+        "2.5",
+        "2.000000",
+        "2",
+        "Error"
+      ],
       "correct": 1,
       "explanation": "Integer division (5/2) gives 2, which is converted to 2.000000 when printed with %f."
     },
     {
       "question": "Which keyword is used to define a constant in C?",
-      "options": ["define", "const", "constant", "final"],
+      "options": [
+        "define",
+        "const",
+        "constant",
+        "final"
+      ],
       "correct": 1,
       "explanation": "'const' keyword is used to define constants in C."
     },
     {
       "question": "What does 'void' keyword mean in C?",
-      "options": ["Error", "No return type", "Empty value", "Null value"],
+      "options": [
+        "Error",
+        "No return type",
+        "Empty value",
+        "Null value"
+      ],
       "correct": 1,
       "explanation": "void means no data type or no return type."
     },
     {
       "question": "Which of these is a valid way to initialize an array in C?",
-      "options": ["int arr[5] = {1,2,3,4,5};", "int arr[] = 1,2,3;", "int arr = [1,2,3];", "array arr = {1,2,3};"],
+      "options": [
+        "int arr[5] = {1,2,3,4,5};",
+        "int arr[] = 1,2,3;",
+        "int arr = [1,2,3];",
+        "array arr = {1,2,3};"
+      ],
       "correct": 0,
       "explanation": "Arrays are initialized using curly braces: int arr[5] = {1,2,3,4,5};"
     },
     {
       "question": "What is the correct syntax for a for loop in C?",
-      "options": ["for(int i=0; i<10; i++)", "for i in range(10)", "for(int i=0; i<10)", "loop i = 0 to 10"],
+      "options": [
+        "for(int i=0; i<10; i++)",
+        "for i in range(10)",
+        "for(int i=0; i<10)",
+        "loop i = 0 to 10"
+      ],
       "correct": 0,
       "explanation": "for loop syntax: for(initialization; condition; increment)"
     },
     {
       "question": "Which function is used to read a string from user in C?",
-      "options": ["read()", "fgets() or scanf()", "input()", "getline()"],
+      "options": [
+        "read()",
+        "fgets() or scanf()",
+        "input()",
+        "getline()"
+      ],
       "correct": 1,
       "explanation": "fgets() and scanf() are used to read strings in C."
     },
     {
       "question": "What will be the output: char ch = 'A'; printf(\"%c\", ch+1);",
-      "options": ["A", "B", "66", "Error"],
+      "options": [
+        "A",
+        "B",
+        "66",
+        "Error"
+      ],
       "correct": 1,
       "explanation": "Adding 1 to 'A' (ASCII 65) gives 'B' (ASCII 66)."
     },
     {
       "question": "Which operator is used to compare two values for equality?",
-      "options": ["=", "==", "===", ".equals()"],
+      "options": [
+        "=",
+        "==",
+        "===",
+        ".equals()"
+      ],
       "correct": 1,
       "explanation": "== (double equals) is used for comparison, = is assignment."
     },
     {
       "question": "What is the purpose of break statement?",
-      "options": ["End the program", "Exit a loop or switch", "Skip one iteration", "Continue to next statement"],
+      "options": [
+        "End the program",
+        "Exit a loop or switch",
+        "Skip one iteration",
+        "Continue to next statement"
+      ],
       "correct": 1,
       "explanation": "break statement exits the current loop or switch case."
     },
     {
       "question": "What will be the size of array int arr[10];",
-      "options": ["10 bytes", "20 bytes", "40 bytes", "Depends on system"],
+      "options": [
+        "10 bytes",
+        "20 bytes",
+        "40 bytes",
+        "Depends on system"
+      ],
       "correct": 3,
       "explanation": "Size depends on system - 40 bytes if int is 4 bytes, 20 if int is 2 bytes."
     },
     {
       "question": "What is a string in C?",
-      "options": ["Array of characters", "Primitive type", "Object", "Built-in class"],
+      "options": [
+        "Array of characters",
+        "Primitive type",
+        "Object",
+        "Built-in class"
+      ],
       "correct": 0,
       "explanation": "In C, a string is an array of characters terminated by null character."
     }
   ]
 }
-

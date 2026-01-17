@@ -80,9 +80,9 @@
                             Empowering the next generation of tech leaders with industry-standard computer education since 2010.
                         </p>
                         <div class="social-links">
-                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/bytecorecomputercentre/" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
                             <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.instagram.com/bytecore_computer_centre/?hl=en" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
                             <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>

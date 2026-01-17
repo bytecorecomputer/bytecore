@@ -5,124 +5,608 @@
   "questions": [
     {
       "question": "What is NOT a primitive data type in Java?",
-      "options": ["int", "String", "boolean", "double"],
+      "options": [
+        "int",
+        "String",
+        "boolean",
+        "double"
+      ],
       "correct": 1,
       "explanation": "String is a class in Java, not primitive. Primitives: byte, short, int, long, float, double, char, boolean."
     },
     {
+      "question": "Who invented Java Programming?",
+      "options": [
+        "Guido van Rossum",
+        "James Gosling",
+        "Dennis Ritchie",
+        "Bjarne Stroustrup"
+      ],
+      "correct": 1,
+      "explanation": "James Gosling invented Java while working at Sun Microsystems."
+    },
+    {
+      "question": "Which component of Java is responsible for running the compiled bytecode?",
+      "options": [
+        "JDK",
+        "JRE",
+        "JVM",
+        "JIT"
+      ],
+      "correct": 2,
+      "explanation": "JVM (Java Virtual Machine) is an abstract machine that provides a runtime environment in which Java bytecode can be executed."
+    },
+    {
+      "question": "What is the correct syntax to output 'Hello World' in Java?",
+      "options": [
+        "print('Hello World');",
+        "System.out.println('Hello World');",
+        "Console.WriteLine('Hello World');",
+        "echo('Hello World');"
+      ],
+      "correct": 1,
+      "explanation": "System.out.println() is the standard method to print data to the console in Java."
+    },
+    {
+      "question": "Java is short for 'JavaScript'.",
+      "options": [
+        "True",
+        "False",
+        "None",
+        "Both are same"
+      ],
+      "correct": 1,
+      "explanation": "Java and JavaScript are two completely different languages."
+    },
+    {
+      "question": "How do you insert comments in Java code?",
+      "options": [
+        "# This is a comment",
+        "/* This is a comment",
+        "// This is a comment",
+        "<!-- This is a comment -->"
+      ],
+      "correct": 2,
+      "explanation": "// is used for single-line comments in Java."
+    },
+    {
+      "question": "Which data type is used to create a variable that should store text?",
+      "options": [
+        "myString",
+        "string",
+        "String",
+        "Txt"
+      ],
+      "correct": 2,
+      "explanation": "String is a class in Java used to represent a sequence of characters."
+    },
+    {
+      "question": "How do you create a variable with the numeric value 5?",
+      "options": [
+        "num x = 5;",
+        "float x = 5;",
+        "int x = 5;",
+        "x = 5;"
+      ],
+      "correct": 2,
+      "explanation": "int is the standard data type for integers in Java."
+    },
+    {
+      "question": "How do you create a variable with the floating point number 2.8?",
+      "options": [
+        "int x = 2.8;",
+        "byte x = 2.8;",
+        "float x = 2.8f;",
+        "num x = 2.8;"
+      ],
+      "correct": 2,
+      "explanation": "float (with the 'f' suffix) or double can be used for decimal numbers."
+    },
+    {
+      "question": "Which method can be used to find the length of a string?",
+      "options": [
+        "getSize()",
+        "length()",
+        "len()",
+        "getLength()"
+      ],
+      "correct": 1,
+      "explanation": "The length() method returns the number of characters in a string."
+    },
+    {
+      "question": "Which operator is used to add together two values?",
+      "options": [
+        "The * sign",
+        "The + sign",
+        "The & sign",
+        "The ADD sign"
+      ],
+      "correct": 1,
+      "explanation": "The + operator performs addition for numbers and concatenation for strings."
+    },
+    {
+      "question": "The value of a string variable can be surrounded by single quotes.",
+      "options": [
+        "True",
+        "False",
+        "None",
+        "Both are correct"
+      ],
+      "correct": 1,
+      "explanation": "In Java, String literals must be enclosed in double quotes. Single quotes are for char literals."
+    },
+    {
+      "question": "Which operator can be used to compare two values?",
+      "options": [
+        "=",
+        "<>",
+        "==",
+        "><"
+      ],
+      "correct": 2,
+      "explanation": "== is the comparison operator for equality."
+    },
+    {
+      "question": "To declare an array in Java, define the variable type with:",
+      "options": [
+        "()",
+        "{}",
+        "[]",
+        "<>"
+      ],
+      "correct": 2,
+      "explanation": "Square brackets [] are used to declare arrays in Java."
+    },
+    {
+      "question": "Array indexes start with:",
+      "options": [
+        "0",
+        "1",
+        "-1",
+        "Depends"
+      ],
+      "correct": 0,
+      "explanation": "Java arrays are zero-indexed."
+    },
+    {
+      "question": "How do you create a method in Java?",
+      "options": [
+        "methodName().",
+        "methodName()",
+        "methodName[]",
+        "(methodName)"
+      ],
+      "correct": 1,
+      "explanation": "Methods are defined as methodName() followed by a block of code."
+    },
+    {
+      "question": "How do you call a method in Java?",
+      "options": [
+        "(methodName);",
+        "methodName[];",
+        "methodName();",
+        "methodName;"
+      ],
+      "correct": 2,
+      "explanation": "You call a method by its name followed by parentheses."
+    },
+    {
+      "question": "Which keyword is used to create a class in Java?",
+      "options": [
+        "class",
+        "className",
+        "MyClass",
+        "struct"
+      ],
+      "correct": 0,
+      "explanation": "The 'class' keyword is used to start a class definition."
+    },
+    {
+      "question": "What is the correct way to create an object called myObj of MyClass?",
+      "options": [
+        "class myObj = new MyClass();",
+        "MyClass myObj = new MyClass();",
+        "new myObj = MyClass();",
+        "Object myObj = new MyClass();"
+      ],
+      "correct": 1,
+      "explanation": "Objects are instantiated using the 'new' keyword with the class constructor."
+    },
+    {
+      "question": "Which method can be used to return a string in upper case letters?",
+      "options": [
+        "upperCase()",
+        "tostring()",
+        "toUpperCase()",
+        "touppercase()"
+      ],
+      "correct": 2,
+      "explanation": "toUpperCase() converts all characters in a string to uppercase."
+    },
+    {
+      "question": "Which operator is used to multiply numbers?",
+      "options": [
+        "%",
+        "x",
+        "*",
+        "#"
+      ],
+      "correct": 2,
+      "explanation": "The * operator is used for multiplication."
+    },
+    {
+      "question": "How do you start writing an if-statement in Java?",
+      "options": [
+        "if x > y then:",
+        "if (x > y)",
+        "if x > y:",
+        "if x > y then"
+      ],
+      "correct": 1,
+      "explanation": "Java if-statements require parentheses around the condition."
+    },
+    {
+      "question": "How do you start writing a while-loop in Java?",
+      "options": [
+        "while (x > y)",
+        "while x > y:",
+        "while x > y {",
+        "x > y while"
+      ],
+      "correct": 0,
+      "explanation": "A while loop syntax uses the keyword while followed by a condition in parentheses."
+    },
+    {
+      "question": "Which keyword is used to return a value inside a method?",
+      "options": [
+        "break",
+        "void",
+        "return",
+        "exit"
+      ],
+      "correct": 2,
+      "explanation": "The 'return' keyword sends a result back to the caller."
+    },
+    {
+      "question": "Which keyword is used to import a package from the Java API library?",
+      "options": [
+        "include",
+        "get",
+        "import",
+        "package"
+      ],
+      "correct": 2,
+      "explanation": "The 'import' statement is used to bring other classes into the current file."
+    },
+    {
+      "question": "What is the correct way to inherit a class in Java?",
+      "options": [
+        "class MyClass inherits OtherClass",
+        "class MyClass extends OtherClass",
+        "class MyClass : OtherClass",
+        "class MyClass implements OtherClass"
+      ],
+      "correct": 1,
+      "explanation": "'extends' is the keyword for class inheritance."
+    },
+    {
+      "question": "Which keyword is used to define an interface in Java?",
+      "options": [
+        "interface",
+        "extends",
+        "abstract",
+        "implements"
+      ],
+      "correct": 0,
+      "explanation": "The 'interface' keyword is used to declare an interface."
+    },
+    {
+      "question": "What is the size of an int in Java?",
+      "options": [
+        "16 bits",
+        "32 bits",
+        "64 bits",
+        "8 bits"
+      ],
+      "correct": 1,
+      "explanation": "In Java, an int is a 32-bit signed two's complement integer."
+    },
+    {
+      "question": "Which of these is NOT a wrapper class in Java?",
+      "options": [
+        "Integer",
+        "String",
+        "Character",
+        "Boolean"
+      ],
+      "correct": 1,
+      "explanation": "String is its own class, but not a 'wrapper' for a primitive (unlike Integer for int)."
+    },
+    {
+      "question": "Which collection stores elements in key-value pairs?",
+      "options": [
+        "ArrayList",
+        "LinkedList",
+        "HashMap",
+        "HashSet"
+      ],
+      "correct": 2,
+      "explanation": "HashMap stores data as Key-Value pairs."
+    },
+    {
+      "question": "What is 'Autoboxing' in Java?",
+      "options": [
+        "Automatic packing of boxes",
+        "Automatic conversion of primitive types to their wrapper classes",
+        "A type of loop",
+        "None"
+      ],
+      "correct": 1,
+      "explanation": "Autoboxing is the automatic conversion that the Java compiler makes between the primitive types and their corresponding object wrapper classes."
+    },
+    {
+      "question": "Which keyword is used to handle exceptions?",
+      "options": [
+        "catch",
+        "except",
+        "error",
+        "fault"
+      ],
+      "correct": 0,
+      "explanation": "Java uses try...catch blocks to handle potential errors."
+    },
+    {
+      "question": "Which of these is used for multi-threading?",
+      "options": [
+        "Thread class",
+        "Runnable interface",
+        "Both Thread and Runnable",
+        "Neither"
+      ],
+      "correct": 2,
+      "explanation": "Multi-threading can be achieved by extending the Thread class or implementing the Runnable interface."
+    },
+    {
+      "question": "What is the default value of a boolean variable in Java?",
+      "options": [
+        "true",
+        "false",
+        "0",
+        "null"
+      ],
+      "correct": 1,
+      "explanation": "The default value for a primitive boolean is false."
+    },
+    {
+      "question": "Which keyword makes a variable or method unchangeable?",
+      "options": [
+        "const",
+        "strict",
+        "final",
+        "static"
+      ],
+      "correct": 2,
+      "explanation": "The 'final' keyword makes variables constant, methods un-overridable, and classes un-inheritable."
+    },
+    {
+      "question": "What is the output of 10 % 3 in Java?",
+      "options": [
+        "3",
+        "1",
+        "0",
+        "0.33"
+      ],
+      "correct": 1,
+      "explanation": "% is the modulo operator; it returns the remainder of the division."
+    },
+    {
       "question": "What is the default value of boolean variable?",
-      "options": ["true", "false", "null", "0"],
+      "options": [
+        "true",
+        "false",
+        "null",
+        "0"
+      ],
       "correct": 1,
       "explanation": "Default value of boolean in Java is false."
     },
     {
       "question": "Which keyword is used for inheritance in Java?",
-      "options": ["inherits", "extends", "implements", "super"],
+      "options": [
+        "inherits",
+        "extends",
+        "implements",
+        "super"
+      ],
       "correct": 1,
       "explanation": "extends keyword is used for class inheritance, implements for interface implementation."
     },
     {
       "question": "What is the difference between == and .equals()?",
-      "options": ["Same", "== compares references, .equals() compares values", "Both compare values", "Error"],
+      "options": [
+        "Same",
+        "== compares references, .equals() compares values",
+        "Both compare values",
+        "Error"
+      ],
       "correct": 1,
       "explanation": "== compares references (addresses), .equals() compares values/content."
     },
     {
       "question": "What is an interface in Java?",
-      "options": ["Class", "Contract for implementing class", "Object", "Variable"],
+      "options": [
+        "Class",
+        "Contract for implementing class",
+        "Object",
+        "Variable"
+      ],
       "correct": 1,
       "explanation": "Interface is contract that specifies what methods implementing class must have."
     },
     {
       "question": "What is the purpose of 'public static void main(String[] args)'?",
-      "options": ["Entry point", "Main method - entry point of Java program", "Function", "Error"],
+      "options": [
+        "Entry point",
+        "Main method - entry point of Java program",
+        "Function",
+        "Error"
+      ],
       "correct": 1,
       "explanation": "main() is entry point - JVM calls this method to start program."
     },
     {
       "question": "What is an array in Java?",
-      "options": ["Collection", "Fixed-size collection of same type", "List", "Variable"],
+      "options": [
+        "Collection",
+        "Fixed-size collection of same type",
+        "List",
+        "Variable"
+      ],
       "correct": 1,
       "explanation": "Array is fixed-size collection of elements of same type."
     },
     {
       "question": "Which keyword prevents inheritance?",
-      "options": ["private", "final", "static", "protected"],
+      "options": [
+        "private",
+        "final",
+        "static",
+        "protected"
+      ],
       "correct": 1,
       "explanation": "final keyword prevents class from being extended (inherited)."
     },
     {
       "question": "What is the difference between String and StringBuilder?",
-      "options": ["Same", "String immutable, StringBuilder mutable", "Both mutable", "Error"],
+      "options": [
+        "Same",
+        "String immutable, StringBuilder mutable",
+        "Both mutable",
+        "Error"
+      ],
       "correct": 1,
       "explanation": "String is immutable, StringBuilder is mutable (can modify)."
     },
     {
       "question": "What is method overloading?",
-      "options": ["Same method name, different parameters", "Multiple methods", "Same parameters", "Error"],
+      "options": [
+        "Same method name, different parameters",
+        "Multiple methods",
+        "Same parameters",
+        "Error"
+      ],
       "correct": 0,
       "explanation": "Overloading is having multiple methods with same name but different parameters."
     },
     {
       "question": "What is constructor in Java?",
-      "options": ["Function", "Special method to initialize object", "Variable", "Object"],
+      "options": [
+        "Function",
+        "Special method to initialize object",
+        "Variable",
+        "Object"
+      ],
       "correct": 1,
       "explanation": "Constructor is special method called when object is created to initialize it."
     },
     {
       "question": "What does 'this' keyword refer to?",
-      "options": ["Current object", "Instance of current class", "Current context", "All of above"],
+      "options": [
+        "Current object",
+        "Instance of current class",
+        "Current context",
+        "All of above"
+      ],
       "correct": 3,
       "explanation": "'this' refers to current object instance of the class."
     },
     {
       "question": "What is exception in Java?",
-      "options": ["Error", "Runtime error", "Exception event", "All of above"],
+      "options": [
+        "Error",
+        "Runtime error",
+        "Exception event",
+        "All of above"
+      ],
       "correct": 3,
       "explanation": "Exception is error event that disrupts normal program flow."
     },
     {
       "question": "What is the difference between checked and unchecked exceptions?",
-      "options": ["Same", "Checked compile-time, unchecked runtime", "Both compile", "Error"],
+      "options": [
+        "Same",
+        "Checked compile-time, unchecked runtime",
+        "Both compile",
+        "Error"
+      ],
       "correct": 1,
       "explanation": "Checked: compiler checks, Unchecked: runtime exceptions."
     },
     {
       "question": "What is ArrayList in Java?",
-      "options": ["Array", "Dynamic array", "List collection", "All of above"],
+      "options": [
+        "Array",
+        "Dynamic array",
+        "List collection",
+        "All of above"
+      ],
       "correct": 1,
       "explanation": "ArrayList is resizable array implementation of List interface."
     },
     {
       "question": "What is the difference between method and constructor?",
-      "options": ["Same", "Constructor has same name as class, method has different name", "Both same", "Error"],
+      "options": [
+        "Same",
+        "Constructor has same name as class, method has different name",
+        "Both same",
+        "Error"
+      ],
       "correct": 1,
       "explanation": "Constructor has same name as class and no return type, method has return type."
     },
     {
       "question": "What is package in Java?",
-      "options": ["Folder", "Namespace for organizing classes", "Container", "All of above"],
+      "options": [
+        "Folder",
+        "Namespace for organizing classes",
+        "Container",
+        "All of above"
+      ],
       "correct": 1,
       "explanation": "Package is namespace that organizes classes and provides access control."
     },
     {
       "question": "What is static keyword used for?",
-      "options": ["Static binding", "Belongs to class not instance", "Fixed", "All of above"],
+      "options": [
+        "Static binding",
+        "Belongs to class not instance",
+        "Fixed",
+        "All of above"
+      ],
       "correct": 1,
       "explanation": "static means method/variable belongs to class, shared by all instances."
     },
     {
       "question": "What is the difference between abstract class and interface?",
-      "options": ["Same", "Abstract can have implementation, interface cannot (in Java 7)", "Both same", "Error"],
+      "options": [
+        "Same",
+        "Abstract can have implementation, interface cannot (in Java 7)",
+        "Both same",
+        "Error"
+      ],
       "correct": 1,
       "explanation": "Abstract class can have implemented methods, interface cannot (Java 7 and earlier)."
     },
     {
       "question": "What is garbage collection in Java?",
-      "options": ["Automatic memory management", "Removes unused objects", "Memory cleanup", "All of above"],
+      "options": [
+        "Automatic memory management",
+        "Removes unused objects",
+        "Memory cleanup",
+        "All of above"
+      ],
       "correct": 3,
       "explanation": "Garbage collection automatically reclaims memory from unused objects."
     }
   ]
 }
-

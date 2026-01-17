@@ -444,6 +444,226 @@
       "explanation": "The overflow property specifies what should happen if content overflows an element's box."
     },
     {
+      "question": "Which HTML element is used to draw graphics, on the fly, via scripting (usually JavaScript)?",
+      "options": [
+        "<graphics>",
+        "<draw>",
+        "<canvas>",
+        "<paint>"
+      ],
+      "correct": 2,
+      "explanation": "The <canvas> element is used to draw graphics on a web page via JavaScript."
+    },
+    {
+      "question": "Which HTML element is used to specify a secondary content that is related to the main content?",
+      "options": [
+        "<side>",
+        "<aside>",
+        "<related>",
+        "<section>"
+      ],
+      "correct": 1,
+      "explanation": "The <aside> element defines some content aside from the content it is placed in (like a sidebar)."
+    },
+    {
+      "question": "What does SVG stand for?",
+      "options": [
+        "Standard Visual Graphics",
+        "Scalable Vector Graphics",
+        "Simple Vertical Graphics",
+        "Serialized Vector Graphics"
+      ],
+      "correct": 1,
+      "explanation": "SVG stands for Scalable Vector Graphics, used for defining vector-based graphics for the Web."
+    },
+    {
+      "question": "Which CSS property specifies the transparency of an element?",
+      "options": [
+        "transparency",
+        "filter",
+        "opacity",
+        "glass"
+      ],
+      "correct": 2,
+      "explanation": "The opacity property sets the opacity level for an element (0.0 to 1.0)."
+    },
+    {
+      "question": "What is the purpose of the 'viewport' meta tag?",
+      "options": [
+        "Sets the browser version",
+        "Controls how a webpage is displayed on a mobile device",
+        "Speeds up loading",
+        "Connects to a server"
+      ],
+      "correct": 1,
+      "explanation": "The viewport meta tag gives the browser instructions on how to control the page's dimensions and scaling."
+    },
+    {
+      "question": "Which CSS property is used to specify the stack order of an element?",
+      "options": [
+        "stack",
+        "z-index",
+        "order",
+        "layer"
+      ],
+      "correct": 1,
+      "explanation": "z-index specifies the stack order of an element (which element should be in front)."
+    },
+    {
+      "question": "What does the 'inherit' value do in CSS?",
+      "options": [
+        "Resets the property",
+        "Specifies that a property should inherit its value from its parent element",
+        "Uses the browser default",
+        "None"
+      ],
+      "correct": 1,
+      "explanation": "The inherit keyword specifies that a property should inherit its value from its parent element."
+    },
+    {
+      "question": "Which property defines what happens if content overflows an element's box?",
+      "options": [
+        "overflow",
+        "clip",
+        "break",
+        "wrap"
+      ],
+      "correct": 0,
+      "explanation": "The overflow property specifies whether to clip content or add scrollbars when an element's content is too big."
+    },
+    {
+      "question": "What is the 'flex-wrap' property used for?",
+      "options": [
+        "Resizing items",
+        "Specifying whether flex items should wrap or not",
+        "Aligning items",
+        "Hiding items"
+      ],
+      "correct": 1,
+      "explanation": "flex-wrap specifies whether the flex items should wrap or not if there is not enough room on the axis."
+    },
+    {
+      "question": "Which property is used to set the spacing between lines of text?",
+      "options": [
+        "letter-spacing",
+        "line-height",
+        "text-spacing",
+        "word-spacing"
+      ],
+      "correct": 1,
+      "explanation": "The line-height property is used to specify the space between lines."
+    },
+    {
+      "question": "What does 'pointer-events: none;' do?",
+      "options": [
+        "Hides the mouse",
+        "Makes an element non-reactive to mouse events",
+        "Changes the cursor to a pointer",
+        "Clicks the button automatically"
+      ],
+      "correct": 1,
+      "explanation": "pointer-events: none; makes the element 'transparent' to mouse clicks and hover events."
+    },
+    {
+      "question": "Which property is used to create a shadow effect around an element?",
+      "options": [
+        "text-shadow",
+        "box-shadow",
+        "element-shadow",
+        "border-shadow"
+      ],
+      "correct": 1,
+      "explanation": "box-shadow attaches one or more shadows to an element."
+    },
+    {
+      "question": "What is a 'Pseudo-element' in CSS?",
+      "options": [
+        "A fake element",
+        "A keyword added to a selector that lets you style a specific part of the selected element(s)",
+        "A JavaScript variable",
+        "A type of class"
+      ],
+      "correct": 1,
+      "explanation": "Pseudo-elements like ::before and ::after allow styling specific parts of an element."
+    },
+    {
+      "question": "Which property specifies the alignment of the last line of a text?",
+      "options": [
+        "text-align",
+        "text-align-last",
+        "last-line-align",
+        "justify-last"
+      ],
+      "correct": 1,
+      "explanation": "text-align-last specifies how to align the last line of a text."
+    },
+    {
+      "question": "What does 'content: \"\";' usually accompany in CSS?",
+      "options": [
+        "Normal tags",
+        "Pseudo-elements like ::before or ::after",
+        "Classes",
+        "IDs"
+      ],
+      "correct": 1,
+      "explanation": "The content property is used with the ::before and ::after pseudo-elements to insert generated content."
+    },
+    {
+      "question": "Which CSS unit is relative to the width of the viewport?",
+      "options": [
+        "vh",
+        "vw",
+        "rem",
+        "em"
+      ],
+      "correct": 1,
+      "explanation": "1vw is equal to 1% of the viewport width."
+    },
+    {
+      "question": "How do you make a list that lists its items with circle bullets?",
+      "options": [
+        "list-style-type: circle;",
+        "bullet-style: circle;",
+        "list: circle;",
+        "type: circle;"
+      ],
+      "correct": 0,
+      "explanation": "list-style-type: circle; sets the marker to an open circle."
+    },
+    {
+      "question": "Which HTML element is used to define a list of pre-defined options for an <input> element?",
+      "options": [
+        "<options>",
+        "<datalist>",
+        "<list>",
+        "<select>"
+      ],
+      "correct": 1,
+      "explanation": "The <datalist> tag specifies a list of pre-defined options for an <input> element."
+    },
+    {
+      "question": "What is the purpose of the <figure> element?",
+      "options": [
+        "Drawing figures",
+        "Specifying self-contained content, like illustrations or photos",
+        "Creating a sidebar",
+        "Calculating numbers"
+      ],
+      "correct": 1,
+      "explanation": "The <figure> element specifies self-contained content, like illustrations, diagrams, photos, code listings, etc."
+    },
+    {
+      "question": "Which property is used to set the background image of an element?",
+      "options": [
+        "background-image",
+        "image-background",
+        "bg-image",
+        "src"
+      ],
+      "correct": 0,
+      "explanation": "The background-image property sets one or more background images for an element."
+    },
+    {
       "question": "Which character is used to indicate an end tag?",
       "options": [
         "<",
