@@ -5,124 +5,1312 @@
   "questions": [
     {
       "question": "What is the output of console.log(typeof null)?",
-      "options": ["null", "undefined", "object", "boolean"],
+      "options": [
+        "null",
+        "undefined",
+        "object",
+        "boolean"
+      ],
       "correct": 2,
       "explanation": "typeof null returns 'object' in JavaScript (this is a well-known quirk)."
     },
     {
       "question": "Which method adds an element to the end of an array?",
-      "options": ["append()", "add()", "push()", "insert()"],
+      "options": [
+        "append()",
+        "add()",
+        "push()",
+        "insert()"
+      ],
       "correct": 2,
       "explanation": "push() method adds one or more elements to the end of an array."
     },
     {
       "question": "What does === operator do?",
-      "options": ["Assigns value", "Compares value and type", "Compares value only", "Checks inequality"],
+      "options": [
+        "Assigns value",
+        "Compares value and type",
+        "Compares value only",
+        "Checks inequality"
+      ],
       "correct": 1,
       "explanation": "=== is strict equality operator that compares both value and type."
     },
     {
       "question": "Which keyword is used to declare a variable with block scope?",
-      "options": ["var", "let", "const", "both let and const"],
+      "options": [
+        "var",
+        "let",
+        "const",
+        "both let and const"
+      ],
       "correct": 3,
       "explanation": "Both let and const declare block-scoped variables in ES6+."
     },
     {
       "question": "What is the result of 3 + 4 + '5'?",
-      "options": ["12", "'345'", "'75'", "75"],
+      "options": [
+        "12",
+        "'345'",
+        "'75'",
+        "75"
+      ],
       "correct": 2,
       "explanation": "JavaScript evaluates left to right: 3+4=7, then 7+'5'='75' (string concat)."
     },
     {
       "question": "What is an array in JavaScript?",
-      "options": ["Collection of elements", "Single value", "Function", "Object only"],
+      "options": [
+        "Collection of elements",
+        "Single value",
+        "Function",
+        "Object only"
+      ],
       "correct": 0,
       "explanation": "Array is a collection of elements stored in indexed positions."
     },
     {
       "question": "Which method removes the last element from an array?",
-      "options": ["remove()", "pop()", "delete()", "splice()"],
+      "options": [
+        "remove()",
+        "pop()",
+        "delete()",
+        "splice()"
+      ],
       "correct": 1,
       "explanation": "pop() removes and returns the last element from an array."
     },
     {
       "question": "What is a function in JavaScript?",
-      "options": ["Block of code", "Variable", "Object", "All of the above"],
+      "options": [
+        "Block of code",
+        "Variable",
+        "Object",
+        "All of the above"
+      ],
       "correct": 0,
       "explanation": "Function is a block of code designed to perform a specific task."
     },
     {
       "question": "What will be the output: console.log('5' - 2)?",
-      "options": ["'3'", "3", "Error", "'32'"],
+      "options": [
+        "'3'",
+        "3",
+        "Error",
+        "'32'"
+      ],
       "correct": 1,
       "explanation": "String '5' is coerced to number, then 5-2=3."
     },
     {
       "question": "Which method converts number to string?",
-      "options": ["toString()", "toStr()", "convertString()", "stringify()"],
+      "options": [
+        "toString()",
+        "toStr()",
+        "convertString()",
+        "stringify()"
+      ],
       "correct": 0,
       "explanation": "toString() method converts number to string."
     },
     {
       "question": "What is the difference between null and undefined?",
-      "options": ["Same", "null is intentional absence, undefined means not assigned", "Both same", "Error"],
+      "options": [
+        "Same",
+        "null is intentional absence, undefined means not assigned",
+        "Both same",
+        "Error"
+      ],
       "correct": 1,
       "explanation": "null represents intentional absence of value, undefined means variable not assigned."
     },
     {
       "question": "What does this keyword refer to in JavaScript?",
-      "options": ["Current object", "Parent object", "Global object", "Context-dependent"],
+      "options": [
+        "Current object",
+        "Parent object",
+        "Global object",
+        "Context-dependent"
+      ],
       "correct": 3,
       "explanation": "'this' refers to the object that owns the function - context-dependent."
     },
     {
       "question": "Which operator is used for exponentiation?",
-      "options": ["^", "**", "exp", "pow"],
+      "options": [
+        "^",
+        "**",
+        "exp",
+        "pow"
+      ],
       "correct": 1,
       "explanation": "** is exponentiation operator: 2**3 = 8"
     },
     {
       "question": "What is the correct way to declare an arrow function?",
-      "options": ["function => x", "(x) => x * 2", "=> function", "arrow x"],
+      "options": [
+        "function => x",
+        "(x) => x * 2",
+        "=> function",
+        "arrow x"
+      ],
       "correct": 1,
       "explanation": "Arrow function syntax: (parameters) => expression"
     },
     {
       "question": "What does JSON.parse() do?",
-      "options": ["Creates object", "Converts string to object", "Parses HTML", "Error"],
+      "options": [
+        "Creates object",
+        "Converts string to object",
+        "Parses HTML",
+        "Error"
+      ],
       "correct": 1,
       "explanation": "JSON.parse() parses JSON string and returns JavaScript object."
     },
     {
       "question": "What is the output: console.log([] == false)?",
-      "options": ["true", "false", "Error", "undefined"],
+      "options": [
+        "true",
+        "false",
+        "Error",
+        "undefined"
+      ],
       "correct": 0,
       "explanation": "[] == false is true due to type coercion in JavaScript."
     },
     {
       "question": "Which method finds an element in an array?",
-      "options": ["find()", "search()", "locate()", "get()"],
+      "options": [
+        "find()",
+        "search()",
+        "locate()",
+        "get()"
+      ],
       "correct": 0,
       "explanation": "find() method returns first element that satisfies test function."
     },
     {
       "question": "What is the output: console.log(typeof [])?",
-      "options": ["array", "object", "list", "undefined"],
+      "options": [
+        "array",
+        "object",
+        "list",
+        "undefined"
+      ],
       "correct": 1,
       "explanation": "Arrays are objects in JavaScript, so typeof [] returns 'object'."
     },
     {
       "question": "Which method creates a new array with modified elements?",
-      "options": ["modify()", "map()", "change()", "update()"],
+      "options": [
+        "modify()",
+        "map()",
+        "change()",
+        "update()"
+      ],
       "correct": 1,
       "explanation": "map() creates new array by calling function for each element."
     },
     {
-      "question": "What is hoisting in JavaScript?",
-      "options": ["Lifting variables", "Declarations moved to top", "Moving functions", "All of the above"],
+      "question": "Inside which HTML element do we put the JavaScript?",
+      "options": [
+        "<javascript>",
+        "<script>",
+        "<js>",
+        "<scripting>"
+      ],
+      "correct": 1,
+      "explanation": "The <script> tag is used to embed or reference executable script."
+    },
+    {
+      "question": "What is the correct JavaScript syntax to change the content of: <p id='demo'>Hello World!</p>",
+      "options": [
+        "document.getElementByName('p').innerHTML = 'Hello World!';",
+        "document.getElementById('demo').innerHTML = 'Hello World!';",
+        "#demo.innerHTML = 'Hello World!';",
+        "document.getElement('p').innerHTML = 'Hello World!';"
+      ],
+      "correct": 1,
+      "explanation": "document.getElementById() is the standard way to access a single element by its ID."
+    },
+    {
+      "question": "Where is the correct place to insert a JavaScript?",
+      "options": [
+        "The <head> section",
+        "The <body> section",
+        "Both <head> and <body> are correct",
+        "The <footer> section"
+      ],
+      "correct": 2,
+      "explanation": "Scripts can be placed in either section, though at the end of <body> is often preferred for performance."
+    },
+    {
+      "question": "What is the correct syntax for referring to an external script called 'xxx.js'?",
+      "options": [
+        "<script name='xxx.js'>",
+        "<script href='xxx.js'>",
+        "<script src='xxx.js'>",
+        "<script link='xxx.js'>"
+      ],
+      "correct": 2,
+      "explanation": "The 'src' attribute specifies the URL of an external script file."
+    },
+    {
+      "question": "How do you write 'Hello World' in an alert box?",
+      "options": [
+        "msg('Hello World')",
+        "alertBox('Hello World')",
+        "alert('Hello World')",
+        "msgBox('Hello World')"
+      ],
+      "correct": 2,
+      "explanation": "The alert() method displays an alert box."
+    },
+    {
+      "question": "How do you create a function in JavaScript?",
+      "options": [
+        "function:myFunction()",
+        "function myFunction()",
+        "function = myFunction()",
+        "def myFunction()"
+      ],
+      "correct": 1,
+      "explanation": "A function is defined with the 'function' keyword followed by the name."
+    },
+    {
+      "question": "How do you call a function named 'myFunction'?",
+      "options": [
+        "call myFunction()",
+        "myFunction()",
+        "call function myFunction()",
+        "execute myFunction()"
+      ],
+      "correct": 1,
+      "explanation": "You call a function by using its name followed by parentheses."
+    },
+    {
+      "question": "How to write an IF statement in JavaScript?",
+      "options": [
+        "if (i == 5)",
+        "if i = 5 then",
+        "if i == 5 then",
+        "if i = 5"
+      ],
+      "correct": 0,
+      "explanation": "JS if statements use parentheses around the condition."
+    },
+    {
+      "question": "How to write an IF statement for executing some code if 'i' is NOT equal to 5?",
+      "options": [
+        "if (i <> 5)",
+        "if (i != 5)",
+        "if i =! 5 then",
+        "if i <> 5 then"
+      ],
+      "correct": 1,
+      "explanation": "!= is the inequality operator in JavaScript."
+    },
+    {
+      "question": "How does a WHILE loop start?",
+      "options": [
+        "while (i <= 10)",
+        "while i = 1 to 10",
+        "while (i <= 10; i++)",
+        "while i <= 10"
+      ],
+      "correct": 0,
+      "explanation": "A while loop repeats while a specified condition is true."
+    },
+    {
+      "question": "How does a FOR loop start?",
+      "options": [
+        "for (i = 0; i <= 5; i++)",
+        "for (i <= 5; i++)",
+        "for i = 1 to 5",
+        "for (i = 0; i <= 5)"
+      ],
+      "correct": 0,
+      "explanation": "A for loop has three parts: initialization, condition, and increment."
+    },
+    {
+      "question": "How can you add a comment in a JavaScript?",
+      "options": [
+        "'This is a comment",
+        "<!--This is a comment-->",
+        "//This is a comment",
+        "*This is a comment*"
+      ],
+      "correct": 2,
+      "explanation": "// is used for single-line comments in JS."
+    },
+    {
+      "question": "How to insert a comment that has more than one line?",
+      "options": [
+        "/*This comment has more than one line*/",
+        "//This comment has more than one line//",
+        "<!--This comment has more than one line-->",
+        "'''This comment has more than one line'''"
+      ],
+      "correct": 0,
+      "explanation": "/* */ is used for multi-line comments."
+    },
+    {
+      "question": "What is the correct way to write a JavaScript array?",
+      "options": [
+        "var colors = 1 = ('red'), 2 = ('green'), 3 = ('blue')",
+        "var colors = (1:'red', 2:'green', 3:'blue')",
+        "var colors = ['red', 'green', 'blue']",
+        "var colors = 'red', 'green', 'blue'"
+      ],
+      "correct": 2,
+      "explanation": "Arrays are written with square brackets []."
+    },
+    {
+      "question": "How do you round the number 7.25, to the nearest integer?",
+      "options": [
+        "rnd(7.25)",
+        "Math.round(7.25)",
+        "Math.rnd(7.25)",
+        "round(7.25)"
+      ],
+      "correct": 1,
+      "explanation": "Math.round() rounds a number to the nearest integer."
+    },
+    {
+      "question": "How do you find the number with the highest value of x and y?",
+      "options": [
+        "Math.max(x, y)",
+        "ceil(x, y)",
+        "Math.ceil(x, y)",
+        "top(x, y)"
+      ],
+      "correct": 0,
+      "explanation": "Math.max() returns the number with the highest value."
+    },
+    {
+      "question": "What is the correct JavaScript syntax for opening a new window called 'w2'?",
+      "options": [
+        "w2 = window.new('http://www.w3schools.com');",
+        "w2 = window.open('http://www.w3schools.com');",
+        "w2 = open.window('http://www.w3schools.com');",
+        "window.navigate('http://www.w3schools.com');"
+      ],
+      "correct": 1,
+      "explanation": "window.open() creates a new browser window or tab."
+    },
+    {
+      "question": "JavaScript is the same as Java.",
+      "options": [
+        "True",
+        "False",
+        "Partially",
+        "None"
+      ],
+      "correct": 1,
+      "explanation": "Java and JavaScript are entirely different languages in both concept and design."
+    },
+    {
+      "question": "How can you detect the client's browser name?",
+      "options": [
+        "browser.name",
+        "client.navName",
+        "navigator.appName",
+        "navigator.name"
+      ],
+      "correct": 2,
+      "explanation": "navigator.appName returns the name of the browser."
+    },
+    {
+      "question": "Which event occurs when the user clicks on an HTML element?",
+      "options": [
+        "onchange",
+        "onmouseover",
+        "onmouseclick",
+        "onclick"
+      ],
       "correct": 3,
-      "explanation": "Hoisting means variable and function declarations are moved to top of scope."
+      "explanation": "The onclick event is triggered when an element is clicked."
+    },
+    {
+      "question": "How do you declare a JavaScript variable?",
+      "options": [
+        "var carName;",
+        "variable carName;",
+        "v carName;",
+        "dim carName;"
+      ],
+      "correct": 0,
+      "explanation": "Variables are declared with var, let, or const."
+    },
+    {
+      "question": "Which operator is used to assign a value to a variable?",
+      "options": [
+        "*",
+        "x",
+        "=",
+        "-"
+      ],
+      "correct": 2,
+      "explanation": "The = sign is the assignment operator."
+    },
+    {
+      "question": "What will the following code return: Boolean(10 > 9)?",
+      "options": [
+        "true",
+        "false",
+        "NaN",
+        "undefined"
+      ],
+      "correct": 0,
+      "explanation": "10 is greater than 9, so it returns true."
+    },
+    {
+      "question": "Is JavaScript case-sensitive?",
+      "options": [
+        "Yes",
+        "No",
+        "Depends on strict mode",
+        "Only for functions"
+      ],
+      "correct": 0,
+      "explanation": "Yes, everything in JS is case-sensitive."
+    },
+    {
+      "question": "What is the result of 2 + 5 + '3'?",
+      "options": [
+        "10",
+        "73",
+        "253",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "2+5 equals 7, then 7 is concatenated with string '3' to result in '73'."
+    },
+    {
+      "question": "Which method returns the length of a string?",
+      "options": [
+        "len()",
+        "length()",
+        "length",
+        "size"
+      ],
+      "correct": 2,
+      "explanation": ".length is a property of string objects that returns the character count."
+    },
+    {
+      "question": "How do you write a switch statement?",
+      "options": [
+        "switch(i) {case 1: ...}",
+        "switch i: {case 1: ...}",
+        "switch(i) {when 1: ...}",
+        "switch(i): 1: ..."
+      ],
+      "correct": 0,
+      "explanation": "Switch statements use the switch keyword followed by parentheses and case blocks."
+    },
+    {
+      "question": "What does 'break' do in a switch block?",
+      "options": [
+        "Starts the next case",
+        "Exits the switch block",
+        "Restarts the switch",
+        "Nothing"
+      ],
+      "correct": 1,
+      "explanation": "Break prevents execution from 'falling through' to the next case."
+    },
+    {
+      "question": "Which keyword is used to handle exceptions?",
+      "options": [
+        "except",
+        "catch",
+        "error",
+        "fault"
+      ],
+      "correct": 1,
+      "explanation": "JS uses try...catch blocks for error handling."
+    },
+    {
+      "question": "What is the output of typeof 42?",
+      "options": [
+        "string",
+        "int",
+        "number",
+        "object"
+      ],
+      "correct": 2,
+      "explanation": "All numbers at JS are of type 'number'."
+    },
+    {
+      "question": "What is the correct way to write a Template Literal in JavaScript?",
+      "options": [
+        "'Hello ${name}'",
+        "\"Hello ${name}\"",
+        "`Hello ${name}`",
+        "<Hello ${name}>"
+      ],
+      "correct": 2,
+      "explanation": "Template literals use backticks (`) and allow embedded expressions with ${}."
+    },
+    {
+      "question": "Which keyword is used to create a constant in JavaScript?",
+      "options": [
+        "var",
+        "let",
+        "const",
+        "constant"
+      ],
+      "correct": 2,
+      "explanation": "The 'const' keyword creates a variable whose value cannot be reassigned."
+    },
+    {
+      "question": "What does the 'map' method return?",
+      "options": [
+        "The original array",
+        "A new array with transformed elements",
+        "A single value",
+        "Nothing"
+      ],
+      "correct": 1,
+      "explanation": "map() creates a new array populated with the results of calling a provided function on every element."
+    },
+    {
+      "question": "Which of these is NOT a JS keyword?",
+      "options": [
+        "if",
+        "for",
+        "with",
+        "elseif"
+      ],
+      "correct": 3,
+      "explanation": "JavaScript uses 'else if', not 'elseif' as a single keyword."
+    },
+    {
+      "question": "How do you check the type of a variable?",
+      "options": [
+        "getType(x)",
+        "typeof x",
+        "type(x)",
+        "instance(x)"
+      ],
+      "correct": 1,
+      "explanation": "The 'typeof' operator returns a string indicating the type of the unevaluated operand."
+    },
+    {
+      "question": "What is a 'closure' in JavaScript?",
+      "options": [
+        "Closing a tag",
+        "A function that has access to its outer function scope",
+        "Closing the browser window",
+        "A private class"
+      ],
+      "correct": 1,
+      "explanation": "A closure gives you access to an outer function's scope from an inner function."
+    },
+    {
+      "question": "Which method is used to add an element at the beginning of an array?",
+      "options": [
+        "push()",
+        "pop()",
+        "shift()",
+        "unshift()"
+      ],
+      "correct": 3,
+      "explanation": "unshift() adds one or more elements to the beginning of an array."
+    },
+    {
+      "question": "What is the output of console.log(false == '0')?",
+      "options": [
+        "true",
+        "false",
+        "Error",
+        "undefined"
+      ],
+      "correct": 0,
+      "explanation": "Both are coerced to 0, so the result is true."
+    },
+    {
+      "question": "Which function is used to convert a string to an integer?",
+      "options": [
+        "int()",
+        "Number()",
+        "parseInt()",
+        "Both Number() and parseInt()"
+      ],
+      "correct": 3,
+      "explanation": "Both Number() and parseInt() can convert strings to numbers, though with different parsing rules."
+    },
+    {
+      "question": "What is the purpose of 'use strict'?",
+      "options": [
+        "Makes code run faster",
+        "Enforces stricter syntax rules",
+        "Ignores errors",
+        "Prevents use of variables"
+      ],
+      "correct": 1,
+      "explanation": "'use strict' helps catch common coding bloopers and prevents use of unsafe actions."
+    },
+    {
+      "question": "Which method removes the first element of an array?",
+      "options": [
+        "pop()",
+        "shift()",
+        "unshift()",
+        "splice()"
+      ],
+      "correct": 1,
+      "explanation": "shift() removes the first element from an array."
+    },
+    {
+      "question": "What is the output of console.log(1 < 2 < 3)?",
+      "options": [
+        "true",
+        "false",
+        "Error",
+        "1"
+      ],
+      "correct": 0,
+      "explanation": "(1 < 2) is true, then (true < 3) is (1 < 3) which is true."
+    },
+    {
+      "question": "What is the output of console.log(3 < 2 < 1)?",
+      "options": [
+        "true",
+        "false",
+        "Error",
+        "0"
+      ],
+      "correct": 0,
+      "explanation": "(3 < 2) is false, then (false < 1) is (0 < 1) which is true."
+    },
+    {
+      "question": "Which property allows you to change the CSS style of an element?",
+      "options": [
+        "style",
+        "css",
+        "className",
+        "id"
+      ],
+      "correct": 0,
+      "explanation": "The 'style' property allows access to inline CSS properties."
+    },
+    {
+      "question": "What is the result of '1' + 1?",
+      "options": [
+        "2",
+        "11",
+        "Error",
+        "None"
+      ],
+      "correct": 1,
+      "explanation": "Number is coerced to string, resulting in '11'."
+    },
+    {
+      "question": "How do you select all elements with class 'test'?",
+      "options": [
+        "document.getElementByClass('test')",
+        "document.querySelectorAll('.test')",
+        "document.getElement('.test')",
+        "#test"
+      ],
+      "correct": 1,
+      "explanation": "querySelectorAll() returns all elements matching the CSS selector."
+    },
+    {
+      "question": "What does JSON stand for?",
+      "options": [
+        "JS Object Notation",
+        "JS Output Node",
+        "Java Standard Object Name",
+        "JavaScript Online Network"
+      ],
+      "correct": 0,
+      "explanation": "JSON stands for JavaScript Object Notation."
+    },
+    {
+      "question": "Which method is used to convert an object to a JSON string?",
+      "options": [
+        "JSON.parse()",
+        "JSON.stringify()",
+        "JSON.toString()",
+        "JSON.convert()"
+      ],
+      "correct": 1,
+      "explanation": "JSON.stringify() converts a JS object to a JSON string."
+    },
+    {
+      "question": "What is an 'arrow function'?",
+      "options": [
+        "A function that points to a variable",
+        "A shorter syntax for functions using =>",
+        "A function that only works on mobile",
+        "A way to draw arrows"
+      ],
+      "correct": 1,
+      "explanation": "Arrow functions provide a more concise way to write function expressions."
+    },
+    {
+      "question": "What represents the 'document' object in JS?",
+      "options": [
+        "The whole HTML document",
+        "A single tag",
+        "A text file",
+        "The browser window"
+      ],
+      "correct": 0,
+      "explanation": "The 'document' object is the entry point to the web page's content (DOM)."
+    },
+    {
+      "question": "Which method is used to add an event listener to an element?",
+      "options": [
+        "listenEvent()",
+        "addEventListener()",
+        "onEvent()",
+        "attach()"
+      ],
+      "correct": 1,
+      "explanation": "addEventListener() is the recommended way to handle events."
+    },
+    {
+      "question": "What is 'NaN' in JavaScript?",
+      "options": [
+        "Not a Number",
+        "New and Null",
+        "Needs a Number",
+        "Not a Name"
+      ],
+      "correct": 0,
+      "explanation": "NaN stands for Not-a-Number, a data type representable by Number."
+    },
+    {
+      "question": "What is the output of typeof NaN?",
+      "options": [
+        "string",
+        "number",
+        "NaN",
+        "undefined"
+      ],
+      "correct": 1,
+      "explanation": "Ironically, the type of Not-a-Number is 'number'."
+    },
+    {
+      "question": "How do you stop a function from executing after a certain time?",
+      "options": [
+        "stopTimeout()",
+        "clearTimeout()",
+        "exit()",
+        "pause()"
+      ],
+      "correct": 1,
+      "explanation": "clearTimeout() cancels a timeout set by setTimeout()."
+    },
+    {
+      "question": "What is the difference between 'let' and 'var'?",
+      "options": [
+        "None",
+        "let is block-scoped, var is function-scoped",
+        "var is safer",
+        "let is only for numbers"
+      ],
+      "correct": 1,
+      "explanation": "let (and const) provide block scope, while var has function scope."
+    },
+    {
+      "question": "Which method filters elements of an array?",
+      "options": [
+        "map()",
+        "filter()",
+        "reduce()",
+        "find()"
+      ],
+      "correct": 1,
+      "explanation": "filter() creates a new array with elements that pass a test."
+    },
+    {
+      "question": "What does 'this' refer to in a global context?",
+      "options": [
+        "The current function",
+        "The window object",
+        "Nothing",
+        "The document"
+      ],
+      "correct": 1,
+      "explanation": "In a browser, 'this' in global scope refers to the window object."
+    },
+    {
+      "question": "How do you create a promise in JavaScript?",
+      "options": [
+        "new Promise()",
+        "create Promise()",
+        "promise.start()",
+        "None"
+      ],
+      "correct": 0,
+      "explanation": "A Promise is created using the 'new Promise' constructor."
+    },
+    {
+      "question": "What is the purpose of async/await?",
+      "options": [
+        "Speeds up loops",
+        "Handles asynchronous code more cleanly",
+        "Prevents errors",
+        "Syncs the database"
+      ],
+      "correct": 1,
+      "explanation": "Async/await makes asynchronous code look and behave more like synchronous code."
+    },
+    {
+      "question": "What corresponds to 'DOMContentLoaded' event?",
+      "options": [
+        "When the page is fully loaded with all images",
+        "When the initial HTML is completely loaded and parsed",
+        "When the user clicks the page",
+        "When the window closes"
+      ],
+      "correct": 1,
+      "explanation": "DOMContentLoaded fires when the HTML is parsed, without waiting for stylesheets or images."
+    },
+    {
+      "question": "What is the purpose of the 'reduce' method?",
+      "options": [
+        "Filter the array",
+        "Transform each element",
+        "Reduce array to a single value",
+        "Sort the array"
+      ],
+      "correct": 2,
+      "explanation": "reduce() executes a reducer function on each element, resulting in a single output value."
+    },
+    {
+      "question": "Which of these is a way to clone an object?",
+      "options": [
+        "Object.assign({}, obj)",
+        "{...obj}",
+        "JSON.parse(JSON.stringify(obj))",
+        "All of the above"
+      ],
+      "correct": 3,
+      "explanation": "All three methods can be used to clone objects, though they have different depth and prototype behaviors."
+    },
+    {
+      "question": "What is the output of typeof []?",
+      "options": [
+        "array",
+        "object",
+        "list",
+        "undefined"
+      ],
+      "correct": 1,
+      "explanation": "In JavaScript, arrays are a special type of object."
+    },
+    {
+      "question": "How do you check if a value is an array?",
+      "options": [
+        "typeof x === 'array'",
+        "x instanceof Array",
+        "Array.isArray(x)",
+        "Both instanceof and isArray"
+      ],
+      "correct": 3,
+      "explanation": "Both 'x instanceof Array' and 'Array.isArray(x)' are valid ways to check for arrays."
+    },
+    {
+      "question": "What does the 'bind' method do?",
+      "options": [
+        "Calls a function immediately",
+        "Creates a new function with a fixed 'this' value",
+        "Links two variables",
+        "Deletes a function"
+      ],
+      "correct": 1,
+      "explanation": "bind() creates a new function that, when called, has its 'this' keyword set to the provided value."
+    },
+    {
+      "question": "What is the result of 0.1 + 0.2 === 0.3?",
+      "options": [
+        "true",
+        "false",
+        "NaN",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Due to binary floating-point math, 0.1 + 0.2 is actually 0.30000000000000004."
+    },
+    {
+      "question": "Which method is used to combine two or more arrays?",
+      "options": [
+        "combine()",
+        "join()",
+        "concat()",
+        "merge()"
+      ],
+      "correct": 2,
+      "explanation": "concat() is used to merge two or more arrays without changing the existing arrays."
+    },
+    {
+      "question": "What is the purpose of 'setTimeout'?",
+      "options": [
+        "Repeats code every X milliseconds",
+        "Executes code after a delay",
+        "Pauses the execution of the whole script",
+        "Sets the system time"
+      ],
+      "correct": 1,
+      "explanation": "setTimeout() executes a function once after a specified number of milliseconds."
+    },
+    {
+      "question": "What is the purpose of 'setInterval'?",
+      "options": [
+        "Executes code after a delay",
+        "Repeats code execution every X milliseconds",
+        "Counts the seconds",
+        "Stop the timer"
+      ],
+      "correct": 1,
+      "explanation": "setInterval() repeatedly calls a function with a fixed time delay between each call."
+    },
+    {
+      "question": "Which keyword is used to skip the rest of a loop iteration?",
+      "options": [
+        "break",
+        "stop",
+        "continue",
+        "skip"
+      ],
+      "correct": 2,
+      "explanation": "The 'continue' statement breaks one iteration (in the loop) and continues with the next iteration."
+    },
+    {
+      "question": "What is 'Strict Equality' operator?",
+      "options": [
+        "==",
+        "===",
+        "=",
+        "!="
+      ],
+      "correct": 1,
+      "explanation": "=== checks for both value and type equality."
+    },
+    {
+      "question": "What is 'event bubbling'?",
+      "options": [
+        "Events moving from child to parent",
+        "Events moving from parent to child",
+        "Events staying on the same element",
+        "Creating many events"
+      ],
+      "correct": 0,
+      "explanation": "Bubbling means an event propagates from the inner element up through its ancestors."
+    },
+    {
+      "question": "What is 'event capturing'?",
+      "options": [
+        "Events moving from child to parent",
+        "Events moving from parent to child",
+        "Catching errors",
+        "Stopping events"
+      ],
+      "correct": 1,
+      "explanation": "Capturing (or trickling) is the opposite of bubbling; it goes from the top down to the target."
+    },
+    {
+      "question": "Which method stops an event from bubbling up?",
+      "options": [
+        "event.stop()",
+        "event.stopPropagation()",
+        "event.cancel()",
+        "event.end()"
+      ],
+      "correct": 1,
+      "explanation": "stopPropagation() prevents further propagation of the current event in the bubbling or capturing phases."
+    },
+    {
+      "question": "What is the result of typeof undefined?",
+      "options": [
+        "undefined",
+        "object",
+        "null",
+        "string"
+      ],
+      "correct": 0,
+      "explanation": "The type of an undefined variable is 'undefined'."
+    },
+    {
+      "question": "What is the result of typeof null?",
+      "options": [
+        "null",
+        "object",
+        "undefined",
+        "string"
+      ],
+      "correct": 1,
+      "explanation": "Historically in JS, typeof null returns 'object'."
+    },
+    {
+      "question": "What does 'eval' do?",
+      "options": [
+        "Evaluates a string as JS code",
+        "Evaluates the performance",
+        "Calculates numbers",
+        "Nothing safety-related"
+      ],
+      "correct": 0,
+      "explanation": "eval() evaluates JavaScript code represented as a string."
+    },
+    {
+      "question": "Which property returns the height of an element including padding?",
+      "options": [
+        "height",
+        "scrollHeight",
+        "offsetHeight",
+        "clientHeight"
+      ],
+      "correct": 3,
+      "explanation": "clientHeight includes padding but not borders, margins, or scrollbars."
+    },
+    {
+      "question": "How do you remove an item from local storage?",
+      "options": [
+        "localStorage.deleteItem()",
+        "localStorage.remove()",
+        "localStorage.removeItem()",
+        "localStorage.clear()"
+      ],
+      "correct": 2,
+      "explanation": "removeItem(key) removes the entry with the specified key from storage."
+    },
+    {
+      "question": "Which method is used to find the first element that passes a test?",
+      "options": [
+        "some()",
+        "every()",
+        "find()",
+        "search()"
+      ],
+      "correct": 2,
+      "explanation": "find() returns the value of the first element in the array that satisfies the provided testing function."
+    },
+    {
+      "question": "What does 'Object.keys()' return?",
+      "options": [
+        "A string of keys",
+        "An array of an object's enumerable property names",
+        "The number of keys",
+        "An object with only keys"
+      ],
+      "correct": 1,
+      "explanation": "Object.keys() returns an array containing the names of all the enumerable own properties of an object."
+    },
+    {
+      "question": "What is a 'Shallow Copy'?",
+      "options": [
+        "A copy of only the top-level properties",
+        "A complete copy including nested objects",
+        "A copy that is smaller in size",
+        "A copy that is easy to read"
+      ],
+      "correct": 0,
+      "explanation": "A shallow copy of an object is a copy whose properties share the same references as those of the source object."
+    },
+    {
+      "question": "How do you check if a property exists in an object?",
+      "options": [
+        "obj.has(prop)",
+        "'prop' in obj",
+        "obj.exists(prop)",
+        "if(obj[prop])"
+      ],
+      "correct": 1,
+      "explanation": "The 'in' operator returns true if the specified property is in the specified object or its prototype chain."
+    },
+    {
+      "question": "What is 'Global Execution Context'?",
+      "options": [
+        "The context where code inside functions runs",
+        "The base context where any JS starts executing",
+        "The context for errors",
+        "The context for API calls"
+      ],
+      "correct": 1,
+      "explanation": "Global Execution Context is the default or base execution context in which the JS code starts its execution."
+    },
+    {
+      "question": "Which keyword is used to define a class method?",
+      "options": [
+        "method",
+        "function",
+        "None (just the name)",
+        "def"
+      ],
+      "correct": 2,
+      "explanation": "Inside a class, methods are defined by their name and parentheses, without the 'function' keyword."
+    },
+    {
+      "question": "Which of these is NOT a valid JavaScript data type?",
+      "options": [
+        "Boolean",
+        "String",
+        "Float",
+        "Number"
+      ],
+      "correct": 2,
+      "explanation": "JavaScript has 'Number' which handles both integers and floats. There is no separate 'Float' type."
+    },
+    {
+      "question": "How do you write 'Hello World' in an alert box?",
+      "options": [
+        "msg('Hello World')",
+        "alertBox('Hello World')",
+        "alert('Hello World')",
+        "msgBox('Hello World')"
+      ],
+      "correct": 2,
+      "explanation": "The alert() method displays an alert box with a message and an OK button."
+    },
+    {
+      "question": "Which of these is the correct way to write a JavaScript array?",
+      "options": [
+        "var colors = (1:'red', 2:'green')",
+        "var colors = ['red', 'green', 'blue']",
+        "var colors = 'red', 'green', 'blue'",
+        "var colors = 1 = ('red'), 2 = ('green')"
+      ],
+      "correct": 1,
+      "explanation": "Arrays are written with square brackets []."
+    },
+    {
+      "question": "What is the output of console.log(Boolean(10 > 9))?",
+      "options": [
+        "true",
+        "false",
+        "NaN",
+        "undefined"
+      ],
+      "correct": 0,
+      "explanation": "10 > 9 is true, so Boolean(10 > 9) returns true."
+    },
+    {
+      "question": "Which event occurs when the user clicks on an HTML element?",
+      "options": [
+        "onmouseover",
+        "onmouseclick",
+        "onchange",
+        "onclick"
+      ],
+      "correct": 3,
+      "explanation": "The onclick event occurs when the user clicks on an element."
+    },
+    {
+      "question": "How do you declare a JavaScript variable?",
+      "options": [
+        "v carName",
+        "var carName",
+        "variable carName",
+        "dim carName"
+      ],
+      "correct": 1,
+      "explanation": "Variables are declared with var, let, or const."
+    },
+    {
+      "question": "Which operator is used to assign a value to a variable?",
+      "options": [
+        "*",
+        "=",
+        "-",
+        "x"
+      ],
+      "correct": 1,
+      "explanation": "The = operator is used to assign a value to a variable."
+    },
+    {
+      "question": "What is the output: console.log(typeof NaN)?",
+      "options": [
+        "number",
+        "NaN",
+        "undefined",
+        "object"
+      ],
+      "correct": 0,
+      "explanation": "In JavaScript, NaN is a numeric value whose type is 'number'."
+    },
+    {
+      "question": "Which method returns the length of a string?",
+      "options": [
+        "size()",
+        "index()",
+        "length()",
+        "length"
+      ],
+      "correct": 3,
+      "explanation": "The length property returns the number of characters in a string."
+    },
+    {
+      "question": "What is the output: console.log(0 == '0')?",
+      "options": [
+        "true",
+        "false",
+        "Error",
+        "undefined"
+      ],
+      "correct": 0,
+      "explanation": "The == operator performs type coercion, so 0 and '0' are equal."
+    },
+    {
+      "question": "Which method is used to join elements of an array into a string?",
+      "options": [
+        "concat()",
+        "join()",
+        "merge()",
+        "string()"
+      ],
+      "correct": 1,
+      "explanation": "The join() method creates and returns a new string by concatenating all of the elements in an array."
+    },
+    {
+      "question": "What does DOM stand for?",
+      "options": [
+        "Data Object Model",
+        "Document Object Model",
+        "Digital Object Model",
+        "Document Online Model"
+      ],
+      "correct": 1,
+      "explanation": "DOM stands for Document Object Model."
+    },
+    {
+      "question": "Which function is used to execute a function after a specified time?",
+      "options": [
+        "setTimeout()",
+        "setInterval()",
+        "wait()",
+        "delay()"
+      ],
+      "correct": 0,
+      "explanation": "setTimeout() executes a function after a specified number of milliseconds."
+    },
+    {
+      "question": "What is the output: console.log(2 + 2 + '2')?",
+      "options": [
+        "42",
+        "222",
+        "6",
+        "Error"
+      ],
+      "correct": 0,
+      "explanation": "JavaScript evaluates left to right: 2+2=4, then 4+'2'='42'."
+    },
+    {
+      "question": "Which keyword is used to stop a loop?",
+      "options": [
+        "exit",
+        "stop",
+        "break",
+        "return"
+      ],
+      "correct": 2,
+      "explanation": "The break statement jumps out of a loop."
     }
   ]
 }
-

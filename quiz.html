@@ -413,6 +413,29 @@
     .toast.error i {
       color: #ef4444;
     }
+
+    /* Quiz Active Styles */
+    body.quiz-active header,
+    body.quiz-active footer {
+      display: none !important;
+    }
+
+    @media (max-width: 768px) {
+      body.quiz-active .container {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+      }
+
+      body.quiz-active #quiz-section {
+        max-width: 100% !important;
+      }
+
+      body.quiz-active .glass-card {
+        border-radius: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+    }
   </style>
   <script src="assets/js/site-components.js"></script>
 </head>
@@ -781,10 +804,7 @@
               <span id="time-display" class="tabular-nums">00:00</span>
             </div>
             <div class="w-full sm:w-auto flex gap-4">
-              <button id="next-question"
-                class="flex-1 sm:flex-none px-8 py-4 rounded-xl bg-primary text-white font-bold hover:scale-105 transition-all shadow-lg shadow-primary/20">
-                Next <i class="fas fa-arrow-right ml-2"></i>
-              </button>
+              <!-- Removed Next button for auto-progression -->
               <button id="finish-quiz"
                 class="flex-1 sm:flex-none px-8 py-4 rounded-xl bg-green-500 text-white font-bold hover:scale-105 transition-all shadow-lg shadow-green-500/20 hidden">
                 Complete <i class="fas fa-flag-checkered ml-2"></i>
@@ -943,10 +963,8 @@
   </footer>
   <script> // Dynamic Quiz Data Loading System
 
-    let quizData = {}
-
-      ; // Will be populated dynamically
-    let currentQuizData = null; // Currently loaded quiz data
+    // Dynamic Quiz Data Loading System
+    let quizData = {}; // Will be populated dynamically
 
     // Legacy quizData for fallback (will be removed after testing)
     const legacyQuizData = {
@@ -1221,7 +1239,8 @@
     // App State
     let currentState = 'language-selection';
     let selectedLanguage = null;
-    let selectedDifficulty = 'basic';
+    let currentQuizData = null;
+    let currentQuizSession = []; // Stores randomized subset for this attempt
     let currentQuestionIndex = 0;
     let score = 0;
     let userAnswers = [];
@@ -1435,11 +1454,37 @@
 
     // Start Quiz
     function startQuiz() {
+      if (!currentQuizData || !currentQuizData.questions || currentQuizData.questions.length === 0) {
+        showToast('Quiz data not loaded properly!', 'error');
+        return;
+      }
+
+      // Create a randomized subset of questions (e.g., 20)
+      const totalPool = [...currentQuizData.questions];
+      const subsetSize = Math.min(20, totalPool.length);
+      const shuffledPool = totalPool.sort(() => Math.random() - 0.5);
+
+      // Store the randomized questions for this session
+      currentQuizSession = shuffledPool.slice(0, subsetSize).map(q => {
+        // Shuffle options for each question
+        const optionsWithIndex = q.options.map((opt, idx) => ({ text: opt, originalIndex: idx }));
+        const shuffledOptions = optionsWithIndex.sort(() => Math.random() - 0.5);
+        const newCorrectIndex = shuffledOptions.findIndex(opt => opt.originalIndex === q.correct);
+
+        return {
+          ...q,
+          options: shuffledOptions.map(opt => opt.text),
+          correct: newCorrectIndex,
+          explanation: q.explanation
+        };
+      });
+
       currentQuestionIndex = 0;
       score = 0;
       userAnswers = [];
       quizStartTime = new Date();
 
+      document.body.classList.add('quiz-active');
       showSection('quiz-section');
       loadQuestion();
       startTimer();
@@ -1447,48 +1492,41 @@
 
     // Load Question
     function loadQuestion() {
-      const quiz = currentQuizData;
-      const question = quiz.questions[currentQuestionIndex];
+      const question = currentQuizSession[currentQuestionIndex];
+      const totalQuestions = currentQuizSession.length;
 
-      // Update quiz info
-      quizTitle.textContent = quiz.title;
-      quizDescription.textContent = quiz.description;
+      // Update Header Info
+      quizTitle.textContent = currentQuizData.title;
+      quizDescription.textContent = currentQuizData.description;
+      questionCounter.textContent = `${currentQuestionIndex + 1} / ${totalQuestions}`;
 
-      questionCounter.textContent = `${currentQuestionIndex + 1} / ${quiz.questions.length}`;
-
-      // Update progress bar
-      const progress = ((currentQuestionIndex) / quiz.questions.length) * 100;
-
+      // Update Progress
+      const progress = ((currentQuestionIndex) / totalQuestions) * 100;
       progressBar.style.width = `${progress}%`;
-
       progressPercent.textContent = `${Math.round(progress)}%`;
 
-      // Set question text
+      // Display Question
       questionText.textContent = question.question;
-
-      // Clear previous answers
       answersContainer.innerHTML = '';
 
-      // Create answer options
       question.options.forEach((option, index) => {
-        const answerElement = document.createElement('div');
-        answerElement.className = 'answer-option glass-card rounded-2xl p-6 cursor-pointer group hover:scale-[1.02] transition-all duration-300';
-
-        answerElement.innerHTML = `
-                  <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center font-heading font-bold text-xl text-primary group-hover:bg-primary group-hover:text-white transition-colors">
-                      ${String.fromCharCode(65 + index)}
-                    </div>
-                    <span class="font-sans text-lg text-slate-200 group-hover:text-white transition-colors">${option}</span>
-                  </div>
-                `;
-
-        answerElement.addEventListener('click', () => selectAnswer(index, answerElement));
-        answersContainer.appendChild(answerElement);
+        const button = document.createElement('button');
+        button.className = 'answer-option p-6 rounded-2xl text-left font-sans flex items-center group relative overflow-hidden';
+        button.innerHTML = `
+                <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mr-4 group-hover:bg-primary/20 group-hover:border-primary/30 transition-all font-bold text-slate-400">
+                    ${String.fromCharCode(65 + index)}
+                </div>
+                <span class="flex-1 text-lg font-medium">${option}</span>
+                <div class="absolute right-6 opacity-0 group-hover:opacity-100 transition-all">
+                    <i class="fas fa-chevron-right text-primary"></i>
+                </div>
+            `;
+        button.onclick = () => selectAnswer(index, button);
+        answersContainer.appendChild(button);
       });
 
       // Update button visibility
-      if (currentQuestionIndex === quiz.questions.length - 1) {
+      if (currentQuestionIndex === currentQuizSession.length - 1) {
         nextQuestionBtn.classList.add('hidden');
         finishQuizBtn.classList.remove('hidden');
       }
@@ -1501,35 +1539,32 @@
 
     // Select Answer
     function selectAnswer(selectedIndex, element) {
-      const quiz = currentQuizData;
-      const question = quiz.questions[currentQuestionIndex];
+      const question = currentQuizSession[currentQuestionIndex];
+      const answerButtons = answersContainer.querySelectorAll('button');
 
-      // Disable all answers
-      const allAnswers = answersContainer.querySelectorAll('.answer-option');
+      // Disable further clicks
+      answerButtons.forEach(btn => btn.style.pointerEvents = 'none');
 
-      allAnswers.forEach(answer => {
-        answer.classList.add('locked');
-        answer.style.pointerEvents = 'none';
-      });
-
-      // Check if answer is correct
       const isCorrect = selectedIndex === question.correct;
-
-      // Mark selected answer
       if (isCorrect) {
-        element.classList.add('correct');
         score++;
-      }
-
-      else {
+        element.classList.add('correct');
+        const icon = element.querySelector('.w-10');
+        icon.innerHTML = '<i class="fas fa-check text-white"></i>';
+        icon.classList.add('bg-green-500', 'border-green-500');
+        showToast('Correct! Great job.', 'success', 1000);
+      } else {
         element.classList.add('incorrect');
+        const icon = element.querySelector('.w-10');
+        icon.innerHTML = '<i class="fas fa-times text-white"></i>';
+        icon.classList.add('bg-red-500', 'border-red-500');
 
-        // Highlight correct answer
-        const correctAnswer = allAnswers[question.correct];
-        correctAnswer.classList.add('correct');
+        // Show correct answer
+        const correctButton = answerButtons[question.correct];
+        correctButton.classList.add('correct');
+        showToast('Incorrect answer.', 'error', 1000);
       }
 
-      // Store user answer
       userAnswers.push({
         question: question.question,
         selected: selectedIndex,
@@ -1538,18 +1573,16 @@
         explanation: question.explanation
       });
 
-      // Automatic progression
       setTimeout(() => {
-        if (currentQuestionIndex === quiz.questions.length - 1) {
+        if (currentQuestionIndex === currentQuizSession.length - 1) {
           quizEndTime = new Date();
           showResults();
         } else {
           currentQuestionIndex++;
           loadQuestion();
         }
-      }, 1000); // 1-second delay to show feedback
+      }, 1000);
     }
-
     // Next Question
     nextQuestionBtn.addEventListener('click', () => {
       currentQuestionIndex++;
@@ -1564,6 +1597,7 @@
 
     // Show Results
     function showResults() {
+      document.body.classList.remove('quiz-active');
       showSection('results-section');
 
       const quiz = currentQuizData;

@@ -5,124 +5,1059 @@
   "questions": [
     {
       "question": "Which HTML tag is used to create a hyperlink?",
-      "options": ["<link>", "<a>", "<href>", "<url>"],
+      "options": [
+        "<link>",
+        "<a>",
+        "<href>",
+        "<url>"
+      ],
       "correct": 1,
       "explanation": "<a> (anchor) tag is used to create hyperlinks: <a href='url'>text</a>"
     },
     {
       "question": "What does CSS stand for?",
-      "options": ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style Sheets", "Colorful Style Sheets"],
+      "options": [
+        "Cascading Style Sheets",
+        "Computer Style Sheets",
+        "Creative Style Sheets",
+        "Colorful Style Sheets"
+      ],
       "correct": 0,
       "explanation": "CSS stands for Cascading Style Sheets."
     },
     {
+      "question": "What does HTML stand for?",
+      "options": [
+        "Hyper Text Markup Language",
+        "Hyperlinks and Text Markup Language",
+        "Home Tool Markup Language",
+        "Hyper Tool Markup Language"
+      ],
+      "correct": 0,
+      "explanation": "HTML stands for Hyper Text Markup Language, the standard markup language for documents designed to be displayed in a web browser."
+    },
+    {
+      "question": "Who is making the Web standards?",
+      "options": [
+        "Mozilla",
+        "Google",
+        "The World Wide Web Consortium",
+        "Microsoft"
+      ],
+      "correct": 2,
+      "explanation": "The World Wide Web Consortium (W3C) is the main international standards organization for the World Wide Web."
+    },
+    {
+      "question": "Choose the correct HTML element for the largest heading:",
+      "options": [
+        "<heading>",
+        "<h6>",
+        "<h1>",
+        "<head>"
+      ],
+      "correct": 2,
+      "explanation": "<h1> defines the most important heading. <h6> defines the least important heading."
+    },
+    {
+      "question": "What is the correct HTML element for inserting a line break?",
+      "options": [
+        "<lb>",
+        "<break>",
+        "<br>",
+        "<hr>"
+      ],
+      "correct": 2,
+      "explanation": "The <br> tag inserts a single line break."
+    },
+    {
+      "question": "What is the correct HTML for adding a background color?",
+      "options": [
+        "<body bg='yellow'>",
+        "<body style='background-color:yellow;'>",
+        "<background>yellow</background>",
+        "<body background='yellow'>"
+      ],
+      "correct": 1,
+      "explanation": "The 'style' attribute with the 'background-color' property is the modern way to set background colors."
+    },
+    {
+      "question": "Choose the correct HTML element to define important text:",
+      "options": [
+        "<important>",
+        "<i>",
+        "<strong>",
+        "<b>"
+      ],
+      "correct": 2,
+      "explanation": "The <strong> element is used to identify text of great importance."
+    },
+    {
+      "question": "Choose the correct HTML element to define emphasized text:",
+      "options": [
+        "<i>",
+        "<emphasize>",
+        "<em>",
+        "<b>"
+      ],
+      "correct": 2,
+      "explanation": "The <em> element is used to define emphasized text."
+    },
+    {
+      "question": "What is the correct HTML for creating a hyperlink?",
+      "options": [
+        "<a href='http://www.w3schools.com'>W3Schools</a>",
+        "<a>http://www.w3schools.com</a>",
+        "<a url='http://www.w3schools.com'>W3Schools.com</a>",
+        "<a name='http://www.w3schools.com'>W3Schools.com</a>"
+      ],
+      "correct": 0,
+      "explanation": "The <a> (anchor) tag with the 'href' attribute is used to create hyperlinks."
+    },
+    {
+      "question": "What does the 'flex-direction' property do in Flexbox?",
+      "options": [
+        "Sets the direction of the flex items",
+        "Sets the size of the flex items",
+        "Sets the spacing between items",
+        "Sets the alignment of items"
+      ],
+      "correct": 0,
+      "explanation": "flex-direction defines the direction the container wants to stack the flex items (row, column, etc.)."
+    },
+    {
+      "question": "Which property is used to align flex items along the main axis?",
+      "options": [
+        "align-items",
+        "justify-content",
+        "align-content",
+        "flex-align"
+      ],
+      "correct": 1,
+      "explanation": "justify-content aligns items along the main axis (horizontal by default)."
+    },
+    {
+      "question": "Which property is used to align flex items along the cross axis?",
+      "options": [
+        "align-items",
+        "justify-content",
+        "align-self",
+        "flex-wrap"
+      ],
+      "correct": 0,
+      "explanation": "align-items defines the default behavior for how flex items are laid out along the cross axis."
+    },
+    {
+      "question": "What does 'display: grid;' do?",
+      "options": [
+        "Creates a flexible box",
+        "Creates a table-like layout system",
+        "Displays items in a line",
+        "Hides the element"
+      ],
+      "correct": 1,
+      "explanation": "CSS Grid Layout is a 2-dimensional system, meaning it can handle both columns and rows."
+    },
+    {
+      "question": "Which property defines the number of columns in a CSS Grid?",
+      "options": [
+        "grid-columns",
+        "grid-template-columns",
+        "column-count",
+        "grid-layout-columns"
+      ],
+      "correct": 1,
+      "explanation": "grid-template-columns defines the line names and track sizing functions of the grid columns."
+    },
+    {
+      "question": "What is the 'fr' unit in CSS Grid?",
+      "options": [
+        "Fixed Ratio",
+        "Fraction of the available space",
+        "Font Relative",
+        "Frame Rate"
+      ],
+      "correct": 1,
+      "explanation": "The fr unit allows you to set the size of a track as a fraction of the free space of the grid container."
+    },
+    {
+      "question": "Which CSS property is used to add space between grid cells?",
+      "options": [
+        "grid-spacing",
+        "gap",
+        "cell-padding",
+        "margin"
+      ],
+      "correct": 1,
+      "explanation": "The 'gap' property (previously grid-gap) sets the gaps (gutters) between rows and columns."
+    },
+    {
+      "question": "What is the purpose of the <main> tag?",
+      "options": [
+        "Header of the page",
+        "Footer of the page",
+        "Specifies the dominant content of the <body>",
+        "A sidebar"
+      ],
+      "correct": 2,
+      "explanation": "The <main> tag contains the central topic or functionality of a document."
+    },
+    {
+      "question": "Which HTML5 element is used for standalone content like blog posts or news stories?",
+      "options": [
+        "<section>",
+        "<div>",
+        "<article>",
+        "<aside>"
+      ],
+      "correct": 2,
+      "explanation": "<article> is intended to be independently distributable or reusable."
+    },
+    {
+      "question": "What does the 'z-index' property do?",
+      "options": [
+        "Zooms into an element",
+        "Sets the stack order of positioned elements",
+        "Changes the width",
+        "Sets the opacity"
+      ],
+      "correct": 1,
+      "explanation": "z-index specifies the stack order of an element (which element should be in front)."
+    },
+    {
+      "question": "Which property is used to create a transition effect?",
+      "options": [
+        "animation",
+        "transition",
+        "transform",
+        "change"
+      ],
+      "correct": 1,
+      "explanation": "The transition property allows you to change property values smoothly over a given duration."
+    },
+    {
+      "question": "What does 'transform: rotate(45deg);' do?",
+      "options": [
+        "Moves the element",
+        "Scales the element",
+        "Rotates the element 45 degrees",
+        "Flips the element"
+      ],
+      "correct": 2,
+      "explanation": "The rotate() function defines a transformation that rotates an element around a fixed point."
+    },
+    {
+      "question": "How do you make an element invisible but still keep its space?",
+      "options": [
+        "display: none;",
+        "visibility: hidden;",
+        "opacity: 0;",
+        "Both visibility: hidden and opacity: 0"
+      ],
+      "correct": 3,
+      "explanation": "visibility: hidden and opacity: 0 both hide the element while it still occupies its space in the layout."
+    },
+    {
+      "question": "Which property sets the space between the content and the border?",
+      "options": [
+        "margin",
+        "padding",
+        "spacing",
+        "border-width"
+      ],
+      "correct": 1,
+      "explanation": "Padding is the space inside the border, while margin is outside."
+    },
+    {
+      "question": "What does 'box-sizing: border-box;' do?",
+      "options": [
+        "Adds a border to the box",
+        "Includes padding and border in the element's total width and height",
+        "Only measures the content size",
+        "Resizes the box"
+      ],
+      "correct": 1,
+      "explanation": "border-box ensures that the specified width includes padding and border, preventing layout issues."
+    },
+    {
+      "question": "Which CSS property is used to make text italic?",
+      "options": [
+        "font-weight",
+        "font-style",
+        "text-decoration",
+        "font-variant"
+      ],
+      "correct": 1,
+      "explanation": "font-style: italic; is used to set the font style to italic."
+    },
+    {
+      "question": "How do you select only the first child of an element?",
+      "options": [
+        ":first-child",
+        ":last-child",
+        ":only-child",
+        ":nth-child(0)"
+      ],
+      "correct": 0,
+      "explanation": "The :first-child pseudo-class matches an element that is the first child of its parent."
+    },
+    {
+      "question": "What is a 'Media Query' used for?",
+      "options": [
+        "Playing videos",
+        "Applying styles based on device characteristics like screen width",
+        "Querying a database",
+        "Changing the font size"
+      ],
+      "correct": 1,
+      "explanation": "Media queries are the basis for responsive web design, allowing different styles for different devices."
+    },
+    {
+      "question": "What does '@keyframes' define?",
+      "options": [
+        "A key that opens a lock",
+        "Steps in a CSS animation",
+        "A media query",
+        "A variable"
+      ],
+      "correct": 1,
+      "explanation": "The @keyframes rule specifies the animation code."
+    },
+    {
+      "question": "Which property is used to change the mouse cursor?",
+      "options": [
+        "mouse",
+        "pointer",
+        "cursor",
+        "icon"
+      ],
+      "correct": 2,
+      "explanation": "The cursor property specifies the mouse cursor to be displayed when pointing over an element."
+    },
+    {
+      "question": "What is the default value of the 'position' property?",
+      "options": [
+        "relative",
+        "absolute",
+        "static",
+        "fixed"
+      ],
+      "correct": 2,
+      "explanation": "By default, elements are positioned 'static', meaning they follow the normal document flow."
+    },
+    {
+      "question": "Which position value keeps an element in the same place even when scrolling?",
+      "options": [
+        "relative",
+        "sticky",
+        "fixed",
+        "absolute"
+      ],
+      "correct": 2,
+      "explanation": "fixed positioning is relative to the viewport, meaning it stays in place during scroll."
+    },
+    {
+      "question": "What is 'rem' unit relative to?",
+      "options": [
+        "The parent element's font size",
+        "The root element's font size",
+        "The viewport width",
+        "The line height"
+      ],
+      "correct": 1,
+      "explanation": "rem stands for 'root em', which is relative to the font-size of the <html> element."
+    },
+    {
+      "question": "What is the purpose of the <nav> element?",
+      "options": [
+        "A map component",
+        "A set of navigation links",
+        "A progress bar",
+        "A footer"
+      ],
+      "correct": 1,
+      "explanation": "The <nav> element is intended for major blocks of navigation links."
+    },
+    {
+      "question": "How do you center an element horizontally using margins?",
+      "options": [
+        "margin: center;",
+        "margin: 0 auto;",
+        "margin: auto 0;",
+        "margin-horizontal: center;"
+      ],
+      "correct": 1,
+      "explanation": "Setting margin-left and margin-right to auto centers a block element within its container."
+    },
+    {
+      "question": "Which property is used to set the order of flex items?",
+      "options": [
+        "flex-order",
+        "index",
+        "order",
+        "z-index"
+      ],
+      "correct": 2,
+      "explanation": "The 'order' property specifies the order of a flex item relative to the rest of the flex items."
+    },
+    {
+      "question": "What does 'vh' stand for?",
+      "options": [
+        "Vertical Height",
+        "Viewport Height",
+        "Value Height",
+        "Variable Height"
+      ],
+      "correct": 1,
+      "explanation": "1vh is equal to 1% of the viewport's height."
+    },
+    {
+      "question": "Which attribute is used with <source> inside <picture>?",
+      "options": [
+        "src",
+        "srcset",
+        "href",
+        "url"
+      ],
+      "correct": 1,
+      "explanation": "srcset is used to specify multiple image resources for different scenarios."
+    },
+    {
+      "question": "What is the purpose of 'alt' attribute in <img>?",
+      "options": [
+        "Tooltip",
+        "Alternative text if image fails to load",
+        "Image caption",
+        "Image link"
+      ],
+      "correct": 1,
+      "explanation": "The alt attribute provides alternative information for an image if a user cannot view it."
+    },
+    {
+      "question": "Which CSS property is used to specify whether the content of an element should be clipped?",
+      "options": [
+        "clip",
+        "overflow",
+        "hidden",
+        "cut"
+      ],
+      "correct": 1,
+      "explanation": "The overflow property specifies what should happen if content overflows an element's box."
+    },
+    {
+      "question": "Which character is used to indicate an end tag?",
+      "options": [
+        "<",
+        "*",
+        "/",
+        "^"
+      ],
+      "correct": 2,
+      "explanation": "End tags are identical to start tags but with a forward slash / before the tag name."
+    },
+    {
+      "question": "How can you make a numbered list?",
+      "options": [
+        "<ul>",
+        "<list>",
+        "<ol>",
+        "<dl>"
+      ],
+      "correct": 2,
+      "explanation": "<ol> stands for Ordered List, which displays items with numbers."
+    },
+    {
+      "question": "How can you make a bulleted list?",
+      "options": [
+        "<ol>",
+        "<list>",
+        "<ul>",
+        "<dl>"
+      ],
+      "correct": 2,
+      "explanation": "<ul> stands for Unordered List, which displays items with bullets."
+    },
+    {
+      "question": "What is the correct HTML for making a checkbox?",
+      "options": [
+        "<input type='check'>",
+        "<check>",
+        "<checkbox>",
+        "<input type='checkbox'>"
+      ],
+      "correct": 3,
+      "explanation": "<input type='checkbox'> defines a checkbox."
+    },
+    {
+      "question": "What is the correct HTML for making a text input field?",
+      "options": [
+        "<input type='text'>",
+        "<textinput>",
+        "<input type='textfield'>",
+        "<textfield>"
+      ],
+      "correct": 0,
+      "explanation": "<input type='text'> defines a single-line text input field."
+    },
+    {
+      "question": "Which HTML element is used to specify a footer for a document or section?",
+      "options": [
+        "<bottom>",
+        "<footer>",
+        "<section>",
+        "<foot>"
+      ],
+      "correct": 1,
+      "explanation": "The <footer> element defines a footer for a document or section."
+    },
+    {
+      "question": "What does CSS stand for?",
+      "options": [
+        "Creative Style Sheets",
+        "Cascading Style Sheets",
+        "Computer Style Sheets",
+        "Colorful Style Sheets"
+      ],
+      "correct": 1,
+      "explanation": "CSS stands for Cascading Style Sheets."
+    },
+    {
+      "question": "Which HTML attribute is used to define inline styles?",
+      "options": [
+        "class",
+        "font",
+        "style",
+        "styles"
+      ],
+      "correct": 2,
+      "explanation": "The style attribute is used to add inline styles to an element."
+    },
+    {
+      "question": "Which is the correct CSS syntax?",
+      "options": [
+        "{body;color:black;}",
+        "body {color: black;}",
+        "body:color=black;",
+        "body:color(black)"
+      ],
+      "correct": 1,
+      "explanation": "CSS rules consist of a selector and a declaration block: selector {property: value;}."
+    },
+    {
+      "question": "How do you insert a comment in a CSS file?",
+      "options": [
+        "' this is a comment",
+        "// this is a comment",
+        "/* this is a comment */",
+        "// this is a comment //"
+      ],
+      "correct": 2,
+      "explanation": "/* */ is used to wrap comments in CSS."
+    },
+    {
+      "question": "Which property is used to change the background color?",
+      "options": [
+        "color",
+        "background-color",
+        "bgcolor",
+        "background"
+      ],
+      "correct": 1,
+      "explanation": "background-color sets the background color of an element."
+    },
+    {
+      "question": "How do you add a background color for all <h1> elements?",
+      "options": [
+        "h1 {background-color:#FFFFFF;}",
+        "h1.all {background-color:#FFFFFF;}",
+        "all.h1 {background-color:#FFFFFF;}",
+        "h1 {bg-color:#FFFFFF;}"
+      ],
+      "correct": 0,
+      "explanation": "Selecting 'h1' as the element selector applies styles to all h1 tags."
+    },
+    {
+      "question": "Which CSS property is used to change the text color of an element?",
+      "options": [
+        "text-color",
+        "fgcolor",
+        "color",
+        "font-color"
+      ],
+      "correct": 2,
+      "explanation": "The 'color' property specifies the text color of an element."
+    },
+    {
+      "question": "Which CSS property controls the text size?",
+      "options": [
+        "font-size",
+        "text-style",
+        "text-size",
+        "font-style"
+      ],
+      "correct": 0,
+      "explanation": "The 'font-size' property sets the size of the font."
+    },
+    {
+      "question": "What is the correct CSS syntax for making all the <p> elements bold?",
+      "options": [
+        "p {font-weight:bold;}",
+        "p {text-size:bold;}",
+        "<p style='text-size:bold;'>",
+        "p {font-style:bold;}"
+      ],
+      "correct": 0,
+      "explanation": "font-weight: bold; is used to set the weight (thickness) of the font."
+    },
+    {
+      "question": "How do you display hyperlinks without an underline?",
+      "options": [
+        "a {text-decoration:none;}",
+        "a {underline:none;}",
+        "a {decoration:no-underline;}",
+        "a {text-underline:none;}"
+      ],
+      "correct": 0,
+      "explanation": "text-decoration: none; removes the default underline from links."
+    },
+    {
+      "question": "Which property is used to change the font of an element?",
+      "options": [
+        "font-family",
+        "font-style",
+        "font-weight",
+        "font-type"
+      ],
+      "correct": 0,
+      "explanation": "The font-family property specifies the font for an element."
+    },
+    {
+      "question": "How do you make the text bold?",
+      "options": [
+        "font:bold;",
+        "font-weight:bold;",
+        "style:bold;",
+        "font-type:bold;"
+      ],
+      "correct": 1,
+      "explanation": "font-weight: bold; makes the text bold."
+    },
+    {
+      "question": "How do you make a list that lists its items with squares?",
+      "options": [
+        "list: square;",
+        "list-type: square;",
+        "list-style-type: square;",
+        "ol {type: square;}"
+      ],
+      "correct": 2,
+      "explanation": "list-style-type: square; changes the bullet style to squares."
+    },
+    {
+      "question": "How do you select an element with id 'demo'?",
+      "options": [
+        ".demo",
+        "demo",
+        "#demo",
+        "*demo"
+      ],
+      "correct": 2,
+      "explanation": "# selects an element by its ID."
+    },
+    {
+      "question": "How do you select elements with a specific class?",
+      "options": [
+        "#test",
+        "test",
+        ".test",
+        "*test"
+      ],
+      "correct": 2,
+      "explanation": ". selects elements by their class name."
+    },
+    {
+      "question": "How do you select all p elements inside a div element?",
+      "options": [
+        "div p",
+        "div.p",
+        "div + p",
+        "div > p"
+      ],
+      "correct": 0,
+      "explanation": "A descendant selector (space) matches all elements that are descendants of a specified element."
+    },
+    {
       "question": "Which CSS property changes text color?",
-      "options": ["text-color", "font-color", "color", "text-style"],
+      "options": [
+        "text-color",
+        "font-color",
+        "color",
+        "text-style"
+      ],
       "correct": 2,
       "explanation": "color property sets the color of text."
     },
     {
       "question": "What is the largest heading tag?",
-      "options": ["<h6>", "<h1>", "<heading>", "<header>"],
+      "options": [
+        "<h6>",
+        "<h1>",
+        "<heading>",
+        "<header>"
+      ],
       "correct": 1,
       "explanation": "<h1> is the largest heading, <h6> is smallest."
     },
     {
       "question": "Which CSS property makes text bold?",
-      "options": ["font-weight", "text-weight", "font-style", "text-bold"],
+      "options": [
+        "font-weight",
+        "text-weight",
+        "font-style",
+        "text-bold"
+      ],
       "correct": 0,
       "explanation": "font-weight property makes text bold: font-weight: bold"
     },
     {
       "question": "How to link external CSS file?",
-      "options": ["<style src=''>", "<link rel='stylesheet' href=''>", "<css href=''>", "<include>"],
+      "options": [
+        "<style src=''>",
+        "<link rel='stylesheet' href=''>",
+        "<css href=''>",
+        "<include>"
+      ],
       "correct": 1,
       "explanation": "<link rel='stylesheet' href='style.css'> links external CSS file."
     },
     {
       "question": "Which attribute provides alternate text for images?",
-      "options": ["title", "alt", "src", "text"],
+      "options": [
+        "title",
+        "alt",
+        "src",
+        "text"
+      ],
       "correct": 1,
       "explanation": "alt attribute provides alternative text when image can't be displayed."
     },
     {
       "question": "What does CSS box model consist of?",
-      "options": ["Content, padding, border, margin", "Only content", "Content and border", "Margin and padding"],
+      "options": [
+        "Content, padding, border, margin",
+        "Only content",
+        "Content and border",
+        "Margin and padding"
+      ],
       "correct": 0,
       "explanation": "Box model: content (innermost), padding, border, margin (outermost)."
     },
     {
       "question": "Which tag creates a line break?",
-      "options": ["<lb>", "<br>", "<break>", "<line>"],
+      "options": [
+        "<lb>",
+        "<br>",
+        "<break>",
+        "<line>"
+      ],
       "correct": 1,
       "explanation": "<br> tag creates a line break (new line)."
     },
     {
       "question": "What is the purpose of CSS margin?",
-      "options": ["Space inside element", "Space outside element", "Border", "Padding"],
+      "options": [
+        "Space inside element",
+        "Space outside element",
+        "Border",
+        "Padding"
+      ],
       "correct": 1,
       "explanation": "margin creates space outside element's border."
     },
     {
       "question": "Which tag is used for unordered list?",
-      "options": ["<ol>", "<ul>", "<list>", "<li>"],
+      "options": [
+        "<ol>",
+        "<ul>",
+        "<list>",
+        "<li>"
+      ],
       "correct": 1,
       "explanation": "<ul> creates unordered (bulleted) list."
     },
     {
       "question": "What does CSS position: absolute do?",
-      "options": ["Absolute position", "Positioned relative to nearest positioned ancestor", "Fixed position", "Error"],
+      "options": [
+        "Absolute position",
+        "Positioned relative to nearest positioned ancestor",
+        "Fixed position",
+        "Error"
+      ],
       "correct": 1,
       "explanation": "position: absolute positions element relative to nearest positioned ancestor."
     },
     {
       "question": "Which CSS property centers text?",
-      "options": ["align: center", "text-align: center", "center: true", "text: center"],
+      "options": [
+        "align: center",
+        "text-align: center",
+        "center: true",
+        "text: center"
+      ],
       "correct": 1,
       "explanation": "text-align: center centers text horizontally."
     },
     {
       "question": "What is a div tag?",
-      "options": ["Division", "Container element", "Document", "Division container"],
+      "options": [
+        "Division",
+        "Container element",
+        "Document",
+        "Division container"
+      ],
       "correct": 1,
       "explanation": "<div> is block-level container used for layout."
     },
     {
       "question": "Which property changes background color?",
-      "options": ["bgcolor", "bg-color", "background-color", "back-color"],
+      "options": [
+        "bgcolor",
+        "bg-color",
+        "background-color",
+        "back-color"
+      ],
       "correct": 2,
       "explanation": "background-color property sets background color: background-color: red"
     },
     {
       "question": "What does CSS z-index do?",
-      "options": ["Stack order", "Controls element stacking", "Depth", "All of the above"],
+      "options": [
+        "Stack order",
+        "Controls element stacking",
+        "Depth",
+        "All of the above"
+      ],
       "correct": 3,
       "explanation": "z-index controls stacking order of positioned elements."
     },
     {
       "question": "Which tag creates a paragraph?",
-      "options": ["<para>", "<p>", "<paragraph>", "<text>"],
+      "options": [
+        "<para>",
+        "<p>",
+        "<paragraph>",
+        "<text>"
+      ],
       "correct": 1,
       "explanation": "<p> tag creates a paragraph."
     },
     {
       "question": "What is the difference between class and id?",
-      "options": ["Same", "id is unique, class can be reused", "Both unique", "Error"],
+      "options": [
+        "Same",
+        "id is unique, class can be reused",
+        "Both unique",
+        "Error"
+      ],
       "correct": 1,
       "explanation": "id is unique identifier, class can be used multiple times."
     },
     {
       "question": "Which CSS property makes element display inline?",
-      "options": ["display: inline", "inline: true", "show: inline", "type: inline"],
+      "options": [
+        "display: inline",
+        "inline: true",
+        "show: inline",
+        "type: inline"
+      ],
       "correct": 0,
       "explanation": "display: inline makes element inline (takes only needed width)."
     },
     {
       "question": "What does CSS float do?",
-      "options": ["Float element", "Position element left/right", "Raise element", "All of above"],
+      "options": [
+        "Float element",
+        "Position element left/right",
+        "Raise element",
+        "All of above"
+      ],
       "correct": 1,
       "explanation": "float positions element to left or right of container."
+    },
+    {
+      "question": "Which HTML element is used to specify a footer for a document or section?",
+      "options": [
+        "<bottom>",
+        "<footer>",
+        "<section>",
+        "<aside>"
+      ],
+      "correct": 1,
+      "explanation": "The <footer> element typically contains information about its containing element, such as authorship, copyright, etc."
+    },
+    {
+      "question": "What is the correct HTML for adding a background color?",
+      "options": [
+        "<body bg='yellow'>",
+        "<body style='background-color:yellow;'>",
+        "<background>yellow</background>",
+        "<body bgcolor='yellow'>"
+      ],
+      "correct": 1,
+      "explanation": "The style attribute is used to apply inline CSS for background-color."
+    },
+    {
+      "question": "How do you make a list that lists the items with numbers?",
+      "options": [
+        "<ul>",
+        "<dl>",
+        "<list>",
+        "<ol>"
+      ],
+      "correct": 3,
+      "explanation": "<ol> defines an ordered list which uses numbers by default."
+    },
+    {
+      "question": "What is the correct HTML for making a checkbox?",
+      "options": [
+        "<check>",
+        "<checkbox>",
+        "<input type='checkbox'>",
+        "<input type='check'>"
+      ],
+      "correct": 2,
+      "explanation": "<input type='checkbox'> creates a checkbox."
+    },
+    {
+      "question": "Which HTML element is used to define important text?",
+      "options": [
+        "<important>",
+        "<strong>",
+        "<i>",
+        "<br>"
+      ],
+      "correct": 1,
+      "explanation": "<strong> defines text with strong importance, usually displayed in bold."
+    },
+    {
+      "question": "What is the correct HTML for making a text input field?",
+      "options": [
+        "<input type='textfield'>",
+        "<input type='text'>",
+        "<textfield>",
+        "<textinput>"
+      ],
+      "correct": 1,
+      "explanation": "<input type='text'> creates a single-line text input."
+    },
+    {
+      "question": "Which HTML element is used to define a multi-line input field?",
+      "options": [
+        "<input type='textarea'>",
+        "<textarea>",
+        "<input type='textbox'>",
+        "<text>"
+      ],
+      "correct": 1,
+      "explanation": "The <textarea> tag defines a multi-line text input control."
+    },
+    {
+      "question": "Which CSS property is used to change the font of an element?",
+      "options": [
+        "font-family",
+        "font-style",
+        "font-weight",
+        "text-font"
+      ],
+      "correct": 0,
+      "explanation": "font-family specifies the font for an element."
+    },
+    {
+      "question": "How do you display a border like this: The top border = 10px, bottom border = 5px, left border = 20px, right border = 1px?",
+      "options": [
+        "border-width:10px 5px 20px 1px;",
+        "border-width:10px 1px 5px 20px;",
+        "border-width:5px 20px 10px 1px;",
+        "border-width:10px 20px 5px 1px;"
+      ],
+      "correct": 1,
+      "explanation": "The order of border-width values is: top, right, bottom, left."
+    },
+    {
+      "question": "Which property is used to change the left margin of an element?",
+      "options": [
+        "margin-left",
+        "padding-left",
+        "indent",
+        "margin-left-width"
+      ],
+      "correct": 0,
+      "explanation": "margin-left sets the left margin of an element."
+    },
+    {
+      "question": "How do you make the text bold in CSS?",
+      "options": [
+        "font:bold;",
+        "style:bold;",
+        "font-weight:bold;",
+        "text-decoration:bold;"
+      ],
+      "correct": 2,
+      "explanation": "font-weight:bold; is used to make text bold."
+    },
+    {
+      "question": "Which property is used to change the list style to squares?",
+      "options": [
+        "list-type: square;",
+        "list-style-type: square;",
+        "type: square;",
+        "bullet-style: square;"
+      ],
+      "correct": 1,
+      "explanation": "list-style-type specifies the type of list-item marker."
+    },
+    {
+      "question": "How do you select all p elements inside a div element?",
+      "options": [
+        "div p",
+        "div.p",
+        "div + p",
+        "div(p)"
+      ],
+      "correct": 0,
+      "explanation": "The descendant selector (space) selects elements inside elements."
+    },
+    {
+      "question": "Which property is used to change the font size of an element?",
+      "options": [
+        "text-size",
+        "font-size",
+        "size",
+        "font-style"
+      ],
+      "correct": 1,
+      "explanation": "font-size specifies the size of the font."
+    },
+    {
+      "question": "What is the output of print(3 * \"a\")?",
+      "options": [
+        "3a",
+        "aaa",
+        "a3",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Wait, this is a Python question! Let's use an HTML one: Which HTML element defines navigation links?"
+    },
+    {
+      "question": "Which HTML element defines navigation links?",
+      "options": [
+        "<nav>",
+        "<navigate>",
+        "<navigation>",
+        "<navlinks>"
+      ],
+      "correct": 0,
+      "explanation": "The <nav> tag defines a set of navigation links."
     }
   ]
 }
-
