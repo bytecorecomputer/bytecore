@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Photo Gallery | ByteCore Computer Centre</title>
     <meta name="description"
-        content="Explore our photo gallery showcasing events, celebrations, achievements, and classroom moments at ByteCore Computer Centre." />
+        content="Explore our photo gallery showcasing our students, events, celebrations, and achievements at ByteCore Computer Centre." />
 
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -31,71 +31,107 @@
                         primary: '#6366f1',
                         secondary: '#a855f7',
                         dark: '#0f172a',
+                        glass: 'rgba(255, 255, 255, 0.1)',
                     },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
                 }
             }
         }
     </script>
 
     <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* Premium Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 1.5rem;
+            border-radius: 1rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10;
         }
 
         .gallery-item:hover {
-            transform: translateY(-8px);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            z-index: 20;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
         }
 
         .gallery-item img {
-            transition: transform 0.5s ease;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .gallery-item:hover img {
             transform: scale(1.1);
         }
 
-        .gallery-overlay {
+        .gallery-content {
             position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
+            bottom: 0;
+            left: 0;
+            right: 0;
             padding: 1.5rem;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease 0.1s;
+            z-index: 20;
         }
 
-        .gallery-item:hover .gallery-overlay {
+        .gallery-item:hover .gallery-content {
+            transform: translateY(0);
             opacity: 1;
         }
 
-        /* Lightbox Styles */
-        .lightbox {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
+        /* Custom Badge */
+        .course-badge {
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
         }
 
-        .lightbox.active {
-            display: flex;
-        }
-
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-        }
-
-        /* Masonry Grid */
+        /* Masonry Grid Layout */
         .masonry-grid {
             column-count: 1;
             column-gap: 1.5rem;
@@ -113,230 +149,351 @@
             }
         }
 
+        @media (min-width: 1280px) {
+            .masonry-grid {
+                column-count: 4;
+            }
+        }
+
         .masonry-item {
             break-inside: avoid;
             margin-bottom: 1.5rem;
         }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .lightbox img {
+            max-height: 85vh;
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 0 50px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Animated Background */
+        .bg-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(30px, -30px);
+            }
+        }
+
+        /* Loader */
+        .loader {
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-left-color: #6366f1;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 
-<body class="bg-slate-50 dark:bg-slate-950 font-sans selection:bg-primary/30">
+<body class="antialiased">
 
-    <!-- Page Header -->
-    <section
-        class="min-h-[40vh] flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-indigo-900 via-slate-900 to-black pt-20">
-        <div
-            class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20">
-        </div>
+    <!-- Ambient Background -->
+    <div class="bg-orb bg-indigo-600/30 w-96 h-96 top-0 left-0"></div>
+    <div class="bg-orb bg-purple-600/30 w-[30rem] h-[30rem] bottom-0 right-0 animation-delay-2000"></div>
 
+    <!-- Navigation Placeholder (Will be loaded by site-components.js) -->
+    <div id="navbar-placeholder" class="sticky top-0 z-50"></div>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-12 overflow-hidden">
         <div class="container mx-auto px-6 relative z-10 text-center">
-            <h1 class="text-4xl md:text-6xl font-heading font-bold text-white mb-6">
-                Photo <span
-                    class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">Gallery</span>
+            <h1 class="text-5xl md:text-7xl font-heading font-extrabold mb-6 tracking-tight">
+                Our <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Gallery</span>
             </h1>
-            <p class="text-xl text-indigo-200 max-w-2xl mx-auto">
-                Moments captured, memories treasured. Explore our journey through events, celebrations, and
-                achievements.
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
+                Celebrating the vibrant community of <span class="text-indigo-400 font-medium">ByteCore</span>.
+                From bright students to memorable events, explore our journey.
             </p>
         </div>
     </section>
 
-    <!-- Filter Tabs -->
-    <section class="section-padding bg-white dark:bg-slate-950/50">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-wrap justify-center gap-3 mb-12">
-                <button class="filter-btn active px-6 py-3 rounded-xl font-bold transition-all" data-filter="all">
-                    <i class="fas fa-images mr-2"></i>All Photos
+    <!-- Gallery Section -->
+    <section class="min-h-screen pb-20">
+        <div class="container mx-auto px-4 md:px-6">
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button
+                    class="filter-btn active group relative px-8 py-3 rounded-full font-bold transition-all duration-300 bg-white/10 text-white hover:bg-white/20 ring-1 ring-white/10"
+                    data-filter="all">
+                    <span>All Photos</span>
+                    <span
+                        class="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-xl font-bold transition-all" data-filter="events">
-                    <i class="fas fa-calendar-alt mr-2"></i>Events
+                <button
+                    class="filter-btn group relative px-8 py-3 rounded-full font-bold transition-all duration-300 bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
+                    data-filter="students">
+                    <span>Students</span>
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-xl font-bold transition-all" data-filter="parties">
-                    <i class="fas fa-birthday-cake mr-2"></i>Celebrations
-                </button>
-                <button class="filter-btn px-6 py-3 rounded-xl font-bold transition-all" data-filter="classes">
-                    <i class="fas fa-chalkboard-teacher mr-2"></i>Classes
-                </button>
-                <button class="filter-btn px-6 py-3 rounded-xl font-bold transition-all" data-filter="achievements">
-                    <i class="fas fa-trophy mr-2"></i>Achievements
+                <button
+                    class="filter-btn group relative px-8 py-3 rounded-full font-bold transition-all duration-300 bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
+                    data-filter="events">
+                    <span>Events</span>
                 </button>
             </div>
 
-            <!-- Gallery Grid (Masonry) -->
-            <div class="masonry-grid" id="gallery-container">
-                <!-- Gallery items will be dynamically loaded here -->
+            <!-- Loader -->
+            <div id="gallery-loader" class="flex justify-center py-20">
+                <div class="loader"></div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="masonry-grid opacity-0 transition-opacity duration-1000" id="gallery-container">
+                <!-- Items injected via JS -->
+            </div>
+
+            <!-- Load More (Hidden by default, can be enabled if simpler pagination needed) -->
+            <div class="text-center mt-12 hidden" id="load-more-container">
+                <button
+                    class="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-semibold transition-all">
+                    Load More
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
-        <button class="absolute top-6 right-6 text-white text-4xl hover:text-indigo-400 transition-colors"
+        <div class="absolute inset-0" onclick="closeLightbox()"></div>
+
+        <button class="absolute top-6 right-6 text-white/50 hover:text-white text-3xl transition-colors z-50 p-2"
             onclick="closeLightbox()">
             <i class="fas fa-times"></i>
         </button>
+
         <button
-            class="absolute left-6 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-indigo-400 transition-colors"
+            class="absolute left-4 md:left-24 top-1/2 -translate-y-1/2 text-white/50 hover:text-white text-4xl md:text-6xl transition-colors z-50 p-4"
             onclick="previousImage()">
             <i class="fas fa-chevron-left"></i>
         </button>
+
         <button
-            class="absolute right-6 top-1/2 -translate-y-1/2 text-white text-4xl hover:text-indigo-400 transition-colors"
+            class="absolute right-4 md:right-24 top-1/2 -translate-y-1/2 text-white/50 hover:text-white text-4xl md:text-6xl transition-colors z-50 p-4"
             onclick="nextImage()">
             <i class="fas fa-chevron-right"></i>
         </button>
-        <img id="lightbox-img" src="" alt="">
-        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-center">
-            <h3 class="text-2xl font-bold mb-2" id="lightbox-title"></h3>
-            <p class="text-indigo-300" id="lightbox-date"></p>
+
+        <div class="lightbox-content flex flex-col items-center justify-center pointer-events-none">
+            <img id="lightbox-img" src="" alt="" class="pointer-events-auto">
+            <div class="mt-6 text-center pointer-events-auto">
+                <h3 class="text-3xl font-heading font-bold text-white mb-2" id="lightbox-title"></h3>
+                <div class="flex items-center justify-center gap-3">
+                    <span id="lightbox-badge" class="course-badge"></span>
+                    <span class="text-indigo-200 text-sm" id="lightbox-date"></span>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Scripts -->
     <script src="assets/js/site-components.js"></script>
     <script>
-        // Gallery Data (Replace with your actual images)
-        const galleryData = [
-            {
-                id: 1,
-                url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop',
-                title: 'Annual Tech Fest 2024',
-                category: 'events',
-                date: 'January 15, 2024'
-            },
-            {
-                id: 2,
-                url: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&auto=format&fit=crop',
-                title: 'Python Workshop',
-                category: 'classes',
-                date: 'December 10, 2023'
-            },
-            {
-                id: 3,
-                url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop',
-                title: 'New Year Celebration',
-                category: 'parties',
-                date: 'January 1, 2024'
-            },
-            {
-                id: 4,
-                url: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&auto=format&fit=crop',
-                title: 'Certificate Distribution',
-                category: 'achievements',
-                date: 'November 20, 2023'
-            },
-            {
-                id: 5,
-                url: 'https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=800&auto=format&fit=crop',
-                title: 'Coding Competition',
-                category: 'events',
-                date: 'October 5, 2023'
-            },
-            {
-                id: 6,
-                url: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&auto=format&fit=crop',
-                title: 'Web Development Class',
-                category: 'classes',
-                date: 'September 15, 2023'
-            },
-            {
-                id: 7,
-                url: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop',
-                title: 'Teacher\'s Day Celebration',
-                category: 'parties',
-                date: 'September 5, 2023'
-            },
-            {
-                id: 8,
-                url: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop',
-                title: 'Team Project Presentation',
-                category: 'achievements',
-                date: 'August 25, 2023'
-            }
-        ];
-
+        let allGalleryItems = [];
+        let filteredItems = [];
         let currentImageIndex = 0;
-        let filteredGallery = [...galleryData];
 
-        // Render Gallery
-        function renderGallery(filter = 'all') {
-            filteredGallery = filter === 'all' ? [...galleryData] : galleryData.filter(item => item.category === filter);
+        // Fetch Data from JSON
+        async function loadGalleryData() {
+            const loader = document.getElementById('gallery-loader');
             const container = document.getElementById('gallery-container');
-            container.innerHTML = '';
 
-            filteredGallery.forEach((item, index) => {
-                const div = document.createElement('div');
-                div.className = 'masonry-item';
-                div.innerHTML = `
-                    <div class="gallery-item" onclick="openLightbox(${index})">
-                        <img src="${item.url}" alt="${item.title}" class="w-full h-full object-cover">
-                        <div class="gallery-overlay">
-                            <h3 class="text-white font-bold text-lg mb-1">${item.title}</h3>
-                            <p class="text-indigo-300 text-sm"><i class="far fa-calendar mr-2"></i>${item.date}</p>
-                        </div>
+            try {
+                const response = await fetch('gallery_data.json');
+                if (!response.ok) throw new Error('Failed to load gallery data');
+                allGalleryItems = await response.json();
+
+                // Set up initial view
+                renderGallery('all');
+
+                // Handle filter visibility
+                const hasEvents = allGalleryItems.some(item => item.category === 'events');
+                if (!hasEvents) {
+                    const eventBtn = document.querySelector('[data-filter="events"]');
+                    if (eventBtn) eventBtn.style.display = 'none';
+                }
+
+            } catch (error) {
+                console.error('Error:', error);
+                loader.innerHTML = `
+                    <div class="text-center">
+                        <p class="text-red-400 mb-4">Failed to load student gallery.</p>
+                        <button onclick="loadGalleryData()" class="px-6 py-2 bg-indigo-600 rounded-full text-sm">Retry</button>
                     </div>
                 `;
-                container.appendChild(div);
-            });
+            }
         }
 
-        // Filter Functionality
+        // Render Function
+        function renderGallery(filter = 'all') {
+            const container = document.getElementById('gallery-container');
+            const loader = document.getElementById('gallery-loader');
+
+            // Show loader briefly
+            container.style.opacity = '0';
+            loader.style.display = 'flex';
+
+            setTimeout(() => {
+                if (filter === 'all') {
+                    filteredItems = allGalleryItems;
+                } else {
+                    filteredItems = allGalleryItems.filter(item => item.category === filter);
+                }
+
+                container.innerHTML = '';
+
+                if (filteredItems.length === 0) {
+                    container.innerHTML = `
+                        <div class="col-span-full py-20 text-center">
+                            <i class="fas fa-image text-5xl text-slate-700 mb-4"></i>
+                            <p class="text-slate-400">No photos found in this category.</p>
+                        </div>
+                    `;
+                } else {
+                    filteredItems.forEach((item, index) => {
+                        const div = document.createElement('div');
+                        div.className = 'masonry-item animate-in fade-in zoom-in duration-500';
+                        div.style.animationDelay = `${index * 50}ms`;
+
+                        div.innerHTML = `
+                            <div class="gallery-item glass-card group" onclick="openLightbox(${index})">
+                                <div class="aspect-[4/5] md:aspect-[3/4] overflow-hidden rounded-2xl relative">
+                                    <img src="${item.url}" alt="${item.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500?text=Image+Not+Found'">
+                                    <div class="gallery-content">
+                                        <span class="course-badge mb-2 inline-block shadow-lg">${item.course || 'Student'}</span>
+                                        <h3 class="text-white font-bold text-xl drop-shadow-md">${item.title}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        container.appendChild(div);
+                    });
+                }
+
+                loader.style.display = 'none';
+                container.style.opacity = '1';
+
+            }, 300);
+        }
+
+        // Filter Logic
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', function () {
                 document.querySelectorAll('.filter-btn').forEach(b => {
-                    b.classList.remove('active', 'bg-gradient-to-r', 'from-indigo-500', 'to-purple-500', 'text-white', 'shadow-lg');
-                    b.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+                    b.classList.remove('active', 'bg-white/10', 'text-white', 'ring-1', 'ring-white/10');
+                    b.classList.add('bg-white/5', 'text-slate-400');
+                    const span = b.querySelector('span.absolute');
+                    if (span) span.classList.remove('scale-x-100');
                 });
-                this.classList.add('active', 'bg-gradient-to-r', 'from-indigo-500', 'to-purple-500', 'text-white', 'shadow-lg');
-                this.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+
+                this.classList.remove('bg-white/5', 'text-slate-400');
+                this.classList.add('active', 'bg-white/10', 'text-white', 'ring-1', 'ring-white/10');
+                const span = this.querySelector('span.absolute');
+                if (span) span.classList.add('scale-x-100');
+
                 renderGallery(this.dataset.filter);
             });
         });
 
-        // Lightbox Functions
+        // Lightbox Logic
         function openLightbox(index) {
             currentImageIndex = index;
-            const item = filteredGallery[index];
-            document.getElementById('lightbox-img').src = item.url;
-            document.getElementById('lightbox-title').textContent = item.title;
-            document.getElementById('lightbox-date').textContent = item.date;
-            document.getElementById('lightbox').classList.add('active');
+            const item = filteredItems[index];
+            updateLightboxContent(item);
+
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateLightboxContent(item) {
+            const img = document.getElementById('lightbox-img');
+            const title = document.getElementById('lightbox-title');
+            const badge = document.getElementById('lightbox-badge');
+            const date = document.getElementById('lightbox-date');
+
+            img.src = item.url;
+            title.textContent = item.title;
+            badge.textContent = item.course || 'Student';
+            date.textContent = item.date || '2024';
         }
 
         function closeLightbox() {
             document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
         }
 
         function nextImage() {
-            currentImageIndex = (currentImageIndex + 1) % filteredGallery.length;
-            openLightbox(currentImageIndex);
+            currentImageIndex = (currentImageIndex + 1) % filteredItems.length;
+            updateLightboxContent(filteredItems[currentImageIndex]);
         }
 
         function previousImage() {
-            currentImageIndex = (currentImageIndex - 1 + filteredGallery.length) % filteredGallery.length;
-            openLightbox(currentImageIndex);
+            currentImageIndex = (currentImageIndex - 1 + filteredItems.length) % filteredItems.length;
+            updateLightboxContent(filteredItems[currentImageIndex]);
         }
 
-        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
-            if (document.getElementById('lightbox').classList.contains('active')) {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowRight') nextImage();
-                if (e.key === 'ArrowLeft') previousImage();
-            }
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') previousImage();
         });
 
-        // Initialize with default filter button styles
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            if (!btn.classList.contains('active')) {
-                btn.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
-            } else {
-                btn.classList.add('bg-gradient-to-r', 'from-indigo-500', 'to-purple-500', 'text-white', 'shadow-lg');
-            }
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadGalleryData();
         });
 
-        // Initial render
-        renderGallery();
+
     </script>
 </body>
 

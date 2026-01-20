@@ -79,6 +79,72 @@
             -webkit-mask-image: radial-gradient(circle at center, black, transparent 80%);
             pointer-events: none;
         }
+
+        /* Gallery Styles for Home */
+        .gallery-grid {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .gallery-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .gallery-grid {
+                column-count: 3;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .gallery-grid {
+                column-count: 4;
+            }
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .course-tag {
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 99px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            width: fit-content;
+            margin-bottom: 0.5rem;
+        }
     </style>
 
     <!-- Schema -->
@@ -492,6 +558,36 @@
         </div>
     </section>
 
+    <!-- Student Gallery Section (Home Page Preview) -->
+    <section class="section-padding bg-slate-50 dark:bg-slate-900 overflow-hidden" id="home-student-gallery">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
+                <div class="text-center md:text-left">
+                    <span class="text-indigo-500 font-bold uppercase tracking-widest text-xs mb-2 block">Our Student
+                        Community</span>
+                    <h2 class="text-3xl md:text-5xl font-heading font-bold dark:text-white">Meet Our <span
+                            class="text-primary">Stars</span></h2>
+                </div>
+                <a href="gallery.html"
+                    class="group flex items-center gap-3 px-6 py-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 font-bold transition-all hover:border-primary">
+                    <span>Explore Full Gallery</span>
+                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform text-primary"></i>
+                </a>
+            </div>
+
+            <div id="home-gallery-container" class="gallery-grid opacity-0 transition-opacity duration-1000">
+                <!-- Data injected via JS -->
+            </div>
+
+            <div class="text-center mt-12" id="gallery-loader">
+                <div
+                    class="inline-block animate-spin rounded-full h-8 w-8 border-4 border-primary border-t-transparent">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <!-- CTA Section -->
     <section class="py-24 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-slate-900 to-black z-0"></div>
@@ -559,7 +655,46 @@
                 },
             },
         });
+
+        // Home Page Gallery Fetch & Render
+        async function initHomeGallery() {
+            const container = document.getElementById('home-gallery-container');
+            const loader = document.getElementById('gallery-loader');
+
+            try {
+                const response = await fetch('gallery_data.json');
+                if (!response.ok) throw new Error('Data not found');
+                const data = await response.json();
+
+                // Show all students on home page as requested
+                const displayData = data;
+
+
+                container.innerHTML = displayData.map((item, index) => `
+                    <div class="gallery-item group">
+                        <img src="${item.url}" alt="${item.title}" class="w-full h-auto object-cover" onerror="this.src='https://via.placeholder.com/400x500?text=Student'">
+                        <div class="gallery-overlay">
+                            <span class="course-tag">${item.course || 'Student'}</span>
+                            <h4 class="text-white text-xl font-bold">${item.title}</h4>
+                            <p class="text-indigo-200 text-xs">${item.date || 'Class of 2024'}</p>
+                        </div>
+                    </div>
+                `).join('');
+
+                loader.classList.add('hidden');
+                container.classList.remove('opacity-0');
+
+            } catch (error) {
+                console.error('Gallery Error:', error);
+                loader.innerHTML = '<p class="text-slate-500">Visit our gallery page to see all students.</p>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initHomeGallery();
+        });
     </script>
+
 </body>
 
 </html>
