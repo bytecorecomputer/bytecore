@@ -159,7 +159,8 @@ const diplomaData = {
             "roll": "0185",
             "link": "https://raw.githubusercontent.com/Bytecore-website/ByteCore-diploma/main/shifa0185.jpg",
             "dob": "19/05/2006"
-        }, {
+        },
+        {
             "roll": "1031",
             "link": "https://raw.githubusercontent.com/Bytecore-website/ByteCore-diploma/main/manjeet1031.jpg",
             "dob": "23/02/2009"
@@ -188,6 +189,26 @@ const diplomaData = {
             "roll": "0210",
             "link": "https://raw.githubusercontent.com/Bytecore-website/ByteCore-diploma/main/raghav0210.jpg",
             "dob": "12/02/2014"
+        },
+        {
+            "roll": "2002",
+            "dob": "12/07/2004",
+            "link": "https://raw.githubusercontent.com/Bytecore-website/ByteCore-diploma/main/TAUSEEF2002.jpg"
+        },
+        {
+            "roll": "506",
+            "dob": "17/08/2002",
+            "link": "https://raw.githubusercontent.com/Bytecore-website/ByteCore-diploma/main/SABA506.jpg"
+        },
+        {
+            "roll": "0223",
+            "dob": "12/07/2004",
+            "link": "https://raw.githubusercontent.com/Bytecore-website/ByteCore-diploma/main/SIMRAN0223.jpg"
+        },
+        {
+            "roll": "1225",
+            "dob": "01/10/1970",
+            "link": "https://raw.githubusercontent.com/Bytecore-website/ByteCore-diploma/main/VINOD KUMAR 1225.jpg"
         }
     ]
 };
