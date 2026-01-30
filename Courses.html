@@ -135,7 +135,8 @@
                 tags: ["popular", "web"],
                 category: "Web Development",
                 level: "Intermediate",
-                color: "from-blue-500 to-indigo-600"
+                color: "from-blue-500 to-indigo-600",
+                image: "assets/img/courses/fullstack_web.png"
             },
             {
                 id: 2,
@@ -226,7 +227,8 @@
                 tags: ["diploma"],
                 category: "Certification",
                 level: "Intermediate",
-                color: "from-sky-500 to-blue-600"
+                color: "from-sky-500 to-blue-600",
+                image: "assets/img/courses/adca_mdca.png"
             },
             {
                 id: 9,
@@ -239,7 +241,8 @@
                 tags: ["new", "diploma"],
                 category: "Certification",
                 level: "Advanced",
-                color: "from-cyan-500 to-blue-600"
+                color: "from-cyan-500 to-blue-600",
+                image: "assets/img/courses/adca_mdca.png"
             },
             {
                 id: 10,
@@ -318,6 +321,98 @@
                 category: "Business",
                 level: "Beginner",
                 color: "from-green-400 to-teal-600"
+            },
+            {
+                id: 16,
+                title: "C++ Programming",
+                description: "Master C++ from basics to advanced data structures and high-performance applications.",
+                duration: "4 Months",
+                enrolled: "65+",
+                price: 12999,
+                rating: "4.8",
+                tags: ["programming"],
+                category: "Programming",
+                level: "Intermediate",
+                color: "from-blue-600 to-purple-600"
+            },
+            {
+                id: 17,
+                title: "C Programming",
+                description: "The foundation of all languages. Learn logical building and system programming.",
+                duration: "3 Months",
+                enrolled: "110+",
+                price: 8999,
+                rating: "4.7",
+                tags: ["foundation"],
+                category: "Programming",
+                level: "Beginner",
+                color: "from-slate-600 to-slate-800"
+            },
+            {
+                id: 18,
+                title: "Professional Accounting (Tally Prime)",
+                description: "GST, Taxation, Inventory and Financial Management with Tally Prime.",
+                duration: "4 Months",
+                enrolled: "90+",
+                price: 15999,
+                rating: "4.9",
+                tags: ["popular", "accounting"],
+                category: "Accounting",
+                level: "Intermediate",
+                color: "from-indigo-600 to-cyan-600",
+                image: "assets/img/courses/accounting_tally.png"
+            },
+            {
+                id: 19,
+                title: "MS Office Mastery",
+                description: "Complete Word, Excel, PowerPoint & Outlook for professional office workflow.",
+                duration: "3 Months",
+                enrolled: "140+",
+                price: 9999,
+                rating: "4.6",
+                tags: ["essential"],
+                category: "Certification",
+                level: "Beginner",
+                color: "from-blue-500 to-blue-700"
+            },
+            {
+                id: 20,
+                title: "Graphic Design Mastery",
+                description: "Master Photoshop, Illustrator, and CorelDraw for stunning visual creations.",
+                duration: "6 Months",
+                enrolled: "55+",
+                price: 18999,
+                rating: "4.8",
+                tags: ["design", "creative"],
+                category: "Design",
+                level: "Intermediate",
+                color: "from-pink-500 to-rose-600"
+            },
+            {
+                id: 21,
+                title: "DCST (Diploma in Computer Software Technology)",
+                description: "Deep dive into software development, databases, and system analysis.",
+                duration: "12 Months",
+                enrolled: "45+",
+                price: 24999,
+                rating: "4.7",
+                tags: ["diploma", "software"],
+                category: "Certification",
+                level: "Intermediate",
+                color: "from-indigo-500 to-purple-600"
+            },
+            {
+                id: 22,
+                title: "DFA (Diploma in Financial Accounting)",
+                description: "Advanced financial accounting with Tally, GST, and computerized bookkeeping.",
+                duration: "6 Months",
+                enrolled: "75+",
+                price: 14999,
+                rating: "4.9",
+                tags: ["popular", "accounting"],
+                category: "Accounting",
+                level: "Intermediate",
+                color: "from-emerald-500 to-teal-600"
             }
         ];
 
@@ -398,14 +493,18 @@
 
                 courseElement.innerHTML = `
                     <div class="relative h-48 -mx-8 -mt-8 mb-6 overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br ${gradientClass} opacity-90 group-hover:scale-110 transition-transform duration-700"></div>
-                        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay"></div>
+                        ${course.image ?
+                        `<img src="${course.image}" alt="${course.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">` :
+                        `<div class="absolute inset-0 bg-gradient-to-br ${gradientClass} opacity-90 group-hover:scale-110 transition-transform duration-700"></div>
+                             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay"></div>`
+                    }
                         
                         <div class="absolute top-4 left-4 flex flex-wrap gap-2 z-10">${tagsHTML}</div>
                         
+                        ${!course.image ? `
                         <div class="absolute inset-0 flex items-center justify-center">
                             <i class="fas fa-graduation-cap text-6xl text-white/30 transform -rotate-12 group-hover:rotate-0 transition-all duration-500"></i>
-                        </div>
+                        </div>` : ''}
                     </div>
 
                     <div class="flex justify-between items-start mb-3">
