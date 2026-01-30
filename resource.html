@@ -1,32 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow">
 
     <title>Free Study Resources | ByteCore Computer Centre</title>
+    <meta name="description"
+        content="Access free study materials, MS Office guides, and programming resources at Bytecore Computer Centre.">
+    <link rel="canonical" href="https://bytecores.in/resource.html" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bytecores.in/resource.html">
+    <meta property="og:title" content="Free Study Resources | Bytecore Computer Centre">
+    <meta property="og:description" content="Access free study materials, MS Office guides, and programming resources.">
+    <meta property="og:image" content="https://bytecores.in/assets/img/logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bytecores.in/resource.html">
+    <meta property="twitter:title" content="Free Study Resources | Bytecore Computer Centre">
+    <meta property="twitter:description"
+        content="Access free study materials, MS Office guides, and programming resources.">
+    <meta property="twitter:image" content="https://bytecores.in/assets/img/logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
+    <link rel="apple-touch-icon" href="assets/img/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* ===== Modern Dark Theme ===== */
         :root {
-            --primary: #4a6cf7;       /* Vibrant Blue */
+            --primary: #4a6cf7;
+            /* Vibrant Blue */
             --primary-dark: #3a5bf0;
-            --secondary: #0f172a;     /* Dark Blue */
-            --accent: #7c3aed;        /* Purple */
-            --light: #1e293b;         /* Card Background */
-            --text: #e2e8f0;          /* Light Gray */
-            --text-light: #94a3b8;    /* Lighter Gray */
-            --success: #10b981;       /* Green */
+            --secondary: #0f172a;
+            /* Dark Blue */
+            --accent: #7c3aed;
+            /* Purple */
+            --light: #1e293b;
+            /* Card Background */
+            --text: #e2e8f0;
+            /* Light Gray */
+            --text-light: #94a3b8;
+            /* Lighter Gray */
+            --success: #10b981;
+            /* Green */
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', system-ui, sans-serif;
         }
-        
+
         body {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: var(--text);
@@ -35,7 +65,7 @@
             position: relative;
             overflow-x: hidden;
         }
-        
+
         body::before {
             content: "";
             position: absolute;
@@ -43,12 +73,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 10% 20%, rgba(58, 91, 240, 0.1) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 20%);
             z-index: -1;
         }
-        
+
         /* Header */
         .header {
             background: rgba(15, 23, 42, 0.9);
@@ -60,7 +90,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .header::before {
             content: "";
             position: absolute;
@@ -72,7 +102,7 @@
             opacity: 0.1;
             z-index: -1;
         }
-        
+
         .header h1 {
             font-size: 2.8rem;
             margin-bottom: 0.5rem;
@@ -82,21 +112,21 @@
             color: transparent;
             font-weight: 800;
         }
-        
+
         .header p {
             opacity: 0.9;
             font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto;
         }
-        
+
         /* Main Container */
         .container {
             max-width: 1200px;
             margin: 3rem auto;
             padding: 0 1.5rem;
         }
-        
+
         /* Search and Filter */
         .search-section {
             background: rgba(30, 41, 59, 0.7);
@@ -106,13 +136,13 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-        
+
         .search-container {
             position: relative;
             max-width: 700px;
             margin: 0 auto;
         }
-        
+
         .search-container input {
             width: 100%;
             padding: 1rem 1rem 1rem 3.5rem;
@@ -123,13 +153,13 @@
             font-size: 1rem;
             transition: all 0.3s ease;
         }
-        
+
         .search-container input:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.3);
         }
-        
+
         .search-container i {
             position: absolute;
             left: 1.5rem;
@@ -137,7 +167,7 @@
             transform: translateY(-50%);
             color: var(--text-light);
         }
-        
+
         .filter-tags {
             display: flex;
             flex-wrap: wrap;
@@ -145,7 +175,7 @@
             gap: 0.8rem;
             margin-top: 1.5rem;
         }
-        
+
         .filter-tag {
             background: rgba(15, 23, 42, 0.5);
             color: var(--text-light);
@@ -156,13 +186,14 @@
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .filter-tag.active, .filter-tag:hover {
+
+        .filter-tag.active,
+        .filter-tag:hover {
             background: var(--primary);
             color: white;
             border-color: var(--primary);
         }
-        
+
         /* Resource Cards */
         .section-title {
             text-align: center;
@@ -170,7 +201,7 @@
             margin-bottom: 2rem;
             position: relative;
         }
-        
+
         .section-title::after {
             content: "";
             position: absolute;
@@ -182,14 +213,14 @@
             background: linear-gradient(90deg, var(--accent), var(--primary));
             border-radius: 2px;
         }
-        
+
         .resource-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 1.8rem;
             margin-bottom: 3rem;
         }
-        
+
         .card {
             background: rgba(30, 41, 59, 0.7);
             border-radius: 12px;
@@ -201,13 +232,13 @@
             flex-direction: column;
             height: 100%;
         }
-        
+
         .card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(124, 58, 237, 0.4);
             border-color: rgba(124, 58, 237, 0.3);
         }
-        
+
         .card-header {
             background: rgba(15, 23, 42, 0.9);
             color: white;
@@ -218,17 +249,17 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .card-header i {
             color: var(--primary);
             font-size: 1.5rem;
         }
-        
+
         .card-body {
             padding: 1.5rem;
             flex-grow: 1;
         }
-        
+
         .resource-item {
             margin-bottom: 1.2rem;
             padding-bottom: 1.2rem;
@@ -236,13 +267,13 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .resource-item:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
-        
+
         .resource-name {
             font-weight: 500;
             margin-bottom: 0.8rem;
@@ -251,11 +282,11 @@
             gap: 8px;
             font-size: 1.1rem;
         }
-        
+
         .resource-name i {
             color: var(--accent);
         }
-        
+
         .resource-meta {
             display: flex;
             justify-content: space-between;
@@ -263,7 +294,7 @@
             font-size: 0.9rem;
             margin-bottom: 0.8rem;
         }
-        
+
         .download-btn {
             display: inline-flex;
             align-items: center;
@@ -279,12 +310,12 @@
             width: 100%;
             text-align: center;
         }
-        
+
         .download-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);
         }
-        
+
         /* Benefits Section */
         .benefits {
             background: rgba(30, 41, 59, 0.7);
@@ -294,20 +325,20 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
-        
+
         .benefits h2 {
             text-align: center;
             color: white;
             margin-bottom: 2rem;
             font-size: 1.8rem;
         }
-        
+
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
-        
+
         .benefit-item {
             background: rgba(15, 23, 42, 0.5);
             padding: 1.5rem;
@@ -317,28 +348,28 @@
             transition: transform 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
+
         .benefit-item:hover {
             transform: translateY(-5px);
             border-color: rgba(124, 58, 237, 0.3);
         }
-        
+
         .benefit-icon {
             color: var(--primary);
             font-size: 1.8rem;
             min-width: 50px;
         }
-        
+
         .benefit-content h3 {
             margin-bottom: 0.5rem;
             color: white;
         }
-        
+
         .benefit-content p {
             color: var(--text-light);
             font-size: 0.95rem;
         }
-        
+
         /* CTA Section */
         .cta {
             text-align: center;
@@ -350,7 +381,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .cta::before {
             content: "";
             position: absolute;
@@ -362,25 +393,25 @@
             opacity: 0.2;
             z-index: 0;
         }
-        
+
         .cta-content {
             position: relative;
             z-index: 1;
             max-width: 700px;
             margin: 0 auto;
         }
-        
+
         .cta h2 {
             margin-bottom: 1rem;
             font-size: 2.2rem;
         }
-        
+
         .cta p {
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
             opacity: 0.9;
         }
-        
+
         .cta-btn {
             display: inline-flex;
             align-items: center;
@@ -396,12 +427,12 @@
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .cta-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
-        
+
         /* Footer */
         footer {
             text-align: center;
@@ -411,7 +442,7 @@
             margin-top: 4rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .footer-logo {
             font-size: 2rem;
             font-weight: 800;
@@ -421,7 +452,7 @@
             background-clip: text;
             color: transparent;
         }
-        
+
         .footer-links {
             display: flex;
             justify-content: center;
@@ -429,23 +460,23 @@
             margin: 1.5rem 0;
             flex-wrap: wrap;
         }
-        
+
         .footer-links a {
             color: var(--text-light);
             text-decoration: none;
             transition: color 0.3s;
         }
-        
+
         .footer-links a:hover {
             color: var(--primary);
         }
-        
+
         .copyright {
             color: var(--text-light);
             font-size: 0.9rem;
             margin-top: 1.5rem;
         }
-        
+
         /* Modal */
         .modal {
             position: fixed;
@@ -463,12 +494,12 @@
             visibility: hidden;
             transition: all 0.4s ease;
         }
-        
+
         .modal.active {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .modal-content {
             background: rgba(30, 41, 59, 0.95);
             border-radius: 15px;
@@ -482,11 +513,11 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
-        
+
         .modal.active .modal-content {
             transform: translateY(0);
         }
-        
+
         .modal-close {
             position: absolute;
             top: 20px;
@@ -496,29 +527,29 @@
             cursor: pointer;
             transition: color 0.3s;
         }
-        
+
         .modal-close:hover {
             color: var(--primary);
         }
-        
+
         .modal-icon {
             font-size: 3.5rem;
             color: var(--success);
             margin-bottom: 1.5rem;
         }
-        
+
         .modal-title {
             font-size: 1.8rem;
             margin-bottom: 1rem;
             color: white;
         }
-        
+
         .modal-text {
             color: var(--text-light);
             margin-bottom: 2rem;
             line-height: 1.7;
         }
-        
+
         .modal-btn {
             display: inline-block;
             background: linear-gradient(135deg, var(--primary), var(--accent));
@@ -529,53 +560,54 @@
             font-weight: 500;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
+
         .modal-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(124, 58, 237, 0.4);
         }
-        
+
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2.2rem;
             }
-            
+
             .resource-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .benefits-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .section-title {
                 font-size: 1.8rem;
             }
         }
-        
+
         @media (max-width: 480px) {
             .header h1 {
                 font-size: 1.8rem;
             }
-            
+
             .header p {
                 font-size: 1rem;
             }
-            
+
             .cta h2 {
                 font-size: 1.8rem;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
         <h1>ByteCore Computer Centre</h1>
         <p>Premium Free Study Resources for Students</p>
     </header>
-    
+
     <!-- Main Content -->
     <div class="container">
         <!-- Search and Filter -->
@@ -592,13 +624,13 @@
                 <div class="filter-tag" data-filter="design">Design</div>
             </div>
         </section>
-        
+
         <!-- Resource Grid -->
         <h2 class="section-title">Download Study Resources</h2>
         <div class="resource-grid" id="resourceGrid">
             <!-- Resources will be dynamically inserted here -->
         </div>
-        
+
         <!-- Benefits Section -->
         <section class="benefits">
             <h2>Why Our Resources Are Effective</h2>
@@ -612,7 +644,7 @@
                         <p>Perfect for last-minute revision before tests and exams with concise summaries.</p>
                     </div>
                 </div>
-                
+
                 <div class="benefit-item">
                     <div class="benefit-icon">
                         <i class="fas fa-laptop-code"></i>
@@ -622,7 +654,7 @@
                         <p>Real-world examples and exercises that you can apply immediately in projects.</p>
                     </div>
                 </div>
-                
+
                 <div class="benefit-item">
                     <div class="benefit-icon">
                         <i class="fas fa-clock"></i>
@@ -634,7 +666,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- CTA Section -->
         <section class="cta">
             <div class="cta-content">
@@ -647,12 +679,12 @@
             </div>
         </section>
     </div>
-    
+
     <!-- Footer -->
     <footer>
         <div class="footer-logo">ByteCore</div>
         <p>Advanced Computer Education & Training Centre</p>
-        
+
         <div class="footer-links">
             <a href="#">Home</a>
             <a href="#">Courses</a>
@@ -660,10 +692,10 @@
             <a href="#">Contact</a>
             <a href="#">Privacy Policy</a>
         </div>
-        
+
         <p class="copyright">© 2023 ByteCore Computer Centre. All Rights Reserved.</p>
     </footer>
-    
+
     <!-- Download Modal -->
     <div class="modal" id="downloadModal">
         <div class="modal-content">
@@ -673,115 +705,116 @@
             </div>
             <h2 class="modal-title">Download Resource</h2>
             <p class="modal-text" id="modalResourceName">Resource Name</p>
-            <p class="modal-text">Your download will begin shortly. For security purposes, direct linking is disabled.</p>
+            <p class="modal-text">Your download will begin shortly. For security purposes, direct linking is disabled.
+            </p>
             <a href="#" class="modal-btn" id="confirmDownload">
                 <i class="fas fa-download"></i>
                 Confirm Download
             </a>
         </div>
     </div>
-    
+
     <script>
         // Resource data with secure access
         const resources = [
-            { 
-                category: "office", 
-                name: "MS Word Complete Guide", 
-                type: "PDF", 
+            {
+                category: "office",
+                name: "MS Word Complete Guide",
+                type: "PDF",
                 pages: 42,
                 downloads: 1284,
                 icon: "far fa-file-word"
             },
-            { 
-                category: "office", 
-                name: "Excel Formulas Cheat Sheet", 
-                type: "PDF", 
+            {
+                category: "office",
+                name: "Excel Formulas Cheat Sheet",
+                type: "PDF",
                 pages: 24,
                 downloads: 1876,
                 icon: "far fa-file-excel"
             },
-            { 
-                category: "office", 
-                name: "PowerPoint Presentation Tips", 
-                type: "PDF", 
+            {
+                category: "office",
+                name: "PowerPoint Presentation Tips",
+                type: "PDF",
                 pages: 18,
                 downloads: 932,
                 icon: "far fa-file-powerpoint"
             },
-            { 
-                category: "programming", 
-                name: "Python Basics (Hindi/English)", 
-                type: "PDF", 
+            {
+                category: "programming",
+                name: "Python Basics (Hindi/English)",
+                type: "PDF",
                 pages: 68,
                 downloads: 2541,
                 icon: "fab fa-python"
             },
-            { 
-                category: "programming", 
-                name: "HTML & CSS Quick Guide", 
-                type: "PDF", 
+            {
+                category: "programming",
+                name: "HTML & CSS Quick Guide",
+                type: "PDF",
                 pages: 36,
                 downloads: 3127,
                 icon: "fab fa-html5"
             },
-            { 
-                category: "programming", 
-                name: "JavaScript Cheat Sheet", 
-                type: "PDF", 
+            {
+                category: "programming",
+                name: "JavaScript Cheat Sheet",
+                type: "PDF",
                 pages: 28,
                 downloads: 2895,
                 icon: "fab fa-js"
             },
-            { 
-                category: "tally", 
-                name: "Tally Prime Shortcuts", 
-                type: "PDF", 
+            {
+                category: "tally",
+                name: "Tally Prime Shortcuts",
+                type: "PDF",
                 pages: 16,
                 downloads: 876,
                 icon: "fas fa-calculator"
             },
-            { 
-                category: "tally", 
-                name: "GST Entry Guide", 
-                type: "PDF", 
+            {
+                category: "tally",
+                name: "GST Entry Guide",
+                type: "PDF",
                 pages: 32,
                 downloads: 1204,
                 icon: "fas fa-file-invoice-dollar"
             },
-            { 
-                category: "tally", 
-                name: "Accounting Basics", 
-                type: "PDF", 
+            {
+                category: "tally",
+                name: "Accounting Basics",
+                type: "PDF",
                 pages: 48,
                 downloads: 1563,
                 icon: "fas fa-book"
             },
-            { 
-                category: "design", 
-                name: "Photoshop Mastery Guide", 
-                type: "PDF", 
+            {
+                category: "design",
+                name: "Photoshop Mastery Guide",
+                type: "PDF",
                 pages: 56,
                 downloads: 1987,
                 icon: "fas fa-paint-brush"
             },
-            { 
-                category: "design", 
-                name: "UI/UX Design Principles", 
-                type: "PDF", 
+            {
+                category: "design",
+                name: "UI/UX Design Principles",
+                type: "PDF",
                 pages: 38,
                 downloads: 1420,
                 icon: "fas fa-object-group"
             },
-            { 
-                category: "design", 
-                name: "Figma Essentials", 
-                type: "PDF", 
+            {
+                category: "design",
+                name: "Figma Essentials",
+                type: "PDF",
                 pages: 44,
                 downloads: 1678,
                 icon: "fas fa-magic"
             }
         ];
-        
+
         // DOM Elements
         const resourceGrid = document.getElementById('resourceGrid');
         const resourceSearch = document.getElementById('resourceSearch');
@@ -790,24 +823,24 @@
         const modalClose = document.getElementById('modalClose');
         const modalResourceName = document.getElementById('modalResourceName');
         const confirmDownload = document.getElementById('confirmDownload');
-        
+
         // Initialize resources
         function renderResources(filter = "all", searchTerm = "") {
             resourceGrid.innerHTML = '';
-            
+
             const categories = {
                 "office": "Microsoft Office",
                 "programming": "Programming",
                 "tally": "Tally & Accounting",
                 "design": "Design"
             };
-            
+
             const filteredResources = resources.filter(resource => {
                 const matchesCategory = filter === "all" || resource.category === filter;
                 const matchesSearch = resource.name.toLowerCase().includes(searchTerm.toLowerCase());
                 return matchesCategory && matchesSearch;
             });
-            
+
             // Group by category
             const groupedResources = {};
             filteredResources.forEach(resource => {
@@ -816,21 +849,21 @@
                 }
                 groupedResources[resource.category].push(resource);
             });
-            
+
             // Render resources
             for (const category in groupedResources) {
                 const categoryResources = groupedResources[category];
-                
+
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.dataset.category = category;
-                
+
                 card.innerHTML = `
                     <div class="card-header">
-                        <i class="${category === 'office' ? 'fas fa-file-word' : 
-                                     category === 'programming' ? 'fas fa-code' : 
-                                     category === 'tally' ? 'fas fa-calculator' : 
-                                     'fas fa-paint-brush'}"></i>
+                        <i class="${category === 'office' ? 'fas fa-file-word' :
+                        category === 'programming' ? 'fas fa-code' :
+                            category === 'tally' ? 'fas fa-calculator' :
+                                'fas fa-paint-brush'}"></i>
                         ${categories[category]}
                     </div>
                     <div class="card-body">
@@ -851,32 +884,32 @@
                         `).join('')}
                     </div>
                 `;
-                
+
                 resourceGrid.appendChild(card);
             }
-            
+
             // Add event listeners to download buttons
             document.querySelectorAll('.download-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
+                btn.addEventListener('click', function (e) {
                     e.preventDefault();
                     const resourceName = this.dataset.resource;
                     showDownloadModal(resourceName);
                 });
             });
         }
-        
+
         // Show download modal
         function showDownloadModal(resourceName) {
             modalResourceName.textContent = resourceName;
             downloadModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-        
+
         // Secure download function
         function initiateDownload(resourceName) {
             // In a real implementation, this would call your backend to verify access
             // For this demo, we'll simulate a secure download
-            
+
             // Create a temporary download link
             const link = document.createElement('a');
             link.href = `#`; // This would be your secure download endpoint
@@ -884,23 +917,23 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            
+
             // Show success message
             alert(`Download started: ${resourceName}.pdf\n\nFor security, direct links are disabled in this demo.`);
         }
-        
+
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             // Render initial resources
             renderResources();
-            
+
             // Search functionality
             resourceSearch.addEventListener('input', () => {
                 const searchTerm = resourceSearch.value;
                 const activeFilter = document.querySelector('.filter-tag.active').dataset.filter;
                 renderResources(activeFilter, searchTerm);
             });
-            
+
             // Filter functionality
             filterTags.forEach(tag => {
                 tag.addEventListener('click', () => {
@@ -911,13 +944,13 @@
                     renderResources(filter, searchTerm);
                 });
             });
-            
+
             // Modal functionality
             modalClose.addEventListener('click', () => {
                 downloadModal.classList.remove('active');
                 document.body.style.overflow = 'auto';
             });
-            
+
             confirmDownload.addEventListener('click', (e) => {
                 e.preventDefault();
                 const resourceName = modalResourceName.textContent;
@@ -925,7 +958,7 @@
                 downloadModal.classList.remove('active');
                 document.body.style.overflow = 'auto';
             });
-            
+
             // Close modal when clicking outside
             downloadModal.addEventListener('click', (e) => {
                 if (e.target === downloadModal) {
@@ -936,4 +969,5 @@
         });
     </script>
 </body>
+
 </html>

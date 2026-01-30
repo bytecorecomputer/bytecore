@@ -10,7 +10,7 @@ const urlsToCache = [
   '/Fee.html',
   '/advanced-features.js',
   '/analytics-enhanced.js',
-  '/logo.png',
+  '/assets/img/logo.png',
   '/hero.jpg',
   'https://cdn.tailwindcss.com',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
@@ -39,7 +39,7 @@ self.addEventListener('fetch', event => {
         }
         return fetch(event.request);
       }
-    )
+      )
   );
 });
 
@@ -70,7 +70,7 @@ async function doBackgroundSync() {
   // Handle offline form submissions
   const cache = await caches.open('form-submissions');
   const requests = await cache.keys();
-  
+
   for (const request of requests) {
     try {
       await fetch(request);
@@ -85,8 +85,8 @@ async function doBackgroundSync() {
 self.addEventListener('push', event => {
   const options = {
     body: event.data ? event.data.text() : 'New course available!',
-    icon: '/logo.png',
-    badge: '/logo.png',
+    icon: '/assets/img/logo.png',
+    badge: '/assets/img/logo.png',
     vibrate: [100, 50, 100],
     data: {
       dateOfArrival: Date.now(),

@@ -19,9 +19,9 @@ User-agent: facebookexternalhit
 Allow: /
 
 # Sitemaps
-Sitemap: https://bytecore-flax.vercel.app/sitemap.xml
-Sitemap: https://bytecore-flax.vercel.app/sitemap-courses.xml
-Sitemap: https://bytecore-flax.vercel.app/sitemap-blog.xml
+Sitemap: https://bytecores.in/sitemap.xml
+Sitemap: https://bytecores.in/sitemap-courses.xml
+Sitemap: https://bytecores.in/sitemap-blog.xml
 
 # Host
-Host: https://bytecore-flax.vercel.app
+Host: https://bytecores.in

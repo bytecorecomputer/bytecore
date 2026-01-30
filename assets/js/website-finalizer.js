@@ -21,14 +21,14 @@ class WebsiteFinalizer {
             if (swiperWrapper) {
                 // Remove any vertical layout classes
                 swiperWrapper.classList.remove('flex-col', 'flex-column', 'vertical');
-                
+
                 // Force horizontal layout
                 swiperWrapper.style.cssText += `
                     display: flex !important;
                     flex-direction: row !important;
                     align-items: stretch !important;
                 `;
-                
+
                 // Fix individual slides
                 const slides = document.querySelectorAll('.swiper-slide');
                 slides.forEach(slide => {
@@ -70,7 +70,7 @@ class WebsiteFinalizer {
 
         // Preload critical resources
         const criticalResources = [
-            { href: '/logo.png', as: 'image' },
+            { href: '/assets/img/logo.png', as: 'image' },
             { href: '/hero.jpg', as: 'image' },
             { href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap', as: 'style' }
         ];
@@ -114,7 +114,7 @@ class WebsiteFinalizer {
                 card.style.transform = 'translateY(-10px)';
                 card.style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1)';
             });
-            
+
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'translateY(0)';
                 card.style.boxShadow = '';
@@ -128,7 +128,7 @@ class WebsiteFinalizer {
                 const originalText = button.textContent;
                 button.textContent = 'Loading...';
                 button.disabled = true;
-                
+
                 setTimeout(() => {
                     button.textContent = originalText;
                     button.disabled = false;
@@ -191,7 +191,7 @@ class WebsiteFinalizer {
         images.forEach(img => {
             // Add error handling
             img.addEventListener('error', () => {
-                img.src = '/logo.png'; // Fallback image
+                img.src = '/assets/img/logo.png'; // Fallback image
                 img.alt = 'Bytecore Computer Centre';
             });
 
@@ -315,7 +315,7 @@ class WebsiteFinalizer {
 // Initialize Website Finalizer
 document.addEventListener('DOMContentLoaded', () => {
     new WebsiteFinalizer();
-    
+
     // Additional final checks
     setTimeout(() => {
         // Final Swiper check
@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
             swiperWrapper.classList.remove('flex-col');
             console.log('Final Swiper fix applied');
         }
-        
+
         // Performance check
         if (typeof gtag !== 'undefined') {
             gtag('event', 'website_loaded', {
