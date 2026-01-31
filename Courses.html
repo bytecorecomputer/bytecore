@@ -120,301 +120,10 @@
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/js/course-data.js"></script>
     <script>
-        // Combine course data
-        const courses = [
-            {
-                id: 1,
-                title: "Full Stack Development",
-                description: "Master frontend and backend technologies to build complete web applications.",
-                duration: "6 Months",
-                enrolled: "120+",
-                price: 25999,
-                rating: "4.9",
-                tags: ["popular", "web"],
-                category: "Web Development",
-                level: "Intermediate",
-                color: "from-blue-500 to-indigo-600",
-                image: "assets/img/courses/fullstack_web.png"
-            },
-            {
-                id: 2,
-                title: "Data Science & AI",
-                description: "Learn machine learning, deep learning and data analysis techniques with Python.",
-                duration: "8 Months",
-                enrolled: "85+",
-                price: 32999,
-                rating: "4.8",
-                tags: ["new", "ai"],
-                category: "Data Science",
-                level: "Advanced",
-                color: "from-purple-500 to-pink-600"
-            },
-            {
-                id: 3,
-                title: "UI/UX Design",
-                description: "Master design principles, prototyping and user research methodologies.",
-                duration: "4 Months",
-                enrolled: "64+",
-                price: 18999,
-                rating: "4.7",
-                tags: ["design"],
-                category: "Design",
-                level: "Intermediate",
-                color: "from-amber-500 to-orange-600"
-            },
-            {
-                id: 4,
-                title: "Cyber Security",
-                description: "Learn ethical hacking, network security and digital forensics from experts.",
-                duration: "6 Months",
-                enrolled: "92+",
-                price: 28999,
-                rating: "4.9",
-                tags: ["advanced", "security"],
-                category: "Programming",
-                level: "Advanced",
-                color: "from-rose-500 to-red-600"
-            },
-            {
-                id: 5,
-                title: "Cloud Computing",
-                description: "Master AWS, Azure and Google Cloud platforms for infrastructure management.",
-                duration: "5 Months",
-                enrolled: "78+",
-                price: 22999,
-                rating: "4.6",
-                tags: ["cloud"],
-                category: "Programming",
-                level: "Intermediate",
-                color: "from-blue-600 to-cyan-600"
-            },
-            {
-                id: 6,
-                title: "O Level (IT)",
-                description: "NIELIT certified course covering programming, web tech, and IT fundamentals.",
-                duration: "6 Months",
-                enrolled: "150+",
-                price: 19999,
-                rating: "4.8",
-                tags: ["popular", "govt"],
-                category: "Certification",
-                level: "Beginner",
-                color: "from-violet-500 to-fuchsia-600"
-            },
-            {
-                id: 7,
-                title: "CCC (Course on Computer Concepts)",
-                description: "NIELIT certification covering basic computer concepts and applications.",
-                duration: "3 Months",
-                enrolled: "200+",
-                price: 8999,
-                rating: "4.7",
-                tags: ["popular", "govt"],
-                category: "Certification",
-                level: "Beginner",
-                color: "from-emerald-500 to-teal-600"
-            },
-            {
-                id: 8,
-                title: "ADCA (Advanced Diploma in Computer Applications)",
-                description: "Comprehensive course covering DTP, accounting, programming and more.",
-                duration: "12 Months",
-                enrolled: "120+",
-                price: 35999,
-                rating: "4.6",
-                tags: ["diploma"],
-                category: "Certification",
-                level: "Intermediate",
-                color: "from-sky-500 to-blue-600",
-                image: "assets/img/courses/adca_mdca.png"
-            },
-            {
-                id: 9,
-                title: "MDCA (Master Diploma in Computer Applications)",
-                description: "Advanced diploma covering programming, database, networking and more.",
-                duration: "15 Months",
-                enrolled: "85+",
-                price: 42999,
-                rating: "4.7",
-                tags: ["new", "diploma"],
-                category: "Certification",
-                level: "Advanced",
-                color: "from-cyan-500 to-blue-600",
-                image: "assets/img/courses/adca_mdca.png"
-            },
-            {
-                id: 10,
-                title: "Python Programming",
-                description: "Learn Python from basics to advanced concepts with real-world projects.",
-                duration: "4 Months",
-                enrolled: "180+",
-                price: 15999,
-                rating: "4.9",
-                tags: ["popular", "python"],
-                category: "Programming",
-                level: "Beginner",
-                color: "from-blue-500 to-indigo-600"
-            },
-            {
-                id: 11,
-                title: "Java Programming",
-                description: "Master Java programming language with OOP concepts and enterprise applications.",
-                duration: "5 Months",
-                enrolled: "95+",
-                price: 17999,
-                rating: "4.7",
-                tags: ["java"],
-                category: "Programming",
-                level: "Intermediate",
-                color: "from-red-500 to-orange-600"
-            },
-            {
-                id: 12,
-                title: "Web Development Fundamentals",
-                description: "Learn HTML, CSS, JavaScript and build responsive websites from scratch.",
-                duration: "3 Months",
-                enrolled: "135+",
-                price: 12999,
-                rating: "4.5",
-                tags: ["basic", "web"],
-                category: "Web Development",
-                level: "Beginner",
-                color: "from-yellow-500 to-amber-600"
-            },
-            {
-                id: 13,
-                title: "React JS Masterclass",
-                description: "Become a React expert by building modern single-page applications.",
-                duration: "4 Months",
-                enrolled: "110+",
-                price: 21999,
-                rating: "4.8",
-                tags: ["new", "react"],
-                category: "Web Development",
-                level: "Intermediate",
-                color: "from-blue-400 to-cyan-600"
-            },
-            {
-                id: 14,
-                title: "Machine Learning Basics",
-                description: "Introduction to machine learning algorithms and data modeling techniques.",
-                duration: "5 Months",
-                enrolled: "75+",
-                price: 27999,
-                rating: "4.6",
-                tags: ["ml"],
-                category: "Data Science",
-                level: "Intermediate",
-                color: "from-purple-400 to-pink-600"
-            },
-            {
-                id: 15,
-                title: "Digital Marketing",
-                description: "Learn SEO, SEM, social media marketing and content strategy.",
-                duration: "3 Months",
-                enrolled: "145+",
-                price: 14999,
-                rating: "4.4",
-                tags: ["marketing"],
-                category: "Business",
-                level: "Beginner",
-                color: "from-green-400 to-teal-600"
-            },
-            {
-                id: 16,
-                title: "C++ Programming",
-                description: "Master C++ from basics to advanced data structures and high-performance applications.",
-                duration: "4 Months",
-                enrolled: "65+",
-                price: 12999,
-                rating: "4.8",
-                tags: ["programming"],
-                category: "Programming",
-                level: "Intermediate",
-                color: "from-blue-600 to-purple-600"
-            },
-            {
-                id: 17,
-                title: "C Programming",
-                description: "The foundation of all languages. Learn logical building and system programming.",
-                duration: "3 Months",
-                enrolled: "110+",
-                price: 8999,
-                rating: "4.7",
-                tags: ["foundation"],
-                category: "Programming",
-                level: "Beginner",
-                color: "from-slate-600 to-slate-800"
-            },
-            {
-                id: 18,
-                title: "Professional Accounting (Tally Prime)",
-                description: "GST, Taxation, Inventory and Financial Management with Tally Prime.",
-                duration: "4 Months",
-                enrolled: "90+",
-                price: 15999,
-                rating: "4.9",
-                tags: ["popular", "accounting"],
-                category: "Accounting",
-                level: "Intermediate",
-                color: "from-indigo-600 to-cyan-600",
-                image: "assets/img/courses/accounting_tally.png"
-            },
-            {
-                id: 19,
-                title: "MS Office Mastery",
-                description: "Complete Word, Excel, PowerPoint & Outlook for professional office workflow.",
-                duration: "3 Months",
-                enrolled: "140+",
-                price: 9999,
-                rating: "4.6",
-                tags: ["essential"],
-                category: "Certification",
-                level: "Beginner",
-                color: "from-blue-500 to-blue-700"
-            },
-            {
-                id: 20,
-                title: "Graphic Design Mastery",
-                description: "Master Photoshop, Illustrator, and CorelDraw for stunning visual creations.",
-                duration: "6 Months",
-                enrolled: "55+",
-                price: 18999,
-                rating: "4.8",
-                tags: ["design", "creative"],
-                category: "Design",
-                level: "Intermediate",
-                color: "from-pink-500 to-rose-600"
-            },
-            {
-                id: 21,
-                title: "DCST (Diploma in Computer Software Technology)",
-                description: "Deep dive into software development, databases, and system analysis.",
-                duration: "12 Months",
-                enrolled: "45+",
-                price: 24999,
-                rating: "4.7",
-                tags: ["diploma", "software"],
-                category: "Certification",
-                level: "Intermediate",
-                color: "from-indigo-500 to-purple-600"
-            },
-            {
-                id: 22,
-                title: "DFA (Diploma in Financial Accounting)",
-                description: "Advanced financial accounting with Tally, GST, and computerized bookkeeping.",
-                duration: "6 Months",
-                enrolled: "75+",
-                price: 14999,
-                rating: "4.9",
-                tags: ["popular", "accounting"],
-                category: "Accounting",
-                level: "Intermediate",
-                color: "from-emerald-500 to-teal-600"
-            }
-        ];
+        // Use data from course-data.js - ensure it's loaded
+        const courses = window.coursesData || [];
 
         // Initialize variables
         let currentPage = 1;
@@ -422,13 +131,20 @@
         let filteredCourses = [...courses];
 
         // DOM Elements
-        const coursesContainer = document.getElementById('courses-container');
-        const paginationContainer = document.getElementById('pagination-container');
-        const courseCountElement = document.getElementById('course-count');
-        const searchInput = document.getElementById('course-search');
+        let coursesContainer, paginationContainer, courseCountElement, searchInput;
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
+            coursesContainer = document.getElementById('courses-container');
+            paginationContainer = document.getElementById('pagination-container');
+            courseCountElement = document.getElementById('course-count');
+            searchInput = document.getElementById('course-search');
+
+            // Reload courses data in case it wasn't ready
+            if (window.coursesData && window.coursesData.length > 0) {
+                filteredCourses = [...window.coursesData];
+            }
+
             renderCourses();
             renderPagination();
             updateCourseCount();
@@ -479,7 +195,8 @@
 
             coursesToShow.forEach(course => {
                 const courseElement = document.createElement('div');
-                courseElement.className = 'premium-card group animate-reveal';
+                courseElement.className = 'premium-card group animate-reveal cursor-pointer';
+                courseElement.onclick = () => window.location.href = `course-details.html?id=${course.id}`;
 
                 const gradientClass = course.color || 'from-slate-500 to-slate-700';
 
@@ -538,7 +255,7 @@
                             <span class="block text-xs text-slate-400 mb-0.5">Course Fee</span>
                             <span class="text-2xl font-black text-slate-800 dark:text-white">₹${course.price.toLocaleString()}</span>
                         </div>
-                        <a href="scholarship.html" class="btn btn-primary rounded-xl w-10 h-10 flex items-center justify-center p-0">
+                        <a href="course-details.html?id=${course.id}" class="btn btn-primary rounded-xl w-10 h-10 flex items-center justify-center p-0">
                             <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>

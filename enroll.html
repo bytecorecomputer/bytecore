@@ -286,6 +286,21 @@
       const previewIcon = document.querySelector('#photo-preview i');
       let studentPhotoBase64 = null;
 
+      // Auto-select course from URL parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const courseParam = urlParams.get('course');
+      if (courseParam) {
+        const courseSelect = document.getElementById('course');
+        // Try to match by value (case-insensitive) or text
+        for (let i = 0; i < courseSelect.options.length; i++) {
+          if (courseSelect.options[i].value.toLowerCase() === courseParam.toLowerCase() ||
+            courseSelect.options[i].text.toLowerCase() === courseParam.toLowerCase()) {
+            courseSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+
       // Photo Preview Logic
       photoInput.addEventListener('change', (e) => {
         const file = e.target.files[0];
