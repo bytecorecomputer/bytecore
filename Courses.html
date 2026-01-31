@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Courses - ByteCore</title>
+    <title>Professional IT Courses | Bytecore Computer Centre Gonda</title>
     <meta name="description"
-        content="Explore and master the future of technology with our premium courses in Web Development, Data Science, AI, and more at ByteCore.">
+        content="Explore and master the future of technology with Bytecore Computer Centre's premium courses. Industry-standard training in Python, MERN Stack, ADCA, Tally, and more." />
     <link rel="canonical" href="https://bytecores.in/Courses.html" />
 
     <!-- Open Graph / Facebook -->
@@ -494,7 +494,7 @@
                 courseElement.innerHTML = `
                     <div class="relative h-48 -mx-8 -mt-8 mb-6 overflow-hidden">
                         ${course.image ?
-                        `<img src="${course.image}" alt="${course.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">` :
+                        `<img src="${course.image}" alt="${course.title}" width="400" height="250" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">` :
                         `<div class="absolute inset-0 bg-gradient-to-br ${gradientClass} opacity-90 group-hover:scale-110 transition-transform duration-700"></div>
                              <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay"></div>`
                     }
@@ -536,7 +536,7 @@
                     <div class="flex justify-between items-center">
                         <div>
                             <span class="block text-xs text-slate-400 mb-0.5">Course Fee</span>
-                            <span class="text-2xl font-black text-slate-800 dark:text-white">?${course.price.toLocaleString()}</span>
+                            <span class="text-2xl font-black text-slate-800 dark:text-white">₹${course.price.toLocaleString()}</span>
                         </div>
                         <a href="scholarship.html" class="btn btn-primary rounded-xl w-10 h-10 flex items-center justify-center p-0">
                             <i class="fas fa-arrow-right"></i>

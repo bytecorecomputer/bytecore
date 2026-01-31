@@ -97,196 +97,6 @@
             }
         }
 
-        /* Modern Scholarship Notification */
-        .scholarship-popup {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 9999;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateX(100%);
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        .scholarship-popup.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(0);
-        }
-
-        .modern-notification {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            width: 380px;
-            max-width: calc(100vw - 40px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(0, 0, 0, 0.05);
-            border: none;
-            border-radius: 8px;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            color: #64748b;
-        }
-
-        .close-btn:hover {
-            background: rgba(0, 0, 0, 0.1);
-            color: #334155;
-        }
-
-        .notification-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 16px 16px 12px 16px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .badge-icon {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-        }
-
-        .badge-text {
-            font-size: 12px;
-            font-weight: 600;
-            color: #6366f1;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .notification-content {
-            padding: 16px;
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-        }
-
-        .scholarship-image {
-            flex-shrink: 0;
-        }
-
-        .image-modern {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            object-fit: cover;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .content-text {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1e293b;
-            margin: 0 0 4px 0;
-            line-height: 1.3;
-        }
-
-        .subtitle {
-            font-size: 13px;
-            color: #64748b;
-            margin: 0 0 12px 0;
-            line-height: 1.4;
-        }
-
-        .exam-info {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            color: #475569;
-        }
-
-        .info-icon {
-            font-size: 12px;
-            width: 16px;
-            text-align: center;
-        }
-
-        .notification-action {
-            padding: 12px 16px 16px 16px;
-        }
-
-        .register-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            padding: 12px 16px;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-
-        .register-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
-        }
-
-        /* Dark mode support */
-        .dark .modern-notification {
-            background: rgba(15, 23, 42, 0.95);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .dark .title {
-            color: #f1f5f9;
-        }
-
-        .dark .subtitle {
-            color: #94a3b8;
-        }
-
-        .dark .info-item {
-            color: #cbd5e1;
-        }
-
-        .dark .close-btn {
-            background: rgba(255, 255, 255, 0.05);
-            color: #94a3b8;
-        }
-
-        .dark .close-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #e2e8f0;
-        }
 
         /* Mobile responsive */
         @media (max-width: 480px) {
@@ -340,60 +150,6 @@
 <body class="bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-100 transition-colors duration-300"
     style="min-height: 100vh; display: flex; flex-direction: column;">
 
-    <!-- Modern Scholarship Notification -->
-    <div id="scholarshipPopup" class="scholarship-popup">
-        <div class="modern-notification">
-            <button class="close-btn" onclick="closeScholarshipPopup()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-
-            <!-- Notification Badge -->
-            <div class="notification-badge">
-                <div class="badge-icon">🎓</div>
-                <div class="badge-text">Scholarship Alert</div>
-            </div>
-
-            <!-- Content -->
-            <div class="notification-content">
-                <div class="scholarship-image">
-                    <img src="images/courseimg/scolership.png" alt="Scholarship" class="image-modern">
-                </div>
-
-                <div class="content-text">
-                    <h3 class="title">Bytecore Scholarship 2025</h3>
-                    <p class="subtitle">Win up to 150% Fee Waiver + ₹500 Cash</p>
-
-                    <div class="exam-info">
-                        <div class="info-item">
-                            <span class="info-icon">📅</span>
-                            <span>23 Nov 2025</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-icon">🕙</span>
-                            <span>10:00 AM</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-icon">💰</span>
-                            <span>₹50 Only</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Action -->
-            <div class="notification-action">
-                <a href="#register-now" onclick="closeScholarshipPopup()" class="register-btn">
-                    <span>Register Now</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="m9 18 6-6-6-6" />
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </div>
     <!-- Universal Header will be loaded here automatically -->
     <!-- Hero Section -->
     <section class="gradient-bg text-white py-20">
@@ -805,454 +561,144 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <img src="logo.png" alt="Bytecore Logo" class="w-8 h-8 mr-3">
-                        <span class="text-xl font-bold">Bytecore</span>
-                    </div>
-                    <p class="text-gray-400 mb-4">Empowering students through quality education and scholarship
-                        opportunities since 2010.</p>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/bytecorecomputercentre/" target="_blank"
-                            class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://x.com/bytecores" target="_blank"
-                            class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.instagram.com/bytecore_computer_centre/" target="_blank"
-                            class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/bytecore-computer-centre-69ba7a344/" target="_blank"
-                            class="text-gray-400 hover:text-white transition-colors">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
 
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="Courses.html" class="text-gray-400 hover:text-white transition-colors">Courses</a>
-                        </li>
-                        <li><a href="About.html" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a>
-                        </li>
-                        <li><a href="Fee.html" class="text-gray-400 hover:text-white transition-colors">Fees</a></li>
-                    </ul>
-                </div>
+    // Initialize configuration
+    const config = new Config();
+    let telegramToken = config.getTelegramBotToken();
+    let telegramChatId = config.getTelegramChatId();
+    let studentPhoto = null;
 
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Scholarship Info</h3>
-                    <ul class="space-y-2">
-                        <li><span class="text-gray-400">Exam Date: 23rd November 2025</span></li>
-                        <li><span class="text-gray-400">Registration Fee: ₹50</span></li>
-                        <li><span class="text-gray-400">Max Reward: 150% + ₹1000</span></li>
-                        <li><span class="text-gray-400">Venue: Nariyawal, Bareilly</span></li>
-                    </ul>
-                </div>
+    // Photo upload handling
+    document.getElementById('photo-upload').addEventListener('change', function (e) {
+    const file = e.target.files[0];
+    if (file) {
+    if (file.size > 2 * 1024 * 1024) {
+    alert('Photo size should be less than 2MB');
+    return;
+    }
 
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
-                    <div class="space-y-2 text-gray-400">
-                        <p><i class="fas fa-map-marker-alt mr-2"></i> Bithri Road, Nariyawal BLY, Bareilly</p>
-                        <p><i class="fas fa-phone mr-2"></i> +91-6396835709</p>
-                        <p><i class="fas fa-envelope mr-2"></i> bytecore.info@gmail.com</p>
-                        <p><i class="fas fa-clock mr-2"></i> Mon-Sat: 8AM-7PM</p>
-                    </div>
-                </div>
-            </div>
+    const reader = new FileReader();
+    reader.onload = function (e) {
+    const preview = document.getElementById('photo-preview');
+    preview.innerHTML = `<img src="${e.target.result}" class="w-full h-full object-cover rounded-full">`;
+    studentPhoto = e.target.result;
+    };
+    reader.readAsDataURL(file);
+    }
+    });
 
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Bytecore Computer Centre. All rights reserved. | Scholarship Exam 2025</p>
-            </div>
-        </div>
-    </footer>
+    // Form submission with Telegram integration
+    document.getElementById('scholarship-form').addEventListener('submit', function (e) {
+    e.preventDefault();
 
-    <script>
-        // Dark mode toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const html = document.documentElement;
+    // Get form data
+    const formData = new FormData(this);
+    const fullName = formData.get('fullName');
+    const mobile = formData.get('mobile');
+    const fatherName = formData.get('fatherName');
+    const motherName = formData.get('motherName');
+    const currentClass = formData.get('currentClass');
+    const course = formData.get('course');
+    const address = formData.get('address');
+    const pincode = formData.get('pincode');
 
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        html.classList.toggle('dark', currentTheme === 'dark');
+    // Send to Telegram
+    sendToTelegram(fullName, mobile, fatherName, motherName, currentClass, course, address, pincode);
 
-        themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            const theme = html.classList.contains('dark') ? 'dark' : 'light';
-            localStorage.setItem('theme', theme);
+    alert('🎉 Registration successful! You will receive admit card via SMS. Please pay ₹50 registration fee to confirm
+    your seat.');
+    this.reset();
+    document.getElementById('photo-preview').innerHTML = '<i class="fas fa-camera text-gray-400 text-2xl"></i>';
+    });
+
+    // Send scholarship registration to Telegram
+    function sendToTelegram(name, mobile, fatherName, motherName, currentClass, course, address, pincode) {
+    if (!telegramToken || !telegramChatId) {
+    console.error('Telegram configuration not loaded properly');
+    return;
+    }
+
+    const message = `
+    🎓 *BYTECORE SCHOLARSHIP REGISTRATION* 🎓
+
+    *Student Details:*
+    👤 *Name:* ${name}
+    📱 *Mobile:* ${mobile}
+    👨 *Father:* ${fatherName}
+    👩 *Mother:* ${motherName}
+    🎓 *Class:* ${currentClass}
+    📚 *Course:* ${course}
+    🏠 *Address:* ${address}
+    📮 *Pincode:* ${pincode}
+
+    *Exam Details:*
+    📅 *Date:* 23rd November 2025
+    🕙 *Time:* 10:00 AM
+    📍 *Venue:* Bytecore Computer Centre, Nariyawal, Bareilly
+    💰 *Registration Fee:* ₹50
+
+    *Subjects:* Mathematics, History, Reasoning
+    *Duration:* 30 minutes | 50 MCQs
+
+    *Bytecore Computer Centre*
+    `;
+
+    const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
+
+    fetch(url, {
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+    chat_id: telegramChatId,
+    text: message,
+    parse_mode: 'Markdown'
+    })
+    })
+    .then(response => response.json())
+    .then(data => {
+    if (data.ok) {
+    console.log('✅ Scholarship registration sent to Telegram successfully');
+    // Send photo if available
+    if (studentPhoto) {
+    sendPhotoToTelegram(name, studentPhoto);
+    }
+    } else {
+    console.error('❌ Failed to send to Telegram:', data);
+    }
+    })
+    .catch(error => {
+    console.error('❌ Error sending to Telegram:', error);
+    });
+    }
+
+    // Send photo to Telegram
+    function sendPhotoToTelegram(studentName, photoData) {
+    // Convert base64 to blob
+    const byteCharacters = atob(photoData.split(',')[1]);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) { byteNumbers[i]=byteCharacters.charCodeAt(i); } const byteArray=new
+        Uint8Array(byteNumbers); const blob=new Blob([byteArray], { type: 'image/jpeg' }); const formData=new
+        FormData(); formData.append('chat_id', telegramChatId); formData.append('photo', blob,
+        `${studentName}_photo.jpg`); formData.append('caption', `📸 Photo of ${studentName} - Scholarship Exam
+        Registration`); const url=`https://api.telegram.org/bot${telegramToken}/sendPhoto`; fetch(url, { method: 'POST'
+        , body: formData }) .then(response=> response.json())
+        .then(data => {
+        if (data.ok) {
+        console.log('✅ Photo sent to Telegram successfully');
+        } else {
+        console.error('❌ Failed to send photo to Telegram:', data);
+        }
+        })
+        .catch(error => {
+        console.error('❌ Error sending photo to Telegram:', error);
         });
-
-        // Mobile menu toggle
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMobileMenu = document.getElementById('close-mobile-menu');
-
-        mobileMenuToggle.addEventListener('click', () => {
-            mobileMenu.classList.remove('-translate-x-full');
-        });
-
-        closeMobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.add('-translate-x-full');
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Initialize configuration
-        const config = new Config();
-        let telegramToken = config.getTelegramBotToken();
-        let telegramChatId = config.getTelegramChatId();
-        let studentPhoto = null;
-
-        // Photo upload handling
-        document.getElementById('photo-upload').addEventListener('change', function (e) {
-            const file = e.target.files[0];
-            if (file) {
-                if (file.size > 2 * 1024 * 1024) {
-                    alert('Photo size should be less than 2MB');
-                    return;
-                }
-
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    const preview = document.getElementById('photo-preview');
-                    preview.innerHTML = `<img src="${e.target.result}" class="w-full h-full object-cover rounded-full">`;
-                    studentPhoto = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        // Form submission with Telegram integration
-        document.getElementById('scholarship-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Get form data
-            const formData = new FormData(this);
-            const fullName = formData.get('fullName');
-            const mobile = formData.get('mobile');
-            const fatherName = formData.get('fatherName');
-            const motherName = formData.get('motherName');
-            const currentClass = formData.get('currentClass');
-            const course = formData.get('course');
-            const address = formData.get('address');
-            const pincode = formData.get('pincode');
-
-            // Send to Telegram
-            sendToTelegram(fullName, mobile, fatherName, motherName, currentClass, course, address, pincode);
-
-            alert('🎉 Registration successful! You will receive admit card via SMS. Please pay ₹50 registration fee to confirm your seat.');
-            this.reset();
-            document.getElementById('photo-preview').innerHTML = '<i class="fas fa-camera text-gray-400 text-2xl"></i>';
-        });
-
-        // Send scholarship registration to Telegram
-        function sendToTelegram(name, mobile, fatherName, motherName, currentClass, course, address, pincode) {
-            if (!telegramToken || !telegramChatId) {
-                console.error('Telegram configuration not loaded properly');
-                return;
-            }
-
-            const message = `
-🎓 *BYTECORE SCHOLARSHIP REGISTRATION* 🎓
-
-*Student Details:*
-👤 *Name:* ${name}
-📱 *Mobile:* ${mobile}
-👨 *Father:* ${fatherName}
-👩 *Mother:* ${motherName}
-🎓 *Class:* ${currentClass}
-📚 *Course:* ${course}
-🏠 *Address:* ${address}
-📮 *Pincode:* ${pincode}
-
-*Exam Details:*
-📅 *Date:* 23rd November 2025
-🕙 *Time:* 10:00 AM
-📍 *Venue:* Bytecore Computer Centre, Nariyawal, Bareilly
-💰 *Registration Fee:* ₹50
-
-*Subjects:* Mathematics, History, Reasoning
-*Duration:* 30 minutes | 50 MCQs
-
-*Bytecore Computer Centre*
-            `;
-
-            const url = `https://api.telegram.org/bot${telegramToken}/sendMessage`;
-
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    chat_id: telegramChatId,
-                    text: message,
-                    parse_mode: 'Markdown'
-                })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        console.log('✅ Scholarship registration sent to Telegram successfully');
-                        // Send photo if available
-                        if (studentPhoto) {
-                            sendPhotoToTelegram(name, studentPhoto);
-                        }
-                    } else {
-                        console.error('❌ Failed to send to Telegram:', data);
-                    }
-                })
-                .catch(error => {
-                    console.error('❌ Error sending to Telegram:', error);
-                });
         }
 
-        // Send photo to Telegram
-        function sendPhotoToTelegram(studentName, photoData) {
-            // Convert base64 to blob
-            const byteCharacters = atob(photoData.split(',')[1]);
-            const byteNumbers = new Array(byteCharacters.length);
-            for (let i = 0; i < byteCharacters.length; i++) {
-                byteNumbers[i] = byteCharacters.charCodeAt(i);
-            }
-            const byteArray = new Uint8Array(byteNumbers);
-            const blob = new Blob([byteArray], { type: 'image/jpeg' });
+        </script>
 
-            const formData = new FormData();
-            formData.append('chat_id', telegramChatId);
-            formData.append('photo', blob, `${studentName}_photo.jpg`);
-            formData.append('caption', `📸 Photo of ${studentName} - Scholarship Exam Registration`);
-
-            const url = `https://api.telegram.org/bot${telegramToken}/sendPhoto`;
-
-            fetch(url, {
-                method: 'POST',
-                body: formData
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        console.log('✅ Photo sent to Telegram successfully');
-                    } else {
-                        console.error('❌ Failed to send photo to Telegram:', data);
-                    }
-                })
-                .catch(error => {
-                    console.error('❌ Error sending photo to Telegram:', error);
-                });
-        }
-
-        // Scholarship Popup Functions
-        function showScholarshipPopup() {
-            const popup = document.getElementById('scholarshipPopup');
-            popup.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-
-        function closeScholarshipPopup() {
-            const popup = document.getElementById('scholarshipPopup');
-            popup.classList.remove('show');
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        }
-
-        // Show popup immediately when page loads
-        window.addEventListener('DOMContentLoaded', function () {
-            // Show popup immediately - no delay, no cookie check
-            showScholarshipPopup();
-        });
-
-        // Close popup when clicking outside
-        document.addEventListener('click', function (e) {
-            const popup = document.getElementById('scholarshipPopup');
-            if (e.target === popup) {
-                closeScholarshipPopup();
-            }
-        });
-
-        // Close popup with Escape key
-        document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') {
-                closeScholarshipPopup();
-            }
-        });
-    </script>
-    <!-- Footer Component -->
-    <footer class="bg-slate-900 text-slate-300 pt-16 pb-8">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Main Footer Content -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                <!-- About Section -->
-                <div>
-                    <div class="flex items-center mb-6">
-                        <img src="logo.png" alt="ByteCore Logo" class="w-10 h-10 mr-3">
-                        <h3 class="text-2xl font-bold text-white">ByteCore</h3>
-                    </div>
-                    <p class="text-slate-400 mb-6 leading-relaxed">
-                        Leading IT training institute offering comprehensive computer courses since 2010. Transform your
-                        career with industry-relevant skills.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/bytecorecomputercentre/" target="_blank" rel="noopener"
-                            class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://x.com/bytecores" target="_blank" rel="noopener"
-                            class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.instagram.com/bytecore_computer_centre/" target="_blank" rel="noopener"
-                            class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/bytecore-computer-centre-69ba7a344/" target="_blank"
-                            rel="noopener"
-                            class="w-10 h-10 rounded-full bg-slate-800 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="text-white font-bold text-lg mb-6">Quick Links</h4>
-                    <ul class="space-y-3">
-                        <li><a href="index.html"
-                                class="hover:text-primary transition-colors duration-300 flex items-center group">
-                                <i
-                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Home
-                            </a></li>
-                        <li><a href="About.html"
-                                class="hover:text-primary transition-colors duration-300 flex items-center group">
-                                <i
-                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>About
-                                Us
-                            </a></li>
-                        <li><a href="Courses.html"
-                                class="hover:text-primary transition-colors duration-300 flex items-center group">
-                                <i
-                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Courses
-                            </a></li>
-                        <li><a href="scholarship.html"
-                                class="hover:text-primary transition-colors duration-300 flex items-center group">
-                                <i
-                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Scholarship
-                            </a></li>
-                        <li><a href="diploma.html"
-                                class="hover:text-primary transition-colors duration-300 flex items-center group">
-                                <i
-                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Certificates
-                            </a></li>
-                        <li><a href="contact.html"
-                                class="hover:text-primary transition-colors duration-300 flex items-center group">
-                                <i
-                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Contact
-                            </a></li>
-                    </ul>
-                </div>
-
-                <!-- Popular Courses -->
-                <div>
-                    <h4 class="text-white font-bold text-lg mb-6">Popular Courses</h4>
-                    <ul class="space-y-3">
-                        <li><a href="Courses.html#python"
-                                class="hover:text-primary transition-colors duration-300 flex items-center group">
-                                <i
-                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Python
-                                Programming
-                            </a></li>
-                        <li><a href="Courses.html#fullstack"
-                                class="hover:text-primary transition-colors duration-300 flex items-center group">
-                                <i
-                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Full
-                                Stack Development
-                            </a></li>
-                        <li><a href="Courses.html#olevel"
-                                class="hover:text-primary transition-colors duration-300 flex items-center group">
-                                <i
-                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>O
-                                Level
-                            </a></li>
-                        <li><a href="Courses.html#adca"
-                                class="hover:text-primary transition-colors duration-300 flex items-center group">
-                                <i
-                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>ADCA
-                            </a></li>
-                        <li><a href="Courses.html#graphic"
-                                class="hover:text-primary transition-colors duration-300 flex items-center group">
-                                <i
-                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Graphic
-                                Design
-                            </a></li>
-                        <li><a href="quiz.html"
-                                class="hover:text-primary transition-colors duration-300 flex items-center group">
-                                <i
-                                    class="fas fa-chevron-right text-xs mr-2 group-hover:translate-x-1 transition-transform"></i>Practice
-                                Quiz
-                            </a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div>
-                    <h4 class="text-white font-bold text-lg mb-6">Contact Us</h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
-                            <span class="text-sm">Bithri Road, Opposite Sheetala Mata Mandir, Nariyawal BLY,
-                                243123</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone text-primary mr-3"></i>
-                            <a href="tel:+916396835709" class="hover:text-primary transition-colors">+91-6396835709</a>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope text-primary mr-3"></i>
-                            <a href="mailto:bytecore.info@gmail.com"
-                                class="hover:text-primary transition-colors">bytecore.info@gmail.com</a>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-clock text-primary mt-1 mr-3"></i>
-                            <span class="text-sm">Mon - Sat: 9:00 AM - 6:00 PM<br>Sunday: Closed</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Bottom Bar -->
-            <div class="border-t border-slate-800 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                    <p class="text-slate-400 text-sm text-center md:text-left">
-                        &copy; 2010-2025 ByteCore Computer Centre. All rights reserved.
-                    </p>
-                    <div class="flex space-x-6 text-sm">
-                        <a href="#" class="hover:text-primary transition-colors">Privacy Policy</a>
-                        <a href="#" class="hover:text-primary transition-colors">Terms of Service</a>
-                        <a href="Fee.html" class="hover:text-primary transition-colors">Fee Structure</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="assets/js/site-components.js"></script>
+        <script src="assets/js/site-components.js"></script>
 </body>
 
 </html>

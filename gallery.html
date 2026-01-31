@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Photo Gallery | ByteCore Computer Centre</title>
-    content="Explore our photo gallery showcasing our students, events, celebrations, and achievements at ByteCore
-    Computer Centre." />
+    <title>Photo Gallery | Bytecore Computer Centre</title>
+    <meta name="description"
+        content="Explore the Bytecore Computer Centre photo gallery. Discover our vibrant student community, top-tier labs, recent events, and academic achievements in Gonda." />
+    <link rel="preload" as="image" href="assets/img/logo.png">
     <link rel="canonical" href="https://bytecores.in/gallery.html" />
 
     <!-- Open Graph / Facebook -->
@@ -256,175 +257,176 @@
 
 <body class="antialiased">
 
-    <!-- Ambient Background -->
-    <div class="bg-orb bg-indigo-600/30 w-96 h-96 top-0 left-0"></div>
-    <div class="bg-orb bg-purple-600/30 w-[30rem] h-[30rem] bottom-0 right-0 animation-delay-2000"></div>
+    <main>
+        <!-- Ambient Background -->
+        <div class="bg-orb bg-indigo-600/30 w-96 h-96 top-0 left-0"></div>
+        <div class="bg-orb bg-purple-600/30 w-[30rem] h-[30rem] bottom-0 right-0 animation-delay-2000"></div>
 
-    <!-- Navigation Placeholder (Will be loaded by site-components.js) -->
-    <div id="navbar-placeholder" class="sticky top-0 z-50"></div>
+        <!-- Navigation Placeholder (Will be loaded by site-components.js) -->
+        <div id="navbar-placeholder" class="sticky top-0 z-50"></div>
 
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-12 overflow-hidden">
-        <div class="container mx-auto px-6 relative z-10 text-center">
-            <h1 class="text-5xl md:text-7xl font-heading font-extrabold mb-6 tracking-tight">
-                Our <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Gallery</span>
-            </h1>
-            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
-                Celebrating the vibrant community of <span class="text-indigo-400 font-medium">ByteCore</span>.
-                From bright students to memorable events, explore our journey.
-            </p>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="min-h-screen pb-20">
-        <div class="container mx-auto px-4 md:px-6">
-
-            <!-- Filter Tabs -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button
-                    class="filter-btn active group relative px-8 py-3 rounded-full font-bold transition-all duration-300 bg-white/10 text-white hover:bg-white/20 ring-1 ring-white/10"
-                    data-filter="all">
-                    <span>All Photos</span>
-                    <span
-                        class="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
-                </button>
-                <button
-                    class="filter-btn group relative px-8 py-3 rounded-full font-bold transition-all duration-300 bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
-                    data-filter="students">
-                    <span>Students</span>
-                </button>
-                <button
-                    class="filter-btn group relative px-8 py-3 rounded-full font-bold transition-all duration-300 bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
-                    data-filter="events">
-                    <span>Events</span>
-                </button>
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-12 overflow-hidden">
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <h1 class="text-5xl md:text-7xl font-heading font-extrabold mb-6 tracking-tight">
+                    Our <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Gallery</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
+                    Celebrating the vibrant community of <span class="text-indigo-400 font-medium">Bytecore</span>.
+                    From bright students to memorable events, explore our journey.
+                </p>
             </div>
+        </section>
 
-            <!-- Loader -->
-            <div id="gallery-loader" class="flex justify-center py-20">
-                <div class="loader"></div>
+        <!-- Gallery Section -->
+        <section class="min-h-screen pb-20">
+            <div class="container mx-auto px-4 md:px-6">
+
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button
+                        class="filter-btn active group relative px-8 py-3 rounded-full font-bold transition-all duration-300 bg-white/10 text-white hover:bg-white/20 ring-1 ring-white/10"
+                        data-filter="all">
+                        <span>All Photos</span>
+                        <span
+                            class="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 transform scale-x-0 transition-transform group-hover:scale-x-100"></span>
+                    </button>
+                    <button
+                        class="filter-btn group relative px-8 py-3 rounded-full font-bold transition-all duration-300 bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
+                        data-filter="students">
+                        <span>Students</span>
+                    </button>
+                    <button
+                        class="filter-btn group relative px-8 py-3 rounded-full font-bold transition-all duration-300 bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
+                        data-filter="events">
+                        <span>Events</span>
+                    </button>
+                </div>
+
+                <!-- Loader -->
+                <div id="gallery-loader" class="flex justify-center py-20">
+                    <div class="loader"></div>
+                </div>
+
+                <!-- Gallery Grid -->
+                <div class="masonry-grid opacity-0 transition-opacity duration-1000" id="gallery-container">
+                    <!-- Items injected via JS -->
+                </div>
+
+                <!-- Load More (Hidden by default, can be enabled if simpler pagination needed) -->
+                <div class="text-center mt-12 hidden" id="load-more-container">
+                    <button
+                        class="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-semibold transition-all">
+                        Load More
+                    </button>
+                </div>
             </div>
+        </section>
 
-            <!-- Gallery Grid -->
-            <div class="masonry-grid opacity-0 transition-opacity duration-1000" id="gallery-container">
-                <!-- Items injected via JS -->
-            </div>
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <div class="absolute inset-0" onclick="closeLightbox()"></div>
 
-            <!-- Load More (Hidden by default, can be enabled if simpler pagination needed) -->
-            <div class="text-center mt-12 hidden" id="load-more-container">
-                <button
-                    class="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-semibold transition-all">
-                    Load More
-                </button>
-            </div>
-        </div>
-    </section>
+            <button class="absolute top-6 right-6 text-white/50 hover:text-white text-3xl transition-colors z-50 p-2"
+                onclick="closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <div class="absolute inset-0" onclick="closeLightbox()"></div>
+            <button
+                class="absolute left-4 md:left-24 top-1/2 -translate-y-1/2 text-white/50 hover:text-white text-4xl md:text-6xl transition-colors z-50 p-4"
+                onclick="previousImage()">
+                <i class="fas fa-chevron-left"></i>
+            </button>
 
-        <button class="absolute top-6 right-6 text-white/50 hover:text-white text-3xl transition-colors z-50 p-2"
-            onclick="closeLightbox()">
-            <i class="fas fa-times"></i>
-        </button>
+            <button
+                class="absolute right-4 md:right-24 top-1/2 -translate-y-1/2 text-white/50 hover:text-white text-4xl md:text-6xl transition-colors z-50 p-4"
+                onclick="nextImage()">
+                <i class="fas fa-chevron-right"></i>
+            </button>
 
-        <button
-            class="absolute left-4 md:left-24 top-1/2 -translate-y-1/2 text-white/50 hover:text-white text-4xl md:text-6xl transition-colors z-50 p-4"
-            onclick="previousImage()">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-
-        <button
-            class="absolute right-4 md:right-24 top-1/2 -translate-y-1/2 text-white/50 hover:text-white text-4xl md:text-6xl transition-colors z-50 p-4"
-            onclick="nextImage()">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-
-        <div class="lightbox-content flex flex-col items-center justify-center pointer-events-none">
-            <img id="lightbox-img" src="" alt="" class="pointer-events-auto">
-            <div class="mt-6 text-center pointer-events-auto">
-                <h3 class="text-3xl font-heading font-bold text-white mb-2" id="lightbox-title"></h3>
-                <div class="flex items-center justify-center gap-3">
-                    <span id="lightbox-badge" class="course-badge"></span>
-                    <span class="text-indigo-200 text-sm" id="lightbox-date"></span>
+            <div class="lightbox-content flex flex-col items-center justify-center pointer-events-none">
+                <img id="lightbox-img" src="" alt="" class="pointer-events-auto">
+                <div class="mt-6 text-center pointer-events-auto">
+                    <h3 class="text-3xl font-heading font-bold text-white mb-2" id="lightbox-title"></h3>
+                    <div class="flex items-center justify-center gap-3">
+                        <span id="lightbox-badge" class="course-badge"></span>
+                        <span class="text-indigo-200 text-sm" id="lightbox-date"></span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Scripts -->
-    <script src="assets/js/site-components.js"></script>
-    <script>
-        let allGalleryItems = [];
-        let filteredItems = [];
-        let currentImageIndex = 0;
+        <!-- Scripts -->
+        <script src="assets/js/site-components.js"></script>
+        <script>
+            let allGalleryItems = [];
+            let filteredItems = [];
+            let currentImageIndex = 0;
 
-        // Fetch Data from JSON
-        async function loadGalleryData() {
-            const loader = document.getElementById('gallery-loader');
-            const container = document.getElementById('gallery-container');
+            // Fetch Data from JSON
+            async function loadGalleryData() {
+                const loader = document.getElementById('gallery-loader');
+                const container = document.getElementById('gallery-container');
 
-            try {
-                const response = await fetch('gallery_data.json');
-                if (!response.ok) throw new Error('Failed to load gallery data');
-                allGalleryItems = await response.json();
+                try {
+                    const response = await fetch('gallery_data.json');
+                    if (!response.ok) throw new Error('Failed to load gallery data');
+                    allGalleryItems = await response.json();
 
-                // Set up initial view
-                renderGallery('all');
+                    // Set up initial view
+                    renderGallery('all');
 
-                // Handle filter visibility
-                const hasEvents = allGalleryItems.some(item => item.category === 'events');
-                if (!hasEvents) {
-                    const eventBtn = document.querySelector('[data-filter="events"]');
-                    if (eventBtn) eventBtn.style.display = 'none';
-                }
+                    // Handle filter visibility
+                    const hasEvents = allGalleryItems.some(item => item.category === 'events');
+                    if (!hasEvents) {
+                        const eventBtn = document.querySelector('[data-filter="events"]');
+                        if (eventBtn) eventBtn.style.display = 'none';
+                    }
 
-            } catch (error) {
-                console.error('Error:', error);
-                loader.innerHTML = `
+                } catch (error) {
+                    console.error('Error:', error);
+                    loader.innerHTML = `
                     <div class="text-center">
                         <p class="text-red-400 mb-4">Failed to load student gallery.</p>
                         <button onclick="loadGalleryData()" class="px-6 py-2 bg-indigo-600 rounded-full text-sm">Retry</button>
                     </div>
                 `;
-            }
-        }
-
-        // Render Function
-        function renderGallery(filter = 'all') {
-            const container = document.getElementById('gallery-container');
-            const loader = document.getElementById('gallery-loader');
-
-            // Show loader briefly
-            container.style.opacity = '0';
-            loader.style.display = 'flex';
-
-            setTimeout(() => {
-                if (filter === 'all') {
-                    filteredItems = allGalleryItems;
-                } else {
-                    filteredItems = allGalleryItems.filter(item => item.category === filter);
                 }
+            }
 
-                container.innerHTML = '';
+            // Render Function
+            function renderGallery(filter = 'all') {
+                const container = document.getElementById('gallery-container');
+                const loader = document.getElementById('gallery-loader');
 
-                if (filteredItems.length === 0) {
-                    container.innerHTML = `
+                // Show loader briefly
+                container.style.opacity = '0';
+                loader.style.display = 'flex';
+
+                setTimeout(() => {
+                    if (filter === 'all') {
+                        filteredItems = allGalleryItems;
+                    } else {
+                        filteredItems = allGalleryItems.filter(item => item.category === filter);
+                    }
+
+                    container.innerHTML = '';
+
+                    if (filteredItems.length === 0) {
+                        container.innerHTML = `
                         <div class="col-span-full py-20 text-center">
                             <i class="fas fa-image text-5xl text-slate-700 mb-4"></i>
                             <p class="text-slate-400">No photos found in this category.</p>
                         </div>
                     `;
-                } else {
-                    filteredItems.forEach((item, index) => {
-                        const div = document.createElement('div');
-                        div.className = 'masonry-item animate-in fade-in zoom-in duration-500';
-                        div.style.animationDelay = `${index * 50}ms`;
+                    } else {
+                        filteredItems.forEach((item, index) => {
+                            const div = document.createElement('div');
+                            div.className = 'masonry-item animate-in fade-in zoom-in duration-500';
+                            div.style.animationDelay = `${index * 50}ms`;
 
-                        div.innerHTML = `
+                            div.innerHTML = `
                             <div class="gallery-item glass-card group" onclick="openLightbox(${index})">
                                 <div class="aspect-[4/5] md:aspect-[3/4] overflow-hidden rounded-2xl relative">
                                     <img src="${item.url}" alt="${item.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x500?text=Image+Not+Found'">
@@ -435,87 +437,88 @@
                                 </div>
                             </div>
                         `;
-                        container.appendChild(div);
+                            container.appendChild(div);
+                        });
+                    }
+
+                    loader.style.display = 'none';
+                    container.style.opacity = '1';
+
+                }, 300);
+            }
+
+            // Filter Logic
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    document.querySelectorAll('.filter-btn').forEach(b => {
+                        b.classList.remove('active', 'bg-white/10', 'text-white', 'ring-1', 'ring-white/10');
+                        b.classList.add('bg-white/5', 'text-slate-400');
+                        const span = b.querySelector('span.absolute');
+                        if (span) span.classList.remove('scale-x-100');
                     });
-                }
 
-                loader.style.display = 'none';
-                container.style.opacity = '1';
+                    this.classList.remove('bg-white/5', 'text-slate-400');
+                    this.classList.add('active', 'bg-white/10', 'text-white', 'ring-1', 'ring-white/10');
+                    const span = this.querySelector('span.absolute');
+                    if (span) span.classList.add('scale-x-100');
 
-            }, 300);
-        }
-
-        // Filter Logic
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', function () {
-                document.querySelectorAll('.filter-btn').forEach(b => {
-                    b.classList.remove('active', 'bg-white/10', 'text-white', 'ring-1', 'ring-white/10');
-                    b.classList.add('bg-white/5', 'text-slate-400');
-                    const span = b.querySelector('span.absolute');
-                    if (span) span.classList.remove('scale-x-100');
+                    renderGallery(this.dataset.filter);
                 });
-
-                this.classList.remove('bg-white/5', 'text-slate-400');
-                this.classList.add('active', 'bg-white/10', 'text-white', 'ring-1', 'ring-white/10');
-                const span = this.querySelector('span.absolute');
-                if (span) span.classList.add('scale-x-100');
-
-                renderGallery(this.dataset.filter);
             });
-        });
 
-        // Lightbox Logic
-        function openLightbox(index) {
-            currentImageIndex = index;
-            const item = filteredItems[index];
-            updateLightboxContent(item);
+            // Lightbox Logic
+            function openLightbox(index) {
+                currentImageIndex = index;
+                const item = filteredItems[index];
+                updateLightboxContent(item);
 
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+                const lightbox = document.getElementById('lightbox');
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
 
-        function updateLightboxContent(item) {
-            const img = document.getElementById('lightbox-img');
-            const title = document.getElementById('lightbox-title');
-            const badge = document.getElementById('lightbox-badge');
-            const date = document.getElementById('lightbox-date');
+            function updateLightboxContent(item) {
+                const img = document.getElementById('lightbox-img');
+                const title = document.getElementById('lightbox-title');
+                const badge = document.getElementById('lightbox-badge');
+                const date = document.getElementById('lightbox-date');
 
-            img.src = item.url;
-            title.textContent = item.title;
-            badge.textContent = item.course || 'Student';
-            date.textContent = item.date || '2024';
-        }
+                img.src = item.url;
+                title.textContent = item.title;
+                badge.textContent = item.course || 'Student';
+                date.textContent = item.date || '2024';
+            }
 
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-            document.body.style.overflow = '';
-        }
+            function closeLightbox() {
+                document.getElementById('lightbox').classList.remove('active');
+                document.body.style.overflow = '';
+            }
 
-        function nextImage() {
-            currentImageIndex = (currentImageIndex + 1) % filteredItems.length;
-            updateLightboxContent(filteredItems[currentImageIndex]);
-        }
+            function nextImage() {
+                currentImageIndex = (currentImageIndex + 1) % filteredItems.length;
+                updateLightboxContent(filteredItems[currentImageIndex]);
+            }
 
-        function previousImage() {
-            currentImageIndex = (currentImageIndex - 1 + filteredItems.length) % filteredItems.length;
-            updateLightboxContent(filteredItems[currentImageIndex]);
-        }
+            function previousImage() {
+                currentImageIndex = (currentImageIndex - 1 + filteredItems.length) % filteredItems.length;
+                updateLightboxContent(filteredItems[currentImageIndex]);
+            }
 
-        document.addEventListener('keydown', (e) => {
-            if (!document.getElementById('lightbox').classList.contains('active')) return;
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowRight') nextImage();
-            if (e.key === 'ArrowLeft') previousImage();
-        });
+            document.addEventListener('keydown', (e) => {
+                if (!document.getElementById('lightbox').classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') previousImage();
+            });
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            loadGalleryData();
-        });
+            // Initialize
+            document.addEventListener('DOMContentLoaded', () => {
+                loadGalleryData();
+            });
 
 
-    </script>
+        </script>
+    </main>
 </body>
 
 </html>

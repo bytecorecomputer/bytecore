@@ -2,10 +2,10 @@
 
 :root {
     /* --- Premium Palette (HSL) --- */
-    /* Primary: Electric Indigo */
-    --primary: 245 80% 65%;
-    /* #7464eb */
-    --primary-dark: 245 80% 55%;
+    /* Primary: Electric Indigo - Darkened for better accessibility (4.5:1 ratio) */
+    --primary: 245 80% 45%;
+    /* #3d2eb5 */
+    --primary-dark: 245 80% 35%;
     --primary-light: 245 90% 85%;
     --primary-foreground: 0 0% 100%;
 
@@ -108,6 +108,13 @@ a {
     transition: all 0.2s ease;
 }
 
+a:focus-visible, 
+button:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+}
+
 img {
     max-width: 100%;
     display: block;
@@ -172,7 +179,7 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.875rem 1.75rem;
+    padding: 1rem 2rem; /* Increased for 48px+ touch targets */
     font-family: 'Outfit', sans-serif;
     font-weight: 600;
     font-size: 1rem;
@@ -180,6 +187,7 @@ img {
     cursor: pointer;
     transition: all 0.3s ease;
     gap: 0.5rem;
+    min-height: 48px; /* Ensure minimum touch target size */
 }
 
 .btn-primary {

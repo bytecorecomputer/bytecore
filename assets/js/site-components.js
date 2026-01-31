@@ -11,9 +11,9 @@
     const HEADER_HTML = `
         <header class="site-header glass">
             <div class="container header-wrap">
-                <div class="logo-area" onclick="window.location.href='index.html'">
-                    <img src="assets/img/logo.png" alt="Bytecore Logo" class="logo-img">
-                    <span class="logo-text font-heading">ByteCore</span>
+                <div class="logo-area" onclick="window.location.href='index.html'" style="min-height: 48px;">
+                    <img src="assets/img/logo.png" alt="Bytecore Computer Centre Logo" width="40" height="40" loading="lazy" class="logo-img">
+                    <span class="logo-text font-heading">Bytecore</span>
                 </div>
                 
                 <nav class="desktop-nav">
@@ -25,16 +25,13 @@
                 </nav>
                 
                 <div class="header-actions">
-                    <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Theme">
-                        <svg id="theme-icon-svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
+                    <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
+                        <i class="fas fa-moon dark-hidden"></i>
+                        <i class="fas fa-sun hidden dark-block"></i>
                     </button>
-                    <a href="scholarship.html" class="btn btn-primary register-btn">Register Now</a>
-                    <button class="menu-btn" id="menu-btn" aria-label="Menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <a href="enroll.html" class="btn-premium hide-mobile">Register Now</a>
+                    <button id="menu-toggle" class="icon-btn mobile-only" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
                     </button>
                 </div>
             </div>
@@ -59,7 +56,7 @@
                     </nav>
 
                     <div class="drawer-footer">
-                        <a href="scholarship.html" class="btn btn-primary w-full">Register Now</a>
+                        <a href="enroll.html" class="btn btn-primary w-full">Register Now</a>
                     </div>
                 </div>
             </div>
