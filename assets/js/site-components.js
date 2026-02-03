@@ -25,9 +25,9 @@
                 </nav>
                 
                 <div class="header-actions">
-                    <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">
-                        <i class="fas fa-moon dark-hidden"></i>
-                        <i class="fas fa-sun hidden dark-block"></i>
+                    <button id="theme-toggle" class="icon-btn text-slate-600 dark:text-slate-300 transition-colors bg-slate-100 dark:bg-slate-800 p-2 rounded-full h-10 w-10 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700 focus:outline-none" aria-label="Toggle theme">
+                        <i class="fas fa-moon block dark:hidden text-lg"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-400 text-lg"></i>
                     </button>
                     <a href="enroll.html" class="btn-premium hide-mobile">Register Now</a>
                     <button id="menu-toggle" class="icon-btn mobile-only" aria-label="Menu">
@@ -558,11 +558,9 @@
     }
 
     function setupFunctionality() {
-        const menuBtn = document.getElementById('menu-btn');
+        const menuBtn = document.getElementById('menu-toggle');
         const overlay = document.getElementById('nav-overlay');
-        const themeBtn = document.getElementById('theme-toggle-btn');
-        const themeIcon = document.getElementById('theme-icon-svg');
-
+        const themeBtn = document.getElementById('theme-toggle');
         const closeDrawer = document.getElementById('close-drawer');
 
         // Menu Toggle
@@ -571,16 +569,22 @@
             if (force === true) overlay.classList.add('active');
             if (force === false) overlay.classList.remove('active');
 
-            menuBtn.classList.toggle('active', overlay.classList.contains('active'));
+            // Toggle body scroll
             document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
         }
 
-        if (menuBtn && overlay) {
-            menuBtn.addEventListener('click', () => toggleMenu());
+        if (menuBtn) {
+            menuBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleMenu();
+            });
         }
 
         if (closeDrawer) {
-            closeDrawer.addEventListener('click', () => toggleMenu(false));
+            closeDrawer.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleMenu(false);
+            });
         }
 
         if (overlay) {
@@ -597,31 +601,27 @@
             }
         });
 
-        // Theme Toggle
-        const isDark = () => document.documentElement.classList.contains('dark');
+        // Theme Toggle Logic
+        function initTheme() {
+            // Check for saved theme or system preference
+            const savedTheme = localStorage.getItem('theme');
+            const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-        function updateIcon() {
-            if (!themeIcon) return;
-            // Sun icon for dark mode (to switch to light), Moon for light
-            if (isDark()) {
-                themeIcon.innerHTML = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
+            if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
+                document.documentElement.classList.add('dark');
             } else {
-                themeIcon.innerHTML = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
+                document.documentElement.classList.remove('dark');
             }
         }
 
-        // Init Theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        }
-        updateIcon();
+        // Initialize immediately
+        initTheme();
 
         if (themeBtn) {
             themeBtn.addEventListener('click', () => {
                 document.documentElement.classList.toggle('dark');
-                localStorage.setItem('theme', isDark() ? 'dark' : 'light');
-                updateIcon();
+                const isDark = document.documentElement.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
             });
         }
     }

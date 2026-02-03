@@ -122,28 +122,27 @@
 
     <script src="assets/js/course-data.js"></script>
     <script>
-        // Use data from course-data.js - ensure it's loaded
-        const courses = window.coursesData || [];
-
-        // Initialize variables
+        // Initialize variables - these will be set in DOMContentLoaded
+        let courses = [];
         let currentPage = 1;
-        const coursesPerPage = 9;
-        let filteredCourses = [...courses];
+        const coursesPerPage = 100;
+        let filteredCourses = [];
 
         // DOM Elements
         let coursesContainer, paginationContainer, courseCountElement, searchInput;
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', () => {
+            // Get courses from the global data loaded by course-data.js
+            courses = window.coursesData || [];
+            filteredCourses = [...courses];
+
             coursesContainer = document.getElementById('courses-container');
             paginationContainer = document.getElementById('pagination-container');
             courseCountElement = document.getElementById('course-count');
             searchInput = document.getElementById('course-search');
 
-            // Reload courses data in case it wasn't ready
-            if (window.coursesData && window.coursesData.length > 0) {
-                filteredCourses = [...window.coursesData];
-            }
+            console.log('Courses loaded:', courses.length); // Debug log
 
             renderCourses();
             renderPagination();
