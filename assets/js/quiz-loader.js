@@ -143,68 +143,251 @@ class QuizLoader {
   getFallbackData(language) {
     const quizDatabase = {
       python: {
-        title: "Python Mastery Quiz",
-        description: "Test your Python skills from basics to advanced data structures.",
-        questions: [
+        "title": "Python Programming - Basic Quiz",
+        "description": "Fundamental concepts including operators, if-else, and loops.",
+        "difficulty": "basic",
+        "questions": [
           {
-            question: "What is the correct file extension for Python files?",
-            options: [".pyth", ".pt", ".py", ".pe"],
-            correct: 2,
-            explanation: "Python source files use the .py extension."
+            "question": "Python file ko kis extension se save kiya jata hai?",
+            "options": [
+              ".python",
+              ".py",
+              ".txt",
+              ".exe"
+            ],
+            "correct": 1,
+            "explanation": "Python file ka extension .py hota hai."
           },
           {
-            question: "Which of these is NOT a core data type in Python?",
-            options: ["List", "Dictionary", "Tuple", "Class"],
-            correct: 3,
-            explanation: "Class is a user-defined blueprint, not a built-in primitive data type like List, Dict, or Tuple."
+            "question": "x = 5 \nIsme variable 'x' ka data type kya hai?",
+            "options": [
+              "str",
+              "int",
+              "float",
+              "bool"
+            ],
+            "correct": 1,
+            "explanation": "5 ek poora number (integer) hai, isliye iska type 'int' hai."
           },
           {
-            question: "How do you create a variable with the floating number 2.8?",
-            options: ["x = 2.8", "int x = 2.8", "float x = 2.8", "x : 2.8"],
-            correct: 0,
-            explanation: "Python is dynamically typed, so you just assign the value."
+            "question": "y = 3.14 \nIsme 'y' ka data type kya hai?",
+            "options": [
+              "int",
+              "float",
+              "str",
+              "list"
+            ],
+            "correct": 1,
+            "explanation": "Decimal wale numbers ko Python me 'float' kehte hain."
           },
           {
-            question: "Which method is used to remove whitespace from the beginning and end of a string?",
-            options: ["strip()", "trim()", "len()", "ptrim()"],
-            correct: 0,
-            explanation: "The strip() method removes whitespace from the beginning and end of result."
+            "question": "name = 'Rahul' \nIsme 'Rahul' kya hai?",
+            "options": [
+              "Integer",
+              "Float",
+              "String",
+              "Boolean"
+            ],
+            "correct": 2,
+            "explanation": "Quotes ke andar wali value hamesha string hoti hai."
           },
           {
-            question: "What is the output of: print(10 > 9)?",
-            options: ["False", "True", "10", "Error"],
-            correct: 1,
-            explanation: "The comparison 10 > 9 returns the Boolean value True."
+            "question": "Assignment operator kaun sa hai?",
+            "options": [
+              "==",
+              "=",
+              "+",
+              "*"
+            ],
+            "correct": 1,
+            "explanation": "Single '=' ka use value store karne (assign karne) ke liye hota hai."
           },
           {
-            question: "Which collection is ordered, changeable, and allows duplicate members?",
-            options: ["Set", "Dictionary", "Tuple", "List"],
-            correct: 3,
-            explanation: "Lists in Python are ordered, mutable (changeable), and allow duplicates."
+            "question": "Comparison (muqabla) karne ke liye kaun sa operator sahi hai?",
+            "options": [
+              "=",
+              "==",
+              "+=",
+              "!="
+            ],
+            "correct": 1,
+            "explanation": "Do values barabar hain ya nahi, ye check karne ke liye '==' use hota hai."
           },
           {
-            question: "How do you start a for loop in Python?",
-            options: ["for x in y:", "for each x in y:", "for x > y:", "for x in y"],
-            correct: 0,
-            explanation: "The correct syntax is 'for variable in iterable:'."
+            "question": "print(10 % 3) ka output kya hoga?",
+            "options": [
+              "3",
+              "1",
+              "0",
+              "3.33"
+            ],
+            "correct": 1,
+            "explanation": "% (Modulo) operator sheshphal (remainder) batata hai. 10 ko 3 se divide karne par 1 bachta hai."
           },
           {
-            question: "Which keyword is used to create a function in Python?",
-            options: ["function", "def", "fun", "define"],
-            correct: 1,
-            explanation: "The 'def' keyword is used to define functions in Python."
+            "question": "print(10 // 3) ka output kya aayega?",
+            "options": [
+              "3.33",
+              "3",
+              "4",
+              "0"
+            ],
+            "correct": 1,
+            "explanation": "// (Floor Division) decimal wala part hata kar sirf poora number deta hai."
           },
           {
-            question: "What is the correct syntax to import a module named 'mymodule'?",
-            options: ["import mymodule", "import(mymodule)", "include mymodule", "using mymodule"],
-            correct: 0,
-            explanation: "Use the 'import' keyword to import modules."
+            "question": "n = 10 \nif n % 2 == 0: \n    print('Even') \nelse: \n    print('Odd') \nOutput kya hoga?",
+            "options": [
+              "Even",
+              "Odd",
+              "10",
+              "Error"
+            ],
+            "correct": 0,
+            "explanation": "10 ko 2 se divide karne par remainder 0 aata hai, isliye ye 'Even' (sam) hai."
           },
           {
-            question: "What does the range(5) function return?",
-            options: ["0, 1, 2, 3, 4, 5", "1, 2, 3, 4, 5", "0, 1, 2, 3, 4", "1, 2, 3, 4"],
-            correct: 2,
-            explanation: "range(5) generates numbers from 0 up to (but not including) 5."
+            "question": "Kissi number ko 'Odd' (visham) check karne ki sahi condition kya hai?",
+            "options": [
+              "n % 2 == 0",
+              "n % 2 != 0",
+              "n / 2 == 0",
+              "n * 2 == 1"
+            ],
+            "correct": 1,
+            "explanation": "Agar 2 se divide karne par remainder 0 NAHI aata, to wo Odd hota hai."
+          },
+          {
+            "question": "print(2 ** 3) ka output kya hoga?",
+            "options": [
+              "6",
+              "8",
+              "9",
+              "5"
+            ],
+            "correct": 1,
+            "explanation": "** operator power (exponent) batata hai. 2*2*2 = 8."
+          },
+          {
+            "question": "print(10 / 2) ka result kya hota hai?",
+            "options": [
+              "5",
+              "5.0",
+              "2",
+              "0"
+            ],
+            "correct": 1,
+            "explanation": "Single '/' hamesha result decimal (float) me deta hai."
+          },
+          {
+            "question": "Python me single line comment kaise likhte hain?",
+            "options": [
+              "//",
+              "/* */",
+              "#",
+              "--"
+            ],
+            "correct": 2,
+            "explanation": "# symbol ka use comment likhne ke liye hota hai."
+          },
+          {
+            "question": "for i in range(5): \n    print(i) \nIsme last number kya print hoga?",
+            "options": [
+              "5",
+              "4",
+              "0",
+              "1"
+            ],
+            "correct": 1,
+            "explanation": "range(5) hamesha 0 se 4 tak jata hai (stop value se ek kam)."
+          },
+          {
+            "question": "range(1, 4) me kaun se numbers aayenge?",
+            "options": [
+              "1, 2, 3, 4",
+              "1, 2, 3",
+              "0, 1, 2, 3",
+              "2, 3, 4"
+            ],
+            "correct": 1,
+            "explanation": "Shuruwat 1 se hogi aur 4 se ek pehle (3) tak."
+          },
+          {
+            "question": "for i in range(5, 0, -1): \n    print(i) \nOutput kis order me hoga?",
+            "options": [
+              "0, 1, 2, 3, 4, 5",
+              "1, 2, 3, 4, 5",
+              "5, 4, 3, 2, 1",
+              "5, 4, 3, 2, 1, 0"
+            ],
+            "correct": 2,
+            "explanation": "-1 step ka matlab hai reverse order me counting karna."
+          },
+          {
+            "question": "range(10, 0, -1) me pehla number kya print hoga?",
+            "options": [
+              "0",
+              "1",
+              "9",
+              "10"
+            ],
+            "correct": 3,
+            "explanation": "Loop hamesha start value (10) se shuru hota hai."
+          },
+          {
+            "question": "Agar loop ko reverse me chalana hai, to step parameter kya hona chahiye?",
+            "options": [
+              "Positive (1)",
+              "Negative (-1)",
+              "Zero",
+              "Jarurat nahi"
+            ],
+            "correct": 1,
+            "explanation": "Ulta (reverse) counting ke liye negative step like -1 use karte hain."
+          },
+          {
+            "question": "range(0, 10, 2) me kaun se numbers aayenge?",
+            "options": [
+              "0, 1, 2, 3, 4",
+              "0, 2, 4, 6, 8",
+              "2, 4, 6, 8, 10",
+              "0, 2, 4, 6, 8, 10"
+            ],
+            "correct": 1,
+            "explanation": "2 ka step matlab hai har doosra number (0, 2, 4, 6, 8)."
+          },
+          {
+            "question": "Indentation (Spaces) ka Python me kya kaam hai?",
+            "options": [
+              "Design ke liye",
+              "Code blocks ko dikhane ke liye",
+              "Speed badhane ke liye",
+              "Zaroori nahi hai"
+            ],
+            "correct": 1,
+            "explanation": "Python me spaces (indentation) se hi if-else aur loops ke block bante hain."
+          },
+          {
+            "question": "x = 10 \nx += 2 \nAb x kya hoga?",
+            "options": [
+              "10",
+              "2",
+              "12",
+              "8"
+            ],
+            "correct": 2,
+            "explanation": "+= ka matlab hai purani value me 2 jud jana."
+          },
+          {
+            "question": "print(bool(0)) ka output kya hoga?",
+            "options": [
+              "True",
+              "False",
+              "0",
+              "Error"
+            ],
+            "correct": 1,
+            "explanation": "Python me number 0 ko False mana jata hai."
           }
         ]
       },
